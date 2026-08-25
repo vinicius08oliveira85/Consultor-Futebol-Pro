@@ -630,14 +630,265 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
   html{scroll-behavior:auto}
 }
-</style>
-</head>
-<body>
-<!-- Skip Link for Accessibility -->
-<a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
 
+/* ===== PRINT STYLES ===== */
+@media print{
+  body{background:#fff;color:#000}
+  body::before{display:none}
+  .tabs,.filter-bar,.sort-bar,.search-bar,.save-btn,.share-btn,.back-to-top,.kbd-hint,.toast-container,.add-to-multi,.saved-actions,.disc,.footer,.filter-results{display:none!important}
+  .tc{display:block!important}
+  .mc{border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  .mc.hid{display:none!important}
+  .hdr h1{color:#000;text-shadow:none}
+  .hdr h1 .accent{color:#16A34A}
+  .sv{color:#16A34A;text-shadow:none}
+  .oi{border:1px solid #ccc}
+  .oi.best{border-color:#16A34A;background:rgba(22,163,74,.1)}
+  .as-content{max-height:none!important}
+  .as-toggle{display:none}
+  .confidence-fill{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .lb,.sw,.sp,.cb,.res{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .sbar{break-inside:avoid}
+}
+</style>
+
+
+/* ===== SEARCH BAR ===== */
+.search-bar{display:flex;gap:var(--space-sm);margin:var(--space-sm) 0;align-items:center}
+.search-input{
+  flex:1;
+  padding:var(--space-sm) var(--space-md);
+  padding-left:36px;
+  background:var(--color-primary);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-xl);
+  color:var(--color-foreground);
+  font-size:.78rem;
+  font-family:"Fira Sans",sans-serif;
+  outline:none;
+  transition:border-color var(--transition-fast);
+  min-height:40px;
+}
+.search-input:focus{border-color:var(--color-accent);box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.search-input::placeholder{color:var(--text-muted)}
+.search-icon{position:relative}
+.search-icon::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:.85rem;pointer-events:none}
+.search-clear{
+  padding:var(--space-xs) var(--space-sm);
+  background:none;border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  color:var(--text-muted);font-size:.72rem;cursor:pointer;
+  min-height:36px;display:none;
+  transition:all var(--transition-fast);
+}
+.search-clear.visible{display:flex;align-items:center}
+.search-clear:hover{border-color:var(--color-destructive);color:var(--color-destructive)}
+
+/* ===== CONFIDENCE BAR ===== */
+.confidence-bar{
+  height:4px;
+  background:var(--color-secondary);
+  border-radius:2px;
+  margin:var(--space-sm) 0 var(--space-xs);
+  overflow:hidden;
+}
+.confidence-fill{
+  height:100%;
+  border-radius:2px;
+  transition:width 0.5s ease;
+}
+.confidence-fill.high{background:linear-gradient(90deg,var(--color-accent),#16A34A)}
+.confidence-fill.medium{background:linear-gradient(90deg,var(--color-orange),#EA580C)}
+.confidence-fill.low{background:linear-gradient(90deg,var(--color-destructive),#DC2626)}
+.confidence-label{
+  font-size:.6rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;
+  display:flex;justify-content:space-between;
+}
+.confidence-label .cl-text{color:var(--text-muted)}
+.confidence-label .cl-value{font-family:"Fira Code",monospace}
+.confidence-label .cl-value.high{color:var(--color-accent)}
+.confidence-label .cl-value.medium{color:var(--color-orange)}
+.confidence-label .cl-value.low{color:var(--color-destructive)}
+
+/* ===== SHARE BUTTON ===== */
+.share-btn{
+  position:absolute;top:var(--space-sm);right:calc(var(--space-sm) + 50px);
+  width:36px;height:36px;
+  border-radius:50%;
+  background:var(--color-secondary);
+  border:1px solid var(--color-border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.85rem;
+  color:var(--text-muted);z-index:10;
+  transition:all var(--transition-fast);
+}
+.share-btn:hover{border-color:var(--color-blue);color:var(--color-blue);transform:scale(1.1)}
+
+/* ===== EXPANDABLE ANALYSIS ===== */
+.as-toggle{
+  display:flex;align-items:center;gap:6px;
+  cursor:pointer;
+  font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;
+  color:var(--color-orange);
+  margin-bottom:var(--space-xs);
+  user-select:none;
+}
+.as-toggle .arrow{
+  display:inline-block;
+  transition:transform 0.2s ease;
+  font-size:.5rem;
+}
+.as-toggle.open .arrow{transform:rotate(90deg)}
+.as-content{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.as-content.open{max-height:500px}
+
+/* ===== PULSING GLOW ===== */
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 5px rgba(34,197,94,.2)}
+  50%{box-shadow:0 0 20px rgba(34,197,94,.5),0 0 40px rgba(34,197,94,.2)}
+}
+.mc.imminent{animation:pulse-glow 2s infinite}
+.mc.imminent::after{
+  content:"⚡ EM BREVE";
+  position:absolute;top:var(--space-sm);right:calc(var(--space-sm) + 90px);
+  background:var(--color-accent);
+  color:var(--color-background);
+  padding:2px 8px;border-radius:var(--radius-sm);
+  font-size:.55rem;font-weight:700;
+  letter-spacing:.5px;
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{
+  position:fixed;bottom:var(--space-lg);left:var(--space-lg);
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--color-primary);
+  border:1px solid var(--color-border);
+  color:var(--color-accent);
+  font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:9999;
+  opacity:0;transform:translateY(20px);
+  transition:all var(--transition-normal);
+  pointer-events:none;
+}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover{background:var(--color-accent);color:var(--color-background);transform:translateY(-2px)}
+
+/* ===== KEYBOARD HINTS ===== */
+.kbd-hint{
+  position:fixed;bottom:var(--space-lg);left:50%;transform:translateX(-50%);
+  background:var(--color-primary);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  padding:var(--space-xs) var(--space-md);
+  font-size:.65rem;color:var(--text-muted);
+  font-family:"Fira Code",monospace;
+  display:flex;gap:var(--space-md);align-items:center;
+  opacity:0;transition:opacity 0.3s ease;
+  pointer-events:none;z-index:9998;
+}
+.kbd-hint.visible{opacity:1}
+.kbd{display:inline-block;padding:1px 6px;background:var(--color-secondary);border:1px solid var(--color-border);border-radius:3px;font-size:.6rem;color:var(--text-secondary);margin:0 2px}
+
+/* ===== MY BETS TAB ===== */
+.mybets-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin:var(--space-md) 0}
+.mybets-card{
+  background:var(--color-primary);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  padding:var(--space-md);
+  text-align:center;
+}
+.mybets-card .mbv{
+  font-family:"Fira Code",monospace;
+  font-size:1.5rem;font-weight:700;
+}
+.mybets-card .mbl{
+  font-size:.65rem;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.5px;
+  margin-top:var(--space-xs);
+}
+.mybets-empty{
+  text-align:center;padding:var(--space-xl);
+  color:var(--text-muted);font-size:.85rem;
+}
+.mybets-empty .emoji{font-size:2rem;margin-bottom:var(--space-sm)}
+
+/* ===== MULTI-BET ===== */
+.multi-bet-panel{
+  background:var(--color-primary);
+  border:1px solid var(--color-blue);
+  border-radius:var(--radius-lg);
+  padding:var(--space-md);
+  margin:var(--space-md) 0;
+}
+.multi-bet-panel h4{
+  font-family:"Fira Code",monospace;
+  font-size:.8rem;font-weight:700;
+  color:var(--color-blue);
+  margin-bottom:var(--space-sm);
+}
+.multi-bet-selections{display:flex;flex-direction:column;gap:var(--space-xs)}
+.multi-bet-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:var(--space-xs) var(--space-sm);
+  background:var(--color-secondary);
+  border-radius:var(--radius-sm);
+  font-size:.75rem;
+}
+.multi-bet-item .mbi-teams{color:var(--color-foreground);font-weight:600}
+.multi-bet-item .mbi-odd{color:var(--color-gold);font-family:"Fira Code",monospace;font-weight:700}
+.multi-bet-item .mbi-remove{
+  background:none;border:none;color:var(--color-destructive);
+  cursor:pointer;font-size:.8rem;padding:4px;
+  min-width:32px;min-height:32px;display:flex;align-items:center;justify-content:center;
+}
+.multi-bet-result{
+  margin-top:var(--space-sm);
+  padding:var(--space-sm);
+  background:var(--color-secondary);
+  border-radius:var(--radius-sm);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.multi-bet-result .mb-total{font-family:"Fira Code",monospace;font-size:1.1rem;font-weight:700;color:var(--color-accent)}
+.multi-bet-result .mb-profit{font-family:"Fira Code",monospace;font-size:.85rem;color:var(--color-gold)}
+.add-to-multi{
+  padding:var(--space-xs) var(--space-sm);
+  background:rgba(59,130,246,.1);
+  border:1px solid var(--color-blue);
+  border-radius:var(--radius-sm);
+  color:var(--color-blue);
+  font-size:.65rem;font-weight:600;
+  cursor:pointer;
+  transition:all var(--transition-fast);
+}
+.add-to-multi:hover{background:var(--color-blue);color:#fff}
+
+@media(max-width:600px){
+  .mybets-summary{grid-template-columns:1fr}
+  .kbd-hint{display:none}
+  .search-input{font-size:.85rem}
+}
 <!-- Toast Container -->
 <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+<!-- Keyboard Hints -->
+<div class="k
+bd-hint" id="kbd-hint">
+  <span><span class="kbd">←</span><span class="kbd">→</span> navegar tabs</span>
+  <span><span class="kbd">🔍</span> buscar time</span>
+  <span><span class="kbd">★</span> salvar aposta</span>
+</div>
 
 <div class="ctn" id="main-content">
 
@@ -658,18 +909,26 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 
 <!-- Tabs -->
 <nav class="tabs" role="tablist" aria-label="Navegação principal">
-  <button class="tbtn act" data-tab="all" role="tab" aria-selected="true" aria-controls="tab-all" id="tab-btn-all">🏆 Jogos</button>
-  <button class="tbtn" data-tab="top3" role="tab" aria-selected="false" aria-controls="tab-top3" id="tab-btn-top3">⭐ Top 3</button>
-  <button class="tbtn" data-tab="combos" role="tab" aria-selected="false" aria-controls="tab-combos" id="tab-btn-combos">🔗 Combos</button>
-  <button class="tbtn" data-tab="hist" role="tab" aria-selected="false" aria-controls="tab-hist" id="tab-btn-hist">📊 Histórico</button>
-  <button class="tbtn" data-tab="calc" role="tab" aria-selected="false" aria-controls="tab-calc" id="tab-btn-calc">🧮 Calculadora</button>
+  <button class="tbtn act" data-tab="all" role="tab" aria-selected="true" aria-controls="tab-all" id="tab-btn-all" tabindex="0">🏆 Jogos</button>
+  <button class="tbtn" data-tab="top3" role="tab" aria-selected="false" aria-controls="tab-top3" id="tab-btn-top3" tabindex="-1">⭐ Top 3</button>
+  <button class="tbtn" data-tab="combos" role="tab" aria-selected="false" aria-controls="tab-combos" id="tab-btn-combos" tabindex="-1">🔗 Combos</button>
+  <button class="tbtn" data-tab="mybets" role="tab" aria-selected="false" aria-controls="tab-mybets" id="tab-btn-mybets" tabindex="-1">💰 Minhas</button>
+  <button class="tbtn" data-tab="calc" role="tab" aria-selected="false" aria-controls="tab-calc" id="tab-btn-calc" tabindex="-1">🧮 Calc</button>
 </nav>
 
 <!-- ===================== TAB: JOGOS ===================== -->
 <div class="tc act" id="tab-all" role="tabpanel" aria-labelledby="tab-btn-all">
 
+<!-- Search bar -->
+<div class="search-bar">
+  <div class="search-icon">
+    <input type="text" class="search-input" id="search-input" placeholder="Buscar por time (ex: Chelsea, Roma...)" aria-label="Buscar jogo por nome do time">
+  </div>
+  <button class="search-clear" id="search-clear" aria-label="Limpar busca">✕ Limpar</button>
+</div>
+
 <!-- Filter bar -->
-<div class="filter-bar" role="group" aria-label="Filtrar por liga">
+<div class="filter-bar" id="filter-bar" role="group" aria-label="Filtrar por liga">
   <button class="filter-btn active" data-league="all" aria-pressed="true">Todos<span class="filter-count" id="count-all">7</span></button>
   <button class="filter-btn" data-league="epl" aria-pressed="false">Premier League<span class="filter-count" id="count-epl">1</span></button>
   <button class="filter-btn" data-league="sa" aria-pressed="false">Serie A<span class="filter-count" id="count-sa">2</span></button>
@@ -690,136 +949,172 @@ button:focus-visible,input:focus-visible,select:focus-visible{
     <option value="league">🏟️ Liga</option>
   </select>
 </div>
-
 <!-- 1. FULHAM vs CHELSEA -->
-<article class="mc epl" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-confidence="45" data-odds="3.10" data-time="16:30" data-sort-priority="4" aria-label="Fulham vs Chelsea - Premier League">
+<article class="mc epl imminent" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-confidence="45" data-odds="3.10" data-time="16:30" data-sort-priority="4" aria-label="Fulham vs Chelsea - Premier League">
   <button class="save-btn" aria-label="Salvar aposta Fulham x Chelsea" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb epl">Premier League</span><span class="mt">🕐 16:30 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Fulham x Chelsea" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-odd="3.10">📤</button>
+  <div class="mh"><span class="lb epl">Premier League</span><span class="mt">🕐 16:30 BRT</span><span class="countdown" data-kickoff="2026-08-24T19:30:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Fulham</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Chelsea</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi" tabindex="0" role="button" aria-label="Fulham vence, odd 3.20, probabilidade 31%"><div class="ol">Fulham</div><div class="ov">3.20</div><div class="op">31%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.60, probabilidade 28%"><div class="ol">Empate</div><div class="ov">3.60</div><div class="op">28%</div></div>
     <div class="oi best" tabindex="0" role="button" aria-label="Chelsea vence, odd 2.10, probabilidade 58%"><div class="ol">Chelsea</div><div class="ov">2.10</div><div class="op">58%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:45%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">45%</span></div>
+  <button class="add-to-multi" data-teams="Fulham x Chelsea" data-odd="3.10" data-bet="Chelsea vence + M2.5">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>Chelsea: Xabi Alonso estreia como técnico, sistema 3-4-2-1. Joao Pedro brilhou no pré-temporada</li>
-      <li>Fulham perdeu Wilson e Jiménez — ataque enfraquecido. Cobriu +0.5 em 7/10 jogos em casa</li>
-      <li>Últimos 4 confrontos PL: 3 terminaram 2-1. Vencedor marcou 2+ em 13/15 confrontos</li>
-      <li><strong>Recomendação:</strong> Chelsea vence + Mais de 2,5 gols (odd combinada ~3.10)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Chelsea: Xabi Alonso estreia como técnico, sistema 3-4-2-1. Joao Pedro brilhou no pré-temporada</li>
+        <li>Fulham perdeu Wilson e Jiménez — ataque enfraquecido. Cobriu +0.5 em 7/10 jogos em casa</li>
+        <li>Últimos 4 confrontos PL: 3 terminaram 2-1. Vencedor marcou 2+ em 13/15 confrontos</li>
+        <li><strong>Recomendação:</strong> Chelsea vence + Mais de 2,5 gols (odd combinada ~3.10)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 2. ROMA vs FIORENTINA -->
 <article class="mc sa" data-league="sa" data-teams="Roma x Fiorentina" data-bet="Roma vence" data-confidence="73" data-odds="1.55" data-time="13:45" data-sort-priority="2" aria-label="Roma vs Fiorentina - Serie A">
   <button class="save-btn" aria-label="Salvar aposta Roma x Fiorentina" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 13:45 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Roma x Fiorentina" data-teams="Roma x Fiorentina" data-bet="Roma vence" data-odd="1.55">📤</button>
+  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 13:45 BRT</span><span class="countdown" data-kickoff="2026-08-24T16:45:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Roma</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Fiorentina</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi best" tabindex="0" role="button" aria-label="Roma vence, odd 1.55, probabilidade 73%"><div class="ol">Roma</div><div class="ov">1.55</div><div class="op">73%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 4.20, probabilidade 24%"><div class="ol">Empate</div><div class="ov">4.20</div><div class="op">24%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Fiorentina vence, odd 6.50, probabilidade 15%"><div class="ol">Fiorentina</div><div class="ov">6.50</div><div class="op">15%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:73%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">73%</span></div>
+  <button class="add-to-multi" data-teams="Roma x Fiorentina" data-odd="1.55" data-bet="Roma vence">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>200º confronto — Roma dominante no H2H (120V, 52E, 28D). Último confronto: 4-0 Roma</li>
-      <li>Roma: 3º ano passado (73pts). Malen: 8 gols em 10 jogos. Forte em casa</li>
-      <li>Fiorentina em turbulência — eliminação na Coppa Italia, pré-temporada fraca</li>
-      <li><strong>Recomendação:</strong> Roma vence (odd 1.55, prob. implícita 73%)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>200º confronto — Roma dominante no H2H (120V, 52E, 28D). Último confronto: 4-0 Roma</li>
+        <li>Roma: 3º ano passado (73pts). Malen: 8 gols em 10 jogos. Forte em casa</li>
+        <li>Fiorentina em turbulência — eliminação na Coppa Italia, pré-temporada fraca</li>
+        <li><strong>Recomendação:</strong> Roma vence (odd 1.55, prob. implícita 73%)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 3. OSASUNA vs LEVANTE -->
 <article class="mc ll" data-league="ll" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" data-confidence="61" data-odds="1.70" data-time="13:45" data-sort-priority="3" aria-label="Osasuna vs Levante - La Liga">
   <button class="save-btn" aria-label="Salvar aposta Osasuna x Levante" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 13:45 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Osasuna x Levante" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" data-odd="1.70">📤</button>
+  <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 13:45 BRT</span><span class="countdown" data-kickoff="2026-08-24T16:45:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Osasuna</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Levante</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi best" tabindex="0" role="button" aria-label="Osasuna vence, odd 1.72, probabilidade 61%"><div class="ol">Osasuna</div><div class="ov">1.72</div><div class="op">61%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.80, probabilidade 26%"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Levante vence, odd 5.00, probabilidade 20%"><div class="ol">Levante</div><div class="ov">5.00</div><div class="op">20%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:61%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">61%</span></div>
+  <button class="add-to-multi" data-teams="Osasuna x Levante" data-odd="1.70" data-bet="Osasuna marca 1º gol">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>Osasuna forte em El Sadar — vantagem de campo significativa na La Liga</li>
-      <li>Levante recém-promovido, costuma sofrer fora contra equipes estabelecidas</li>
-      <li>H2H recente favorece Osasuna com mais de 60% de vitórias em casa</li>
-      <li><strong>Recomendação:</strong> Osasuna marca primeiro (odd ~1.70, prob. 61%)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Osasuna forte em El Sadar — vantagem de campo significativa na La Liga</li>
+        <li>Levante recém-promovido, costuma sofrer fora contra equipes estabelecidas</li>
+        <li>H2H recente favorece Osasuna com mais de 60% de vitórias em casa</li>
+        <li><strong>Recomendação:</strong> Osasuna marca primeiro (odd ~1.70, prob. 61%)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 4. BOLOGNA vs LAZIO -->
-<article class="mc sa" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="15:00" data-sort-priority="3" aria-label="Bologna vs Lazio - Serie A">
+<article class="mc sa imminent" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="15:00" data-sort-priority="3" aria-label="Bologna vs Lazio - Serie A">
   <button class="save-btn" aria-label="Salvar aposta Bologna x Lazio" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 15:00 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Bologna x Lazio" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-odd="1.75">📤</button>
+  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 15:00 BRT</span><span class="countdown" data-kickoff="2026-08-24T18:00:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Bologna</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Lazio</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi" tabindex="0" role="button" aria-label="Bologna vence, odd 2.30, probabilidade 43%"><div class="ol">Bologna</div><div class="ov">2.30</div><div class="op">43%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.30, probabilidade 30%"><div class="ol">Empate</div><div class="ov">3.30</div><div class="op">30%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Lazio vence, odd 3.10, probabilidade 32%"><div class="ol">Lazio</div><div class="ov">3.10</div><div class="op">32%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:57%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">57%</span></div>
+  <button class="add-to-multi" data-teams="Bologna x Lazio" data-odd="1.75" data-bet="Menos de 2.5 gols">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>Jogo equilibrado — ambos começam a temporada com squads renovados</li>
-      <li>Bologna: defesa sólida, poucos gols nos últimos confrontos</li>
-      <li>Lazio fora de casa historicamente irregular na Serie A</li>
-      <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Jogo equilibrado — ambos começam a temporada com squads renovados</li>
+        <li>Bologna: defesa sólida, poucos gols nos últimos confrontos</li>
+        <li>Lazio fora de casa historicamente irregular na Serie A</li>
+        <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 5. BOTAFOGO vs ATHLETICO-PR -->
-<article class="mc br" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="18:30" data-sort-priority="3" aria-label="Botafogo vs Athletico-PR - Brasileirão">
+<article class="mc br imminent" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="18:30" data-sort-priority="3" aria-label="Botafogo vs Athletico-PR - Brasileirão">
   <button class="save-btn" aria-label="Salvar aposta Botafogo x Athletico-PR" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb br">Brasileirão</span><span class="mt">🕐 18:30 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Botafogo x Athletico-PR" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-odd="1.75">📤</button>
+  <div class="mh"><span class="lb br">Brasileirão</span><span class="mt">🕐 18:30 BRT</span><span class="countdown" data-kickoff="2026-08-24T21:30:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Botafogo</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Athletico-PR</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi best" tabindex="0" role="button" aria-label="Botafogo vence, odd 1.90, probabilidade 55%"><div class="ol">Botafogo</div><div class="ov">1.90</div><div class="op">55%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.40, probabilidade 29%"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">29%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Athletico-PR vence, odd 4.20, probabilidade 24%"><div class="ol">Athletico</div><div class="ov">4.20</div><div class="op">24%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:57%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">57%</span></div>
+  <button class="add-to-multi" data-teams="Botafogo x Athletico-PR" data-odd="1.75" data-bet="Menos de 2.5 gols">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>Botafogo líder do Brasileirão, forte em casa no Nilton Santos</li>
-      <li>Athletico-PR irregular — oscila entre boa e má fase</li>
-      <li>Confrontos recentes tendem a ser travados com poucos gols</li>
-      <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Botafogo líder do Brasileirão, forte em casa no Nilton Santos</li>
+        <li>Athletico-PR irregular — oscila entre boa e má fase</li>
+        <li>Confrontos recentes tendem a ser travados com poucos gols</li>
+        <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 6. SPORT vs AMÉRICA-MG -->
 <article class="mc br" data-league="br" data-teams="Sport x América-MG" data-bet="Vitória Sport" data-confidence="68" data-odds="1.47" data-time="20:00" data-sort-priority="1" aria-label="Sport vs América-MG - Série B">
   <button class="save-btn" aria-label="Salvar aposta Sport x América-MG" aria-pressed="false">☆</button>
-  <div class="mh"><span class="lb br">Série B</span><span class="mt">🕐 20:00 BRT</span></div>
+  <button class="share-btn" aria-label="Compartilhar Sport x América-MG" data-teams="Sport x América-MG" data-bet="Vitória Sport" data-odd="1.47">📤</button>
+  <div class="mh"><span class="lb br">Série B</span><span class="mt">🕐 20:00 BRT</span><span class="countdown" data-kickoff="2026-08-24T23:00:00-03:00" aria-label="Tempo restante"></span></div>
   <div class="mteams"><span class="th">Sport</span><div class="vs" aria-hidden="true">VS</div><span class="ta">América-MG</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi best" tabindex="0" role="button" aria-label="Sport vence, odd 1.47, probabilidade 68%"><div class="ol">Sport</div><div class="ov">1.47</div><div class="op">68%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.80, probabilidade 26%"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="América-MG vence, odd 7.00, probabilidade 14%"><div class="ol">América-MG</div><div class="ov">7.00</div><div class="op">14%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:68%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">68%</span></div>
+  <button class="add-to-multi" data-teams="Sport x América-MG" data-odd="1.47" data-bet="Vitória Sport">+ Adicionar à aposta múltipla</button>
   <div class="as">
-    <div class="at">📊 Análise Tática</div>
-    <ul class="ap">
-      <li>Sport: 68% vitória em casa na Série B. América-MG: apenas 14% fora</li>
-      <li>Placar provável: 2-0 Sport — defesa visitante é a pior do campeonato</li>
-      <li>Sport busca acesso e não pode perder pontos em casa</li>
-      <li><strong>Recomendação:</strong> Vitória Sport (odd 1.47, prob. 68%)</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Sport: 68% vitória em casa na Série B. América-MG: apenas 14% fora</li>
+        <li>Placar provável: 2-0 Sport — defesa visitante é a pior do campeonato</li>
+        <li>Sport busca acesso e não pode perder pontos em casa</li>
+        <li><strong>Recomendação:</strong> Vitória Sport (odd 1.47, prob. 68%)</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 <!-- 7. AL-ITTIHAD vs AL-HAZEM -->
 <article class="mc sp" data-league="sp" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" data-confidence="85" data-odds="1.85" data-time="Finalizado" data-sort-priority="5" aria-label="Al-Ittihad vs Al-Hazem - Saudi Pro League - Finalizado">
   <button class="save-btn" aria-label="Salvar aposta Al-Ittihad x Al-Hazem" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar Al-Ittihad x Al-Hazem" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" data-odd="1.85">📤</button>
   <div class="mh"><span class="lb sp">Saudi Pro League</span><span class="mt">🕐 Finalizado</span></div>
   <div class="mteams"><span class="th">Al-Ittihad</span><div class="vs" aria-hidden="true">3×2</div><span class="ta">Al-Hazem</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
@@ -827,19 +1122,22 @@ button:focus-visible,input:focus-visible,select:focus-visible{
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 5.50, probabilidade 18%"><div class="ol">Empate</div><div class="ov">5.50</div><div class="op">18%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Al-Hazem vence, odd 9.00, probabilidade 11%"><div class="ol">Al-Hazem</div><div class="ov">9.00</div><div class="op">11%</div></div>
   </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:85%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">85%</span></div>
   <div class="as">
-    <div class="at">📊 Resultado</div>
-    <ul class="ap">
-      <li>Placar final: <strong>3×2</strong> — Ambos marcaram ✅</li>
-      <li>Al-Ittihad venceu como esperado com Benzema e company</li>
-      <li>Mercado "Ambos Marcam" acertado com odd 1.85</li>
-      <li class="res win">✅ APOSTA ACERTADA — ROI +0.85</li>
-    </ul>
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Resultado</div>
+    <div class="as-content">
+      <ul class="ap">
+        <li>Placar final: <strong>3×2</strong> — Ambos marcaram ✅</li>
+        <li>Al-Ittihad venceu como esperado com Benzema e company</li>
+        <li>Mercado "Ambos Marcam" acertado com odd 1.85</li>
+        <li class="res win">✅ APOSTA ACERTADA — ROI +0.85</li>
+      </ul>
+    </div>
   </div>
 </article>
 
 </div><!-- /tab-all -->
-
 <!-- ===================== TAB: TOP 3 ===================== -->
 <div class="tc" id="tab-top3" role="tabpanel" aria-labelledby="tab-btn-top3">
 <div class="t3g">
@@ -925,8 +1223,39 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 
 </div><!-- /tab-combos -->
 
-<!-- ===================== TAB: HISTÓRICO ===================== -->
-<div class="tc" id="tab-hist" role="tabpanel" aria-labelledby="tab-btn-hist">
+
+<!-- ===================== TAB: MINHAS APOSTAS ===================== -->
+<div class="tc" id="tab-mybets" role="tabpanel" aria-labelledby="tab-btn-mybets">
+<div class="mybets-summary" id="mybets-summary">
+  <div class="mybets-card"><div class="mbv" id="mb-count" style="color:var(--color-accent)">0</div><div class="mbl">Apostas Salvas</div></div>
+  <div class="mybets-card"><div class="mbv" id="mb-avg-odd" style="color:var(--color-gold)">-</div><div class="mbl">Odd Média</div></div>
+  <div class="mybets-card"><div class="mbv" id="mb-potential" style="color:var(--color-blue)">-</div><div class="mbl">Retorno R$50</div></div>
+</div>
+
+<!-- Multi-bet panel -->
+<div class="multi-bet-panel" id="multi-bet-panel">
+  <h4>🎰 Aposta Múltipla</h4>
+  <div class="multi-bet-selections" id="multi-selections"></div>
+  <div id="multi-empty" style="font-size:.72rem;color:var(--text-muted);padding:var(--space-sm)">Clique em "+ Adicionar à aposta múltipla" nos jogos para montar sua combinação.</div>
+  <div class="multi-bet-result" id="multi-result" style="display:none">
+    <div><div style="font-size:.6rem;color:var(--text-muted);text-transform:uppercase">Odd Combinada</div><div class="mb-total" id="mb-combined-odd">-</div></div>
+    <div><div style="font-size:.6rem;color:var(--text-muted);text-transform:uppercase">Retorno R$50</div><div class="mb-profit" id="mb-combined-return">-</div></div>
+  </div>
+</div>
+
+<div class="saved-panel">
+  <h3>⭐ Apostas Salvas</h3>
+  <div class="saved-actions">
+    <button class="saved-action-btn" id="export-btn" type="button" aria-label="Exportar apostas salvas">📤 Exportar JSON</button>
+    <button class="saved-action-btn" id="import-btn" type="button" aria-label="Importar apostas salvas">📥 Importar JSON</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" aria-hidden="true">
+  </div>
+  <div id="saved-list" class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>
+</div>
+
+<!-- History Table -->
+<div style="margin-top:var(--space-md)">
+<h3 style="color:var(--text-secondary);font-family:'Fira Code',monospace;font-size:.8rem;margin-bottom:var(--space-sm)">📊 Histórico</h3>
 <table class="htbl" aria-label="Histórico de apostas">
   <thead><tr><th>Data</th><th>Jogo</th><th>Aposta</th><th>Odd</th><th>Resultado</th><th>Status</th></tr></thead>
   <tbody>
@@ -939,80 +1268,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{
     <tr><td>24/08</td><td>Sport x América-MG</td><td>Vitória Sport</td><td>1.47</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
   </tbody>
 </table>
-
-<div class="sbar" id="hist-stats" style="margin-top:var(--space-md)">
-  <div class="sc"><div class="sv" id="hist-total">1</div><div class="sl">Jogos Finalizados</div></div>
-  <div class="sc"><div class="sv" id="hist-wins">1</div><div class="sl">Apostas Ganhadoras</div></div>
-  <div class="sc"><div class="sv" id="hist-winrate">100%</div><div class="sl">Assertividade</div></div>
-  <div class="sc"><div class="sv" id="hist-roi">+0.85</div><div class="sl">ROI Acumulado</div></div>
 </div>
-
-<div class="saved-panel">
-  <h3>⭐ Apostas Salvas</h3>
-  <div class="saved-actions">
-    <button class="saved-action-btn" id="export-btn" type="button" aria-label="Exportar apostas salvas">📤 Exportar JSON</button>
-    <button class="saved-action-btn" id="import-btn" type="button" aria-label="Importar apostas salvas">📥 Importar JSON</button>
-    <input type="file" id="import-file" accept=".json" style="display:none" aria-hidden="true">
-  </div>
-  <div id="saved-list" class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>
-</div>
-</div><!-- /tab-hist -->
-
-<!-- ===================== TAB: CALCULADORA ===================== -->
-<div class="tc" id="tab-calc" role="tabpanel" aria-labelledby="tab-btn-calc">
-<div class="calc">
-  <h3>🧮 Calculadora de Apostas</h3>
-  <div class="calc-grid">
-    <div class="calc-group">
-      <label for="calc-amount">Valor da Aposta (R$)</label>
-      <input type="number" id="calc-amount" placeholder="Ex: 50" min="1" step="0.01" aria-describedby="amount-help">
-      <small id="amount-help" style="color:#64748B;font-size:.65rem">Digite o valor que deseja apostar</small>
-    </div>
-    <div class="calc-group">
-      <label for="calc-odds">Odd</label>
-      <select id="calc-odds" aria-describedby="odds-help">
-        <option value="">Selecione ou digite abaixo</option>
-        <option value="1.25">1.25 — Roma ou Empate</option>
-        <option value="1.47">1.47 — Vitória Sport</option>
-        <option value="1.55">1.55 — Vitória Roma</option>
-        <option value="1.70">1.70 — Osasuna marca 1º</option>
-        <option value="1.72">1.72 — Chelsea vence</option>
-        <option value="1.75">1.75 — Menos de 2.5 (Bologna/Lazio)</option>
-        <option value="1.85">1.85 — Ambos Marcam</option>
-        <option value="2.10">2.10 — Chelsea vence</option>
-        <option value="3.10">3.10 — Chelsea + M2.5</option>
-        <option value="5.50">5.50 — Chelsea + M2.5 + Ambas</option>
-        <option value="custom">✏️ Odd personalizada</option>
-      </select>
-      <small id="odds-help" style="color:#64748B;font-size:.65rem">Selecione uma odd pré-definida ou digite a sua</small>
-    </div>
-    <div class="calc-group" id="custom-odds-group" style="display:none">
-      <label for="calc-custom-odd">Odd Personalizada</label>
-      <input type="number" id="calc-custom-odd" placeholder="Ex: 2.50" min="1.01" step="0.01">
-    </div>
-    <div class="calc-result" role="status" aria-live="polite">
-      <div class="cr-label">Retorno Total</div>
-      <div class="cr-value" id="calc-return">R$ 0,00</div>
-      <div class="cr-profit" id="calc-profit">Lucro: R$ 0,00</div>
-    </div>
-    <button class="calc-btn" id="calc-btn" type="button">💰 Calcular Retorno</button>
-  </div>
-</div>
-
-<div class="calc" style="border-color:rgba(34,197,94,.25)">
-  <h3 style="color:var(--color-accent)">🎯 Combinações Rápidas</h3>
-  <table class="ctbl" aria-label="Combinações rápidas para cálculo">
-    <thead><tr><th>Seleção</th><th>Odd</th><th>R$50 →</th><th>Lucro</th></tr></thead>
-    <tbody>
-      <tr><td>Sport vence + M2.5</td><td class="co">2.10</td><td>R$ 105,00</td><td class="cp">R$ 55,00</td></tr>
-      <tr><td>Roma vence + M1.5</td><td class="co">2.20</td><td>R$ 110,00</td><td class="cp">R$ 60,00</td></tr>
-      <tr><td>Chelsea vence + M2.5</td><td class="co">3.10</td><td>R$ 155,00</td><td class="cp">R$ 105,00</td></tr>
-      <tr><td>Sport + M2.5 + Roma vence</td><td class="co">3.06</td><td>R$ 153,00</td><td class="cp">R$ 103,00</td></tr>
-      <tr><td>Roma + Chelsea + Sport vence</td><td class="co">5.02</td><td>R$ 251,00</td><td class="cp">R$ 201,00</td></tr>
-    </tbody>
-  </table>
-</div>
-</div><!-- /tab-calc -->
+</div><!-- /tab-mybets -->
 
 <!-- Disclaimer -->
 <div class="disc" role="alert">
@@ -1020,11 +1277,10 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </div>
 
 <footer class="footer">
-  Consultor Futebol Pro © 2026 • Última atualização: <span id="footer-date"></span> (Horário de Brasília)
+  Consultor Futebol Pro v2.0 © 2026 • Última atualização: <span id="footer-date"></span> (Horário de Brasília)
 </footer>
 
 </div><!-- /ctn -->
-
 <script>
 // ========== UTILITIES ==========
 function formatDatePTBR(d){d=d||new Date();return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
@@ -1048,9 +1304,28 @@ var tabBtns=document.querySelectorAll('.tbtn');var tabPanels=document.querySelec
 function switchTab(t){tabBtns.forEach(function(b){b.classList.remove('act');b.setAttribute('aria-selected','false');b.setAttribute('tabindex','-1');});tabPanels.forEach(function(c){c.classList.remove('act');});t.classList.add('act');t.setAttribute('aria-selected','true');t.setAttribute('tabindex','0');t.focus();var p=document.getElementById('tab-'+t.dataset.tab);if(p)p.classList.add('act');animVis();}
 tabBtns.forEach(function(b){b.addEventListener('click',function(){switchTab(this);});b.addEventListener('keydown',function(e){var a=Array.from(tabBtns),i=a.indexOf(this),n=-1;if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();n=(i+1)%a.length;}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();n=(i-1+a.length)%a.length;}else if(e.key==='Home'){e.preventDefault();n=0;}else if(e.key==='End'){e.preventDefault();n=a.length-1;}if(n>=0)switchTab(a[n]);});});
 
+// ========== SEARCH ==========
+var searchInput=document.getElementById('search-input');
+var searchClear=document.getElementById('search-clear');
+searchInput.addEventListener('input',function(){applyFilters();searchClear.classList.toggle('visible',this.value.length>0);});
+searchClear.addEventListener('click',function(){searchInput.value='';applyFilters();this.classList.remove('visible');});
+
+function applyFilters(){
+  var lg=document.querySelector('.filter-btn.active').dataset.league;
+  var q=searchInput.value.toLowerCase().trim();
+  var vc=0;
+  document.querySelectorAll('.mc').forEach(function(c){
+    var matchLeague=lg==='all'||c.dataset.league===lg;
+    var matchSearch=!q||c.dataset.teams.toLowerCase().indexOf(q)>=0||c.dataset.bet.toLowerCase().indexOf(q)>=0;
+    if(matchLeague&&matchSearch){c.classList.remove('hid');vc++;}else{c.classList.add('hid');}
+  });
+  filterResults.textContent=vc+' jogo'+(vc!==1?'s':'')+' encontrado'+(vc!==1?'s':'');
+  animVis();
+}
+
 // ========== LEAGUE FILTERS ==========
 var filterResults=document.getElementById('filter-results');
-document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false');});this.classList.add('active');this.setAttribute('aria-pressed','true');var lg=this.dataset.league;var vc=0;document.querySelectorAll('.mc').forEach(function(c){if(lg==='all'||c.dataset.league===lg){c.classList.remove('hid');vc++;}else c.classList.add('hid');});filterResults.textContent=vc+' jogo'+(vc!==1?'s':'')+' encontrado'+(vc!==1?'s':'');animVis();});});
+document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false');});this.classList.add('active');this.setAttribute('aria-pressed','true');applyFilters();});});
 
 // ========== SORT ==========
 document.getElementById('sort-select').addEventListener('change',function(){sortMatches(this.value);});
@@ -1059,20 +1334,95 @@ function sortMatches(c){var ct=document.getElementById('tab-all');var cards=Arra
 // ========== COUNTDOWN ==========
 function updateCountdowns(){document.querySelectorAll('.countdown[data-kickoff]').forEach(function(el){var diff=new Date(el.dataset.kickoff)-new Date();if(diff<=0){el.textContent='\u23F3 Em andamento';el.style.color='var(--color-orange)';el.style.background='rgba(249,115,22,.08)';return;}var h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);el.textContent='\u23F1 '+(h>0?h+'h ':'')+m+'m '+s+'s';});}
 
+// ========== EXPAND/COLLAPSE ANALYSIS ==========
+document.querySelectorAll('.as-toggle').forEach(function(toggle){
+  toggle.addEventListener('click',function(){var content=this.nextElementSibling;var isOpen=content.classList.contains('open');content.classList.toggle('open');this.classList.toggle('open');this.setAttribute('aria-expanded',!isOpen);});
+  toggle.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}});
+});
+
+// ========== SHARE BUTTONS ==========
+document.querySelectorAll('.share-btn').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var teams=this.dataset.teams;var bet=this.dataset.bet;var odd=this.dataset.odd;
+    var text='\u26BD Consultor Futebol Pro\n\n'+teams+'\nAposta: '+bet+'\nOdd: '+odd+'\n\n#ApostasEsportivas #Futebol';
+    if(navigator.share){
+      navigator.share({title:'Consultor Futebol Pro',text:text}).catch(function(){});
+    }else if(navigator.clipboard){
+      navigator.clipboard.writeText(text).then(function(){showToast('\uD83D\uDCCB Copiado para a clipboard!','info');});
+    }else{
+      showToast('\uD83D\uDCE4 '+text.substring(0,50)+'...','info');
+    }
+  });
+});
+
+// ========== BACK TO TOP ==========
+var backToTop=document.getElementById('back-to-top');
+window.addEventListener('scroll',function(){backToTop.classList.toggle('visible',window.scrollY>300);});
+backToTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+// ========== KEYBOARD HINTS ==========
+var kbdHint=document.getElementById('kbd-hint');
+var kbdTimeout;
+document.addEventListener('keydown',function(e){
+  if(e.key==='?'){kbdHint.classList.toggle('visible');clearTimeout(kbdTimeout);kbdTimeout=setTimeout(function(){kbdHint.classList.remove('visible');},5000);}
+});
+
 // ========== SAVE BUTTONS ==========
 function getSaved(){try{return JSON.parse(localStorage.getItem('savedBets')||'[]');}catch(e){return[];}}
 function saveSaved(a){localStorage.setItem('savedBets',JSON.stringify(a));}
-function updateSavedPanel(){var l=document.getElementById('saved-list');var s=getSaved();if(s.length===0){l.innerHTML='<div class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>';return;}l.innerHTML='';l.className='';s.forEach(function(b,i){var d=document.createElement('div');d.className='saved-item';d.innerHTML='<div class="si-info"><div class="si-teams">'+escapeHtml(b.teams)+'</div><div class="si-bet">'+escapeHtml(b.bet)+'</div></div><button class="remove-btn" data-idx="'+i+'" aria-label="Remover aposta">✕</button>';l.appendChild(d);});l.querySelectorAll('.remove-btn').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.idx);var s=getSaved();var r=s.splice(i,1)[0];saveSaved(s);updateSavedPanel();syncStars();showToast('✕ '+r.teams+' removida','warn');});});}
-function syncStars(){var s=getSaved();document.querySelectorAll('.mc').forEach(function(c){var b=c.querySelector('.save-btn');if(!b)return;var is=s.some(function(x){return x.teams===c.dataset.teams;});b.textContent=is?'★':'☆';b.classList.toggle('saved',is);b.setAttribute('aria-pressed',is);});}
-document.querySelectorAll('.save-btn').forEach(function(b){b.addEventListener('click',function(){var c=this.closest('.mc');var t=c.dataset.teams;var bt=c.dataset.bet;var s=getSaved();var i=s.findIndex(function(x){return x.teams===t;});if(i>=0){s.splice(i,1);showToast('✕ '+t+' removida','warn');}else{s.push({teams:t,bet:bt,date:formatDatePTBR()});showToast('★ '+t+' salva!','success');}saveSaved(s);syncStars();updateSavedPanel();});});
+function updateSavedPanel(){var l=document.getElementById('saved-list');var s=getSaved();if(s.length===0){l.innerHTML='<div class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>';updateMyBetsSummary();return;}l.innerHTML='';l.className='';s.forEach(function(b,i){var d=document.createElement('div');d.className='saved-item';d.innerHTML='<div class="si-info"><div class="si-teams">'+escapeHtml(b.teams)+'</div><div class="si-bet">'+escapeHtml(b.bet)+'</div></div><button class="remove-btn" data-idx="'+i+'" aria-label="Remover aposta">\u2715</button>';l.appendChild(d);});l.querySelectorAll('.remove-btn').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.idx);var s=getSaved();var r=s.splice(i,1)[0];saveSaved(s);updateSavedPanel();syncStars();showToast('\u2715 '+r.teams+' removida','warn');});});updateMyBetsSummary();}
+function syncStars(){var s=getSaved();document.querySelectorAll('.mc').forEach(function(c){var b=c.querySelector('.save-btn');if(!b)return;var is=s.some(function(x){return x.teams===c.dataset.teams;});b.textContent=is?'\u2605':'\u2606';b.classList.toggle('saved',is);b.setAttribute('aria-pressed',is);});}
+document.querySelectorAll('.save-btn').forEach(function(b){b.addEventListener('click',function(){var c=this.closest('.mc');var t=c.dataset.teams;var bt=c.dataset.bet;var s=getSaved();var i=s.findIndex(function(x){return x.teams===t;});if(i>=0){s.splice(i,1);showToast('\u2715 '+t+' removida','warn');}else{s.push({teams:t,bet:bt,date:formatDatePTBR()});showToast('\u2605 '+t+' salva!','success');}saveSaved(s);syncStars();updateSavedPanel();});});
+
+// ========== MY BETS SUMMARY ==========
+function updateMyBetsSummary(){
+  var s=getSaved();
+  document.getElementById('mb-count').textContent=s.length;
+  if(s.length===0){document.getElementById('mb-avg-odd').textContent='-';document.getElementById('mb-potential').textContent='-';return;}
+  var totalOdd=0;var count=0;
+  s.forEach(function(b){
+    var card=document.querySelector('.mc[data-teams="'+b.teams+'"]');
+    if(card){var odds=parseFloat(card.dataset.odds);if(odds){totalOdd+=odds;count++;}}
+  });
+  document.getElementById('mb-avg-odd').textContent=count>0?(totalOdd/count).toFixed(2):'-';
+  document.getElementById('mb-potential').textContent=count>0?'R$ '+(50*totalOdd/count).toFixed(0):'-';
+}
+
+// ========== MULTI-BET ==========
+var multiSelections=[];
+function updateMultiBet(){
+  var el=document.getElementById('multi-selections');
+  var emptyEl=document.getElementById('multi-empty');
+  var resultEl=document.getElementById('multi-result');
+  if(multiSelections.length===0){el.innerHTML='';emptyEl.style.display='';resultEl.style.display='none';return;}
+  emptyEl.style.display='none';resultEl.style.display='flex';
+  el.innerHTML='';var combinedOdd=1;
+  multiSelections.forEach(function(s,i){combinedOdd*=s.odd;
+    var item=document.createElement('div');item.className='multi-bet-item';
+    item.innerHTML='<span class="mbi-teams">'+escapeHtml(s.teams)+'</span><span class="mbi-odd">'+s.odd.toFixed(2)+'</span><button class="mbi-remove" data-idx="'+i+'" aria-label="Remover">\u2715</button>';
+    el.appendChild(item);
+  });
+  el.querySelectorAll('.mbi-remove').forEach(function(b){b.addEventListener('click',function(){multiSelections.splice(parseInt(this.dataset.idx),1);updateMultiBet();});});
+  document.getElementById('mb-combined-odd').textContent=combinedOdd.toFixed(2);
+  document.getElementById('mb-combined-return').textContent='R$ '+(50*combinedOdd).toFixed(2).replace('.',',');
+}
+document.querySelectorAll('.add-to-multi').forEach(function(b){
+  b.addEventListener('click',function(){
+    var teams=this.dataset.teams;var odd=parseFloat(this.dataset.odd);var bet=this.dataset.bet;
+    if(multiSelections.some(function(x){return x.teams===teams;})){showToast('Já adicionado à múltipla','warn');return;}
+    multiSelections.push({teams:teams,odd:odd,bet:bet});
+    updateMultiBet();showToast('\uD83C\uDFB0 '+teams+' adicionada!','success');
+  });
+});
 
 // ========== EXPORT / IMPORT ==========
-document.getElementById('export-btn').addEventListener('click',function(){var s=getSaved();if(s.length===0){showToast('Nenhuma aposta para exportar','warn');return;}var b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='apostas-'+formatDatePTBR().replace(/\//g,'-')+'.json';a.click();URL.revokeObjectURL(u);showToast('📤 Apostas exportadas!','info');});
+document.getElementById('export-btn').addEventListener('click',function(){var s=getSaved();if(s.length===0){showToast('Nenhuma aposta para exportar','warn');return;}var b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='apostas-'+formatDatePTBR().replace(/\//g,'-')+'.json';a.click();URL.revokeObjectURL(u);showToast('\uD83D\uDCE4 Apostas exportadas!','info');});
 document.getElementById('import-btn').addEventListener('click',function(){document.getElementById('import-file').click();});
-document.getElementById('import-file').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{var imp=JSON.parse(ev.target.result);if(!Array.isArray(imp))throw 0;var ex=getSaved();var ts=new Set(ex.map(function(x){return x.teams;}));var a=0;imp.forEach(function(b){if(b.teams&&b.bet&&!ts.has(b.teams)){ex.push(b);a++;}});saveSaved(ex);syncStars();updateSavedPanel();showToast('📥 '+a+' aposta'+(a!==1?'s':'')+' importada'+(a!==1?'s':''),'info');}catch(err){showToast('Erro ao importar','warn');}};r.readAsText(f);this.value='';});
+document.getElementById('import-file').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{var imp=JSON.parse(ev.target.result);if(!Array.isArray(imp))throw 0;var ex=getSaved();var ts=new Set(ex.map(function(x){return x.teams;}));var a=0;imp.forEach(function(b){if(b.teams&&b.bet&&!ts.has(b.teams)){ex.push(b);a++;}});saveSaved(ex);syncStars();updateSavedPanel();showToast('\uD83D\uDCE5 '+a+' aposta'+(a!==1?'s':'')+' importada'+(a!==1?'s':''),'info');}catch(err){showToast('Erro ao importar','warn');}};r.readAsText(f);this.value='';});
 
 // ========== ODDS CLICK -> CALC ==========
-document.querySelectorAll('.oi').forEach(function(oi){function send(){var ov=oi.querySelector('.ov');if(!ov)return;var odd=parseFloat(ov.textContent);if(!odd||odd<=1)return;switchTab(document.querySelector('[data-tab="calc"]'));var os=document.getElementById('calc-odds');os.value='custom';document.getElementById('custom-odds-group').style.display='';var ci=document.getElementById('calc-custom-odd');ci.value=odd;ci.focus();if(document.getElementById('calc-amount').value)calculate();showToast('🏳️ Odd '+odd.toFixed(2)+' enviada para a calculadora','info');}oi.addEventListener('click',send);oi.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();send();}});});
+document.querySelectorAll('.oi').forEach(function(oi){function send(){var ov=oi.querySelector('.ov');if(!ov)return;var odd=parseFloat(ov.textContent);if(!odd||odd<=1)return;switchTab(document.querySelector('[data-tab="calc"]'));var os=document.getElementById('calc-odds');os.value='custom';document.getElementById('custom-odds-group').style.display='';var ci=document.getElementById('calc-custom-odd');ci.value=odd;ci.focus();if(document.getElementById('calc-amount').value)calculate();showToast('\uD83C\uDFF3\uFE0F Odd '+odd.toFixed(2)+' enviada para a calculadora','info');}oi.addEventListener('click',send);oi.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();send();}});});
 
 // ========== CALCULATOR ==========
 var oddsSelect=document.getElementById('calc-odds');var customGroup=document.getElementById('custom-odds-group');var customInput=document.getElementById('calc-custom-odd');var amountInput=document.getElementById('calc-amount');var returnEl=document.getElementById('calc-return');var profitEl=document.getElementById('calc-profit');
@@ -1083,13 +1433,13 @@ customInput.addEventListener('input',calculate);
 function calculate(){var a=parseFloat(amountInput.value);var o=oddsSelect.value==='custom'?parseFloat(customInput.value):parseFloat(oddsSelect.value);if(!a||!o||a<=0||o<=1){returnEl.textContent='R$ 0,00';profitEl.textContent='Lucro: R$ 0,00';return;}var t=a*o;var p=t-a;returnEl.textContent='R$ '+t.toFixed(2).replace('.',',');profitEl.textContent='Lucro: R$ '+p.toFixed(2).replace('.',',');if(typeof gsap!=='undefined'){gsap.fromTo(returnEl,{scale:1.15},{scale:1,duration:0.25,ease:'back.out(2)'});gsap.fromTo(profitEl,{scale:1.1},{scale:1,duration:0.25,ease:'back.out(2)',delay:0.08});}}
 
 // ========== QUICK COMBOS DYNAMIC ==========
-function updateQuickCombos(){var a=parseFloat(amountInput.value)||50;var h=document.querySelector('#quick-combos-table thead th:nth-child(3)');if(h)h.textContent='R$'+a+' →';document.querySelectorAll('#quick-combos-table tbody tr').forEach(function(r){var oe=r.querySelector('.co');if(!oe)return;var o=parseFloat(oe.textContent);var tc=r.querySelector('td:nth-child(3)');var pc=r.querySelector('td:nth-child(4)');if(tc)tc.textContent='R$ '+(a*o).toFixed(2).replace('.',',');if(pc)pc.textContent='R$ '+((a*o)-a).toFixed(2).replace('.',',');});}
+function updateQuickCombos(){var a=parseFloat(amountInput.value)||50;var h=document.querySelector('#quick-combos-table thead th:nth-child(3)');if(h)h.textContent='R$'+a+' \u2192';document.querySelectorAll('#quick-combos-table tbody tr').forEach(function(r){var oe=r.querySelector('.co');if(!oe)return;var o=parseFloat(oe.textContent);var tc=r.querySelector('td:nth-child(3)');var pc=r.querySelector('td:nth-child(4)');if(tc)tc.textContent='R$ '+(a*o).toFixed(2).replace('.',',');if(pc)pc.textContent='R$ '+((a*o)-a).toFixed(2).replace('.',',');});}
 
 // ========== GSAP (optimized) ==========
 function animVis(){if(typeof gsap==='undefined')return;var vc=document.querySelectorAll('.mc:not(.hid)');if(vc.length>0)gsap.from(vc,{opacity:0,y:12,duration:0.35,stagger:{each:0.05,from:'start'},ease:'power1.out',clearProps:'all'});var vo=document.querySelectorAll('.mc:not(.hid) .oi');if(vo.length>0)gsap.from(vo,{opacity:0,scale:0.92,duration:0.35,stagger:{each:0.04,from:'start'},ease:'back.out(1.4)',clearProps:'all',delay:0.15});var t3=document.getElementById('tab-top3');if(t3&&t3.classList.contains('act'))gsap.from('.t3c',{opacity:0,y:16,scale:0.92,duration:0.4,stagger:{each:0.1,from:'start'},ease:'back.out(1.4)',clearProps:'all'});gsap.from('.sc',{opacity:0,scale:0.85,duration:0.3,stagger:{each:0.06,from:'start'},ease:'back.out(1.4)',clearProps:'all'});}
 
 // ========== INIT ==========
-document.addEventListener('DOMContentLoaded',function(){updateStats();updateLeagueCounts();syncStars();updateSavedPanel();updateCountdowns();updateQuickCombos();animVis();setInterval(updateCountdowns,1000);});
+document.addEventListener('DOMContentLoaded',function(){updateStats();updateLeagueCounts();syncStars();updateSavedPanel();updateCountdowns();updateQuickCombos();updateMultiBet();animVis();setInterval(updateCountdowns,1000);});
 </script>
 </body>
 </html>
