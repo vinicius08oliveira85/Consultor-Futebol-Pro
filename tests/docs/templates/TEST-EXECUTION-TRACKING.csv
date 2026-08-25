@@ -1,0 +1,28 @@
+Test_ID,Test_Name,Category,Priority,Status,Executed_By,Execution_Date,Pass_Fail,Bug_ID,Notes
+TC-NAV-001,Tab Navigation,Navigation,P0,Executed,Buffy,2026-08-25,PASS,,All 5 tabs functional
+TC-NAV-002,Tab Keyboard Navigation,Navigation,P1,Not Executed,,,,,Needs manual keyboard test
+TC-NAV-003,Skip Link,Navigation,P1,Executed,Buffy,2026-08-25,PASS,,Skip link present in DOM
+TC-FILTER-001,Filter by Premier League,Filters,P0,Executed,Buffy,2026-08-25,PASS,,Shows 1 card correctly
+TC-FILTER-002,Filter by Serie A,Filters,P0,Executed,Buffy,2026-08-25,PASS,,Shows 2 cards correctly
+TC-FILTER-003,Filter Reset (Todos),Filters,P0,Executed,Buffy,2026-08-25,PASS,,Shows all 7 cards
+TC-FILTER-004,Filter Button Touch Target,Filters,P1,Not Executed,,,,,Needs mobile viewport test
+TC-CALC-001,Basic Calculation,Calculator,P0,Executed,Buffy,2026-08-25,PASS,,R$100 x 3.10 = R$310 correct
+TC-CALC-002,Custom Odd,Calculator,P1,Not Executed,,,,,Needs manual test
+TC-CALC-003,Invalid Input Handling,Calculator,P2,Not Executed,,,,,Needs manual test
+TC-CALC-004,Empty Fields,Calculator,P2,Not Executed,,,,,Needs manual test
+TC-SAVE-001,Save Bet,Save,P0,Executed,Buffy,2026-08-25,PASS,,Star toggles correctly
+TC-SAVE-002,Unsave Bet,Save,P1,Not Executed,,,,,Needs manual test
+TC-SAVE-003,Remove from Panel,Save,P2,Not Executed,,,,,Needs manual test
+TC-SAVE-004,Persistence Across Refresh,Save,P3,Executed,Buffy,2026-08-25,PASS,,localStorage works
+TC-A11Y-001,ARIA Labels Present,Accessibility,P0,Executed,Buffy,2026-08-25,PASS,,All labels present
+TC-A11Y-002,Focus Visible,Accessibility,P0,Executed,Buffy,2026-08-25,PASS,,Green outline visible
+TC-A11Y-003,Screen Reader Announcements,Accessibility,P1,Not Executed,,,,,Needs screen reader test
+TC-A11Y-004,Color Contrast,Accessibility,P1,Executed,Buffy,2026-08-25,PASS,,WCAG AA compliant
+TC-A11Y-005,Reduced Motion,Accessibility,P2,Not Executed,,,,,Needs OS setting test
+TC-RESP-001,Mobile Viewport (375px),Responsive,P0,Executed,Buffy,2026-08-25,PASS,,Layout adapts correctly
+TC-RESP-002,Tablet Viewport (768px),Responsive,P1,Not Executed,,,,,Needs viewport test
+TC-RESP-003,Desktop Viewport (1440px),Responsive,P1,Executed,Buffy,2026-08-25,PASS,,Max-width container works
+TC-PERF-001,Page Load Time,Performance,P1,Not Executed,,,,,Needs DevTools measurement
+TC-PERF-002,Animation Performance,Performance,P2,Not Executed,,,,,Needs performance recording
+TC-SEC-001,XSS Prevention,Security,P0,Executed,Buffy,2026-08-25,PASS,,No innerHTML with user data
+TC-SEC-002,LocalStorage Security,Security,P1,Executed,Buffy,2026-08-25,PASS,,Only bet data stored
