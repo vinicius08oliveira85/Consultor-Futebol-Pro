@@ -240,6 +240,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 .lb.ll{background:rgba(251,191,36,.12);color:var(--color-gold)}
 .lb.br{background:rgba(239,68,68,.12);color:var(--color-destructive)}
 .lb.sp{background:rgba(168,85,247,.12);color:var(--color-purple)}
+.lb.ec{background:rgba(236,72,153,.12);color:#EC4899}
+.lb.cl{background:rgba(59,130,246,.12);color:#3B82F6}
 .mt{color:#64748B;font-size:.72rem;font-family:"Fira Code",monospace}
 
 /* ===== TEAMS ===== */
@@ -989,10 +991,9 @@ body.light .filter-btn.active .filter-count{background:rgba(255,255,255,.2)}
 <!-- Filter bar -->
 <div class="filter-bar" id="filter-bar" role="group" aria-label="Filtrar por liga">
   <button class="filter-btn active" data-league="all" aria-pressed="true">Todos<span class="filter-count" id="count-all">7</span></button>
-  <button class="filter-btn" data-league="epl" aria-pressed="false">Premier League<span class="filter-count" id="count-epl">1</span></button>
-  <button class="filter-btn" data-league="sa" aria-pressed="false">Serie A<span class="filter-count" id="count-sa">2</span></button>
+  <button class="filter-btn" data-league="ec" aria-pressed="false">EFL Cup<span class="filter-count" id="count-ec">3</span></button>
+  <button class="filter-btn" data-league="cl" aria-pressed="false">Champions League<span class="filter-count" id="count-cl">2</span></button>
   <button class="filter-btn" data-league="ll" aria-pressed="false">La Liga<span class="filter-count" id="count-ll">1</span></button>
-  <button class="filter-btn" data-league="br" aria-pressed="false">Brasileirão<span class="filter-count" id="count-br">2</span></button>
   <button class="filter-btn" data-league="sp" aria-pressed="false">Saudi Pro<span class="filter-count" id="count-sp">1</span></button>
 </div>
 <div class="filter-results" id="filter-results" aria-live="polite"></div>
@@ -1008,142 +1009,201 @@ body.light .filter-btn.active .filter-count{background:rgba(255,255,255,.2)}
     <option value="league">🏟️ Liga</option>
   </select>
 </div>
+<!-- ===== JOGOS DE HOJE: TERÇA-FEIRA 25/AGO/2026 ===== -->
 
-<!-- 1. FULHAM vs CHELSEA -->
-<article class="mc epl imminent" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-confidence="45" data-odds="3.10" data-time="16:30" data-sort-priority="4" data-home="Fulham" data-away="Chelsea" data-home-odd="3.20" data-draw-odd="3.60" data-away-odd="2.10" data-home-prob="31" data-draw-prob="28" data-away-prob="58">
-  <button class="save-btn" aria-label="Salvar aposta Fulham x Chelsea" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-odd="3.10">📤</button>
-  <div class="mh"><span class="lb epl">Premier League</span><span class="mt">🕐 16:30 BRT</span><span class="countdown" data-kickoff="2026-08-24T19:30:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Fulham</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Chelsea</span></div>
+<!-- 1. NOTTINGHAM FOREST vs LEEDS UNITED -->
+<article class="mc ec" data-league="ec" data-teams="Nottm Forest x Leeds" data-bet="Menos de 2.5 gols" data-confidence="62" data-odds="1.80" data-time="16:00" data-sort-priority="2" data-home="Nottm Forest" data-away="Leeds" data-home-odd="2.20" data-draw-odd="3.20" data-away-odd="3.50" data-home-prob="45" data-draw-prob="29" data-away-prob="26">
+  <button class="save-btn" aria-label="Salvar aposta Nottm Forest x Leeds" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Nottm Forest x Leeds" data-bet="Menos de 2.5 gols" data-odd="1.80">📤</button>
+  <div class="mh"><span class="lb ec">EFL Cup</span><span class="mt">🕐 16:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T16:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Nottm Forest</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Leeds</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
-    <div class="oi" tabindex="0" role="button"><div class="ol">Fulham</div><div class="ov">3.20</div><div class="op">31%</div></div>
-    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.60</div><div class="op">28%</div></div>
-    <div class="oi best" tabindex="0" role="button"><div class="ol">Chelsea</div><div class="ov">2.10</div><div class="op">58%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Forest</div><div class="ov">2.20</div><div class="op">45%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.20</div><div class="op">29%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Leeds</div><div class="ov">3.50</div><div class="op">26%</div></div>
   </div>
-  <div class="confidence-bar"><div class="confidence-fill medium" style="width:45%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">45%</span></div>
-  <button class="add-to-multi" data-teams="Fulham x Chelsea" data-odd="3.10" data-bet="Chelsea vence + M2.5">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Fulham x Chelsea" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:62%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">62%</span></div>
+  <button class="add-to-multi" data-teams="Nottm Forest x Leeds" data-odd="1.80" data-bet="Menos de 2.5">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Nottm Forest x Leeds" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
   <div class="as">
     <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
     <div class="as-content"><ul class="ap">
-      <li>Chelsea: Xabi Alonso estreia como técnico, sistema 3-4-2-1</li>
-      <li>Fulham perdeu Wilson e Jiménez — ataque enfraquecido</li>
-      <li>Últimos 4 confrontos PL: 3 terminaram 2-1</li>
-      <li><strong>Recomendação:</strong> Chelsea vence + M2.5 gols (~3.10)</li>
+      <li>EFL Cup 2ª rodada — Forest mandante no City Ground</li>
+      <li>Forest: 45% de vitória, defende bem em casa</li>
+      <li>Leeds: recém-promovido, ataque ainda se adaptando</li>
+      <li>H2H: Forest venceu o último confronto por 1-0</li>
+      <li><strong>Recomendação:</strong> Menos de 2.5 gols (~1.80)</li>
     </ul></div>
   </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 2. ROMA vs FIORENTINA -->
-<article class="mc sa" data-league="sa" data-teams="Roma x Fiorentina" data-bet="Roma vence" data-confidence="73" data-odds="1.55" data-time="13:45" data-sort-priority="2" data-home="Roma" data-away="Fiorentina" data-home-odd="1.55" data-draw-odd="4.20" data-away-odd="6.50" data-home-prob="73" data-draw-prob="24" data-away-prob="15">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Roma x Fiorentina" data-bet="Roma vence" data-odd="1.55">📤</button>
-  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 13:45 BRT</span><span class="countdown" data-kickoff="2026-08-24T16:45:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Roma</span><div class="vs">VS</div><span class="ta">Fiorentina</span></div>
-  <div class="og"><div class="oi best" tabindex="0"><div class="ol">Roma</div><div class="ov">1.55</div><div class="op">73%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">4.20</div><div class="op">24%</div></div><div class="oi" tabindex="0"><div class="ol">Fiorentina</div><div class="ov">6.50</div><div class="op">15%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill high" style="width:73%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">73%</span></div>
-  <button class="add-to-multi" data-teams="Roma x Fiorentina" data-odd="1.55" data-bet="Roma vence">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Roma x Fiorentina" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Análise Tática</div><div class="as-content"><ul class="ap">
-    <li>200º confronto — Roma dominante (120V, 52E, 28D)</li>
-    <li>Malen: 8 gols em 10 jogos. Forte em casa</li>
-    <li>Fiorentina em turbulência — Coppa Italia eliminada</li>
-    <li><strong>Recomendação:</strong> Roma vence (1.55, 73%)</li>
-  </ul></div></div>
+<!-- 2. IPSWICH TOWN vs LEICESTER CITY -->
+<article class="mc ec" data-league="ec" data-teams="Ipswich x Leicester" data-bet="Ipswich vence" data-confidence="67" data-odds="1.50" data-time="15:45" data-sort-priority="2" data-home="Ipswich" data-away="Leicester" data-home-odd="1.50" data-draw-odd="4.60" data-away-odd="5.80" data-home-prob="67" data-draw-prob="20" data-away-prob="13">
+  <button class="save-btn" aria-label="Salvar aposta Ipswich x Leicester" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Ipswich x Leicester" data-bet="Ipswich vence" data-odd="1.50">📤</button>
+  <div class="mh"><span class="lb ec">EFL Cup</span><span class="mt">🕐 15:45 BRT</span><span class="countdown" data-kickoff="2026-08-25T15:45:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Ipswich</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Leicester</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi best" tabindex="0" role="button"><div class="ol">Ipswich</div><div class="ov">1.50</div><div class="op">67%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">4.60</div><div class="op">20%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Leicester</div><div class="ov">5.80</div><div class="op">13%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:67%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">67%</span></div>
+  <button class="add-to-multi" data-teams="Ipswich x Leicester" data-odd="1.50" data-bet="Ipswich vence">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Ipswich x Leicester" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>Ipswich: mandante no Portman Road, 67% de vitória</li>
+      <li>Leicester: rebaixado da PL, plantel enfraquecido</li>
+      <li>Últimos 9 confrontos: todos com 3 ou menos gols</li>
+      <li>Ipswich favorito claro pelo livro</li>
+      <li><strong>Recomendação:</strong> Ipswich vence (~1.50)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 3. OSASUNA vs LEVANTE -->
-<article class="mc ll" data-league="ll" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" data-confidence="61" data-odds="1.70" data-time="13:45" data-sort-priority="3" data-home="Osasuna" data-away="Levante" data-home-odd="1.72" data-draw-odd="3.80" data-away-odd="5.00" data-home-prob="61" data-draw-prob="26" data-away-prob="20">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" data-odd="1.70">📤</button>
-  <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 13:45 BRT</span><span class="countdown" data-kickoff="2026-08-24T16:45:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Osasuna</span><div class="vs">VS</div><span class="ta">Levante</span></div>
-  <div class="og"><div class="oi best" tabindex="0"><div class="ol">Osasuna</div><div class="ov">1.72</div><div class="op">61%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div><div class="oi" tabindex="0"><div class="ol">Levante</div><div class="ov">5.00</div><div class="op">20%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill medium" style="width:61%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">61%</span></div>
-  <button class="add-to-multi" data-teams="Osasuna x Levante" data-odd="1.70" data-bet="Osasuna marca 1º gol">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Osasuna x Levante" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Análise Tática</div><div class="as-content"><ul class="ap">
-    <li>Osasuna forte em El Sadar — vantagem de campo</li>
-    <li>Levante recém-promovido, sofre fora</li>
-    <li><strong>Recomendação:</strong> Osasuna marca primeiro (1.70)</li>
-  </ul></div></div>
+<!-- 3. AL ETTIFAQ vs AL NASSR -->
+<article class="mc sp imminent" data-league="sp" data-teams="Al Ettifaq x Al Nassr" data-bet="Al Nassr vence + M2.5" data-confidence="78" data-odds="1.65" data-time="15:00" data-sort-priority="1" data-home="Al Ettifaq" data-away="Al Nassr" data-home-odd="9.50" data-draw-odd="5.50" data-away-odd="1.28" data-home-prob="10" data-draw-prob="13" data-away-prob="77">
+  <button class="save-btn" aria-label="Salvar aposta Al Ettifaq x Al Nassr" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Al Ettifaq x Al Nassr" data-bet="Al Nassr vence + M2.5" data-odd="1.65">📤</button>
+  <div class="mh"><span class="lb sp">Saudi Pro League</span><span class="mt">🕐 15:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T15:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Al Ettifaq</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Al Nassr</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi" tabindex="0" role="button"><div class="ol">Ettifaq</div><div class="ov">9.50</div><div class="op">10%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">5.50</div><div class="op">13%</div></div>
+    <div class="oi best" tabindex="0" role="button"><div class="ol">Al Nassr</div><div class="ov">1.28</div><div class="op">77%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:78%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">78%</span></div>
+  <button class="add-to-multi" data-teams="Al Ettifaq x Al Nassr" data-odd="1.65" data-bet="Al Nassr vence + M2.5">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Al Ettifaq x Al Nassr" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>Al Nassr: líder da Saudi Pro, Cristiano Ronaldo em campo</li>
+      <li>Al Ettifaq: 4º lugar, defende em casa mas cede muito</li>
+      <li>BTTS em 59% dos últimos jogos do Al Nassr</li>
+      <li>Al Nassr: 77% de vitória, favorito pesado</li>
+      <li><strong>Recomendação:</strong> Al Nassr vence + M2.5 gols (~1.65)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 4. BOLOGNA vs LAZIO -->
-<article class="mc sa imminent" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="15:00" data-sort-priority="3" data-home="Bologna" data-away="Lazio" data-home-odd="2.30" data-draw-odd="3.30" data-away-odd="3.10" data-home-prob="43" data-draw-prob="30" data-away-prob="32">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-odd="1.75">📤</button>
-  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 15:00 BRT</span><span class="countdown" data-kickoff="2026-08-24T18:00:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Bologna</span><div class="vs">VS</div><span class="ta">Lazio</span></div>
-  <div class="og"><div class="oi" tabindex="0"><div class="ol">Bologna</div><div class="ov">2.30</div><div class="op">43%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">3.30</div><div class="op">30%</div></div><div class="oi" tabindex="0"><div class="ol">Lazio</div><div class="ov">3.10</div><div class="op">32%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill medium" style="width:57%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">57%</span></div>
-  <button class="add-to-multi" data-teams="Bologna x Lazio" data-odd="1.75" data-bet="Menos de 2.5 gols">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Bologna x Lazio" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Análise Tática</div><div class="as-content"><ul class="ap">
-    <li>Jogo equilibrado — squads renovados</li>
-    <li>Bologna: defesa sólida, poucos gols</li>
-    <li><strong>Recomendação:</strong> Menos de 2,5 gols (1.75)</li>
-  </ul></div></div>
+<!-- 4. LASK vs CELTIC -->
+<article class="mc cl" data-league="cl" data-teams="LASK x Celtic" data-bet="Celtic avança (placar agregado)" data-confidence="82" data-odds="1.30" data-time="16:00" data-sort-priority="1" data-home="LASK" data-away="Celtic" data-home-odd="2.40" data-draw-odd="3.70" data-away-odd="3.50" data-home-prob="42" data-draw-prob="25" data-away-prob="33">
+  <button class="save-btn" aria-label="Salvar aposta LASK x Celtic" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="LASK x Celtic" data-bet="Celtic avança (placar agregado)" data-odd="1.30">📤</button>
+  <div class="mh"><span class="lb cl">Champions League</span><span class="mt">🕐 16:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T16:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">LASK</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Celtic</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi" tabindex="0" role="button"><div class="ol">LASK</div><div class="ov">2.40</div><div class="op">42%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.70</div><div class="op">25%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Celtic</div><div class="ov">3.50</div><div class="op">33%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:82%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">82%</span></div>
+  <button class="add-to-multi" data-teams="LASK x Celtic" data-odd="1.30" data-bet="Celtic avança">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="LASK x Celtic" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>Champions League qualificatório — 2º jogo</li>
+      <li>Celtic venceu 1º jogo por 3-0 em Glasgow</li>
+      <li>LASK precisa de 4 gols — missão quase impossível</li>
+      <li>Celtic pode poupar titulares, mas ainda avança</li>
+      <li><strong>Recomendação:</strong> Celtic avança na classificação (~1.30)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 5. BOTAFOGO vs ATHLETICO-PR -->
-<article class="mc br imminent" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="18:30" data-sort-priority="3" data-home="Botafogo" data-away="Athletico-PR" data-home-odd="1.90" data-draw-odd="3.40" data-away-odd="4.20" data-home-prob="55" data-draw-prob="29" data-away-prob="24">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-odd="1.75">📤</button>
-  <div class="mh"><span class="lb br">Brasileirão</span><span class="mt">🕐 18:30 BRT</span><span class="countdown" data-kickoff="2026-08-24T21:30:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Botafogo</span><div class="vs">VS</div><span class="ta">Athletico-PR</span></div>
-  <div class="og"><div class="oi best" tabindex="0"><div class="ol">Botafogo</div><div class="ov">1.90</div><div class="op">55%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">29%</div></div><div class="oi" tabindex="0"><div class="ol">Athletico</div><div class="ov">4.20</div><div class="op">24%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill medium" style="width:57%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">57%</span></div>
-  <button class="add-to-multi" data-teams="Botafogo x Athletico-PR" data-odd="1.75" data-bet="Menos de 2.5 gols">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Botafogo x Athletico-PR" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Análise Tática</div><div class="as-content"><ul class="ap">
-    <li>Botafogo líder, forte em casa no Nilton Santos</li>
-    <li>Athletico-PR irregular</li>
-    <li><strong>Recomendação:</strong> Menos de 2,5 gols (1.75)</li>
-  </ul></div></div>
+<!-- 5. VALENCIA vs REAL BETIS -->
+<article class="mc ll" data-league="ll" data-teams="Valencia x Real Betis" data-bet="BTTS Não" data-confidence="55" data-odds="2.15" data-time="16:00" data-sort-priority="3" data-home="Valencia" data-away="Real Betis" data-home-odd="2.65" data-draw-odd="3.40" data-away-odd="2.65" data-home-prob="38" data-draw-prob="29" data-away-prob="33">
+  <button class="save-btn" aria-label="Salvar aposta Valencia x Real Betis" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Valencia x Real Betis" data-bet="BTTS Não" data-odd="2.15">📤</button>
+  <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 16:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T16:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Valencia</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Real Betis</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi" tabindex="0" role="button"><div class="ol">Valencia</div><div class="ov">2.65</div><div class="op">38%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">29%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Betis</div><div class="ov">2.65</div><div class="op">33%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:55%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">55%</span></div>
+  <button class="add-to-multi" data-teams="Valencia x Real Betis" data-odd="2.15" data-bet="BTTS Não">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Valencia x Real Betis" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>La Liga rodada 3 — Valencia mandante no Mestalla</li>
+      <li>Valencia: 0-1-0 no início da temporada</li>
+      <li>Betis: time equilibrado, defesa sólida</li>
+      <li>BTTS Não @ 2.15 — valor no mercado</li>
+      <li><strong>Recomendação:</strong> Ambos NÃO Marcam (~2.15)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 6. SPORT vs AMÉRICA-MG -->
-<article class="mc br" data-league="br" data-teams="Sport x América-MG" data-bet="Vitória Sport" data-confidence="68" data-odds="1.47" data-time="20:00" data-sort-priority="1" data-home="Sport" data-away="América-MG" data-home-odd="1.47" data-draw-odd="3.80" data-away-odd="7.00" data-home-prob="68" data-draw-prob="26" data-away-prob="14">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Sport x América-MG" data-bet="Vitória Sport" data-odd="1.47">📤</button>
-  <div class="mh"><span class="lb br">Série B</span><span class="mt">🕐 20:00 BRT</span><span class="countdown" data-kickoff="2026-08-24T23:00:00-03:00"></span></div>
-  <div class="mteams"><span class="th">Sport</span><div class="vs">VS</div><span class="ta">América-MG</span></div>
-  <div class="og"><div class="oi best" tabindex="0"><div class="ol">Sport</div><div class="ov">1.47</div><div class="op">68%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div><div class="oi" tabindex="0"><div class="ol">América-MG</div><div class="ov">7.00</div><div class="op">14%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill high" style="width:68%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">68%</span></div>
-  <button class="add-to-multi" data-teams="Sport x América-MG" data-odd="1.47" data-bet="Vitória Sport">+ Aposta múltipla</button>
-  <button class="result-btn pending" data-teams="Sport x América-MG" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Análise Tática</div><div class="as-content"><ul class="ap">
-    <li>Sport: 68% vitória em casa. América-MG: 14% fora</li>
-    <li><strong>Recomendação:</strong> Vitória Sport (1.47, 68%)</li>
-  </ul></div></div>
+<!-- 6. BIRMINGHAM vs BRENTFORD -->
+<article class="mc ec" data-league="ec" data-teams="Birmingham x Brentford" data-bet="Brentford vence + BTTS" data-confidence="60" data-odds="2.80" data-time="16:00" data-sort-priority="3" data-home="Birmingham" data-away="Brentford" data-home-odd="3.50" data-draw-odd="3.40" data-away-odd="1.95" data-home-prob="29" data-draw-prob="28" data-away-prob="43">
+  <button class="save-btn" aria-label="Salvar aposta Birmingham x Brentford" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Birmingham x Brentford" data-bet="Brentford vence + BTTS" data-odd="2.80">📤</button>
+  <div class="mh"><span class="lb ec">EFL Cup</span><span class="mt">🕐 16:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T16:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Birmingham</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Brentford</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi" tabindex="0" role="button"><div class="ol">Birmingham</div><div class="ov">3.50</div><div class="op">29%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">28%</div></div>
+    <div class="oi best" tabindex="0" role="button"><div class="ol">Brentford</div><div class="ov">1.95</div><div class="op">43%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill medium" style="width:60%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value medium">60%</span></div>
+  <button class="add-to-multi" data-teams="Birmingham x Brentford" data-odd="2.80" data-bet="Brentford vence + BTTS">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Birmingham x Brentford" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>EFL Cup 2ª rodada — Birmingham em St. Andrew's</li>
+      <li>Brentford: favorito com 1.95 (57% implícito)</li>
+      <li>Birmingham: recém-promovido da Championship</li>
+      <li>Previsão: Brentford 2-1 com BTTS</li>
+      <li><strong>Recomendação:</strong> Brentford vence + BTTS (~2.80)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
-<!-- 7. AL-ITTIHAD vs AL-HAZEM -->
-<article class="mc sp" data-league="sp" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" data-confidence="85" data-odds="1.85" data-time="Finalizado" data-sort-priority="5" data-home="Al-Ittihad" data-away="Al-Hazem" data-home-odd="1.30" data-draw-odd="5.50" data-away-odd="9.00" data-home-prob="77" data-draw-prob="18" data-away-prob="11">
-  <button class="save-btn" aria-label="Salvar" aria-pressed="false">☆</button>
-  <button class="share-btn" aria-label="Compartilhar" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" data-odd="1.85">📤</button>
-  <div class="mh"><span class="lb sp">Saudi Pro League</span><span class="mt">🕐 Finalizado</span></div>
-  <div class="mteams"><span class="th">Al-Ittihad</span><div class="vs">3×2</div><span class="ta">Al-Hazem</span></div>
-  <div class="og"><div class="oi" tabindex="0"><div class="ol">Al-Ittihad</div><div class="ov">1.30</div><div class="op">77%</div></div><div class="oi" tabindex="0"><div class="ol">Empate</div><div class="ov">5.50</div><div class="op">18%</div></div><div class="oi" tabindex="0"><div class="ol">Al-Hazem</div><div class="ov">9.00</div><div class="op">11%</div></div></div>
-  <div class="confidence-bar"><div class="confidence-fill high" style="width:85%"></div></div>
-  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">85%</span></div>
-  <div class="as"><div class="as-toggle" role="button" tabindex="0"><span class="arrow">▶</span> 📊 Resultado</div><div class="as-content"><ul class="ap">
-    <li>Placar final: <strong>3×2</strong> — Ambos marcaram ✅</li>
-    <li class="res win">✅ APOSTA ACERTADA — ROI +0.85</li>
-  </ul></div></div>
+<!-- 7. BODØ/GLIMT vs NEC -->
+<article class="mc cl" data-league="cl" data-teams="Bodø/Glimt x NEC" data-bet="Bodø/Glimt avança" data-confidence="75" data-odds="1.25" data-time="16:00" data-sort-priority="1" data-home="Bodø/Glimt" data-away="NEC" data-home-odd="1.80" data-draw-odd="3.80" data-away-odd="4.50" data-home-prob="55" data-draw-prob="24" data-away-prob="21">
+  <button class="save-btn" aria-label="Salvar aposta Bodø/Glimt x NEC" aria-pressed="false">☆</button>
+  <button class="share-btn" aria-label="Compartilhar" data-teams="Bodø/Glimt x NEC" data-bet="Bodø/Glimt avança" data-odd="1.25">📤</button>
+  <div class="mh"><span class="lb cl">Champions League</span><span class="mt">🕐 16:00 BRT</span><span class="countdown" data-kickoff="2026-08-25T16:00:00-03:00"></span></div>
+  <div class="mteams"><span class="th">Bodø/Glimt</span><div class="vs" aria-hidden="true">VS</div><span class="ta">NEC</span></div>
+  <div class="og" role="group" aria-label="Odds do jogo">
+    <div class="oi best" tabindex="0" role="button"><div class="ol">Bodø/Glimt</div><div class="ov">1.80</div><div class="op">55%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">24%</div></div>
+    <div class="oi" tabindex="0" role="button"><div class="ol">NEC</div><div class="ov">4.50</div><div class="op">21%</div></div>
+  </div>
+  <div class="confidence-bar"><div class="confidence-fill high" style="width:75%"></div></div>
+  <div class="confidence-label"><span class="cl-text">Confiança</span><span class="cl-value high">75%</div></div>
+  <button class="add-to-multi" data-teams="Bodø/Glimt x NEC" data-odd="1.25" data-bet="Bodø/Glimt avança">+ Aposta múltipla</button>
+  <button class="result-btn pending" data-teams="Bodø/Glimt x NEC" data-result="pending" onclick="toggleBetResult(this)">⏳ Pendente</button>
+  <div class="as">
+    <div class="as-toggle" role="button" tabindex="0" aria-expanded="false"><span class="arrow">▶</span> 📊 Análise Tática</div>
+    <div class="as-content"><ul class="ap">
+      <li>Champions League qualificatório — 2º jogo</li>
+      <li>Bodø/Glimt venceu 1º jogo por 3-1 fora</li>
+      <li>Bodø/Glimt: campeão norueguês, forte em casa</li>
+      <li>NEC: precisa de 3 gols para empatar no agregado</li>
+      <li><strong>Recomendação:</strong> Bodø/Glimt avança (~1.25)</li>
+    </ul></div>
+  </div>
   <button class="detail-btn" onclick="openMatchDetail(this.closest('.mc'))" style="margin-top:var(--space-sm);padding:var(--space-xs) var(--space-sm);background:var(--color-secondary);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--text-secondary);font-size:.65rem;font-weight:600;cursor:pointer;min-height:32px">📋 Ver detalhes</button>
 </article>
 
@@ -1151,9 +1211,9 @@ body.light .filter-btn.active .filter-count{background:rgba(255,255,255,.2)}
 <!-- ===================== TAB: TOP 3 ===================== -->
 <div class="tc" id="tab-top3" role="tabpanel" aria-labelledby="tab-btn-top3">
 <div class="t3g">
-  <div class="t3c g"><div class="rk" style="color:var(--color-gold);border-color:var(--color-gold)">🥇</div><h3>Sport x América-MG</h3><div class="pk">Vitória Sport</div><div class="od">1.47</div><div class="pd">Probabilidade: 68%</div><div class="jst">Sport com 68% de vitória em casa. América-MG com apenas 14% fora.</div></div>
-  <div class="t3c s"><div class="rk" style="color:#94A3B8;border-color:#94A3B8">🥈</div><h3>Roma x Fiorentina</h3><div class="pk">Roma vence</div><div class="od">1.55</div><div class="pd">Probabilidade: 73%</div><div class="jst">200º confronto — Roma dominante. Malen em fase (8g/10j).</div></div>
-  <div class="t3c b"><div class="rk" style="color:var(--color-orange);border-color:var(--color-orange)">🥉</div><h3>Fulham x Chelsea</h3><div class="pk">Chelsea vence + M2.5</div><div class="od">3.10</div><div class="pd">Probabilidade: 45%</div><div class="jst">Derby londrino com histórico de muitos gols.</div></div>
+  <div class="t3c g"><div class="rk" style="color:var(--color-gold);border-color:var(--color-gold)">🥇</div><h3>LASK x Celtic</h3><div class="pk">Celtic avança</div><div class="od">1.30</div><div class="pd">Probabilidade: 82%</div><div class="jst">Celtic com 3-0 no agregado. Missão impossível para LASK.</div></div>
+  <div class="t3c s"><div class="rk" style="color:#94A3B8;border-color:#94A3B8">🥈</div><h3>Al Ettifaq x Al Nassr</h3><div class="pk">Al Nassr vence + M2.5</div><div class="od">1.65</div><div class="pd">Probabilidade: 78%</div><div class="jst">Ronaldo e Cia em campo. Al Nassr líder com 77% de vitória.</div></div>
+  <div class="t3c b"><div class="rk" style="color:var(--color-orange);border-color:var(--color-orange)">🥉</div><h3>Bodø/Glimt x NEC</h3><div class="pk">Bodø/Glimt avança</div><div class="od">1.25</div><div class="pd">Probabilidade: 75%</div><div class="jst">3-1 no agregado. Bodø/Glimt forte em casa na Noruega.</div></div>
 </div>
 </div><!-- /tab-top3 -->
 
@@ -1285,7 +1345,7 @@ body.light .filter-btn.active .filter-count{background:rgba(255,255,255,.2)}
   <strong>⚠️ AVISO:</strong> Nenhuma aposta é garantida. Aposte com responsabilidade.
 </div>
 <footer class="footer">
-  Consultor Futebol Pro v3.0 © 2026 • <span id="footer-date"></span> (Horário de Brasília)
+  Consultor Futebol Pro v4.0 © 2026 • <span id="footer-date"></span> (Horário de Brasília)
 </footer>
 </div><!-- /ctn -->
 <script>
@@ -1414,8 +1474,8 @@ function updateStatsTab(){
   var leagues={epl:{w:0,t:0},sa:{w:0,t:0},ll:{w:0,t:0},br:{w:0,t:0},sp:{w:0,t:0}};
   document.querySelectorAll('.result-btn').forEach(function(b){var r=b.dataset.result;if(r==='pending')return;var card=document.querySelector('.mc[data-teams="'+b.dataset.teams+'"]');if(!card)return;var lg=card.dataset.league;if(leagues[lg]){leagues[lg].t++;if(r==='won')leagues[lg].w++;}});
   var lbEl=document.getElementById('league-breakdown');lbEl.innerHTML='';
-  var lNames={epl:'Premier League',sa:'Serie A',ll:'La Liga',br:'Brasileirão',sp:'Saudi Pro'};
-  var lColors={epl:'var(--color-accent)',sa:'var(--color-blue)',ll:'var(--color-gold)',br:'var(--color-destructive)',sp:'var(--color-purple)'};
+  var lNames={epl:'Premier League',sa:'Serie A',ll:'La Liga',br:'Brasileirão',sp:'Saudi Pro',ec:'EFL Cup',cl:'Champions League'};
+  var lColors={epl:'var(--color-accent)',sa:'var(--color-blue)',ll:'var(--color-gold)',br:'var(--color-destructive)',sp:'var(--color-purple)',ec:'#EC4899',cl:'#3B82F6'};
   Object.keys(leagues).forEach(function(k){var lg=leagues[k];if(lg.t===0)return;var pct=Math.round(lg.w/lg.t*100);lbEl.innerHTML+='<div class="league-row"><span class="lr-name">'+lNames[k]+'</span><div class="lr-bar"><div class="lr-fill" style="width:'+pct+'%;background:'+lColors[k]+'"></div></div><span class="lr-pct" style="color:'+lColors[k]+'">'+pct+'%</span></div>';});
   if(lbEl.innerHTML==='')lbEl.innerHTML='<div style="text-align:center;color:var(--text-muted);font-size:.75rem;padding:var(--space-sm)">Nenhum resultado registrado ainda</div>';
   // Performance chart (last 7 days)
