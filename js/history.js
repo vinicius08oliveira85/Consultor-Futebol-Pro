@@ -1,114 +1,68 @@
 ﻿// ========== MATCH HISTORY DATA ==========
-var pastMatchesData = [
-  {
-    date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000),
-    status: 'finished',
-    matches: [
-      { home: 'Flamengo', away: 'Palmeiras', homeScore: 2, awayScore: 1, league: 'Brasileirão', time: '21:00', bet: 'Flamengo vence', result: 'won', confidence: 72 }
-    ]
-  },
-  {
-    date: new Date(Date.now() - 5 * 24 * 60 * 1000),
-    status: 'finished',
-    matches: [
-      { home: 'Barcelona', away: 'Real Madrid', homeScore: 3, awayScore: 2, league: 'La Liga', time: '16:00', bet: 'Gol de Benzema', result: 'won', confidence: 65 },
-      { home: 'Liverpool', away: 'Chelsea', homeScore: 1, awayScore: 1, league: 'Premier League', time: '13:30', bet: 'Empate', result: 'lost', confidence: 45 }
-    ]
-  },
-  {
-    date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000),
-    status: 'in_progress',
-    matches: [
-      { home: 'Juventus', away: 'Inter Milan', homeScore: 1, awayScore: 0, league: 'Serie A', time: '20:45', bet: 'Juventus vence', result: 'pending', confidence: 58 }
-    ]
-  },
-  {
-    date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
-    status: 'scheduled',
-    matches: [
-      { home: 'Bayern Munich', away: 'Dortmund', homeScore: null, awayScore: null, league: 'Champions League', time: '21:00', bet: 'Mais de 2.5 gols', result: 'pending', confidence: 78 },
-      { home: 'Atletico Madrid', away: 'Sevilla', homeScore: null, awayScore: null, league: 'La Liga', time: '18:30', bet: 'BTTS Sim', result: 'pending', confidence: 62 }
-    ]
-  },
-  {
-    date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
-    status: 'scheduled',
-    matches: [
-      { home: 'Paris SG', away: 'Lyon', homeScore: null, awayScore: null, league: 'Ligue 1', time: '21:00', bet: 'Paris vence', result: 'pending', confidence: 70 }
-    ]
-  },
-  {
-    date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
-    status: 'scheduled',
-    matches: [
-      { home: 'Arsenal', away: 'Man City', homeScore: null, awayScore: null, league: 'Premier League', time: '17:30', bet: 'Under 2.5', result: 'pending', confidence: 55 }
-    ]
-  },
-  {
-    date: new Date(),
-    status: 'today',
-    matches: [
-      { home: 'Nottm Forest', away: 'Leeds', homeScore: null, awayScore: null, league: 'EFL Cup', time: '16:00', bet: 'Under 2.5', result: 'pending', confidence: 62 },
-      { home: 'Al Nassr', away: 'Al Ittifaq', homeScore: null, awayScore: null, league: 'Saudi Pro', time: '15:00', bet: 'Al Nassr vence', result: 'pending', confidence: 78 }
-    ]
-  }
-];
+var pastMatchesData = [];
+var futureMatchesData = [];
 
-var futureMatchesData = [
-  {
-    date: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
-    status: 'tomorrow',
-    matches: [
-      { home: 'AC Milan', away: 'Roma', homeScore: null, awayScore: null, league: 'Serie A', time: '20:45', bet: 'Milan vence', confidence: 65 },
-      { home: 'Atletico Madrid', away: 'Real Betis', homeScore: null, awayScore: null, league: 'La Liga', time: '18:30', bet: 'BTTS Yes', confidence: 58 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'Chelsea', away: 'Arsenal', homeScore: null, awayScore: null, league: 'Premier League', time: '17:30', bet: 'Draw or Chelsea', confidence: 55 },
-      { home: 'Inter Milan', away: 'Juventus', homeScore: null, awayScore: null, league: 'Serie A', time: '20:45', bet: 'Under 2.5', confidence: 60 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'Barcelona', away: 'Atletico Madrid', homeScore: null, awayScore: null, league: 'La Liga', time: '21:00', bet: 'BTTS Yes', confidence: 68 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'Man City', away: 'Liverpool', homeScore: null, awayScore: null, league: 'Premier League', time: '17:30', bet: 'Man City vence', confidence: 52 },
-      { home: 'Bayern', away: 'Dortmund', homeScore: null, awayScore: null, league: 'Bundesliga', time: '20:30', bet: 'Over 3.5', confidence: 65 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'Napoli', away: 'Milan', homeScore: null, awayScore: null, league: 'Serie A', time: '20:45', bet: 'Napoli or Draw', confidence: 60 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 6 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'PSG', away: 'Lyon', homeScore: null, awayScore: null, league: 'Ligue 1', time: '21:00', bet: 'PSG -1.5', confidence: 55 },
-      { home: 'Real Madrid', away: 'Sevilla', homeScore: null, awayScore: null, league: 'La Liga', time: '21:00', bet: 'Real Madrid -1', confidence: 62 }
-    ]
-  },
-  {
-    date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-    status: 'upcoming',
-    matches: [
-      { home: 'Arsenal', away: 'Chelsea', homeScore: null, awayScore: null, league: 'Premier League', time: '17:30', bet: 'BTTS Yes', confidence: 65 }
-    ]
-  }
-];
+function parseHistoryDate(iso) {
+  var p = iso.split('-');
+  return new Date(parseInt(p[0], 10), parseInt(p[1], 10) - 1, parseInt(p[2], 10));
+}
+
+function matchToHistoryEntry(m) {
+  return {
+    home: m.home,
+    away: m.away,
+    homeScore: null,
+    awayScore: null,
+    league: m.leagueLabel,
+    time: m.time,
+    bet: m.bet,
+    odd: String(m.odds),
+    result: 'pending',
+    confidence: m.confidence
+  };
+}
+
+function buildHistoryDays(rawDays) {
+  return rawDays.map(function (day) {
+    return {
+      date: parseHistoryDate(day.date),
+      status: day.status,
+      matches: day.matches.slice()
+    };
+  });
+}
+
+function syncTodayFromMatches(pastDays, matches) {
+  if (!matches || !matches.length) return;
+  var todayIdx = pastDays.length - 1;
+  if (todayIdx < 0) return;
+  pastDays[todayIdx].status = 'today';
+  pastDays[todayIdx].matches = matches.map(matchToHistoryEntry);
+}
+
+function loadHistoryData() {
+  return Promise.all([
+    fetch('data/history.json').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }),
+    fetch('data/matches.json').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+  ]).then(function (results) {
+    var history = results[0];
+    var matchesData = results[1];
+    pastMatchesData = buildHistoryDays(history.past);
+    futureMatchesData = buildHistoryDays(history.future);
+    syncTodayFromMatches(pastMatchesData, matchesData.matches);
+    initHistoricalData();
+  }).catch(function () {
+    pastMatchesData = [];
+    futureMatchesData = [];
+    initHistoricalData();
+  });
+}
 
 function formatDateShort(date) {
   var days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
@@ -144,7 +98,8 @@ function createHistMatchHTML(match, showScore) {
   } else {
     scoreHtml = '<div class="hist-match-score"><span class="hist-team-home">' + escapeHtml(match.home) + '</span><div class="hist-score-value">vs</div><span class="hist-team-away">' + escapeHtml(match.away) + '</span></div>';
   }
-  return '<div class="hist-match league-' + leagueClass + '"><div class="hist-match-header"><span class="hist-match-league">' + match.league + '</span><span class="hist-match-time">\u23f0 ' + match.time + '</span></div>' + scoreHtml + '<div class="hist-bet-info"><span class="hist-bet-label">Aposta: ' + escapeHtml(match.bet) + '</span><span class="hist-bet-result ' + statusClass + '">' + statusText + '</span></div></div>';
+  var oddText = match.odd ? ' @ ' + match.odd : '';
+  return '<div class="hist-match league-' + leagueClass + '"><div class="hist-match-header"><span class="hist-match-league">' + match.league + '</span><span class="hist-match-time">\u23f0 ' + match.time + '</span></div>' + scoreHtml + '<div class="hist-bet-info"><span class="hist-bet-label">Aposta: ' + escapeHtml(match.bet) + oddText + '</span><span class="hist-bet-result ' + statusClass + '">' + statusText + '</span></div></div>';
 }
 
 function populateHistoryTab(tabType) {
@@ -152,11 +107,11 @@ function populateHistoryTab(tabType) {
   var prefix = tabType === 'past' ? 'past' : 'future';
   for (var i = 1; i <= 7; i++) {
     var container = document.getElementById(prefix + '-matches-day' + i);
-    var dateEl = document.getElementById(prefix + '-date-' + i);
+    var dateEl = document.getElementById('hist-' + prefix + '-date-' + i);
     if (container) container.innerHTML = '';
-    if (dateEl) dateEl.textContent = formatDateShortFuture(data[i-1].date);
+    if (dateEl && data[i - 1]) dateEl.textContent = formatDateShortFuture(data[i - 1].date);
   }
-  data.forEach(function(dayData, index) {
+  data.forEach(function (dayData, index) {
     var container = document.getElementById(prefix + '-matches-day' + (index + 1));
     if (!container) return;
     if (dayData.matches.length === 0) {
@@ -164,7 +119,7 @@ function populateHistoryTab(tabType) {
       return;
     }
     var html = '';
-    dayData.matches.forEach(function(match) {
+    dayData.matches.forEach(function (match) {
       var showScore = dayData.status === 'finished' || dayData.status === 'in_progress';
       html += createHistMatchHTML(match, showScore);
     });
@@ -174,8 +129,9 @@ function populateHistoryTab(tabType) {
 
 function updateHistoryStats() {
   var totalGames = 0, wins = 0, totalProfit = 0;
-  pastMatchesData.forEach(function(day) {
-    day.matches.forEach(function(match) {
+  pastMatchesData.forEach(function (day) {
+    day.matches.forEach(function (match) {
+      if (match.result === 'pending') return;
       totalGames++;
       if (match.result === 'won') { wins++; totalProfit += (match.confidence / 100) * 50; }
       else if (match.result === 'lost') { totalProfit -= 50 * 0.5; }
@@ -200,9 +156,9 @@ function updateHistoryChart() {
   if (!barsContainer || !labelsContainer) return;
   barsContainer.innerHTML = '';
   labelsContainer.innerHTML = '';
-  pastMatchesData.forEach(function(day) {
+  pastMatchesData.forEach(function (day) {
     var wins = 0, losses = 0;
-    day.matches.forEach(function(m) {
+    day.matches.forEach(function (m) {
       if (m.result === 'won') wins++;
       else if (m.result === 'lost') losses++;
     });
@@ -215,23 +171,33 @@ function updateHistoryChart() {
     barContainer.style.display = 'flex';
     barContainer.style.flexDirection = 'column';
     barContainer.style.alignItems = 'stretch';
-    if (wins > 0) {
+    if (total === 0) {
+      barContainer.style.minHeight = '4px';
+      barsContainer.appendChild(barContainer);
+    } else if (wins > 0) {
       var winBar = document.createElement('div');
       winBar.className = 'hist-perf-bar won';
       winBar.style.height = ((wins / total) * maxHeight) + '%';
       winBar.style.position = 'relative';
       winBar.innerHTML = '<div class="tooltip">' + dayStr + ': ' + wins + 'W ' + losses + 'L</div>';
       barContainer.appendChild(winBar);
+      if (losses > 0) {
+        var lossBar = document.createElement('div');
+        lossBar.className = 'hist-perf-bar lost';
+        lossBar.style.height = ((losses / total) * maxHeight) + '%';
+        lossBar.style.position = 'relative';
+        barContainer.appendChild(lossBar);
+      }
+      barsContainer.appendChild(barContainer);
+    } else if (losses > 0) {
+      var lossOnly = document.createElement('div');
+      lossOnly.className = 'hist-perf-bar lost';
+      lossOnly.style.height = maxHeight + '%';
+      lossOnly.style.position = 'relative';
+      lossOnly.innerHTML = '<div class="tooltip">' + dayStr + ': ' + wins + 'W ' + losses + 'L</div>';
+      barContainer.appendChild(lossOnly);
+      barsContainer.appendChild(barContainer);
     }
-    if (losses > 0 && wins === 0) {
-      var lossBar = document.createElement('div');
-      lossBar.className = 'hist-perf-bar lost';
-      lossBar.style.height = ((losses / total) * maxHeight) + '%';
-      lossBar.style.position = 'relative';
-      lossBar.innerHTML = '<div class="tooltip">' + dayStr + ': ' + wins + 'W ' + losses + 'L</div>';
-      barContainer.appendChild(lossBar);
-    }
-    barsContainer.appendChild(barContainer);
     var label = document.createElement('span');
     label.textContent = dayStr;
     labelsContainer.appendChild(label);
@@ -260,20 +226,19 @@ function updateInsights(totalGames, wins, totalProfit) {
   if (insights.length === 0) {
     insights.push({ icon: '\ud83d\udcca', text: 'Comece a apostar para ver seus insights de desempenho aqui!' });
   }
-  insightsEl.innerHTML = insights.map(function(item) {
+  insightsEl.innerHTML = insights.map(function (item) {
     return '<div class="hist-insight-item"><span class="hist-insight-icon">' + item.icon + '</span><span class="hist-insight-text">' + item.text + '</span></div>';
   }).join('');
 }
 
-// ========== HISTORY TAB SWITCHER ==========
 window.switchHistTab = function switchHistTab(tabType) {
   var tabs = document.querySelectorAll('.hist-tab');
   var panels = document.querySelectorAll('.hist-panel');
-  tabs.forEach(function(tab) {
+  tabs.forEach(function (tab) {
     tab.classList.remove('hist-tab-active');
     tab.classList.remove('active');
   });
-  panels.forEach(function(panel) {
+  panels.forEach(function (panel) {
     panel.style.display = 'none';
     panel.classList.remove('hist-panel-active');
   });
@@ -284,20 +249,16 @@ window.switchHistTab = function switchHistTab(tabType) {
     targetPanel.style.display = 'block';
     targetPanel.classList.add('hist-panel-active');
   }
-}
+};
 
-// ========== INIT HISTORICAL DATA ==========
 function initHistoricalData() {
   populateHistoryTab('past');
   populateHistoryTab('future');
   updateHistoryStats();
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initHistoricalData, 200);
-  });
+  document.addEventListener('DOMContentLoaded', loadHistoryData);
 } else {
-  setTimeout(initHistoricalData, 200);
+  loadHistoryData();
 }

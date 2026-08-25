@@ -35,6 +35,7 @@ function renderMatchCard(m) {
     '<div class="mh"><span class="lb ' + m.league + '">' + escapeHtml(m.leagueLabel) + '</span><span class="mt">\uD83D\uDD50 ' + m.time + ' BRT</span><span class="countdown" data-kickoff="' + m.kickoff + '"></span></div>' +
     '<div class="mteams"><span class="th">' + escapeHtml(m.home) + '</span><div class="vs" aria-hidden="true">VS</div><span class="ta">' + escapeHtml(m.away) + '</span></div>' +
     '<div class="og" role="group" aria-label="Odds do jogo">' + oddsHtml + '</div>' +
+    '<div class="bet-pick" aria-label="Aposta sugerida"><span class="bet-pick-label">Aposta sugerida</span><span class="bet-pick-text">' + escapeHtml(m.bet) + '</span><span class="bet-pick-odd">@ ' + m.odds + '</span></div>' +
     '<div class="confidence-bar"><div class="confidence-fill ' + cls + '" style="width:' + m.confidence + '%"></div></div>' +
     '<div class="confidence-label"><span class="cl-text">Confian\u00e7a</span><span class="cl-value ' + cls + '">' + m.confidence + '%</span></div>' +
     '<div class="mc-actions">' +

@@ -188,6 +188,8 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') moda
 window.openMatchDetail = function (card) {
   var h = card.dataset.home || '';
   var a = card.dataset.away || '';
+  var teams = card.dataset.teams || '';
+  var extra = (window.APP_MATCHES && window.APP_MATCHES[teams]) || {};
   var l = card.querySelector('.lb').textContent;
   var time = card.querySelector('.mt').textContent;
   var conf = card.dataset.confidence;
@@ -201,9 +203,21 @@ window.openMatchDetail = function (card) {
   var ap = card.dataset.awayProb || '-';
   var analysis = card.querySelector('.ap');
   var analysisHtml = analysis ? analysis.innerHTML : '';
+  var metaHtml = '';
+  if (extra.venue) metaHtml += '<div class="modal-meta-row"><span class="modal-meta-label">Est\u00e1dio</span><span>' + escapeHtml(extra.venue) + '</span></div>';
+  if (extra.round) metaHtml += '<div class="modal-meta-row"><span class="modal-meta-label">Fase</span><span>' + escapeHtml(extra.round) + '</span></div>';
+  if (extra.aggregate) metaHtml += '<div class="modal-meta-row"><span class="modal-meta-label">Agregado</span><span>' + escapeHtml(extra.aggregate) + '</span></div>';
+  if (extra.form) {
+    metaHtml += '<div class="modal-meta-row"><span class="modal-meta-label">Forma</span><span>' + escapeHtml(extra.home) + ': ' + escapeHtml(extra.form.home) + ' \u2022 ' + escapeHtml(extra.away) + ': ' + escapeHtml(extra.form.away) + '</span></div>';
+  }
+  if (extra.keyStats && extra.keyStats.length) {
+    metaHtml += '<div class="modal-meta-stats"><div class="modal-meta-label" style="margin-bottom:4px">\uD83D\uDCCA Destaques</div><ul class="modal-stats-list">' +
+      extra.keyStats.map(function (s) { return '<li>' + escapeHtml(s) + '</li>'; }).join('') + '</ul></div>';
+  }
   modalBody.innerHTML =
     '<div class="modal-teams"><span class="home">' + escapeHtml(h) + '</span> vs <span class="away">' + escapeHtml(a) + '</span></div>' +
     '<div style="text-align:center;margin-bottom:var(--space-md)"><span class="lb ' + card.dataset.league + '">' + l + '</span> <span class="mt" style="margin-left:8px">' + time + '</span></div>' +
+    (metaHtml ? '<div class="modal-meta">' + metaHtml + '</div>' : '') +
     '<div class="modal-details">' +
     '<div class="modal-detail-item"><div class="mdi-label">Odd Casa</div><div class="mdi-value" style="color:var(--color-accent)">' + ho + '</div><div style="font-size:.6rem;color:var(--text-muted)">' + hp + '%</div></div>' +
     '<div class="modal-detail-item"><div class="mdi-label">Odd Empate</div><div class="mdi-value">' + doo + '</div><div style="font-size:.6rem;color:var(--text-muted)">' + dp + '%</div></div>' +
@@ -557,6 +571,8 @@ function animVis() {
 
 function initApp(data) {
   MATCH_DATA = data.meta.stats;
+  window.APP_MATCHES = {};
+  data.matches.forEach(function (m) { window.APP_MATCHES[m.teams] = m; });
   renderAll(data);
   bindFilterEvents();
   bindMatchEvents();
