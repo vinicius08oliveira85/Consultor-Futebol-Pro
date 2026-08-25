@@ -13,6 +13,26 @@ function renderFilters(leagues, total) {
   bar.innerHTML = html;
 }
 
+function renderTopPicks(m) {
+  if (!m.topPicks || !m.topPicks.length) return '';
+  var ranks = ['\uD83E\uDD47', '\uD83E\uDD48', '\uD83E\uDD49'];
+  var picksHtml = m.topPicks.map(function (p, i) {
+    var cls = confLevel(p.confidence);
+    var valueBadge = p.valueEdge >= 5 ? '<span class="tp-value">VALOR</span>' : '';
+    var title = escapeHtml(p.market + ' — ' + (p.rationale || p.label));
+    return '<button type="button" class="top-pick" data-bet-label="' + escapeHtml(p.label) + '" data-odd="' + p.odd + '" title="' + title + '">' +
+      '<span class="tp-rank">' + (ranks[i] || p.rank) + '</span>' +
+      '<span class="tp-body">' +
+      '<span class="tp-market">' + escapeHtml(p.market) + valueBadge + '</span>' +
+      '<span class="tp-label">' + escapeHtml(p.label) + '</span>' +
+      (p.rationale ? '<span class="tp-rationale">' + escapeHtml(p.rationale) + '</span>' : '') +
+      '</span>' +
+      '<span class="tp-meta"><span class="tp-odd">@ ' + p.odd + '</span><span class="tp-conf ' + cls + '">' + p.confidence + '%</span></span>' +
+      '</button>';
+  }).join('');
+  return '<div class="top-picks" aria-label="Top 3 apostas do jogo"><div class="top-picks-title">Top 3 mercados</div>' + picksHtml + '</div>';
+}
+
 function renderMatchCard(m) {
   var cls = confLevel(m.confidence);
   var extra = (m.imminent ? ' imminent' : '');
@@ -23,19 +43,28 @@ function renderMatchCard(m) {
   ];
   var oddsHtml = odds.map(function (o) {
     var best = m.bestOdd === o.key ? ' best' : '';
-    return '<div class="oi' + best + '" tabindex="0" role="button"><div class="ol">' + escapeHtml(o.label) + '</div><div class="ov">' + o.odd + '</div><div class="op">' + o.prob + '%</div></div>';
+    var betLabel = o.key === 'draw' ? 'Empate' : o.label + ' vence';
+    return '<div class="oi' + best + '" tabindex="0" role="button" data-market="' + o.key + '" data-bet-label="' + escapeHtml(betLabel) + '" data-odd="' + o.odd + '"><div class="ol">' + escapeHtml(o.label) + '</div><div class="ov">' + o.odd + '</div><div class="op">' + o.prob + '%</div></div>';
   }).join('');
   var analysisHtml = m.analysis.map(function (line) {
     if (line.indexOf('Recomendação:') === 0) return '<li><strong>Recomendação:</strong> ' + escapeHtml(line.replace('Recomendação: ', '')) + '</li>';
     return '<li>' + escapeHtml(line) + '</li>';
   }).join('');
   return '<article class="mc ' + m.league + extra + '" data-league="' + m.league + '" data-teams="' + escapeHtml(m.teams) + '" data-bet="' + escapeHtml(m.bet) + '" data-confidence="' + m.confidence + '" data-odds="' + m.odds + '" data-time="' + m.time + '" data-sort-priority="' + m.sortPriority + '" data-home="' + escapeHtml(m.home) + '" data-away="' + escapeHtml(m.away) + '" data-home-odd="' + m.homeOdd + '" data-draw-odd="' + m.drawOdd + '" data-away-odd="' + m.awayOdd + '" data-home-prob="' + m.homeProb + '" data-draw-prob="' + m.drawProb + '" data-away-prob="' + m.awayProb + '">' +
-    '<button class="save-btn" aria-label="Salvar aposta ' + escapeHtml(m.teams) + '" aria-pressed="false">\u2606</button>' +
+    '<button class="save-btn" aria-label="Salvar aposta ' + escapeHtml(m.teams) + '" aria-pressed="false" title="Salvar aposta">\u2606</button>' +
     '<button class="share-btn" aria-label="Compartilhar" data-teams="' + escapeHtml(m.teams) + '" data-bet="' + escapeHtml(m.bet) + '" data-odd="' + m.odds + '">\uD83D\uDCE4</button>' +
     '<div class="mh"><span class="lb ' + m.league + '">' + escapeHtml(m.leagueLabel) + '</span><span class="mt">\uD83D\uDD50 ' + m.time + ' BRT</span><span class="countdown" data-kickoff="' + m.kickoff + '"></span></div>' +
     '<div class="mteams"><span class="th">' + escapeHtml(m.home) + '</span><div class="vs" aria-hidden="true">VS</div><span class="ta">' + escapeHtml(m.away) + '</span></div>' +
     '<div class="og" role="group" aria-label="Odds do jogo">' + oddsHtml + '</div>' +
-    '<div class="bet-pick" aria-label="Aposta sugerida"><span class="bet-pick-label">Aposta sugerida</span><span class="bet-pick-text">' + escapeHtml(m.bet) + '</span><span class="bet-pick-odd">@ ' + m.odds + '</span></div>' +
+    renderTopPicks(m) +
+    '<div class="bet-editor" aria-label="Minha aposta">' +
+    '<div class="bet-editor-head"><span class="bet-pick-label">Minha aposta</span><button type="button" class="bet-use-suggested" aria-label="Usar aposta sugerida">\u21A9 Sugerida</button></div>' +
+    '<div class="bet-editor-row">' +
+    '<input type="text" class="bet-pick-input" value="' + escapeHtml(m.bet) + '" aria-label="Descri\u00e7\u00e3o da aposta">' +
+    '<label class="bet-odd-wrap"><span class="bet-odd-prefix">@</span><input type="number" class="bet-odd-input" step="0.01" min="1.01" value="' + m.odds + '" aria-label="Odd da aposta"></label>' +
+    '</div>' +
+    '<button type="button" class="bet-save-btn">\u2605 Salvar aposta</button>' +
+    '</div>' +
     '<div class="confidence-bar"><div class="confidence-fill ' + cls + '" style="width:' + m.confidence + '%"></div></div>' +
     '<div class="confidence-label"><span class="cl-text">Confian\u00e7a</span><span class="cl-value ' + cls + '">' + m.confidence + '%</span></div>' +
     '<div class="mc-actions">' +

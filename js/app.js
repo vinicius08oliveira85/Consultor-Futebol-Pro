@@ -185,6 +185,67 @@ document.getElementById('modal-close').addEventListener('click', function () { m
 modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('open'); });
 
+function renderTeamStatsBlock(extra) {
+  if (!extra.teamStats) return '';
+  var hs = extra.teamStats.home;
+  var as = extra.teamStats.away;
+  var hn = extra.homeShort || extra.home;
+  var an = extra.awayShort || extra.away;
+  function row(label, hv, av) {
+    return '<div class="mst-row"><span class="mst-label">' + label + '</span><span>' + hv + '</span><span>' + av + '</span></div>';
+  }
+  return '<div class="modal-stats-block"><div class="modal-section-title">Stats dos times</div><div class="modal-stats-table">' +
+    '<div class="mst-row mst-head"><span></span><span>' + escapeHtml(hn) + '</span><span>' + escapeHtml(an) + '</span></div>' +
+    row('Gols/jogo', hs.avgGoals, as.avgGoals) +
+    row('Sofridos/jogo', hs.avgConceded, as.avgConceded) +
+    row('BTTS %', hs.bttsPct + '%', as.bttsPct + '%') +
+    row('Over 2.5 %', hs.over25Pct + '%', as.over25Pct + '%') +
+    row('Cart\u00f5es/jogo', hs.avgCards, as.avgCards) +
+    row('Escanteios/jogo', hs.avgCorners, as.avgCorners) +
+    '</div></div>';
+}
+
+function renderH2hBlock(extra) {
+  if (!extra.h2hSummary && !(extra.h2h && extra.h2h.length)) return '';
+  var html = '<div class="modal-h2h"><div class="modal-section-title">H2H</div>';
+  if (extra.h2hSummary) {
+    var s = extra.h2hSummary;
+    html += '<div class="modal-h2h-summary">' +
+      '<span>' + s.total + ' jogos</span>' +
+      '<span>' + s.homeWins + 'V ' + s.draws + 'E ' + s.awayWins + 'D</span>' +
+      '<span>M\u00e9dia ' + s.avgGoals + ' gols</span>' +
+      '<span>BTTS ' + s.bttsPct + '%</span>' +
+      (s.notes ? '<span class="modal-h2h-note">' + escapeHtml(s.notes) + '</span>' : '') +
+      '</div>';
+  }
+  if (extra.h2h && extra.h2h.length) {
+    html += '<ul class="modal-h2h-list">' + extra.h2h.map(function (line) { return '<li>' + escapeHtml(line) + '</li>'; }).join('') + '</ul>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderContextBlock(extra) {
+  if (!extra.context) return '';
+  var c = extra.context;
+  var parts = [];
+  if (c.stakes) parts.push('<div class="modal-ctx-row"><strong>Press\u00e3o:</strong> ' + escapeHtml(c.stakes) + '</div>');
+  if (c.rotation) parts.push('<div class="modal-ctx-row"><strong>Rota\u00e7\u00e3o:</strong> ' + escapeHtml(c.rotation) + '</div>');
+  if (c.injuries && c.injuries.length) {
+    parts.push('<div class="modal-ctx-row"><strong>Contexto:</strong><ul class="modal-ctx-list">' +
+      c.injuries.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul></div>');
+  }
+  if (c.referee) parts.push('<div class="modal-ctx-row"><strong>\u00c1rbitro:</strong> ' + escapeHtml(c.referee) + '</div>');
+  if (!parts.length) return '';
+  return '<div class="modal-context"><div class="modal-section-title">Contexto</div>' + parts.join('') + '</div>';
+}
+
+function renderSourcesBlock(extra) {
+  if (!extra.sources || !extra.sources.length) return '';
+  return '<div class="modal-sources"><span class="modal-sources-label">Fontes:</span> ' +
+    extra.sources.map(function (s) { return '<span class="modal-source-tag">' + escapeHtml(s) + '</span>'; }).join(' ') + '</div>';
+}
+
 window.openMatchDetail = function (card) {
   var h = card.dataset.home || '';
   var a = card.dataset.away || '';
@@ -214,20 +275,54 @@ window.openMatchDetail = function (card) {
     metaHtml += '<div class="modal-meta-stats"><div class="modal-meta-label" style="margin-bottom:4px">\uD83D\uDCCA Destaques</div><ul class="modal-stats-list">' +
       extra.keyStats.map(function (s) { return '<li>' + escapeHtml(s) + '</li>'; }).join('') + '</ul></div>';
   }
+  var topPicksHtml = '';
+  if (extra.topPicks && extra.topPicks.length) {
+    var ranks = ['\uD83E\uDD47', '\uD83E\uDD48', '\uD83E\uDD49'];
+    topPicksHtml = '<div class="modal-recommend"><div class="modal-section-title">\uD83C\uDFC6 Top 3 mercados</div>' +
+      extra.topPicks.map(function (p, i) {
+        var valBadge = p.valueEdge >= 5 ? ' <span class="mm-value">VALOR +' + p.valueEdge + 'pp</span>' : '';
+        var rat = p.rationale ? '<div class="mm-rationale">' + escapeHtml(p.rationale) + '</div>' : '';
+        return '<div class="modal-pick-row">' +
+          '<div class="modal-market-row"><span>' + (ranks[i] || p.rank) + ' <strong>' + escapeHtml(p.market) + '</strong> \u2014 ' + escapeHtml(p.label) + valBadge + '</span><span class="mm-odd">@ ' + p.odd + '</span><span class="mm-conf">' + p.confidence + '%</span></div>' +
+          rat + '</div>';
+      }).join('') + '</div>';
+  }
+  var marketsHtml = '';
+  if (extra.markets) {
+    var mLabels = { resultado: 'Resultado', gols: 'Gols', cartoes: 'Cart\u00f5es', escanteios: 'Escanteios', especiais: 'Especiais', combo: 'Combo' };
+    marketsHtml = '<div class="modal-markets"><div class="modal-section-title">\uD83D\uDCCA Todos os mercados</div>';
+    Object.keys(extra.markets).forEach(function (key) {
+      var rows = extra.markets[key];
+      if (!rows || !rows.length) return;
+      marketsHtml += '<div class="modal-market-group"><div class="modal-market-name">' + (mLabels[key] || key) + '</div><div class="modal-market-rows">';
+      rows.forEach(function (r) {
+        var rat = r.rationale ? '<div class="mm-rationale">' + escapeHtml(r.rationale) + '</div>' : '';
+        marketsHtml += '<div class="modal-pick-row"><div class="modal-market-row"><span>' + escapeHtml(r.label) + '</span><span class="mm-odd">@ ' + r.odd + '</span><span class="mm-conf">' + r.confidence + '%</span></div>' + rat + '</div>';
+      });
+      marketsHtml += '</div></div>';
+    });
+    marketsHtml += '</div>';
+  }
   modalBody.innerHTML =
     '<div class="modal-teams"><span class="home">' + escapeHtml(h) + '</span> vs <span class="away">' + escapeHtml(a) + '</span></div>' +
-    '<div style="text-align:center;margin-bottom:var(--space-md)"><span class="lb ' + card.dataset.league + '">' + l + '</span> <span class="mt" style="margin-left:8px">' + time + '</span></div>' +
+    '<div class="modal-subhead"><span class="lb ' + card.dataset.league + '">' + l + '</span><span class="mt">' + time + '</span></div>' +
     (metaHtml ? '<div class="modal-meta">' + metaHtml + '</div>' : '') +
+    renderTeamStatsBlock(extra) +
+    renderH2hBlock(extra) +
+    renderContextBlock(extra) +
     '<div class="modal-details">' +
     '<div class="modal-detail-item"><div class="mdi-label">Odd Casa</div><div class="mdi-value" style="color:var(--color-accent)">' + ho + '</div><div style="font-size:.6rem;color:var(--text-muted)">' + hp + '%</div></div>' +
     '<div class="modal-detail-item"><div class="mdi-label">Odd Empate</div><div class="mdi-value">' + doo + '</div><div style="font-size:.6rem;color:var(--text-muted)">' + dp + '%</div></div>' +
     '<div class="modal-detail-item"><div class="mdi-label">Odd Fora</div><div class="mdi-value" style="color:var(--color-blue)">' + ao + '</div><div style="font-size:.6rem;color:var(--text-muted)">' + ap + '%</div></div>' +
     '<div class="modal-detail-item"><div class="mdi-label">Confian\u00e7a</div><div class="mdi-value" style="color:var(--color-gold)">' + conf + '%</div></div>' +
     '</div>' +
-    '<div style="background:var(--color-secondary);border-radius:var(--radius-sm);padding:var(--space-sm);margin:var(--space-md) 0">' +
-    '<div style="font-size:.65rem;font-weight:700;color:var(--color-orange);margin-bottom:4px">\uD83C\uDFAF RECOMENDA\u00c7\u00c3O</div>' +
-    '<div style="font-size:.8rem;font-weight:700;color:var(--color-foreground)">' + escapeHtml(bet) + ' (odd ' + odds + ')</div></div>' +
-    '<div style="margin-top:var(--space-md)"><div style="font-size:.65rem;font-weight:700;color:var(--color-orange);margin-bottom:4px">\uD83D\uDCCA AN\u00c1LISE T\u00c1TICA</div>' + analysisHtml + '</div>';
+    topPicksHtml +
+    '<div class="modal-recommend">' +
+    '<div class="modal-section-title">\uD83C\uDFAF Recomenda\u00e7\u00e3o</div>' +
+    '<div class="modal-recommend-text">' + escapeHtml(bet) + ' <span class="modal-recommend-odd">@ ' + odds + '</span></div></div>' +
+    marketsHtml +
+    (analysisHtml ? '<div class="modal-analysis"><div class="modal-section-title">\uD83D\uDCCB An\u00e1lise T\u00e1tica</div><ul class="modal-ap">' + analysisHtml + '</ul></div>' : '') +
+    renderSourcesBlock(extra);
   modal.classList.add('open');
 };
 
@@ -359,6 +454,121 @@ function updateComparator() {
 
 function getSaved() { try { return JSON.parse(localStorage.getItem('savedBets') || '[]'); } catch (e) { return []; } }
 function saveSaved(a) { localStorage.setItem('savedBets', JSON.stringify(a)); }
+
+function getCardEditorValues(card) {
+  var oddInput = card.querySelector('.bet-odd-input');
+  var betInput = card.querySelector('.bet-pick-input');
+  var bet = betInput ? betInput.value.trim() : (card.dataset.bet || '');
+  var odd = oddInput ? parseFloat(oddInput.value) : parseFloat(card.dataset.odds);
+  return { bet: bet, odd: odd };
+}
+
+function updateCardFromEditor(card) {
+  var vals = getCardEditorValues(card);
+  if (vals.bet) card.dataset.bet = vals.bet;
+  if (vals.odd && !isNaN(vals.odd)) card.dataset.odds = vals.odd;
+  var share = card.querySelector('.share-btn');
+  if (share) {
+    share.dataset.bet = vals.bet;
+    share.dataset.odd = vals.odd;
+  }
+  var multi = card.querySelector('.add-to-multi');
+  if (multi) {
+    multi.dataset.bet = vals.bet;
+    multi.dataset.odd = vals.odd;
+  }
+}
+
+function selectCardMarket(card, oi) {
+  card.querySelectorAll('.oi').forEach(function (el) { el.classList.remove('selected'); });
+  oi.classList.add('selected');
+  var betInput = card.querySelector('.bet-pick-input');
+  var oddInput = card.querySelector('.bet-odd-input');
+  if (betInput) betInput.value = oi.dataset.betLabel;
+  if (oddInput) oddInput.value = oi.dataset.odd;
+  card.dataset.selectedMarket = oi.dataset.market;
+  updateCardFromEditor(card);
+}
+
+function selectCardPick(card, pickEl) {
+  card.querySelectorAll('.top-pick').forEach(function (el) { el.classList.remove('selected'); });
+  card.querySelectorAll('.oi').forEach(function (el) { el.classList.remove('selected'); });
+  pickEl.classList.add('selected');
+  var betInput = card.querySelector('.bet-pick-input');
+  var oddInput = card.querySelector('.bet-odd-input');
+  if (betInput) betInput.value = pickEl.dataset.betLabel;
+  if (oddInput) oddInput.value = pickEl.dataset.odd;
+  card.dataset.selectedMarket = 'top-pick';
+  updateCardFromEditor(card);
+}
+
+function useSuggestedBet(card) {
+  var m = window.APP_MATCHES && window.APP_MATCHES[card.dataset.teams];
+  if (!m) return;
+  card.querySelectorAll('.oi, .top-pick').forEach(function (el) { el.classList.remove('selected'); });
+  var betInput = card.querySelector('.bet-pick-input');
+  var oddInput = card.querySelector('.bet-odd-input');
+  if (m.topPicks && m.topPicks.length) {
+    if (betInput) betInput.value = m.topPicks[0].label;
+    if (oddInput) oddInput.value = m.topPicks[0].odd;
+    var firstPick = card.querySelector('.top-pick');
+    if (firstPick) firstPick.classList.add('selected');
+  } else {
+    if (betInput) betInput.value = m.bet;
+    if (oddInput) oddInput.value = m.odds;
+  }
+  card.dataset.selectedMarket = 'suggested';
+  updateCardFromEditor(card);
+}
+
+function saveCardBet(card, source) {
+  var t = card.dataset.teams;
+  var vals = getCardEditorValues(card);
+  if (!vals.bet) { showToast('Selecione uma aposta', 'warn'); return; }
+  if (!vals.odd || vals.odd <= 1 || isNaN(vals.odd)) { showToast('Odd inv\u00e1lida (m\u00edn. 1.01)', 'warn'); return; }
+  updateCardFromEditor(card);
+  var s = getSaved();
+  var i = s.findIndex(function (x) { return x.teams === t; });
+  if (i >= 0) {
+    s[i] = { teams: t, bet: vals.bet, odd: vals.odd, date: formatDatePTBR() };
+    showToast('\u2605 ' + t + ' atualizada!', 'success');
+  } else {
+    s.push({ teams: t, bet: vals.bet, odd: vals.odd, date: formatDatePTBR() });
+    showToast('\u2605 ' + t + ' salva!', 'success');
+  }
+  saveSaved(s);
+  syncStars();
+  updateSavedPanel();
+}
+
+function removeCardBet(card) {
+  var t = card.dataset.teams;
+  var s = getSaved();
+  var i = s.findIndex(function (x) { return x.teams === t; });
+  if (i < 0) return;
+  s.splice(i, 1);
+  saveSaved(s);
+  syncStars();
+  updateSavedPanel();
+  showToast('\u2715 ' + t + ' removida', 'warn');
+}
+
+function restoreCardEditor(card) {
+  var saved = getSaved().find(function (x) { return x.teams === card.dataset.teams; });
+  if (!saved) return;
+  var betInput = card.querySelector('.bet-pick-input');
+  var oddInput = card.querySelector('.bet-odd-input');
+  if (betInput) betInput.value = saved.bet;
+  if (oddInput) oddInput.value = saved.odd || card.dataset.odds;
+  updateCardFromEditor(card);
+}
+
+function initCardEditors() {
+  document.querySelectorAll('.mc').forEach(function (card) {
+    restoreCardEditor(card);
+  });
+}
+
 function updateSavedPanel() {
   var l = document.getElementById('saved-list');
   var s = getSaved();
@@ -370,7 +580,7 @@ function updateSavedPanel() {
     d.className = 'saved-item';
     var r = betResults[b.teams];
     var badge = r && r !== 'pending' ? '<span class="bet-result-badge ' + r + '">' + (r === 'won' ? 'GANHOU' : 'PERDEU') + '</span>' : '';
-    d.innerHTML = '<div class="si-info"><div class="si-teams">' + escapeHtml(b.teams) + badge + '</div><div class="si-bet">' + escapeHtml(b.bet) + '</div></div><button class="remove-btn" data-idx="' + i + '" aria-label="Remover">\u2715</button>';
+    d.innerHTML = '<div class="si-info"><div class="si-teams">' + escapeHtml(b.teams) + badge + '</div><div class="si-bet">' + escapeHtml(b.bet) + (b.odd ? ' @ ' + b.odd : '') + '</div></div><button class="remove-btn" data-idx="' + i + '" aria-label="Remover">\u2715</button>';
     l.appendChild(d);
   });
   l.querySelectorAll('.remove-btn').forEach(function (b) {
@@ -390,11 +600,17 @@ function syncStars() {
   var s = getSaved();
   document.querySelectorAll('.mc').forEach(function (c) {
     var b = c.querySelector('.save-btn');
-    if (!b) return;
+    var saveBtn = c.querySelector('.bet-save-btn');
     var is = s.some(function (x) { return x.teams === c.dataset.teams; });
-    b.textContent = is ? '\u2605' : '\u2606';
-    b.classList.toggle('saved', is);
-    b.setAttribute('aria-pressed', is);
+    if (b) {
+      b.textContent = is ? '\u2605' : '\u2606';
+      b.classList.toggle('saved', is);
+      b.setAttribute('aria-pressed', is);
+    }
+    if (saveBtn) {
+      saveBtn.textContent = is ? '\u2605 Aposta salva' : '\u2605 Salvar aposta';
+      saveBtn.classList.toggle('saved', is);
+    }
   });
 }
 
@@ -439,10 +655,14 @@ function updateMyBetsSummary() {
   }
   var totalOdd = 0, count = 0;
   s.forEach(function (b) {
-    var card = document.querySelector('.mc[data-teams="' + b.teams + '"]');
-    if (card) {
-      var odds = parseFloat(card.dataset.odds);
-      if (odds) { totalOdd += odds; count++; }
+    var odd = parseFloat(b.odd);
+    if (odd && !isNaN(odd)) { totalOdd += odd; count++; }
+    else {
+      var card = document.querySelector('.mc[data-teams="' + b.teams + '"]');
+      if (card) {
+        odd = parseFloat(card.dataset.odds);
+        if (odd) { totalOdd += odd; count++; }
+      }
     }
   });
   document.getElementById('mb-avg-odd').textContent = count > 0 ? (totalOdd / count).toFixed(2) : '-';
@@ -481,6 +701,7 @@ if (_if) _if.addEventListener('change', function (e) {
       });
       saveSaved(ex);
       syncStars();
+      initCardEditors();
       updateSavedPanel();
       showToast('\uD83D\uDCE5 ' + added + ' importada' + (added !== 1 ? 's' : ''), 'info');
     } catch (err) { showToast('Erro ao importar', 'warn'); }
@@ -502,60 +723,93 @@ function bindMatchEvents() {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
     });
   });
-  document.querySelectorAll('.share-btn').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var text = '\u26BD Consultor Futebol Pro\n\n' + this.dataset.teams + '\nAposta: ' + this.dataset.bet + '\nOdd: ' + this.dataset.odd;
-      if (navigator.share) navigator.share({ title: 'Consultor Futebol Pro', text: text }).catch(function () {});
-      else if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { showToast('\uD83D\uDCCB Copiado!', 'info'); });
+
+  var container = document.getElementById('matches-container');
+  if (container && !container.dataset.eventsBound) {
+    container.dataset.eventsBound = '1';
+    container.addEventListener('click', function (e) {
+      var oi = e.target.closest('.oi');
+      if (oi && container.contains(oi)) {
+        e.preventDefault();
+        var card = oi.closest('.mc');
+        card.querySelectorAll('.top-pick').forEach(function (el) { el.classList.remove('selected'); });
+        selectCardMarket(card, oi);
+        showToast('\uD83C\uDFAF ' + oi.dataset.betLabel + ' @ ' + oi.dataset.odd, 'info');
+        return;
+      }
+      var topPick = e.target.closest('.top-pick');
+      if (topPick && container.contains(topPick)) {
+        e.preventDefault();
+        var pickCard = topPick.closest('.mc');
+        selectCardPick(pickCard, topPick);
+        showToast('\uD83C\uDFC6 ' + topPick.dataset.betLabel + ' @ ' + topPick.dataset.odd, 'info');
+        return;
+      }
+      var saveBtn = e.target.closest('.bet-save-btn');
+      if (saveBtn) {
+        e.preventDefault();
+        saveCardBet(saveBtn.closest('.mc'));
+        return;
+      }
+      var star = e.target.closest('.save-btn');
+      if (star) {
+        e.preventDefault();
+        saveCardBet(star.closest('.mc'));
+        return;
+      }
+      var suggestedBtn = e.target.closest('.bet-use-suggested');
+      if (suggestedBtn) {
+        e.preventDefault();
+        useSuggestedBet(suggestedBtn.closest('.mc'));
+        showToast('\u21A9 Aposta sugerida aplicada', 'info');
+        return;
+      }
+      var multiBtn = e.target.closest('.add-to-multi');
+      if (multiBtn) {
+        e.preventDefault();
+        var c = multiBtn.closest('.mc');
+        var vals = getCardEditorValues(c);
+        var t = multiBtn.dataset.teams;
+        if (multiSelections.some(function (x) { return x.teams === t; })) { showToast('J\u00e1 na m\u00faltipla', 'warn'); return; }
+        if (!vals.odd || vals.odd <= 1) { showToast('Odd inv\u00e1lida', 'warn'); return; }
+        multiSelections.push({ teams: t, odd: vals.odd, bet: vals.bet });
+        updateMultiBet();
+        showToast('\uD83C\uDFB0 ' + t + ' adicionada!', 'success');
+        return;
+      }
+      var shareBtn = e.target.closest('.share-btn');
+      if (shareBtn) {
+        e.stopPropagation();
+        var sc = shareBtn.closest('.mc');
+        var sv = getCardEditorValues(sc);
+        var text = '\u26BD Consultor Futebol Pro\n\n' + shareBtn.dataset.teams + '\nAposta: ' + sv.bet + '\nOdd: ' + sv.odd;
+        if (navigator.share) navigator.share({ title: 'Consultor Futebol Pro', text: text }).catch(function () {});
+        else if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { showToast('\uD83D\uDCCB Copiado!', 'info'); });
+      }
     });
-  });
-  document.querySelectorAll('.save-btn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var c = this.closest('.mc');
-      var t = c.dataset.teams;
-      var bt = c.dataset.bet;
-      var s = getSaved();
-      var i = s.findIndex(function (x) { return x.teams === t; });
-      if (i >= 0) { s.splice(i, 1); showToast('\u2715 ' + t + ' removida', 'warn'); }
-      else { s.push({ teams: t, bet: bt, date: formatDatePTBR() }); showToast('\u2605 ' + t + ' salva!', 'success'); }
-      saveSaved(s);
-      syncStars();
-      updateSavedPanel();
+    container.addEventListener('keydown', function (e) {
+      var topPick = e.target.closest('.top-pick');
+      if (topPick && (e.key === 'Enter' || e.key === ' ') && container.contains(topPick)) {
+        e.preventDefault();
+        selectCardPick(topPick.closest('.mc'), topPick);
+        showToast('\uD83C\uDFC6 ' + topPick.dataset.betLabel + ' @ ' + topPick.dataset.odd, 'info');
+        return;
+      }
+      var oi = e.target.closest('.oi');
+      if (oi && (e.key === 'Enter' || e.key === ' ') && container.contains(oi)) {
+        e.preventDefault();
+        var card = oi.closest('.mc');
+        card.querySelectorAll('.top-pick').forEach(function (el) { el.classList.remove('selected'); });
+        selectCardMarket(card, oi);
+        showToast('\uD83C\uDFAF ' + oi.dataset.betLabel + ' @ ' + oi.dataset.odd, 'info');
+      }
     });
-  });
-  document.querySelectorAll('.add-to-multi').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var t = this.dataset.teams;
-      var o = parseFloat(this.dataset.odd);
-      var bt = this.dataset.bet;
-      if (multiSelections.some(function (x) { return x.teams === t; })) { showToast('J\u00e1 na m\u00faltipla', 'warn'); return; }
-      multiSelections.push({ teams: t, odd: o, bet: bt });
-      updateMultiBet();
-      showToast('\uD83C\uDFB0 ' + t + ' adicionada!', 'success');
+    container.addEventListener('input', function (e) {
+      if (e.target.matches('.bet-odd-input, .bet-pick-input')) {
+        updateCardFromEditor(e.target.closest('.mc'));
+      }
     });
-  });
-  document.querySelectorAll('.oi').forEach(function (oi) {
-    function send() {
-      var ov = oi.querySelector('.ov');
-      if (!ov) return;
-      var odd = parseFloat(ov.textContent);
-      if (!odd || odd <= 1) return;
-      switchTab(document.querySelector('[data-tab="calc"]'));
-      var os = document.getElementById('calc-odds');
-      os.value = 'custom';
-      document.getElementById('custom-odds-group').style.display = '';
-      var ci = document.getElementById('calc-custom-odd');
-      ci.value = odd;
-      ci.focus();
-      if (document.getElementById('calc-amount').value && window.calculate) calculate();
-      showToast('\uD83C\uDFF3\uFE0F Odd ' + odd.toFixed(2), 'info');
-    }
-    oi.addEventListener('click', send);
-    oi.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); send(); }
-    });
-  });
+  }
 }
 
 function animVis() {
@@ -576,6 +830,7 @@ function initApp(data) {
   renderAll(data);
   bindFilterEvents();
   bindMatchEvents();
+  initCardEditors();
   updateStats();
   updateLeagueCounts();
   initComparatorSelects();
