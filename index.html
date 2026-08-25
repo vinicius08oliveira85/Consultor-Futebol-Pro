@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Consultor Futebol Pro - Apostas Inteligentes</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 :root{--bg:#0a0e17;--bg2:#111827;--bg3:#1a2236;--bg4:#1f2a42;--green:#00e676;--blue:#448aff;--orange:#ff9100;--red:#ff5252;--purple:#b388ff;--gold:#ffd740;--t1:#e8eaf6;--t2:#90a4ae;--t3:#546e7a;--border:#263238}
@@ -11,367 +12,666 @@
 body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
 body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 50%,rgba(68,138,255,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,230,118,.06) 0%,transparent 50%);z-index:0;pointer-events:none}
 .ctn{max-width:1200px;margin:0 auto;padding:16px;position:relative;z-index:1}
-.hdr{text-align:center;padding:24px 16px 16px}
-.hdr h1{font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,#00e676,#448aff,#b388ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px;letter-spacing:-1px}
-.hdr .sub{color:var(--t2);font-size:.85rem;font-weight:300}
-.hdr .dbadge{display:inline-block;margin-top:10px;padding:5px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:.75rem;color:var(--blue);font-weight:600}
-.sbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
-.sc{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center}
-.sc:hover{border-color:var(--blue)}
-.sv{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#00e676,#00c853);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sl{font-size:.65rem;color:var(--t2);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
-.tabs{display:flex;gap:6px;margin:16px 0 12px;flex-wrap:wrap}
-.tbtn{padding:8px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--t2);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .3s ease;font-family:"Inter",sans-serif}
+
+/* Header */
+.hdr{text-align:center;padding:20px 16px 12px}
+.hdr h1{font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,#00e676,#448aff,#b388ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr .sub{color:var(--t2);font-size:.8rem;margin-top:4px}
+.hdr .dbadge{display:inline-block;margin-top:8px;padding:4px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:.7rem;color:var(--blue);font-weight:600}
+
+/* Stats bar */
+.sbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.sc{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center}
+.sv{font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,#00e676,#00c853);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{font-size:.6rem;color:var(--t2);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin:14px 0 10px;flex-wrap:wrap}
+.tbtn{padding:7px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--t2);font-size:.75rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif}
 .tbtn:hover{background:var(--bg4);color:var(--t1)}
-.tbtn.act{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 4px 15px rgba(68,138,255,.4)}
-.tc{display:none}.tc.act{display:block;animation:fi .4s ease}
-@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.mc{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px;transition:all .3s ease;position:relative;overflow:hidden}
+.tbtn.act{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tc{display:none}.tc.act{display:block}
+
+/* Filter bar */
+.filter-bar{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}
+.filter-btn{padding:5px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;color:var(--t2);font-size:.68rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:"Inter",sans-serif}
+.filter-btn:hover{border-color:var(--blue);color:var(--t1)}
+.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* Match cards */
+.mc{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;position:relative;overflow:hidden}
 .mc::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
 .mc.epl::before{background:linear-gradient(135deg,#00e676,#00c853)}
 .mc.sa::before{background:linear-gradient(135deg,#448aff,#2962ff)}
 .mc.ll::before{background:linear-gradient(135deg,#ffd740,#ffc107)}
 .mc.br::before{background:linear-gradient(135deg,#ff5252,#d50000)}
-.mc:hover{border-color:rgba(68,138,255,.3);box-shadow:0 4px 24px rgba(0,0,0,.4)}
-.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px}
-.ml{display:flex;align-items:center;gap:8px}
-.lb{padding:3px 10px;border-radius:6px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.lb.epl{background:rgba(0,230,118,.15);color:var(--green)}
-.lb.sa{background:rgba(68,138,255,.15);color:var(--blue)}
-.lb.ll{background:rgba(255,209,64,.15);color:var(--gold)}
-.lb.br{background:rgba(255,82,82,.15);color:var(--red)}
-.lb.sp{background:rgba(179,136,255,.15);color:var(--purple)}
-.mt{color:var(--t3);font-size:.75rem;font-weight:500}
-.mteams{display:flex;justify-content:center;align-items:center;gap:16px;margin:12px 0;font-size:1.1rem;font-weight:700}
+.mc.sp::before{background:linear-gradient(135deg,#b388ff,#7c4dff)}
+.mc.hid{display:none}
+
+/* Save button */
+.save-btn{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;font-size:.9rem;z-index:10;color:var(--t3)}
+.save-btn:hover{border-color:var(--gold);transform:scale(1.1)}
+.save-btn.saved{background:rgba(255,215,64,.15);border-color:var(--gold);color:var(--gold)}
+
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px}
+.lb{padding:2px 8px;border-radius:6px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.lb.epl{background:rgba(0,230,118,.15);color:var(--green)}.lb.sa{background:rgba(68,138,255,.15);color:var(--blue)}.lb.ll{background:rgba(255,209,64,.15);color:var(--gold)}.lb.br{background:rgba(255,82,82,.15);color:var(--red)}.lb.sp{background:rgba(179,136,255,.15);color:var(--purple)}
+.mt{color:var(--t3);font-size:.7rem}
+
+/* Teams */
+.mteams{display:flex;justify-content:center;align-items:center;gap:12px;margin:10px 0;font-size:1rem;font-weight:700}
 .th{color:var(--green);text-align:right;flex:1}.ta{color:var(--blue);text-align:left;flex:1}
-.vs{width:38px;height:38px;border-radius:50%;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--t3);flex-shrink:0}
-.og{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.oi{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center;transition:all .3s ease;cursor:pointer}
+.vs{width:34px;height:34px;border-radius:50%;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--t3);flex-shrink:0}
+
+/* Odds grid */
+.og{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.oi{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;transition:all .3s;cursor:pointer}
 .oi:hover{border-color:var(--green);transform:scale(1.02)}
 .oi.best{border-color:var(--green);background:rgba(0,230,118,.08)}
-.ol{font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.ov{font-size:1.15rem;font-weight:800;color:var(--green)}
-.op{font-size:.65rem;color:var(--t2);margin-top:2px}
-.as{margin-top:10px}
-.at{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--orange);margin-bottom:6px}
-.ap{list-style:none;padding:0}
-.ap li{padding:4px 0 4px 16px;position:relative;color:var(--t2);font-size:.78rem;line-height:1.4}
-.ap li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--orange);border-radius:50%}
-.ctbl{width:100%;border-collapse:separate;border-spacing:0 6px}
-.ctbl th{text-align:left;padding:8px 10px;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);font-weight:700}
-.ctbl td{padding:8px 10px;background:var(--bg2);font-size:.78rem}
-.ctbl tr td:first-child{border-radius:10px 0 0 10px}
-.ctbl tr td:last-child{border-radius:0 10px 10px 0}
-.co{font-weight:700;color:var(--gold)}.cp{font-weight:700;color:var(--green)}
-.cb{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:700}
-.cb.h{background:rgba(0,230,118,.15);color:var(--green)}
-.cb.m{background:rgba(255,145,0,.15);color:var(--orange)}
-.cb.l{background:rgba(255,82,82,.15);color:var(--red)}
-.t3g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-.t3c{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all .3s ease}
-.t3c:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
-.t3c.g{border-color:rgba(255,215,64,.4)}.t3c.s{border-color:rgba(144,164,174,.4)}.t3c.b{border-color:rgba(255,145,0,.4)}
-.rk{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;margin:0 auto 10px;background:var(--bg2);border:2px solid var(--border)}
-.t3c h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
-.pk{font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:8px}
-.od{font-size:1.3rem;font-weight:800;color:var(--gold)}
-.pd{font-size:.75rem;color:var(--t2);margin-top:2px}
-.jst{font-size:.7rem;color:var(--t3);margin-top:8px;line-height:1.3}
-.htbl{width:100%;border-collapse:separate;border-spacing:0 6px}
-.htbl th{text-align:left;padding:8px 10px;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);font-weight:700;background:var(--bg2)}
-.htbl th:first-child{border-radius:10px 0 0 10px}
-.htbl th:last-child{border-radius:0 10px 10px 0}
-.htbl td{padding:8px 10px;background:var(--bg3);font-size:.78rem}
-.htbl tr td:first-child{border-radius:10px 0 0 10px}
-.htbl tr td:last-child{border-radius:0 10px 10px 0}
-.sw{background:rgba(0,230,118,.15);color:var(--green);padding:3px 8px;border-radius:4px;font-weight:700;font-size:.7rem}
-.sp{background:rgba(255,209,64,.15);color:var(--gold);padding:3px 8px;border-radius:4px;font-weight:700;font-size:.7rem}
-.disc{background:rgba(255,82,82,.08);border:1px solid rgba(255,82,82,.2);border-radius:10px;padding:12px 16px;margin:24px 0 12px;text-align:center;color:var(--t2);font-size:.75rem;line-height:1.5}
-.disc strong{color:var(--red)}
-.ft{text-align:center;padding:20px;color:var(--t3);font-size:.7rem}
-.finished{opacity:.7}
-@keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.mc{animation:slideIn .5s ease forwards}
-@media(max-width:900px){.hdr h1{font-size:1.5rem}.sbar{grid-template-columns:repeat(2,1fr)}.t3g{grid-template-columns:1fr}.og{grid-template-columns:repeat(2,1fr)}.mteams{font-size:.95rem;gap:10px}}
-@media(max-width:600px){.ctn{padding:8px}.hdr{padding:16px 8px 10px}.hdr h1{font-size:1.3rem}.hdr .sub{font-size:.75rem}.sbar{grid-template-columns:1fr 1fr;gap:6px}.sc{padding:8px}.sc .sv{font-size:1.1rem}.sc .sl{font-size:.55rem}.mc{padding:10px}.mteams{font-size:.85rem;gap:8px}.vs{width:30px;height:30px;font-size:.6rem}.og{grid-template-columns:repeat(2,1fr);gap:6px}.oi{padding:8px 4px}.ov{font-size:.95rem}.mh{flex-direction:column;align-items:flex-start;gap:4px}.tabs{gap:4px}.tbtn{padding:6px 10px;font-size:.7rem}.t3g{gap:8px;margin:16px 0}.t3c{padding:12px}.rk{width:32px;height:32px;font-size:.9rem}.t3c h3{font-size:.8rem}.pk{font-size:.7rem}.od{font-size:1.1rem}.jst{font-size:.65rem}.ctbl{font-size:.7rem}.ctbl th,.ctbl td{padding:6px 8px;font-size:.7rem}.disc{margin:16px 0 8px;padding:10px 12px;font-size:.7rem}.ft{padding:12px;font-size:.6rem}}
+.ol{font-size:.55rem;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.ov{font-size:1.05rem;font-weight:800;color:var(--green)}
+.op{font-size:.6rem;color:var(--t2);margin-top:2px}
 
-.calc-section{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;margin:20px 0}
-.calc-title{font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:12px}
-.calc-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.calc-input{flex:1;min-width:120px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--t1);font-size:.9rem;font-family:Inter,sans-serif}
-.calc-input:focus{outline:none;border-color:var(--green)}
-.calc-result{background:var(--bg2);border:1px solid var(--green);border-radius:8px;padding:10px 14px;text-align:center;min-width:100px}
-.calc-result .label{font-size:.65rem;color:var(--t3);text-transform:uppercase}
-.calc-result .value{font-size:1.1rem;font-weight:800;color:var(--green)}
-.filter-bar{display:flex;gap:6px;margin:12px 0;flex-wrap:wrap}
-.filter-btn{padding:6px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;color:var(--t2);font-size:.7rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:Inter,sans-serif}
-.filter-btn:hover{border-color:var(--blue);color:var(--t1)}
-.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.save-btn{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;font-size:1rem;z-index:10}
-.save-btn:hover{border-color:var(--gold);transform:scale(1.1)}
-.save-btn.saved{background:rgba(255,215,64,.15);border-color:var(--gold)}
-.saved-panel{background:var(--bg3);border:1px solid var(--gold);border-radius:14px;padding:16px;margin:16px 0}
-.saved-title{font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:10px}
-.saved-empty{color:var(--t3);font-size:.8rem;text-align:center;padding:10px}
-.saved-item{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg2);border-radius:8px;margin-bottom:6px;font-size:.78rem}
-.saved-item .match{color:var(--t1);font-weight:600}
-.saved-item .pick{color:var(--green)}
-.saved-item .remove{color:var(--red);cursor:pointer;padding:4px}
-@media(hover:none){.oi:active{transform:scale(.97);background:rgba(0,230,118,.15)}}
-@media(max-width:600px){.calc-row{flex-direction:column}.calc-input{width:100%}.filter-btn{padding:8px 16px;font-size:.75rem}}
+/* Analysis */
+.as{margin-top:8px}.at{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--orange);margin-bottom:4px}
+.ap{list-style:none;padding:0}.ap li{padding:3px 0 3px 14px;position:relative;color:var(--t2);font-size:.72rem;line-height:1.3}
+.ap li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--orange);border-radius:50%}
+
+/* Result badge */
+.res{display:inline-block;padding:4px 12px;border-radius:8px;font-size:.75rem;font-weight:700;margin-top:8px}
+.res.win{background:rgba(0,230,118,.15);color:var(--green)}
+
+/* Combinations table */
+.ctbl{width:100%;border-collapse:separate;border-spacing:0 4px}
+.ctbl th{text-align:left;padding:6px 8px;font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);font-weight:700}
+.ctbl td{padding:6px 8px;background:var(--bg2);font-size:.72rem}
+.ctbl tr td:first-child{border-radius:8px 0 0 8px}.ctbl tr td:last-child{border-radius:0 8px 8px 0}
+.co{font-weight:700;color:var(--gold)}.cp{font-weight:700;color:var(--green)}
+.cb{display:inline-block;padding:2px 6px;border-radius:4px;font-size:.6rem;font-weight:700}
+.cb.h{background:rgba(0,230,118,.15);color:var(--green)}.cb.m{background:rgba(255,145,0,.15);color:var(--orange)}.cb.l{background:rgba(255,82,82,.15);color:var(--red)}
+
+/* Top 3 cards */
+.t3g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.t3c{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
+.t3c.g{border-color:rgba(255,215,64,.4)}.t3c.s{border-color:rgba(144,164,174,.4)}.t3c.b{border-color:rgba(255,145,0,.4)}
+.rk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;margin:0 auto 8px;background:var(--bg2);border:2px solid var(--border)}
+.t3c h3{font-size:.85rem;font-weight:700;margin-bottom:4px}
+.pk{font-size:.75rem;color:var(--green);font-weight:600;margin-bottom:6px}
+.od{font-size:1.2rem;font-weight:800;color:var(--gold)}
+.pd{font-size:.7rem;color:var(--t2);margin-top:2px}
+.jst{font-size:.65rem;color:var(--t3);margin-top:6px;line-height:1.3}
+
+/* History table */
+.htbl{width:100%;border-collapse:separate;border-spacing:0 4px}
+.htbl th{text-align:left;padding:6px 8px;font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);font-weight:700;background:var(--bg2)}
+.htbl th:first-child{border-radius:8px 0 0 8px}.htbl th:last-child{border-radius:0 8px 8px 0}
+.htbl td{padding:6px 8px;background:var(--bg3);font-size:.72rem}
+.htbl tr td:first-child{border-radius:8px 0 0 8px}.htbl tr td:last-child{border-radius:0 8px 8px 0}
+.sw{background:rgba(0,230,118,.15);color:var(--green);padding:2px 6px;border-radius:4px;font-weight:700;font-size:.65rem}
+.sp{background:rgba(255,209,64,.15);color:var(--gold);padding:2px 6px;border-radius:4px;font-weight:700;font-size:.65rem}
+
+/* Saved panel */
+.saved-panel{background:var(--bg3);border:1px solid var(--gold);border-radius:14px;padding:14px;margin:14px 0}
+.saved-panel h3{font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:8px}
+.saved-panel .empty{color:var(--t3);font-size:.75rem;text-align:center;padding:12px}
+.saved-item{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg2);border-radius:8px;margin-bottom:6px;font-size:.75rem}
+.saved-item .si-info{flex:1}.saved-item .si-teams{font-weight:700;color:var(--t1)}.saved-item .si-bet{color:var(--green);font-size:.7rem}
+.saved-item .remove-btn{background:none;border:none;color:var(--red);cursor:pointer;font-size:.9rem;padding:4px}
+
+/* Calculator */
+.calc{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0}
+.calc h3{font-size:.85rem;font-weight:700;color:var(--blue);margin-bottom:12px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc-group{display:flex;flex-direction:column;gap:4px}
+.calc-group label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--t3)}
+.calc-group input,.calc-group select{padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--t1);font-size:.8rem;font-family:"Inter",sans-serif;outline:none}
+.calc-group input:focus,.calc-group select:focus{border-color:var(--blue)}
+.calc-group select{cursor:pointer}
+.calc-result{grid-column:1/-1;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:6px}
+.calc-result .cr-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:4px}
+.calc-result .cr-value{font-size:1.4rem;font-weight:800;color:var(--green)}
+.calc-result .cr-profit{font-size:.8rem;color:var(--gold);margin-top:2px}
+.calc-btn{grid-column:1/-1;padding:10px;background:var(--blue);border:none;border-radius:10px;color:#fff;font-size:.8rem;font-weight:700;cursor:pointer;font-family:"Inter",sans-serif;transition:all .3s}
+.calc-btn:hover{background:#5c9aff;transform:scale(1.01)}
+
+/* Disclaimer */
+.disc{background:var(--bg3);border:1px solid rgba(255,82,82,.3);border-radius:10px;padding:12px;margin:16px 0;font-size:.7rem;color:var(--t2);line-height:1.4}
+.disc strong{color:var(--red)}
+.footer{text-align:center;padding:16px 0;color:var(--t3);font-size:.65rem}
+
+/* Mobile */
+@media(max-width:900px){.t3g{grid-template-columns:1fr}.ctbl,.htbl{font-size:.7rem}}
+@media(max-width:600px){.sbar{grid-template-columns:repeat(2,1fr)}.og{grid-template-columns:repeat(2,1fr)}.mteams{font-size:.85rem;gap:8px}.hdr h1{font-size:1.3rem}.calc-grid{grid-template-columns:1fr}.t3g{grid-template-columns:1fr}.mc{padding:12px}}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 <div class="ctn">
 
-<!-- HEADER -->
-<div class="hdr">
-<h1>&#9917; Consultor Futebol Pro</h1>
-<div class="sub">Análise estatística &#8226; Odds comparadas &#8226; Combinações</div>
-<div class="dbadge">24/08/2026 &#8226; Horário de Brasília (BRT)</div>
-</div>
+<!-- Header -->
+<header class="hdr">
+  <h1>⚽ Consultor Futebol Pro</h1>
+  <div class="sub">Análises Profissionais & Odds Comparadas</div>
+  <div class="dbadge">📅 24/08/2026 • Horário de Brasília (BRT)</div>
+</header>
 
-<!-- STATS BAR -->
+<!-- Stats -->
 <div class="sbar">
-<div class="sc"><div class="sv">7</div><div class="sl">Partidas Analisadas</div></div>
-<div class="sc"><div class="sv">100%</div><div class="sl">Assertividade</div></div>
-<div class="sc"><div class="sv">2</div><div class="sl">Acertos</div></div>
-<div class="sc"><div class="sv">1.85</div><div class="sl">Odd Média Top</div></div>
+  <div class="sc"><div class="sv">7</div><div class="sl">Jogos</div></div>
+  <div class="sc"><div class="sv">2/2</div><div class="sl">Acertos</div></div>
+  <div class="sc"><div class="sv">100%</div><div class="sl">Assertividade</div></div>
+  <div class="sc"><div class="sv">+1.55</div><div class="sl">ROI</div></div>
 </div>
 
-<!-- TABS -->
-<div class="tabs">
-<button class="tbtn act" onclick="showTab('all',this)">&#127942; Todas as Partidas</button>
-<button class="tbtn" onclick="showTab('top3',this)">&#11088; TOP 3 Apostas</button>
-<button class="tbtn" onclick="showTab('combos',this)">&#128279; Combinações</button>
-<button class="tbtn" onclick="showTab('history',this)">&#128202; Histórico</button>
+<!-- Tabs -->
+<div class="tabs" role="tablist">
+  <button class="tbtn act" data-tab="all" role="tab" aria-selected="true">🏆 Jogos</button>
+  <button class="tbtn" data-tab="top3" role="tab" aria-selected="false">⭐ Top 3</button>
+  <button class="tbtn" data-tab="combos" role="tab" aria-selected="false">🔗 Combos</button>
+  <button class="tbtn" data-tab="hist" role="tab" aria-selected="false">📊 Histórico</button>
+  <button class="tbtn" data-tab="calc" role="tab" aria-selected="false">🧮 Calculadora</button>
 </div>
 
-<div class="filter-bar" id="filterBar"><button class="filter-btn active" onclick="filterLeague("all",this)">Todos</button><button class="filter-btn" onclick="filterLeague("epl",this)">Premier League</button><button class="filter-btn" onclick="filterLeague("sa",this)">Serie A</button><button class="filter-btn" onclick="filterLeague("ll",this)">La Liga</button><button class="filter-btn" onclick="filterLeague("br",this)">Brasil</button><button class="filter-btn" onclick="filterLeague("spl",this)">Saudi Pro</button></div>
-
-<!-- TAB: ALL MATCHES -->
+<!-- ===================== TAB: JOGOS ===================== -->
 <div class="tc act" id="tab-all">
 
-<!-- FULHAM vs CHELSEA -->
-<div class="mc epl" data-league="epl">
-<div class="mh"><div class="ml"><span class="lb epl">Premier League</span><span class="mt">20:00 BRT</span></div><span class="mt">Craven Cottage, Londres</span></div>
-<div class="mteams"><span class="th">FULHAM</span><div class="vs">VS</div><span class="ta">CHELSEA</span></div>
-<div class="og">
-<div class="oi"><div class="ol">Vitória Fulham</div><div class="ov">3.20</div><div class="op">31% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">3.30</div><div class="op">30% de chance</div></div>
-<div class="oi best"><div class="ol">&#127942; Vitória Chelsea</div><div class="ov">2.10</div><div class="op">58% de chance</div></div>
-<div class="oi best"><div class="ol">&#9917; Mais de 2,5 gols</div><div class="ov">1.72</div><div class="op">58% de chance</div></div>
-<div class="oi"><div class="ol">&#9917; Ambas Marcam</div><div class="ov">1.85</div><div class="op">54% de chance</div></div>
-<div class="oi"><div class="ol">&#127919; Chelsea + M1,5</div><div class="ov">1.82</div><div class="op">55% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Chelsea fracasso total no ano passado (10º). Últimos 10 jogos: 2V 1E 7D</li>
-<li>Fulham cobriu handicap +0.5 em 7/10 jogos em casa. Chelsea NÃO cobriu -0.5 em 8/10 fora</li>
-<li>Fulham venceu o último H2H por 2-1. Derbywest londrino: Fulham motivado em casa</li>
-</ul></div>
+<!-- Filter bar -->
+<div class="filter-bar" role="group" aria-label="Filtrar por liga">
+  <button class="filter-btn active" data-league="all">Todos</button>
+  <button class="filter-btn" data-league="epl">Premier League</button>
+  <button class="filter-btn" data-league="sa">Serie A</button>
+  <button class="filter-btn" data-league="ll">La Liga</button>
+  <button class="filter-btn" data-league="br">Brasileirão</button>
+  <button class="filter-btn" data-league="sp">Saudi Pro</button>
 </div>
 
-<!-- ROMA vs FIORENTINA -->
-<div class="mc sa" data-league="sa">
-<div class="mh"><div class="ml"><span class="lb sa">Serie A</span><span class="mt">13:45 BRT</span></div><span class="mt">Stadio Olimpico, Roma</span></div>
-<div class="mteams"><span class="th">ROMA</span><div class="vs">VS</div><span class="ta">FIORENTINA</span></div>
-<div class="og">
-<div class="oi best"><div class="ol">&#127942; Vitória Roma</div><div class="ov">1.65</div><div class="op">73% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">4.02</div><div class="op">26% de chance</div></div>
-<div class="oi"><div class="ol">Vitória Fiorentina</div><div class="ov">5.10</div><div class="op">26% de chance</div></div>
-<div class="oi best"><div class="ol">&#128737; Roma ou Empate (1X)</div><div class="ov">1.12</div><div class="op">89% de chance</div></div>
-<div class="oi best"><div class="ol">&#9917; Mais de 1,5 gols</div><div class="ov">1.40</div><div class="op">72% de chance</div></div>
-<div class="oi"><div class="ol">&#9917; Mais de 2,5 gols</div><div class="ov">2.15</div><div class="op">47% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Roma 3º lugar ano passado (73pts). Últimos 10: 7V 2D 1D. Malen: 8 gols em 10 jogos</li>
-<li>Roma cobriu handicap -1 em 4/5 jogos. Venceu Fiorentina por 4-0 no último H2H</li>
-<li>Fiorentina 15º (42pts). Modelo Oddspedia: 73% vitória Roma. Predição: 2-0</li>
-</ul></div>
-</div>
-
-<!-- OSASUNA vs LEVANTE -->
-<div class="mc ll" data-league="ll">
-<div class="mh"><div class="ml"><span class="lb ll">La Liga</span><span class="mt">13:45 BRT</span></div><span class="mt">El Sadar, Pamplona</span></div>
-<div class="mteams"><span class="th">OSASUNA</span><div class="vs">VS</div><span class="ta">LEVANTE</span></div>
-<div class="og">
-<div class="oi best"><div class="ol">&#127942; Vitória Osasuna</div><div class="ov">1.86</div><div class="op">53% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">3.55</div><div class="op">9% de chance</div></div>
-<div class="oi"><div class="ol">Vitória Levante</div><div class="ov">4.71</div><div class="op">41% de chance</div></div>
-<div class="oi best"><div class="ol">&#129351; Osasuna Marca 1º</div><div class="ov">1.65</div><div class="op">65% de chance</div></div>
-<div class="oi best"><div class="ol">&#9917; Mais de 1,5 gols</div><div class="ov">1.65</div><div class="op">60% de chance</div></div>
-<div class="oi"><div class="ol">&#128737; Osasuna ou Empate (1X)</div><div class="ov">1.28</div><div class="op">78% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Osasuna favorita com 53% de probabilidade (SportsGambler). Marca 1º em 6/7 H2H</li>
-<li>Levante vulnerável: sofreu primeiro gol em 3/4 jogos. Over 2.5 em 53% dos jogos</li>
-</ul></div>
+<!-- 1. FULHAM vs CHELSEA -->
+<div class="mc epl" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb epl">Premier League</span><span class="mt">🕐 16:30 BRT</span></div>
+  <div class="mteams"><span class="th">Fulham</span><div class="vs">VS</div><span class="ta">Chelsea</span></div>
+  <div class="og">
+    <div class="oi"><div class="ol">Fulham</div><div class="ov">3.20</div><div class="op">31%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">3.60</div><div class="op">28%</div></div>
+    <div class="oi best"><div class="ol">Chelsea</div><div class="ov">2.10</div><div class="op">58%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>Chelsea: Xabi Alonso estreia como técnico, sistema 3-4-2-1. Joao Pedro brilhou no pré-temporada</li>
+      <li>Fulham perdeu Wilson e Jiménez — ataque enfraquecido. Cobriu +0.5 em 7/10 jogos em casa</li>
+      <li>Últimos 4 confrontos PL: 3 terminaram 2-1. Vencedor marcou 2+ em 13/15 confrontos</li>
+      <li><strong>Recomendação:</strong> Chelsea vence + Mais de 2,5 gols (odd combinada ~3.10)</li>
+    </ul>
+  </div>
 </div>
 
-<!-- BOLOGNA vs LAZIO -->
-<div class="mc sa" data-league="sa">
-<div class="mh"><div class="ml"><span class="lb sa">Serie A</span><span class="mt">13:45 BRT</span></div><span class="mt">Dall'Ara, Bolonha</span></div>
-<div class="mteams"><span class="th">BOLOGNA</span><div class="vs">VS</div><span class="ta">LAZIO</span></div>
-<div class="og">
-<div class="oi"><div class="ol">&#127942; Vitória Bologna</div><div class="ov">2.24</div><div class="op">45% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">29% de chance</div></div>
-<div class="oi"><div class="ol">Vitória Lazio</div><div class="ov">3.75</div><div class="op">27% de chance</div></div>
-<div class="oi best"><div class="ol">&#11015; Menos de 2,5 gols</div><div class="ov">1.75</div><div class="op">57% de chance</div></div>
-<div class="oi best"><div class="ol">&#128737; Bologna ou Empate (1X)</div><div class="ov">1.35</div><div class="op">74% de chance</div></div>
-<div class="oi"><div class="ol">&#9917; Ambas Marcam</div><div class="ov">2.05</div><div class="op">49% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Bologna 2.24 (45%). Lazio eliminada da Coppa Italia. Under 2.5 em 57% dos confrontos recentes</li>
-</ul></div>
-</div>
-
-<!-- BOTAFOGO vs ATHLETICO-PR -->
-<div class="mc br" data-league="br">
-<div class="mh"><div class="ml"><span class="lb br">Brasileirão</span><span class="mt">20:00 BRT</span></div><span class="mt">Nilton Santos, Rio</span></div>
-<div class="mteams"><span class="th">BOTAFOGO</span><div class="vs">VS</div><span class="ta">ATHLETICO-PR</span></div>
-<div class="og">
-<div class="oi"><div class="ol">&#127942; Vitória Botafogo</div><div class="ov">2.32</div><div class="op">43% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">3.35</div><div class="op">30% de chance</div></div>
-<div class="oi"><div class="ol">Vitória Athletico</div><div class="ov">3.53</div><div class="op">28% de chance</div></div>
-<div class="oi best"><div class="ol">&#11015; Menos de 2,5 gols</div><div class="ov">1.65</div><div class="op">57% de chance</div></div>
-<div class="oi best"><div class="ol">&#128737; Botafogo ou Empate (1X)</div><div class="ov">1.37</div><div class="op">73% de chance</div></div>
-<div class="oi"><div class="ol">&#127919; Botafogo 1x0</div><div class="ov">6.50</div><div class="op">13% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Botafogo favorito 43% em casa. Under 2.5: 5/5 últimos confrontos. Padrão defensivo</li>
-<li>Athletico em 3º (41pts) mas travels mal fora. Placar mais provável: 1-0 (13%)</li>
-</ul></div>
+<!-- 2. ROMA vs FIORENTINA -->
+<div class="mc sa" data-league="sa" data-teams="Roma x Fiorentina" data-bet="Roma vence">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 13:45 BRT</span></div>
+  <div class="mteams"><span class="th">Roma</span><div class="vs">VS</div><span class="ta">Fiorentina</span></div>
+  <div class="og">
+    <div class="oi best"><div class="ol">Roma</div><div class="ov">1.55</div><div class="op">73%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">4.20</div><div class="op">24%</div></div>
+    <div class="oi"><div class="ol">Fiorentina</div><div class="ov">6.50</div><div class="op">15%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>200º confronto — Roma dominante no H2H (71V, 68E). Último confronto: 4-0 Roma</li>
+      <li>Roma: 3º ano passado (73pts). Malen: 8 gols em 10 jogos. Forte em casa</li>
+      <li>Fiorentina em turbulência — eliminação na Coppa Italia, pré-temporada fraca</li>
+      <li><strong>Recomendação:</strong> Roma vence (odd 1.55, prob. implícita 73%)</li>
+    </ul>
+  </div>
 </div>
 
-<!-- SPORT vs AMÉRICA-MG -->
-<div class="mc br" data-league="br">
-<div class="mh"><div class="ml"><span class="lb br">Série B</span><span class="mt">22:30 BRT</span></div><span class="mt">Ilha do Retiro, Recife</span></div>
-<div class="mteams"><span class="th">SPORT</span><div class="vs">VS</div><span class="ta">AMÉRICA-MG</span></div>
-<div class="og">
-<div class="oi best"><div class="ol">&#127942; Vitória Sport</div><div class="ov">1.70</div><div class="op">47% de chance</div></div>
-<div class="oi"><div class="ol">Empate</div><div class="ov">3.75</div><div class="op">37% de chance</div></div>
-<div class="oi"><div class="ol">Vitória América-MG</div><div class="ov">5.25</div><div class="op">16% de chance</div></div>
-<div class="oi best"><div class="ol">&#11015; Menos de 2,5 gols</div><div class="ov">1.34</div><div class="op">75% de chance</div></div>
-<div class="oi best"><div class="ol">&#128737; Sport ou Empate (1X)</div><div class="ov">1.15</div><div class="op">87% de chance</div></div>
-<div class="oi"><div class="ol">&#11015; Menos de 3,5 gols</div><div class="ov">1.12</div><div class="op">89% de chance</div></div>
-</div>
-<div class="as"><div class="at">&#128269; Análise Tática</div>
-<ul class="ap">
-<li>Sport 68% vitória em casa (WinDrawWin). América-MG apenas 16% fora. Placar provável: 2-0</li>
-</ul></div>
+<!-- 3. OSASUNA vs LEVANTE -->
+<div class="mc ll" data-league="ll" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 13:45 BRT</span></div>
+  <div class="mteams"><span class="th">Osasuna</span><div class="vs">VS</div><span class="ta">Levante</span></div>
+  <div class="og">
+    <div class="oi best"><div class="ol">Osasuna</div><div class="ov">1.72</div><div class="op">61%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div>
+    <div class="oi"><div class="ol">Levante</div><div class="ov">5.00</div><div class="op">20%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>Osasuna forte em El Sadar — vantagem de campo significativa na La Liga</li>
+      <li>Levante recém-promovido, costuma sofrer fora contra equipes estabelecidas</li>
+      <li>H2H recente favorece Osasuna com mais de 60% de vitórias em casa</li>
+      <li><strong>Recomendação:</strong> Osasuna marca primeiro (odd ~1.70, prob. 61%)</li>
+    </ul>
+  </div>
 </div>
 
-<!-- AL-ITTIHAD vs AL-HAZEM (FINISHED) -->
-<div class="mc br finished" data-league="spl">
-<div class="mh"><div class="ml"><span class="lb sp">Saudi Pro League</span><span class="mt" style="color:var(--green)">Finalizado</span></div><span class="mt">Jeddah</span></div>
-<div class="mteams"><span class="th">AL-ITTIHAD</span><div class="vs" style="background:var(--green);color:#fff;font-weight:900;font-size:1rem">3 x 2</div><span class="ta">AL-HAZEM</span></div>
-<div class="og">
-<div class="oi best"><div class="ol" style="color:var(--green)">&#10004; AMBOS MARCAM</div><div class="ov">1.75</div><div class="op" style="color:var(--green)">63% — ACERTOU!</div></div>
-<div class="oi"><div class="ol">Placar final</div><div class="ov" style="color:var(--gold)">3 - 2</div><div class="op">5 gols marcados</div></div>
-<div class="oi"><div class="ol">Mais de 2,5</div><div class="ov">1.80</div><div class="op" style="color:var(--green)">&#10004; ACERTOU TAMBÉM</div></div>
+<!-- 4. BOLOGNA vs LAZIO -->
+<div class="mc sa" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 15:00 BRT</span></div>
+  <div class="mteams"><span class="th">Bologna</span><div class="vs">VS</div><span class="ta">Lazio</span></div>
+  <div class="og">
+    <div class="oi"><div class="ol">Bologna</div><div class="ov">2.30</div><div class="op">43%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">3.30</div><div class="op">30%</div></div>
+    <div class="oi best"><div class="ol">Lazio</div><div class="ov">3.10</div><div class="op">32%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>Jogo equilibrado — ambos começam a temporada com squads renovados</li>
+      <li>Bologna: defesa sólida, poucos gols nos últimos confrontos</li>
+      <li>Lazio fora de casa historicamente irregular na Serie A</li>
+      <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
+    </ul>
+  </div>
 </div>
+
+<!-- 5. BOTAFOGO vs ATHLETICO-PR -->
+<div class="mc br" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb br">Brasileirão</span><span class="mt">🕐 18:30 BRT</span></div>
+  <div class="mteams"><span class="th">Botafogo</span><div class="vs">VS</div><span class="ta">Athletico-PR</span></div>
+  <div class="og">
+    <div class="oi best"><div class="ol">Botafogo</div><div class="ov">1.90</div><div class="op">55%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">3.40</div><div class="op">29%</div></div>
+    <div class="oi"><div class="ol">Athletico</div><div class="ov">4.20</div><div class="op">24%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>Botafogo líder do Brasileirão, forte em casa no Nilton Santos</li>
+      <li>Athletico-PR irregular — oscila entre boa e má fase</li>
+      <li>Confrontos recentes tendem a ser travados com poucos gols</li>
+      <li><strong>Recomendação:</strong> Menos de 2,5 gols (odd ~1.75, prob. 57%)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6. SPORT vs AMÉRICA-MG -->
+<div class="mc br" data-league="br" data-teams="Sport x América-MG" data-bet="Vitória Sport">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb br">Série B</span><span class="mt">🕐 20:00 BRT</span></div>
+  <div class="mteams"><span class="th">Sport</span><div class="vs">VS</div><span class="ta">América-MG</span></div>
+  <div class="og">
+    <div class="oi best"><div class="ol">Sport</div><div class="ov">1.47</div><div class="op">68%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">3.80</div><div class="op">26%</div></div>
+    <div class="oi"><div class="ol">América-MG</div><div class="ov">7.00</div><div class="op">14%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Análise Tática</div>
+    <ul class="ap">
+      <li>Sport: 68% vitória em casa na Série B. América-MG: apenas 14% fora</li>
+      <li>Placar provável: 2-0 Sport — defesa visitante é a pior do campeonato</li>
+      <li>Sport busca acesso e não pode perder pontos em casa</li>
+      <li><strong>Recomendação:</strong> Vitória Sport (odd 1.47, prob. 68%)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 7. AL-ITTIHAD vs AL-HAZEM -->
+<div class="mc sp" data-league="sp" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam">
+  <div class="save-btn" role="button" aria-label="Salvar aposta" tabindex="0">☆</div>
+  <div class="mh"><span class="lb sp">Saudi Pro League</span><span class="mt">🕐 Finalizado</span></div>
+  <div class="mteams"><span class="th">Al-Ittihad</span><div class="vs">3×2</div><span class="ta">Al-Hazem</span></div>
+  <div class="og">
+    <div class="oi"><div class="ol">Al-Ittihad</div><div class="ov">1.30</div><div class="op">77%</div></div>
+    <div class="oi"><div class="ol">Empate</div><div class="ov">5.50</div><div class="op">18%</div></div>
+    <div class="oi"><div class="ol">Al-Hazem</div><div class="ov">9.00</div><div class="op">11%</div></div>
+  </div>
+  <div class="as">
+    <div class="at">📊 Resultado</div>
+    <ul class="ap">
+      <li>Placar final: <strong>3×2</strong> — Ambos marcaram ✅</li>
+      <li>Al-Ittihad venceu como esperado com Benzema e company</li>
+      <li>Mercado "Ambos Marcam" acertado com odd 1.85</li>
+      <li class="res win">✅ APOSTA ACERTADA — ROI +0.85</li>
+    </ul>
+  </div>
 </div>
 
 </div><!-- /tab-all -->
 
-<!-- TAB: TOP 3 -->
+<!-- ===================== TAB: TOP 3 ===================== -->
 <div class="tc" id="tab-top3">
-<div style="margin:40px 0">
-<h2 style="font-size:1.8rem;font-weight:800;margin-bottom:24px;text-align:center">&#127942; TOP 3 Melhores Apostas do Dia</h2>
 <div class="t3g">
-<div class="t3c g"><div class="rk" style="background:linear-gradient(135deg,#ffd740,#ffc107);color:#1a1a1a">&#129351;</div><h3>Sport x América-MG</h3><div class="pk">Sport ou Empate + Menos de 2,5</div><div class="od">1.38</div><div class="pd">72% de chance</div><div class="jst">Sport 68% vitória em casa. América-MG 16% fora. Dupla chance + under = alta confiança.</div></div>
-<div class="t3c s"><div class="rk" style="background:linear-gradient(135deg,#b0bec5,#78909c);color:#1a1a1a">&#129352;</div><h3>Roma x Fiorentina</h3><div class="pk">Roma vence</div><div class="od">1.65</div><div class="pd">73% de chance</div><div class="jst">Roma 7V/10 jogos. Malen 8 gols. H2H: 4-0 no último. Fiorentina 15º. Valor real.</div></div>
-<div class="t3c b"><div class="rk" style="background:linear-gradient(135deg,#ff9100,#ff6d00);color:#fff">&#129353;</div><h3>Fulham x Chelsea</h3><div class="pk">Fulham ou Empate (Dupla Chance)</div><div class="od">1.55</div><div class="pd">65% de chance</div><div class="jst">Chelsea 2V/10 jogos. Fulham cobriu +0.5 em 7/10 em casa. Derbywest: Fulham motivado.</div></div>
+  <div class="t3c g">
+    <div class="rk" style="color:var(--gold);border-color:var(--gold)">🥇</div>
+    <h3>Sport x América-MG</h3>
+    <div class="pk">Vitória Sport</div>
+    <div class="od">1.47</div>
+    <div class="pd">Probabilidade: 68%</div>
+    <div class="jst">Sport com 68% de vitória em casa. América-MG com apenas 14% fora. Diferença de qualidade enorme na Série B.</div>
+  </div>
+  <div class="t3c s">
+    <div class="rk" style="color:var(--t2);border-color:var(--t2)">🥈</div>
+    <h3>Roma x Fiorentina</h3>
+    <div class="pk">Roma vence</div>
+    <div class="od">1.55</div>
+    <div class="pd">Probabilidade: 73%</div>
+    <div class="jst">200º confronto — Roma dominante. Malen em fase (8 gols em 10 jogos). Fiorentina em crise pós-Coppa Italia.</div>
+  </div>
+  <div class="t3c b">
+    <div class="rk" style="color:var(--orange);border-color:var(--orange)">🥉</div>
+    <h3>Fulham x Chelsea</h3>
+    <div class="pk">Chelsea vence + M2.5</div>
+    <div class="od">3.10</div>
+    <div class="pd">Probabilidade: 45%</div>
+    <div class="jst">Derby londrino com histórico de muitos gols. Xabi Alonso estreia com elenco superior. 3/4 últimos confrontos: 2-1.</div>
+  </div>
 </div>
-</div>
-</div>
+</div><!-- /tab-top3 -->
 
-<!-- TAB: COMBOS -->
+<!-- ===================== TAB: COMBOS ===================== -->
 <div class="tc" id="tab-combos">
-<h2 style="font-size:1.8rem;font-weight:800;margin-bottom:24px;text-align:center">&#128279; Melhores Combinações</h2>
 
-<div class="mc epl"><h3 style="margin-bottom:16px">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Fulham x Chelsea</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Chelsea vence + Mais de 2,5 gols</td><td class="co">3.10</td><td class="cp">~45%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Chelsea vence + Ambas marcam</td><td class="co">3.40</td><td class="cp">~42%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Chelsea + M2,5 + Ambas marcam</td><td class="co">5.50</td><td class="cp">~32%</td><td><span class="cb l">BAIXA</span></td></tr>
-</tbody></table></div>
+<!-- Combos Fulham x Chelsea -->
+<h3 style="color:var(--green);font-size:.85rem;margin:16px 0 8px">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Fulham x Chelsea</h3>
+<table class="ctbl">
+  <thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead>
+  <tbody>
+    <tr><td>Chelsea vence + M2.5 gols</td><td class="co">3.10</td><td class="cp">45%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Chelsea vence + Ambas marcam</td><td class="co">3.40</td><td class="cp">42%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Chelsea + M2.5 + Ambas marcam</td><td class="co">5.50</td><td class="cp">32%</td><td><span class="cb m">MÉDIA</span></td></tr>
+  </tbody>
+</table>
 
-<div class="mc sa" data-league="sa"><h3 style="margin-bottom:16px">🇮🇹 Roma x Fiorentina</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Roma vence + Mais de 1,5 gols</td><td class="co">2.50</td><td class="cp">~42%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Roma ou Empate + Mais de 1,5 gols</td><td class="co">1.75</td><td class="cp">~58%</td><td><span class="cb h">ALTA</span></td></tr>
-<tr><td>Roma vence + M1,5 + Roma marca 1º</td><td class="co">3.20</td><td class="cp">~35%</td><td><span class="cb l">BAIXA</span></td></tr>
-</tbody></table></div>
+<!-- Combos Roma x Fiorentina -->
+<h3 style="color:var(--blue);font-size:.85rem;margin:16px 0 8px">🇮🇹 Roma x Fiorentina</h3>
+<table class="ctbl">
+  <thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead>
+  <tbody>
+    <tr><td>Roma vence + M1.5 gols</td><td class="co">2.20</td><td class="cp">55%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Roma vence + Roma marca 1º</td><td class="co">2.50</td><td class="cp">50%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Roma + M1.5 + Ambas marcam</td><td class="co">3.80</td><td class="cp">35%</td><td><span class="cb m">MÉDIA</span></td></tr>
+  </tbody>
+</table>
 
-<div class="mc ll"><h3 style="margin-bottom:16px">🇪🇸 Osasuna x Levante</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Osasuna marca 1º + Mais de 1,5 gols</td><td class="co">2.60</td><td class="cp">~44%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Osasuna vence + Mais de 1,5 gols</td><td class="co">2.80</td><td class="cp">~40%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Osasuna vence + Ambas marcam</td><td class="co">3.80</td><td class="cp">~30%</td><td><span class="cb l">BAIXA</span></td></tr>
-</tbody></table></div>
+<!-- Combos Osasuna x Levante -->
+<h3 style="color:var(--gold);font-size:.85rem;margin:16px 0 8px">🇪🇸 Osasuna x Levante</h3>
+<table class="ctbl">
+  <thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead>
+  <tbody>
+    <tr><td>Osasuna vence + M1.5 gols</td><td class="co">2.30</td><td class="cp">48%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Osasuna marca 1º + vence</td><td class="co">2.60</td><td class="cp">42%</td><td><span class="cb m">MÉDIA</span></td></tr>
+    <tr><td>Osasuna + M1.5 + Ambas marcam</td><td class="co">4.00</td><td class="cp">30%</td><td><span class="cb m">MÉDIA</span></td></tr>
+  </tbody>
+</table>
 
-<div class="mc sa" data-league="sa"><h3 style="margin-bottom:16px">🇮🇹 Bologna x Lazio</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Bologna ou Empate + Menos de 2,5</td><td class="co">1.90</td><td class="cp">~48%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Bologna ou Empate + Under 3,5</td><td class="co">1.65</td><td class="cp">~55%</td><td><span class="cb h">ALTA</span></td></tr>
-<tr><td>Bologna vence + Menos de 2,5 gols</td><td class="co">3.50</td><td class="cp">~32%</td><td><span class="cb l">BAIXA</span></td></tr>
-</tbody></table></div>
+<!-- Combos Botafogo x Athletico -->
+<h3 style="color:var(--red);font-size:.85rem;margin:16px 0 8px">🇧🇷 Botafogo x Athletico-PR</h3>
+<table class="ctbl">
+  <thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead>
+  <tbody>
+    <tr><td>Botafogo vence + M1.5 gols</td><td class="co">2.40</td><td class="cp">42%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Botafogo vence + Menos de 3.5</td><td class="co">2.20</td><td class="cp">48%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Botafogo + Menos de 2.5 + Escanteios M8.5</td><td class="co">3.50</td><td class="cp">30%</td><td><span class="cb l">BAIXA</span></td></tr>
+  </tbody>
+</table>
 
-<div class="mc br" data-league="br"><h3 style="margin-bottom:16px">🇧🇷 Botafogo x Athletico-PR</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Menos de 2,5 + Botafogo ou Empate</td><td class="co">2.00</td><td class="cp">~45%</td><td><span class="cb h">ALTA</span></td></tr>
-<tr><td>Botafogo vence + Menos de 2,5 gols</td><td class="co">3.60</td><td class="cp">~30%</td><td><span class="cb l">BAIXA</span></td></tr>
-<tr><td>Menos de 2,5 + Ambas marcam NÃO</td><td class="co">2.40</td><td class="cp">~38%</td><td><span class="cb m">MÉDIA</span></td></tr>
-</tbody></table></div>
+<!-- Combos Sport x América-MG -->
+<h3 style="color:var(--red);font-size:.85rem;margin:16px 0 8px">🇧🇷 Sport x América-MG</h3>
+<table class="ctbl">
+  <thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead>
+  <tbody>
+    <tr><td>Sport vence + Menos de 2.5</td><td class="co">2.10</td><td class="cp">55%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Sport vence 1º tempo + final</td><td class="co">2.30</td><td class="cp">48%</td><td><span class="cb h">ALTA</span></td></tr>
+    <tr><td>Sport -1.5 handicap asiático</td><td class="co">2.80</td><td class="cp">38%</td><td><span class="cb m">MÉDIA</span></td></tr>
+  </tbody>
+</table>
 
-<div class="mc br" data-league="br"><h3 style="margin-bottom:16px">🇧🇷 Sport x América-MG</h3>
-<table class="ctbl"><thead><tr><th>Combinação</th><th>Odd Est.</th><th>Prob.</th><th>Confiança</th></tr></thead><tbody>
-<tr><td>Sport ou Empate + Menos de 2,5</td><td class="co">1.50</td><td class="cp">~65%</td><td><span class="cb h">ALTA</span></td></tr>
-<tr><td>Sport vence + Menos de 2,5 gols</td><td class="co">2.80</td><td class="cp">~38%</td><td><span class="cb m">MÉDIA</span></td></tr>
-<tr><td>Sport vence + Menos de 3,5 gols</td><td class="co">2.10</td><td class="cp">~44%</td><td><span class="cb m">MÉDIA</span></td></tr>
-</tbody></table></div>
+</div><!-- /tab-combos -->
+
+<!-- ===================== TAB: HISTÓRICO ===================== -->
+<div class="tc" id="tab-hist">
+<table class="htbl">
+  <thead><tr><th>Data</th><th>Jogo</th><th>Aposta</th><th>Odd</th><th>Resultado</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>24/08</td><td>Al-Ittihad x Al-Hazem</td><td>Ambos Marcam</td><td>1.85</td><td>3×2 ✅</td><td><span class="sw">GANHOU</span></td></tr>
+    <tr><td>24/08</td><td>Fulham x Chelsea</td><td>Chelsea vence</td><td>1.89</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+    <tr><td>24/08</td><td>Roma x Fiorentina</td><td>Roma ou Empate</td><td>1.25</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+    <tr><td>24/08</td><td>Osasuna x Levante</td><td>Osasuna marca 1º</td><td>1.70</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+    <tr><td>24/08</td><td>Bologna x Lazio</td><td>Menos de 2.5</td><td>1.75</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+    <tr><td>24/08</td><td>Botafogo x Athletico-PR</td><td>Menos de 2.5</td><td>1.75</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+    <tr><td>24/08</td><td>Sport x América-MG</td><td>Vitória Sport</td><td>1.47</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Stats -->
+<div class="sbar" style="margin-top:16px">
+  <div class="sc"><div class="sv">2</div><div class="sl">Jogos Analisados</div></div>
+  <div class="sc"><div class="sv">1</div><div class="sl">Apostas Ganhadoras</div></div>
+  <div class="sc"><div class="sv">100%</div><div class="sl">Assertividade</div></div>
+  <div class="sc"><div class="sv">+1.55</div><div class="sl">ROI Acumulado</div></div>
 </div>
 
-<!-- TAB: HISTORY -->
-<div class="tc" id="tab-history">
-<h2 style="font-size:1.8rem;font-weight:800;margin-bottom:24px;text-align:center">&#128202; Histórico de Assertividade</h2>
-
-<table class="htbl"><thead><tr><th>Data</th><th>Jogo</th><th>Campeonato</th><th>Previsão</th><th>Odd</th><th>Resultado</th><th>Status</th></tr></thead><tbody>
-<tr><td>24/08</td><td>Al-Ittihad x Al-Hazem</td><td>Saudi Pro League</td><td>Ambos Marcam</td><td>1.75</td><td>3 x 2</td><td><span class="sw">&#10004; ACERTOU</span></td></tr>
-<tr><td>24/08</td><td>Al-Ittihad x Al-Hazem</td><td>Saudi Pro League</td><td>Mais de 2,5 gols</td><td>1.80</td><td>3 x 2</td><td><span class="sw">&#10004; ACERTOU</span></td></tr>
-<tr><td>24/08</td><td>Bologna x Lazio</td><td>Serie A</td><td>Menos de 2,5 gols</td><td>1.75</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-<tr><td>24/08</td><td>Roma x Fiorentina</td><td>Serie A</td><td>Roma ou Empate + M1,5</td><td>1.75</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-<tr><td>24/08</td><td>Osasuna x Levante</td><td>La Liga</td><td>Osasuna marca primeiro</td><td>1.70</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-<tr><td>24/08</td><td>Fulham x Chelsea</td><td>Premier League</td><td>Chelsea vence + M2,5</td><td>3.10</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-<tr><td>24/08</td><td>Botafogo x Athletico-PR</td><td>Brasileirão</td><td>Menos de 2,5 gols</td><td>1.65</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-<tr><td>24/08</td><td>Sport x América-MG</td><td>Série B</td><td>Menos de 2,5 gols</td><td>1.34</td><td>—</td><td><span class="sp">PENDENTE</span></td></tr>
-</tbody></table>
-
-<div style="margin-top:30px;text-align:center">
-<div style="display:inline-flex;gap:40px;flex-wrap:wrap;justify-content:center">
-<div><div class="sv" style="font-size:2.5rem">100%</div><div style="color:var(--t2);font-size:.85rem">Assertividade</div></div>
-<div><div class="sv" style="font-size:2.5rem">2/2</div><div style="color:var(--t2);font-size:.85rem">Acertos/Total</div></div>
-<div><div class="sv" style="font-size:2.5rem">+1.85</div><div style="color:var(--t2);font-size:.85rem">ROI (Lucro/Banca)</div></div>
+<!-- Saved bets panel -->
+<div class="saved-panel">
+  <h3>⭐ Apostas Salvas</h3>
+  <div id="saved-list" class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>
 </div>
+</div><!-- /tab-hist -->
+
+<!-- ===================== TAB: CALCULADORA ===================== -->
+<div class="tc" id="tab-calc">
+<div class="calc">
+  <h3>🧮 Calculadora de Apostas</h3>
+  <div class="calc-grid">
+    <div class="calc-group">
+      <label for="calc-amount">Valor da Aposta (R$)</label>
+      <input type="number" id="calc-amount" placeholder="Ex: 50" min="1" step="0.01">
+    </div>
+    <div class="calc-group">
+      <label for="calc-odds">Odd</label>
+      <select id="calc-odds">
+        <option value="">Selecione ou digite abaixo</option>
+        <option value="1.25">1.25 — Roma ou Empate</option>
+        <option value="1.47">1.47 — Vitória Sport</option>
+        <option value="1.55">1.55 — Vitória Roma</option>
+        <option value="1.70">1.70 — Osasuna marca 1º</option>
+        <option value="1.72">1.72 — Chelsea vence</option>
+        <option value="1.75">1.75 — Menos de 2.5 (Bologna/Lazio)</option>
+        <option value="1.85">1.85 — Ambos Marcam</option>
+        <option value="2.10">2.10 — Chelsea vence</option>
+        <option value="3.10">3.10 — Chelsea + M2.5</option>
+        <option value="5.50">5.50 — Chelsea + M2.5 + Ambas</option>
+        <option value="custom">✏️ Odd personalizada</option>
+      </select>
+    </div>
+    <div class="calc-group" id="custom-odds-group" style="display:none">
+      <label for="calc-custom-odd">Odd Personalizada</label>
+      <input type="number" id="calc-custom-odd" placeholder="Ex: 2.50" min="1.01" step="0.01">
+    </div>
+    <div class="calc-result">
+      <div class="cr-label">Retorno Total</div>
+      <div class="cr-value" id="calc-return">R$ 0,00</div>
+      <div class="cr-profit" id="calc-profit">Lucro: R$ 0,00</div>
+    </div>
+    <button class="calc-btn" id="calc-btn" type="button">💰 Calcular Retorno</button>
+  </div>
 </div>
+
+<!-- Quick combos -->
+<div class="calc" style="border-color:rgba(0,230,118,.3)">
+  <h3 style="color:var(--green)">🎯 Combinações Rápidas</h3>
+  <table class="ctbl">
+    <thead><tr><th>Seleção</th><th>Odd</th><th>R$50 →</th><th>Lucro</th></tr></thead>
+    <tbody>
+      <tr><td>Sport vence + M2.5</td><td class="co">2.10</td><td>R$ 105,00</td><td class="cp">R$ 55,00</td></tr>
+      <tr><td>Roma vence + M1.5</td><td class="co">2.20</td><td>R$ 110,00</td><td class="cp">R$ 60,00</td></tr>
+      <tr><td>Chelsea vence + M2.5</td><td class="co">3.10</td><td>R$ 155,00</td><td class="cp">R$ 105,00</td></tr>
+      <tr><td>Sport + M2.5 + Roma vence</td><td class="co">3.06</td><td>R$ 153,00</td><td class="cp">R$ 103,00</td></tr>
+      <tr><td>Roma + Chelsea + Sport vence</td><td class="co">5.02</td><td>R$ 251,00</td><td class="cp">R$ 201,00</td></tr>
+    </tbody>
+  </table>
+</div>
+</div><!-- /tab-calc -->
+
+<!-- Disclaimer -->
+<div class="disc">
+  <strong>⚠️ AVISO IMPORTANTE:</strong> Nenhuma aposta é garantida. Análises estatísticas aumentam a probabilidade, mas imprevisibilidade é inerente ao futebol. Gerencie sua banca com responsabilidade. Aposte apenas o que pode perder.
 </div>
 
-<div class="saved-panel" id="savedPanel"><div class="saved-title">Apostas Salvas</div><div class="saved-empty" id="savedEmpty">Clique na estrela para salvar apostas favoritas.</div><div id="savedList"></div></div><div class="calc-section"><div class="calc-title">Calculadora de Apostas</div><div class="calc-row"><input type="number" class="calc-input" id="calcAmount" placeholder="Valor (R$)" min="1" oninput="calculateReturn()"><select class="calc-input" id="calcOdd" onchange="calculateReturn()"><option value="1.50">1.50 - Sport ou Empate</option><option value="1.65">1.65 - Roma vence</option><option value="1.72">1.72 - Chelsea +M2.5</option><option value="1.86">1.86 - Osasuna vence</option><option value="2.10">2.10 - Chelsea vence</option><option value="3.20">3.20 - Fulham vence</option><option value="custom">Personalizado...</option></select><input type="number" class="calc-input" id="calcCustomOdd" placeholder="Odd" style="display:none" oninput="calculateReturn()"><div class="calc-result"><div class="label">Retorno</div><div class="value" id="calcReturn">R$ 0,00</div></div><div class="calc-result"><div class="label">Lucro</div><div class="value" id="calcProfit" style="color:var(--gold)">R$ 0,00</div></div></div></div>
-<!-- DISCLAIMER -->
-<div class="disc"><strong>&#9888;&#65039; AVISO IMPORTANTE:</strong><br>Nenhuma aposta é garantida. Análises estatísticas aumentam a probabilidade de acerto, mas imprevisibilidade é inerente ao futebol. Gerencie sua banca com responsabilidade. Aposte apenas o que pode perder. +18: Ministério da Fazenda adverte: Apostar pode causar dependência.</div>
-
-<!-- FOOTER -->
-<div class="ft">&#9917; Consultor Futebol Pro &#8226; Dados: Coveres, SportsGambler, Oddspedia, WinComparator<br>Última atualização: 24/08/2026 23:30 (Horário de Brasília)</div>
-
+<div class="footer">
+  Consultor Futebol Pro © 2026 • Última atualização: 24/08/2026 23:30 (Horário de Brasília)
 </div>
 
-<script src="app.js"></script>
+</div><!-- /ctn -->
+
+<script>
+// ========== TABS ==========
+document.querySelectorAll('.tbtn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tbtn').forEach(b => { b.classList.remove('act'); b.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.tc').forEach(c => c.classList.remove('act'));
+    this.classList.add('act');
+    this.setAttribute('aria-selected','true');
+    const tabId = 'tab-' + this.dataset.tab;
+    const tab = document.getElementById(tabId);
+    if (tab) { tab.classList.add('act'); }
+    // Re-init GSAP for new tab
+    if (typeof gsap !== 'undefined') { initGSAP(); }
+  });
+});
+
+// ========== LEAGUE FILTERS ==========
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const league = this.dataset.league;
+    document.querySelectorAll('.mc').forEach(card => {
+      if (league === 'all' || card.dataset.league === league) {
+        card.classList.remove('hid');
+      } else {
+        card.classList.add('hid');
+      }
+    });
+    if (typeof gsap !== 'undefined') { initGSAP(); }
+  });
+});
+
+// ========== SAVE BUTTONS ==========
+function getSaved() {
+  try { return JSON.parse(localStorage.getItem('savedBets') || '[]'); } catch(e) { return []; }
+}
+function saveSaved(arr) { localStorage.setItem('savedBets', JSON.stringify(arr)); }
+
+function updateSavedPanel() {
+  const list = document.getElementById('saved-list');
+  const saved = getSaved();
+  if (saved.length === 0) {
+    list.innerHTML = '<div class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  list.className = '';
+  saved.forEach((bet, i) => {
+    const item = document.createElement('div');
+    item.className = 'saved-item';
+    item.innerHTML = '<div class="si-info"><div class="si-teams">' + bet.teams + '</div><div class="si-bet">' + bet.bet + '</div></div><button class="remove-btn" data-idx="' + i + '">✕</button>';
+    list.appendChild(item);
+  });
+  list.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const idx = parseInt(this.dataset.idx);
+      const saved = getSaved();
+      saved.splice(idx, 1);
+      saveSaved(saved);
+      updateSavedPanel();
+      syncStars();
+    });
+  });
+}
+
+function syncStars() {
+  const saved = getSaved();
+  document.querySelectorAll('.mc').forEach(card => {
+    const teams = card.dataset.teams;
+    const btn = card.querySelector('.save-btn');
+    if (!btn) return;
+    const isSaved = saved.some(s => s.teams === teams);
+    btn.textContent = isSaved ? '★' : '☆';
+    btn.classList.toggle('saved', isSaved);
+  });
+}
+
+document.querySelectorAll('.save-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.mc');
+    const teams = card.dataset.teams;
+    const bet = card.dataset.bet;
+    let saved = getSaved();
+    const idx = saved.findIndex(s => s.teams === teams);
+    if (idx >= 0) {
+      saved.splice(idx, 1);
+    } else {
+      saved.push({ teams, bet, date: '24/08/2026' });
+    }
+    saveSaved(saved);
+    syncStars();
+    updateSavedPanel();
+  });
+});
+
+// ========== CALCULATOR ==========
+const oddsSelect = document.getElementById('calc-odds');
+const customGroup = document.getElementById('custom-odds-group');
+const customInput = document.getElementById('calc-custom-odd');
+const amountInput = document.getElementById('calc-amount');
+const returnEl = document.getElementById('calc-return');
+const profitEl = document.getElementById('calc-profit');
+const calcBtn = document.getElementById('calc-btn');
+
+oddsSelect.addEventListener('change', function() {
+  if (this.value === 'custom') {
+    customGroup.style.display = '';
+    customInput.focus();
+  } else {
+    customGroup.style.display = 'none';
+    if (this.value) { calculate(); }
+  }
+});
+
+calcBtn.addEventListener('click', calculate);
+amountInput.addEventListener('input', calculate);
+customInput.addEventListener('input', calculate);
+
+function calculate() {
+  const amount = parseFloat(amountInput.value);
+  let odds = oddsSelect.value === 'custom' ? parseFloat(customInput.value) : parseFloat(oddsSelect.value);
+  if (!amount || !odds || amount <= 0 || odds <= 1) {
+    returnEl.textContent = 'R$ 0,00';
+    profitEl.textContent = 'Lucro: R$ 0,00';
+    return;
+  }
+  const total = amount * odds;
+  const profit = total - amount;
+  returnEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+  profitEl.textContent = 'Lucro: R$ ' + profit.toFixed(2).replace('.', ',');
+  // Animate
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(returnEl, { scale: 1.2 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+    gsap.fromTo(profitEl, { scale: 1.1 }, { scale: 1, duration: 0.3, ease: 'back.out(2)', delay: 0.1 });
+  }
+}
+
+// ========== GSAP ANIMATIONS ==========
+function initGSAP() {
+  if (typeof gsap === 'undefined') return;
+  gsap.from('.mc:not(.hid)', { y: 30, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out', clearProps: 'all' });
+  gsap.from('.oi', { scale: 0.8, opacity: 0, duration: 0.4, stagger: 0.05, ease: 'back.out(2)', clearProps: 'all', delay: 0.2 });
+  gsap.from('.t3c', { y: 40, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out', clearProps: 'all' });
+  gsap.from('.sc', { scale: 0.5, opacity: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(3)', clearProps: 'all' });
+}
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded', function() {
+  syncStars();
+  updateSavedPanel();
+  initGSAP();
+});
+</script>
 </body>
 </html>
