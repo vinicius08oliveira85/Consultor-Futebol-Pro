@@ -37,6 +37,8 @@
   --transition-fast:150ms ease;
   --transition-normal:250ms ease;
   --transition-slow:350ms ease;
+  --text-muted:#7C8BA5;
+  --text-secondary:#A3B1C4;
 }
 
 /* ===== RESET & BASE ===== */
@@ -101,7 +103,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   text-shadow:0 0 20px rgba(34,197,94,.3);
 }
 .hdr h1 .accent{color:var(--color-accent)}
-.hdr .sub{color:#94A3B8;font-size:.85rem;margin-top:var(--space-xs)}
+.hdr .sub{color:var(--text-secondary);font-size:.85rem;margin-top:var(--space-xs)}
 .hdr .dbadge{
   display:inline-block;margin-top:var(--space-sm);
   padding:var(--space-xs) var(--space-md);
@@ -533,6 +535,78 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   font-family:"Fira Code",monospace;
 }
 
+/* ===== SORT BAR ===== */
+.sort-bar{display:flex;gap:var(--space-sm);margin:var(--space-sm) 0;align-items:center;flex-wrap:wrap}
+.sort-bar label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#7C8BA5}
+.sort-select{
+  padding:var(--space-xs) var(--space-sm);
+  background:var(--color-primary);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  color:#A3B1C4;
+  font-size:.72rem;font-family:'Fira Sans',sans-serif;
+  min-height:36px;cursor:pointer;
+}
+.sort-select:focus{border-color:var(--color-accent)}
+
+.filter-count{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  border-radius:50%;
+  width:18px;height:18px;
+  font-size:.6rem;font-weight:700;
+  line-height:18px;text-align:center;
+  margin-left:4px;
+}
+.filter-btn.active .filter-count{background:rgba(0,0,0,.2)}
+.filter-results{font-size:.65rem;color:#7C8BA5;margin:var(--space-xs) 0;font-family:'Fira Code',monospace}
+
+.countdown{
+  font-family:'Fira Code',monospace;
+  font-size:.68rem;font-weight:600;
+  color:var(--color-cyan);
+  background:rgba(6,182,212,.08);
+  padding:2px 8px;border-radius:var(--radius-sm);
+  display:inline-block;
+}
+
+.oi:active{transform:scale(0.97)}
+
+.saved-actions{display:flex;gap:var(--space-sm);margin-bottom:var(--space-sm);flex-wrap:wrap}
+.saved-action-btn{
+  padding:var(--space-xs) var(--space-md);
+  background:var(--color-secondary);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  color:#A3B1C4;
+  font-size:.68rem;font-weight:600;
+  cursor:pointer;
+  font-family:'Fira Sans',sans-serif;
+  transition:all var(--transition-fast);
+  min-height:36px;
+}
+.saved-action-btn:hover{border-color:var(--color-gold);color:var(--color-gold)}
+
+/* ===== TOAST ===== */
+.toast-container{
+  position:fixed;bottom:var(--space-lg);right:var(--space-lg);
+  z-index:10000;display:flex;flex-direction:column;gap:var(--space-sm);
+  pointer-events:none;
+}
+.toast{
+  padding:var(--space-sm) var(--space-md);
+  border-radius:var(--radius-md);
+  font-size:.78rem;font-weight:600;
+  font-family:'Fira Sans',sans-serif;
+  pointer-events:auto;
+  opacity:0;transform:translateY(10px);
+  transition:all 250ms ease;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:var(--color-primary);border:1px solid var(--color-accent);color:var(--color-accent)}
+.toast.info{background:var(--color-primary);border:1px solid var(--color-blue);color:var(--color-blue)}
+.toast.warn{background:var(--color-primary);border:1px solid var(--color-gold);color:var(--color-gold)}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .t3g{grid-template-columns:1fr}
@@ -548,6 +622,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   .mc{padding:var(--space-sm)}
   .tbtn{min-height:40px;font-size:.72rem}
   .filter-btn{min-height:36px}
+  .toast-container{left:var(--space-md);right:var(--space-md);bottom:var(--space-md)}
 }
 
 /* ===== REDUCED MOTION ===== */
@@ -561,21 +636,24 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 <!-- Skip Link for Accessibility -->
 <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
 
+<!-- Toast Container -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
 <div class="ctn" id="main-content">
 
 <!-- Header -->
 <header class="hdr" role="banner">
   <h1>⚽ Consultor <span class="accent">Futebol</span> Pro</h1>
   <div class="sub">Análises Profissionais & Odds Comparadas</div>
-  <div class="dbadge" aria-label="Data e timezone">📅 24/08/2026 • Horário de Brasília (BRT)</div>
+  <div class="dbadge" id="date-badge" aria-label="Data e timezone"></div>
 </header>
 
-<!-- Stats -->
-<div class="sbar" role="region" aria-label="Estatísticas do dia">
-  <div class="sc" role="status"><div class="sv">7</div><div class="sl">Jogos</div></div>
-  <div class="sc" role="status"><div class="sv">2/2</div><div class="sl">Acertos</div></div>
-  <div class="sc" role="status"><div class="sv">100%</div><div class="sl">Assertividade</div></div>
-  <div class="sc" role="status"><div class="sv">+1.55</div><div class="sl">ROI</div></div>
+<!-- Stats (dynamic) -->
+<div class="sbar" id="stats-bar" role="region" aria-label="Estatísticas do dia">
+  <div class="sc" role="status"><div class="sv" id="stat-total">7</div><div class="sl">Jogos</div></div>
+  <div class="sc" role="status"><div class="sv" id="stat-resolved">1</div><div class="sl">Finalizados</div></div>
+  <div class="sc" role="status"><div class="sv" id="stat-winrate">100%</div><div class="sl">Assertividade</div></div>
+  <div class="sc" role="status"><div class="sv" id="stat-roi">+0.85</div><div class="sl">ROI</div></div>
 </div>
 
 <!-- Tabs -->
@@ -592,16 +670,29 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 
 <!-- Filter bar -->
 <div class="filter-bar" role="group" aria-label="Filtrar por liga">
-  <button class="filter-btn active" data-league="all" aria-pressed="true">Todos</button>
-  <button class="filter-btn" data-league="epl" aria-pressed="false">Premier League</button>
-  <button class="filter-btn" data-league="sa" aria-pressed="false">Serie A</button>
-  <button class="filter-btn" data-league="ll" aria-pressed="false">La Liga</button>
-  <button class="filter-btn" data-league="br" aria-pressed="false">Brasileirão</button>
-  <button class="filter-btn" data-league="sp" aria-pressed="false">Saudi Pro</button>
+  <button class="filter-btn active" data-league="all" aria-pressed="true">Todos<span class="filter-count" id="count-all">7</span></button>
+  <button class="filter-btn" data-league="epl" aria-pressed="false">Premier League<span class="filter-count" id="count-epl">1</span></button>
+  <button class="filter-btn" data-league="sa" aria-pressed="false">Serie A<span class="filter-count" id="count-sa">2</span></button>
+  <button class="filter-btn" data-league="ll" aria-pressed="false">La Liga<span class="filter-count" id="count-ll">1</span></button>
+  <button class="filter-btn" data-league="br" aria-pressed="false">Brasileirão<span class="filter-count" id="count-br">2</span></button>
+  <button class="filter-btn" data-league="sp" aria-pressed="false">Saudi Pro<span class="filter-count" id="count-sp">1</span></button>
+</div>
+<div class="filter-results" id="filter-results" aria-live="polite"></div>
+
+<!-- Sort bar -->
+<div class="sort-bar">
+  <label for="sort-select">Ordenar:</label>
+  <select class="sort-select" id="sort-select">
+    <option value="time">🕐 Horário</option>
+    <option value="confidence">🎯 Confiança</option>
+    <option value="odds-asc">📈 Odd (menor→maior)</option>
+    <option value="odds-desc">📉 Odd (maior→menor)</option>
+    <option value="league">🏟️ Liga</option>
+  </select>
 </div>
 
 <!-- 1. FULHAM vs CHELSEA -->
-<article class="mc epl" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" aria-label="Fulham vs Chelsea - Premier League">
+<article class="mc epl" data-league="epl" data-teams="Fulham x Chelsea" data-bet="Chelsea vence + M2.5 gols" data-confidence="45" data-odds="3.10" data-time="16:30" data-sort-priority="4" aria-label="Fulham vs Chelsea - Premier League">
   <button class="save-btn" aria-label="Salvar aposta Fulham x Chelsea" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb epl">Premier League</span><span class="mt">🕐 16:30 BRT</span></div>
   <div class="mteams"><span class="th">Fulham</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Chelsea</span></div>
@@ -622,7 +713,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 2. ROMA vs FIORENTINA -->
-<article class="mc sa" data-league="sa" data-teams="Roma x Fiorentina" data-bet="Roma vence" aria-label="Roma vs Fiorentina - Serie A">
+<article class="mc sa" data-league="sa" data-teams="Roma x Fiorentina" data-bet="Roma vence" data-confidence="73" data-odds="1.55" data-time="13:45" data-sort-priority="2" aria-label="Roma vs Fiorentina - Serie A">
   <button class="save-btn" aria-label="Salvar aposta Roma x Fiorentina" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 13:45 BRT</span></div>
   <div class="mteams"><span class="th">Roma</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Fiorentina</span></div>
@@ -634,7 +725,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   <div class="as">
     <div class="at">📊 Análise Tática</div>
     <ul class="ap">
-      <li>200º confronto — Roma dominante no H2H (71V, 68E). Último confronto: 4-0 Roma</li>
+      <li>200º confronto — Roma dominante no H2H (120V, 52E, 28D). Último confronto: 4-0 Roma</li>
       <li>Roma: 3º ano passado (73pts). Malen: 8 gols em 10 jogos. Forte em casa</li>
       <li>Fiorentina em turbulência — eliminação na Coppa Italia, pré-temporada fraca</li>
       <li><strong>Recomendação:</strong> Roma vence (odd 1.55, prob. implícita 73%)</li>
@@ -643,7 +734,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 3. OSASUNA vs LEVANTE -->
-<article class="mc ll" data-league="ll" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" aria-label="Osasuna vs Levante - La Liga">
+<article class="mc ll" data-league="ll" data-teams="Osasuna x Levante" data-bet="Osasuna marca 1º gol" data-confidence="61" data-odds="1.70" data-time="13:45" data-sort-priority="3" aria-label="Osasuna vs Levante - La Liga">
   <button class="save-btn" aria-label="Salvar aposta Osasuna x Levante" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb ll">La Liga</span><span class="mt">🕐 13:45 BRT</span></div>
   <div class="mteams"><span class="th">Osasuna</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Levante</span></div>
@@ -664,14 +755,14 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 4. BOLOGNA vs LAZIO -->
-<article class="mc sa" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" aria-label="Bologna vs Lazio - Serie A">
+<article class="mc sa" data-league="sa" data-teams="Bologna x Lazio" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="15:00" data-sort-priority="3" aria-label="Bologna vs Lazio - Serie A">
   <button class="save-btn" aria-label="Salvar aposta Bologna x Lazio" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb sa">Serie A</span><span class="mt">🕐 15:00 BRT</span></div>
   <div class="mteams"><span class="th">Bologna</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Lazio</span></div>
   <div class="og" role="group" aria-label="Odds do jogo">
     <div class="oi" tabindex="0" role="button" aria-label="Bologna vence, odd 2.30, probabilidade 43%"><div class="ol">Bologna</div><div class="ov">2.30</div><div class="op">43%</div></div>
     <div class="oi" tabindex="0" role="button" aria-label="Empate, odd 3.30, probabilidade 30%"><div class="ol">Empate</div><div class="ov">3.30</div><div class="op">30%</div></div>
-    <div class="oi best" tabindex="0" role="button" aria-label="Lazio vence, odd 3.10, probabilidade 32%"><div class="ol">Lazio</div><div class="ov">3.10</div><div class="op">32%</div></div>
+    <div class="oi" tabindex="0" role="button" aria-label="Lazio vence, odd 3.10, probabilidade 32%"><div class="ol">Lazio</div><div class="ov">3.10</div><div class="op">32%</div></div>
   </div>
   <div class="as">
     <div class="at">📊 Análise Tática</div>
@@ -685,7 +776,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 5. BOTAFOGO vs ATHLETICO-PR -->
-<article class="mc br" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" aria-label="Botafogo vs Athletico-PR - Brasileirão">
+<article class="mc br" data-league="br" data-teams="Botafogo x Athletico-PR" data-bet="Menos de 2.5 gols" data-confidence="57" data-odds="1.75" data-time="18:30" data-sort-priority="3" aria-label="Botafogo vs Athletico-PR - Brasileirão">
   <button class="save-btn" aria-label="Salvar aposta Botafogo x Athletico-PR" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb br">Brasileirão</span><span class="mt">🕐 18:30 BRT</span></div>
   <div class="mteams"><span class="th">Botafogo</span><div class="vs" aria-hidden="true">VS</div><span class="ta">Athletico-PR</span></div>
@@ -706,7 +797,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 6. SPORT vs AMÉRICA-MG -->
-<article class="mc br" data-league="br" data-teams="Sport x América-MG" data-bet="Vitória Sport" aria-label="Sport vs América-MG - Série B">
+<article class="mc br" data-league="br" data-teams="Sport x América-MG" data-bet="Vitória Sport" data-confidence="68" data-odds="1.47" data-time="20:00" data-sort-priority="1" aria-label="Sport vs América-MG - Série B">
   <button class="save-btn" aria-label="Salvar aposta Sport x América-MG" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb br">Série B</span><span class="mt">🕐 20:00 BRT</span></div>
   <div class="mteams"><span class="th">Sport</span><div class="vs" aria-hidden="true">VS</div><span class="ta">América-MG</span></div>
@@ -727,7 +818,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </article>
 
 <!-- 7. AL-ITTIHAD vs AL-HAZEM -->
-<article class="mc sp" data-league="sp" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" aria-label="Al-Ittihad vs Al-Hazem - Saudi Pro League - Finalizado">
+<article class="mc sp" data-league="sp" data-teams="Al-Ittihad x Al-Hazem" data-bet="Ambos Marcam" data-confidence="85" data-odds="1.85" data-time="Finalizado" data-sort-priority="5" aria-label="Al-Ittihad vs Al-Hazem - Saudi Pro League - Finalizado">
   <button class="save-btn" aria-label="Salvar aposta Al-Ittihad x Al-Hazem" aria-pressed="false">☆</button>
   <div class="mh"><span class="lb sp">Saudi Pro League</span><span class="mt">🕐 Finalizado</span></div>
   <div class="mteams"><span class="th">Al-Ittihad</span><div class="vs" aria-hidden="true">3×2</div><span class="ta">Al-Hazem</span></div>
@@ -849,15 +940,20 @@ button:focus-visible,input:focus-visible,select:focus-visible{
   </tbody>
 </table>
 
-<div class="sbar" style="margin-top:var(--space-md)">
-  <div class="sc"><div class="sv">2</div><div class="sl">Jogos Analisados</div></div>
-  <div class="sc"><div class="sv">1</div><div class="sl">Apostas Ganhadoras</div></div>
-  <div class="sc"><div class="sv">100%</div><div class="sl">Assertividade</div></div>
-  <div class="sc"><div class="sv">+1.55</div><div class="sl">ROI Acumulado</div></div>
+<div class="sbar" id="hist-stats" style="margin-top:var(--space-md)">
+  <div class="sc"><div class="sv" id="hist-total">1</div><div class="sl">Jogos Finalizados</div></div>
+  <div class="sc"><div class="sv" id="hist-wins">1</div><div class="sl">Apostas Ganhadoras</div></div>
+  <div class="sc"><div class="sv" id="hist-winrate">100%</div><div class="sl">Assertividade</div></div>
+  <div class="sc"><div class="sv" id="hist-roi">+0.85</div><div class="sl">ROI Acumulado</div></div>
 </div>
 
 <div class="saved-panel">
   <h3>⭐ Apostas Salvas</h3>
+  <div class="saved-actions">
+    <button class="saved-action-btn" id="export-btn" type="button" aria-label="Exportar apostas salvas">📤 Exportar JSON</button>
+    <button class="saved-action-btn" id="import-btn" type="button" aria-label="Importar apostas salvas">📥 Importar JSON</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" aria-hidden="true">
+  </div>
   <div id="saved-list" class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>
 </div>
 </div><!-- /tab-hist -->
@@ -924,192 +1020,76 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 </div>
 
 <footer class="footer">
-  Consultor Futebol Pro © 2026 • Última atualização: 24/08/2026 23:30 (Horário de Brasília)
+  Consultor Futebol Pro © 2026 • Última atualização: <span id="footer-date"></span> (Horário de Brasília)
 </footer>
 
 </div><!-- /ctn -->
 
 <script>
-// ========== TABS ==========
-document.querySelectorAll('.tbtn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.tbtn').forEach(function(b) {
-      b.classList.remove('act');
-      b.setAttribute('aria-selected','false');
-    });
-    document.querySelectorAll('.tc').forEach(function(c) {
-      c.classList.remove('act');
-    });
-    this.classList.add('act');
-    this.setAttribute('aria-selected','true');
-    var tabId = 'tab-' + this.dataset.tab;
-    var tab = document.getElementById(tabId);
-    if (tab) { tab.classList.add('act'); }
-    if (typeof gsap !== 'undefined') { initGSAP(); }
-  });
-});
+// ========== UTILITIES ==========
+function formatDatePTBR(d){d=d||new Date();return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
+function formatDateTimePTBR(d){d=d||new Date();return formatDatePTBR(d)+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+function escapeHtml(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+
+// ========== DYNAMIC DATE & STATS ==========
+var MATCH_DATA={totalGames:7,resolvedGames:1,wins:1,roi:0.85};
+document.getElementById('date-badge').textContent='\uD83D\uDCC5 '+formatDatePTBR()+' \u2022 Hor\u00E1rio de Bras\u00EDlia (BRT)';
+document.getElementById('footer-date').textContent=formatDateTimePTBR();
+function updateStats(){document.getElementById('stat-total').textContent=MATCH_DATA.totalGames;document.getElementById('stat-resolved').textContent=MATCH_DATA.resolvedGames;document.getElementById('stat-winrate').textContent=MATCH_DATA.resolvedGames>0?Math.round((MATCH_DATA.wins/MATCH_DATA.resolvedGames)*100)+'%':'0%';document.getElementById('stat-roi').textContent='+'+MATCH_DATA.roi.toFixed(2);}
+
+// ========== LEAGUE COUNTS ==========
+function updateLeagueCounts(){var l={all:0,epl:0,sa:0,ll:0,br:0,sp:0};document.querySelectorAll('.mc').forEach(function(c){var k=c.dataset.league;if(l.hasOwnProperty(k)){l[k]++;l.all++;}});Object.keys(l).forEach(function(k){var e=document.getElementById('count-'+k);if(e)e.textContent=l[k];});}
+
+// ========== TOAST ==========
+function showToast(m,t){t=t||'success';var c=document.getElementById('toast-container');var x=document.createElement('div');x.className='toast '+t;x.textContent=m;c.appendChild(x);requestAnimationFrame(function(){x.classList.add('show');});setTimeout(function(){x.classList.remove('show');setTimeout(function(){if(x.parentNode)x.parentNode.removeChild(x);},300);},2200);}
+
+// ========== TABS (arrow key nav) ==========
+var tabBtns=document.querySelectorAll('.tbtn');var tabPanels=document.querySelectorAll('.tc');
+function switchTab(t){tabBtns.forEach(function(b){b.classList.remove('act');b.setAttribute('aria-selected','false');b.setAttribute('tabindex','-1');});tabPanels.forEach(function(c){c.classList.remove('act');});t.classList.add('act');t.setAttribute('aria-selected','true');t.setAttribute('tabindex','0');t.focus();var p=document.getElementById('tab-'+t.dataset.tab);if(p)p.classList.add('act');animVis();}
+tabBtns.forEach(function(b){b.addEventListener('click',function(){switchTab(this);});b.addEventListener('keydown',function(e){var a=Array.from(tabBtns),i=a.indexOf(this),n=-1;if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();n=(i+1)%a.length;}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();n=(i-1+a.length)%a.length;}else if(e.key==='Home'){e.preventDefault();n=0;}else if(e.key==='End'){e.preventDefault();n=a.length-1;}if(n>=0)switchTab(a[n]);});});
 
 // ========== LEAGUE FILTERS ==========
-document.querySelectorAll('.filter-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(function(b) {
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed','false');
-    });
-    this.classList.add('active');
-    this.setAttribute('aria-pressed','true');
-    var league = this.dataset.league;
-    document.querySelectorAll('.mc').forEach(function(card) {
-      if (league === 'all' || card.dataset.league === league) {
-        card.classList.remove('hid');
-      } else {
-        card.classList.add('hid');
-      }
-    });
-    if (typeof gsap !== 'undefined') { initGSAP(); }
-  });
-});
+var filterResults=document.getElementById('filter-results');
+document.querySelectorAll('.filter-btn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false');});this.classList.add('active');this.setAttribute('aria-pressed','true');var lg=this.dataset.league;var vc=0;document.querySelectorAll('.mc').forEach(function(c){if(lg==='all'||c.dataset.league===lg){c.classList.remove('hid');vc++;}else c.classList.add('hid');});filterResults.textContent=vc+' jogo'+(vc!==1?'s':'')+' encontrado'+(vc!==1?'s':'');animVis();});});
+
+// ========== SORT ==========
+document.getElementById('sort-select').addEventListener('change',function(){sortMatches(this.value);});
+function sortMatches(c){var ct=document.getElementById('tab-all');var cards=Array.from(ct.querySelectorAll('.mc'));cards.sort(function(a,b){switch(c){case'confidence':return(parseInt(b.dataset.confidence)||0)-(parseInt(a.dataset.confidence)||0);case'odds-asc':return(parseFloat(a.dataset.odds)||0)-(parseFloat(b.dataset.odds)||0);case'odds-desc':return(parseFloat(b.dataset.odds)||0)-(parseFloat(a.dataset.odds)||0);case'league':return(a.dataset.league||'').localeCompare(b.dataset.league||'');default:return(parseInt(a.dataset.sortPriority)||99)-(parseInt(b.dataset.sortPriority)||99);}});var sb=document.getElementById('sort-select').closest('.sort-bar');cards.forEach(function(c){ct.insertBefore(c,sb.nextSibling);});animVis();}
+
+// ========== COUNTDOWN ==========
+function updateCountdowns(){document.querySelectorAll('.countdown[data-kickoff]').forEach(function(el){var diff=new Date(el.dataset.kickoff)-new Date();if(diff<=0){el.textContent='\u23F3 Em andamento';el.style.color='var(--color-orange)';el.style.background='rgba(249,115,22,.08)';return;}var h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);el.textContent='\u23F1 '+(h>0?h+'h ':'')+m+'m '+s+'s';});}
 
 // ========== SAVE BUTTONS ==========
-function getSaved() {
-  try { return JSON.parse(localStorage.getItem('savedBets') || '[]'); } catch(e) { return []; }
-}
-function saveSaved(arr) { localStorage.setItem('savedBets', JSON.stringify(arr)); }
+function getSaved(){try{return JSON.parse(localStorage.getItem('savedBets')||'[]');}catch(e){return[];}}
+function saveSaved(a){localStorage.setItem('savedBets',JSON.stringify(a));}
+function updateSavedPanel(){var l=document.getElementById('saved-list');var s=getSaved();if(s.length===0){l.innerHTML='<div class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>';return;}l.innerHTML='';l.className='';s.forEach(function(b,i){var d=document.createElement('div');d.className='saved-item';d.innerHTML='<div class="si-info"><div class="si-teams">'+escapeHtml(b.teams)+'</div><div class="si-bet">'+escapeHtml(b.bet)+'</div></div><button class="remove-btn" data-idx="'+i+'" aria-label="Remover aposta">✕</button>';l.appendChild(d);});l.querySelectorAll('.remove-btn').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.idx);var s=getSaved();var r=s.splice(i,1)[0];saveSaved(s);updateSavedPanel();syncStars();showToast('✕ '+r.teams+' removida','warn');});});}
+function syncStars(){var s=getSaved();document.querySelectorAll('.mc').forEach(function(c){var b=c.querySelector('.save-btn');if(!b)return;var is=s.some(function(x){return x.teams===c.dataset.teams;});b.textContent=is?'★':'☆';b.classList.toggle('saved',is);b.setAttribute('aria-pressed',is);});}
+document.querySelectorAll('.save-btn').forEach(function(b){b.addEventListener('click',function(){var c=this.closest('.mc');var t=c.dataset.teams;var bt=c.dataset.bet;var s=getSaved();var i=s.findIndex(function(x){return x.teams===t;});if(i>=0){s.splice(i,1);showToast('✕ '+t+' removida','warn');}else{s.push({teams:t,bet:bt,date:formatDatePTBR()});showToast('★ '+t+' salva!','success');}saveSaved(s);syncStars();updateSavedPanel();});});
 
-function updateSavedPanel() {
-  var list = document.getElementById('saved-list');
-  var saved = getSaved();
-  if (saved.length === 0) {
-    list.innerHTML = '<div class="empty">Nenhuma aposta salva ainda. Clique na estrela ☆ de um jogo para salvar.</div>';
-    return;
-  }
-  list.innerHTML = '';
-  list.className = '';
-  saved.forEach(function(bet, i) {
-    var item = document.createElement('div');
-    item.className = 'saved-item';
-    item.innerHTML = '<div class="si-info"><div class="si-teams">' + bet.teams + '</div><div class="si-bet">' + bet.bet + '</div></div><button class="remove-btn" data-idx="' + i + '" aria-label="Remover aposta ' + bet.teams + '">✕</button>';
-    list.appendChild(item);
-  });
-  list.querySelectorAll('.remove-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var idx = parseInt(this.dataset.idx);
-      var saved = getSaved();
-      saved.splice(idx, 1);
-      saveSaved(saved);
-      updateSavedPanel();
-      syncStars();
-    });
-  });
-}
+// ========== EXPORT / IMPORT ==========
+document.getElementById('export-btn').addEventListener('click',function(){var s=getSaved();if(s.length===0){showToast('Nenhuma aposta para exportar','warn');return;}var b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='apostas-'+formatDatePTBR().replace(/\//g,'-')+'.json';a.click();URL.revokeObjectURL(u);showToast('📤 Apostas exportadas!','info');});
+document.getElementById('import-btn').addEventListener('click',function(){document.getElementById('import-file').click();});
+document.getElementById('import-file').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{var imp=JSON.parse(ev.target.result);if(!Array.isArray(imp))throw 0;var ex=getSaved();var ts=new Set(ex.map(function(x){return x.teams;}));var a=0;imp.forEach(function(b){if(b.teams&&b.bet&&!ts.has(b.teams)){ex.push(b);a++;}});saveSaved(ex);syncStars();updateSavedPanel();showToast('📥 '+a+' aposta'+(a!==1?'s':'')+' importada'+(a!==1?'s':''),'info');}catch(err){showToast('Erro ao importar','warn');}};r.readAsText(f);this.value='';});
 
-function syncStars() {
-  var saved = getSaved();
-  document.querySelectorAll('.mc').forEach(function(card) {
-    var teams = card.dataset.teams;
-    var btn = card.querySelector('.save-btn');
-    if (!btn) return;
-    var isSaved = saved.some(function(s) { return s.teams === teams; });
-    btn.textContent = isSaved ? '★' : '☆';
-    btn.classList.toggle('saved', isSaved);
-    btn.setAttribute('aria-pressed', isSaved);
-  });
-}
-
-document.querySelectorAll('.save-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var card = this.closest('.mc');
-    var teams = card.dataset.teams;
-    var bet = card.dataset.bet;
-    var saved = getSaved();
-    var idx = saved.findIndex(function(s) { return s.teams === teams; });
-    if (idx >= 0) {
-      saved.splice(idx, 1);
-    } else {
-      saved.push({ teams: teams, bet: bet, date: '24/08/2026' });
-    }
-    saveSaved(saved);
-    syncStars();
-    updateSavedPanel();
-  });
-});
+// ========== ODDS CLICK -> CALC ==========
+document.querySelectorAll('.oi').forEach(function(oi){function send(){var ov=oi.querySelector('.ov');if(!ov)return;var odd=parseFloat(ov.textContent);if(!odd||odd<=1)return;switchTab(document.querySelector('[data-tab="calc"]'));var os=document.getElementById('calc-odds');os.value='custom';document.getElementById('custom-odds-group').style.display='';var ci=document.getElementById('calc-custom-odd');ci.value=odd;ci.focus();if(document.getElementById('calc-amount').value)calculate();showToast('🏳️ Odd '+odd.toFixed(2)+' enviada para a calculadora','info');}oi.addEventListener('click',send);oi.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();send();}});});
 
 // ========== CALCULATOR ==========
-var oddsSelect = document.getElementById('calc-odds');
-var customGroup = document.getElementById('custom-odds-group');
-var customInput = document.getElementById('calc-custom-odd');
-var amountInput = document.getElementById('calc-amount');
-var returnEl = document.getElementById('calc-return');
-var profitEl = document.getElementById('calc-profit');
-var calcBtn = document.getElementById('calc-btn');
+var oddsSelect=document.getElementById('calc-odds');var customGroup=document.getElementById('custom-odds-group');var customInput=document.getElementById('calc-custom-odd');var amountInput=document.getElementById('calc-amount');var returnEl=document.getElementById('calc-return');var profitEl=document.getElementById('calc-profit');
+oddsSelect.addEventListener('change',function(){if(this.value==='custom'){customGroup.style.display='';customInput.focus();}else{customGroup.style.display='none';if(this.value)calculate();}});
+document.getElementById('calc-btn').addEventListener('click',calculate);
+amountInput.addEventListener('input',function(){calculate();updateQuickCombos();});
+customInput.addEventListener('input',calculate);
+function calculate(){var a=parseFloat(amountInput.value);var o=oddsSelect.value==='custom'?parseFloat(customInput.value):parseFloat(oddsSelect.value);if(!a||!o||a<=0||o<=1){returnEl.textContent='R$ 0,00';profitEl.textContent='Lucro: R$ 0,00';return;}var t=a*o;var p=t-a;returnEl.textContent='R$ '+t.toFixed(2).replace('.',',');profitEl.textContent='Lucro: R$ '+p.toFixed(2).replace('.',',');if(typeof gsap!=='undefined'){gsap.fromTo(returnEl,{scale:1.15},{scale:1,duration:0.25,ease:'back.out(2)'});gsap.fromTo(profitEl,{scale:1.1},{scale:1,duration:0.25,ease:'back.out(2)',delay:0.08});}}
 
-oddsSelect.addEventListener('change', function() {
-  if (this.value === 'custom') {
-    customGroup.style.display = '';
-    customInput.focus();
-  } else {
-    customGroup.style.display = 'none';
-    if (this.value) { calculate(); }
-  }
-});
+// ========== QUICK COMBOS DYNAMIC ==========
+function updateQuickCombos(){var a=parseFloat(amountInput.value)||50;var h=document.querySelector('#quick-combos-table thead th:nth-child(3)');if(h)h.textContent='R$'+a+' →';document.querySelectorAll('#quick-combos-table tbody tr').forEach(function(r){var oe=r.querySelector('.co');if(!oe)return;var o=parseFloat(oe.textContent);var tc=r.querySelector('td:nth-child(3)');var pc=r.querySelector('td:nth-child(4)');if(tc)tc.textContent='R$ '+(a*o).toFixed(2).replace('.',',');if(pc)pc.textContent='R$ '+((a*o)-a).toFixed(2).replace('.',',');});}
 
-calcBtn.addEventListener('click', calculate);
-amountInput.addEventListener('input', calculate);
-customInput.addEventListener('input', calculate);
-
-function calculate() {
-  var amount = parseFloat(amountInput.value);
-  var odds = oddsSelect.value === 'custom' ? parseFloat(customInput.value) : parseFloat(oddsSelect.value);
-  if (!amount || !odds || amount <= 0 || odds <= 1) {
-    returnEl.textContent = 'R$ 0,00';
-    profitEl.textContent = 'Lucro: R$ 0,00';
-    return;
-  }
-  var total = amount * odds;
-  var profit = total - amount;
-  returnEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
-  profitEl.textContent = 'Lucro: R$ ' + profit.toFixed(2).replace('.', ',');
-  if (typeof gsap !== 'undefined') {
-    gsap.fromTo(returnEl, { scale: 1.15 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
-    gsap.fromTo(profitEl, { scale: 1.1 }, { scale: 1, duration: 0.25, ease: 'back.out(2)', delay: 0.08 });
-  }
-}
-
-// ========== GSAP ANIMATIONS ==========
-function initGSAP() {
-  if (typeof gsap === 'undefined') return;
-  // Stagger list animation for cards
-  gsap.from('.mc:not(.hid)', {
-    opacity: 0, y: 12, duration: 0.35,
-    stagger: { each: 0.05, from: 'start' },
-    ease: 'power1.out', clearProps: 'all'
-  });
-  // Odds scale in
-  gsap.from('.oi', {
-    opacity: 0, scale: 0.92, duration: 0.35,
-    stagger: { each: 0.04, from: 'start' },
-    ease: 'back.out(1.4)', clearProps: 'all', delay: 0.15
-  });
-  // Top 3 cards
-  gsap.from('.t3c', {
-    opacity: 0, y: 16, scale: 0.92, duration: 0.4,
-    stagger: { each: 0.1, from: 'start' },
-    ease: 'back.out(1.4)', clearProps: 'all'
-  });
-  // Stats bar
-  gsap.from('.sc', {
-    opacity: 0, scale: 0.85, duration: 0.3,
-    stagger: { each: 0.06, from: 'start' },
-    ease: 'back.out(1.4)', clearProps: 'all'
-  });
-}
+// ========== GSAP (optimized) ==========
+function animVis(){if(typeof gsap==='undefined')return;var vc=document.querySelectorAll('.mc:not(.hid)');if(vc.length>0)gsap.from(vc,{opacity:0,y:12,duration:0.35,stagger:{each:0.05,from:'start'},ease:'power1.out',clearProps:'all'});var vo=document.querySelectorAll('.mc:not(.hid) .oi');if(vo.length>0)gsap.from(vo,{opacity:0,scale:0.92,duration:0.35,stagger:{each:0.04,from:'start'},ease:'back.out(1.4)',clearProps:'all',delay:0.15});var t3=document.getElementById('tab-top3');if(t3&&t3.classList.contains('act'))gsap.from('.t3c',{opacity:0,y:16,scale:0.92,duration:0.4,stagger:{each:0.1,from:'start'},ease:'back.out(1.4)',clearProps:'all'});gsap.from('.sc',{opacity:0,scale:0.85,duration:0.3,stagger:{each:0.06,from:'start'},ease:'back.out(1.4)',clearProps:'all'});}
 
 // ========== INIT ==========
-document.addEventListener('DOMContentLoaded', function() {
-  syncStars();
-  updateSavedPanel();
-  initGSAP();
-});
+document.addEventListener('DOMContentLoaded',function(){updateStats();updateLeagueCounts();syncStars();updateSavedPanel();updateCountdowns();updateQuickCombos();animVis();setInterval(updateCountdowns,1000);});
 </script>
 </body>
 </html>
