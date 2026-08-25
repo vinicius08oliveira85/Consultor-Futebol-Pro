@@ -1,8 +1,8 @@
 {
   "meta": {
-    "date": "2026-08-25",
+    "date": "2026-08-26",
     "stats": {
-      "totalGames": 10,
+      "totalGames": 9,
       "resolvedGames": 0,
       "wins": 0,
       "roi": 0
@@ -10,74 +10,1396 @@
   },
   "leagues": [
     {
-      "id": "ec",
-      "name": "EFL Cup"
-    },
-    {
       "id": "cl",
       "name": "Champions League"
     },
     {
-      "id": "ll",
-      "name": "La Liga"
+      "id": "ec",
+      "name": "EFL Cup"
     },
     {
-      "id": "sp",
-      "name": "Saudi Pro"
+      "id": "cf",
+      "name": "Conference League"
     }
   ],
   "matches": [
     {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "teams": "Sabah x Hapoel Beer Sheva",
-      "home": "Sabah",
-      "away": "Hapoel Beer Sheva",
-      "bet": "Hapoel Beer Sheva avança",
-      "confidence": 68,
-      "odds": 1.55,
-      "time": "13:45",
-      "kickoff": "2026-08-25T13:45:00-03:00",
+      "league": "cf",
+      "leagueLabel": "Conference League",
       "sortPriority": 1,
-      "homeOdd": "2.85",
+      "teams": "Rapid Wien x Hearts",
+      "home": "Rapid Wien",
+      "away": "Hearts",
+      "homeShort": "Rapid",
+      "awayShort": "Hearts",
+      "bet": "Mais de 2.5 gols",
+      "confidence": 58,
+      "odds": 1.82,
+      "multiBetShort": "M2.5",
+      "time": "13:45",
+      "homeOdd": "2.15",
       "drawOdd": "3.40",
-      "awayOdd": "2.40",
-      "homeProb": 35,
-      "drawProb": 29,
-      "awayProb": 36,
-      "homeShort": "Sabah",
-      "awayShort": "Hapoel",
+      "awayOdd": "3.20",
+      "homeProb": 44,
+      "drawProb": 28,
+      "awayProb": 28,
       "bestOdd": "none",
-      "multiBetShort": "Hapoel avança",
-      "venue": "Tofiq Bahramov Stadium, Baku",
+      "venue": "Allianz Stadion, Vienna",
       "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 1,
-        "away": 2
-      },
-      "aggregate": "2-1 Hapoel (1º jogo)",
+      "aggregate": "2-2 (1º jogo em Edinburgh)",
       "form": {
-        "home": "W-W-L-W-L",
-        "away": "L-W-W-W-W"
+        "home": "W-D-W-L-W",
+        "away": "W-W-D-L-W"
       },
       "h2h": [
-        "19/08/2026: Hapoel 2-1 Sabah (1º jogo em Tel Aviv)"
+        "20/08/2026: Hearts 2-2 Rapid (Tynecastle)"
       ],
       "keyStats": [
-        "Hapoel venceu o 1º jogo por 2-1 (Simic, Zlatanovic)",
-        "Sabah precisa vencer por 2 gols para avançar",
-        "Jogo em campo neutro em Baku"
+        "1º jogo terminou 2-2 com 4 gols",
+        "Hearts marcou 2 fora; Rapid precisa vencer",
+        "Ambos times atacaram no primeiro jogo"
       ],
       "sources": [
         "uefa.com",
-        "fotmob.com"
+        "heartsfc.co.uk"
       ],
       "analysis": [
-        "Play-off UCL — 2º jogo em Baku (campo neutro)",
-        "1º jogo: Hapoel Beer Sheva 2-1 Sabah (19/08, Tel Aviv)",
-        "Sabah precisa vencer por 2+ gols; empate classifica Hapoel",
-        "Hapoel em boa sequência europeia; Sabah pressiona em casa neutra",
-        "Recomendação: Hapoel Beer Sheva avança (~1.55)"
+        "Conference League play-off — 2º jogo em Viena",
+        "1º jogo: Hearts 2-2 Rapid (Wilson, McPake / Raux-Yao, Wurmbrand)",
+        "Empate no agregado; vencedor do 2º jogo avança à fase de liga",
+        "Partida aberta no 1º jogo — mercado de gols com valor",
+        "Recomendação: Mais de 2.5 gols (~1.82)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 11,
+          "goalsAgainst": 8,
+          "avgGoals": 2.2,
+          "avgConceded": 1.6,
+          "bttsPct": 70,
+          "over25Pct": 65,
+          "avgCards": 3.6,
+          "avgCorners": 5.8
+        },
+        "away": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 10,
+          "goalsAgainst": 7,
+          "avgGoals": 2,
+          "avgConceded": 1.4,
+          "bttsPct": 65,
+          "over25Pct": 60,
+          "avgCards": 3.4,
+          "avgCorners": 5.2
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 1,
+        "awayWins": 0,
+        "avgGoals": 4,
+        "bttsPct": 100,
+        "notes": "2-2 no 1º jogo; decisão em Viena"
+      },
+      "context": {
+        "stakes": "2º jogo — empate no agregado",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Gols",
+          "label": "Mais de 2.5 gols",
+          "odd": 1.82,
+          "confidence": 58,
+          "rationale": "1º jogo teve 4 gols; ambos precisam atacar.",
+          "valueEdge": 4
+        },
+        {
+          "rank": 2,
+          "market": "Resultado",
+          "label": "Rapid vence",
+          "odd": 2.15,
+          "confidence": 44,
+          "rationale": "Mandante austríaco em decisão caseira.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.68,
+          "confidence": 55,
+          "rationale": "BTTS em 100% do confronto atual.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Rapid vence",
+            "odd": 2.15,
+            "confidence": 44,
+            "rationale": "Decisão em casa"
+          },
+          {
+            "label": "Empate",
+            "odd": 3.4,
+            "confidence": 28,
+            "rationale": "Prorrogação"
+          },
+          {
+            "label": "Hearts vence",
+            "odd": 3.2,
+            "confidence": 28,
+            "rationale": "Classificação fora"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.82,
+            "confidence": 58,
+            "rationale": "Jogo aberto esperado"
+          },
+          {
+            "label": "Ambos marcam",
+            "odd": 1.68,
+            "confidence": 55,
+            "rationale": "Ataque de ambos"
+          },
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 2,
+            "confidence": 45,
+            "rationale": "Possível cautela"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Jogo eliminatório"
+          },
+          {
+            "label": "Hearts + cartões",
+            "odd": 2.05,
+            "confidence": 46,
+            "rationale": "Visitante com faltas"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Times ofensivos"
+          },
+          {
+            "label": "Rapid + escanteios",
+            "odd": 1.92,
+            "confidence": 48,
+            "rationale": "Pressão mandante"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T13:45:00-03:00"
+    },
+    {
+      "league": "ec",
+      "leagueLabel": "EFL Cup",
+      "sortPriority": 2,
+      "teams": "Bradford x Burnley",
+      "home": "Bradford",
+      "away": "Burnley",
+      "homeShort": "Bradford",
+      "awayShort": "Burnley",
+      "bet": "Burnley vence",
+      "confidence": 68,
+      "odds": 1.5,
+      "multiBetShort": "Burnley vence",
+      "time": "15:45",
+      "homeOdd": "3.60",
+      "drawOdd": "3.50",
+      "awayOdd": "1.95",
+      "homeProb": 27,
+      "drawProb": 28,
+      "awayProb": 45,
+      "bestOdd": "away",
+      "venue": "University of Bradford Stadium",
+      "round": "2ª rodada",
+      "form": {
+        "home": "W-L-D-W-L",
+        "away": "W-W-L-D-W"
+      },
+      "h2h": [
+        "Burnley venceu 2 dos últimos 3 encontros"
+      ],
+      "keyStats": [
+        "Burnley da Premier League",
+        "Bradford League Two",
+        "Burnley favorito claro no mercado"
+      ],
+      "sources": [
+        "skysports.com",
+        "fwp.co"
+      ],
+      "analysis": [
+        "Carabao Cup 2ª rodada — Valley Parade",
+        "Bradford: time da 4ª divisão, busca zebra em casa",
+        "Burnley: recém-promovido/rebaixado PL, elenco superior",
+        "Diferença de divisão favorece visitante",
+        "Recomendação: Burnley vence (~1.50)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 4,
+          "wins": 2,
+          "goalsFor": 5,
+          "goalsAgainst": 7,
+          "avgGoals": 1.25,
+          "avgConceded": 1.75,
+          "bttsPct": 50,
+          "over25Pct": 45,
+          "avgCards": 3.2,
+          "avgCorners": 4.5
+        },
+        "away": {
+          "played": 4,
+          "wins": 3,
+          "goalsFor": 8,
+          "goalsAgainst": 5,
+          "avgGoals": 2,
+          "avgConceded": 1.25,
+          "bttsPct": 55,
+          "over25Pct": 55,
+          "avgCards": 2.8,
+          "avgCorners": 5.8
+        }
+      },
+      "h2hSummary": {
+        "total": 3,
+        "homeWins": 0,
+        "draws": 1,
+        "awayWins": 2,
+        "avgGoals": 2.3,
+        "bttsPct": 45,
+        "notes": "Burnley superior nos últimos jogos"
+      },
+      "context": {
+        "stakes": "Carabao Cup — PL vs League Two",
+        "rotation": "Burnley pode rotacionar parcialmente",
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Resultado",
+          "label": "Burnley vence",
+          "odd": 1.5,
+          "confidence": 68,
+          "rationale": "PL vs League Two; odd 1.95 no 1X2.",
+          "valueEdge": 6
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.88,
+          "confidence": 55,
+          "rationale": "Burnley pode controlar após abrir placar.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Cartões",
+          "label": "Mais de 3.5 cartões",
+          "odd": 1.72,
+          "confidence": 52,
+          "rationale": "Bradford intensifica marcação.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Burnley vence",
+            "odd": 1.95,
+            "confidence": 45,
+            "rationale": "Favorito"
+          },
+          {
+            "label": "Empate",
+            "odd": 3.5,
+            "confidence": 28,
+            "rationale": "Bradford em casa"
+          },
+          {
+            "label": "Bradford vence",
+            "odd": 3.6,
+            "confidence": 27,
+            "rationale": "Azarão"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.88,
+            "confidence": 55,
+            "rationale": "Burnley administra"
+          },
+          {
+            "label": "Burnley vence + U2.5",
+            "odd": 2.6,
+            "confidence": 42,
+            "rationale": "Combo"
+          },
+          {
+            "label": "Ambos marcam",
+            "odd": 2.05,
+            "confidence": 48,
+            "rationale": "Bradford pode marcar"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.72,
+            "confidence": 52,
+            "rationale": "Jogo físico"
+          },
+          {
+            "label": "Bradford + cartões",
+            "odd": 1.95,
+            "confidence": 48,
+            "rationale": "Underdog com faltas"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.9,
+            "confidence": 48,
+            "rationale": "Burnley domina"
+          },
+          {
+            "label": "Burnley + escanteios",
+            "odd": 1.75,
+            "confidence": 54,
+            "rationale": "Visitante pressiona"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T15:45:00-03:00"
+    },
+    {
+      "league": "ec",
+      "leagueLabel": "EFL Cup",
+      "sortPriority": 2,
+      "teams": "Newcastle x West Brom",
+      "home": "Newcastle",
+      "away": "West Brom",
+      "homeShort": "Newcastle",
+      "awayShort": "West Brom",
+      "bet": "Newcastle vence",
+      "confidence": 76,
+      "odds": 1.42,
+      "multiBetShort": "Newcastle vence",
+      "time": "15:45",
+      "homeOdd": "1.42",
+      "drawOdd": "4.40",
+      "awayOdd": "7.00",
+      "homeProb": 70,
+      "drawProb": 22,
+      "awayProb": 8,
+      "bestOdd": "home",
+      "venue": "St James' Park",
+      "round": "2ª rodada",
+      "form": {
+        "home": "W-W-D-W-W",
+        "away": "L-W-D-L-D"
+      },
+      "h2h": [
+        "Newcastle venceu 3 dos últimos 4 vs West Brom"
+      ],
+      "keyStats": [
+        "Newcastle PL em casa",
+        "West Brom Championship",
+        "Magpies favoritos pesados (1.42)"
+      ],
+      "sources": [
+        "skysports.com",
+        "fwp.co"
+      ],
+      "analysis": [
+        "Carabao Cup 2ª rodada — St James' Park",
+        "Newcastle: elenco PL, forte em casa",
+        "West Brom: Championship, rotaciona menos que PL",
+        "Histórico recente favorece mandante",
+        "Recomendação: Newcastle vence (~1.42)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 12,
+          "goalsAgainst": 4,
+          "avgGoals": 2.4,
+          "avgConceded": 0.8,
+          "bttsPct": 50,
+          "over25Pct": 60,
+          "avgCards": 2.6,
+          "avgCorners": 6.5
+        },
+        "away": {
+          "played": 4,
+          "wins": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 8,
+          "avgGoals": 1,
+          "avgConceded": 2,
+          "bttsPct": 40,
+          "over25Pct": 35,
+          "avgCards": 3.4,
+          "avgCorners": 4.2
+        }
+      },
+      "h2hSummary": {
+        "total": 4,
+        "homeWins": 3,
+        "draws": 0,
+        "awayWins": 1,
+        "avgGoals": 2.5,
+        "bttsPct": 40,
+        "notes": "Newcastle dominou recentemente"
+      },
+      "context": {
+        "stakes": "PL vs Championship",
+        "rotation": "Newcastle pode poupar 2-3 titulares",
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Resultado",
+          "label": "Newcastle vence",
+          "odd": 1.42,
+          "confidence": 76,
+          "rationale": "70% implícito; PL em casa vs Championship.",
+          "valueEdge": 8
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Newcastle vence + M2.5",
+          "odd": 1.85,
+          "confidence": 62,
+          "rationale": "Magpies marcam 2.4 gols/jogo em casa.",
+          "valueEdge": 5
+        },
+        {
+          "rank": 3,
+          "market": "Escanteios",
+          "label": "Newcastle + escanteios",
+          "odd": 1.55,
+          "confidence": 58,
+          "rationale": "Domínio de posse esperado.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Newcastle vence",
+            "odd": 1.42,
+            "confidence": 70,
+            "rationale": "Favorito claro"
+          },
+          {
+            "label": "Empate",
+            "odd": 4.4,
+            "confidence": 22,
+            "rationale": "West Brom busca empate"
+          },
+          {
+            "label": "West Brom vence",
+            "odd": 7,
+            "confidence": 8,
+            "rationale": "Azarão"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.75,
+            "confidence": 58,
+            "rationale": "Newcastle ataca"
+          },
+          {
+            "label": "Newcastle -1.5",
+            "odd": 1.88,
+            "confidence": 55,
+            "rationale": "Handicap"
+          },
+          {
+            "label": "Ambos marcam Não",
+            "odd": 1.72,
+            "confidence": 54,
+            "rationale": "West Brom ataque fraco"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.8,
+            "confidence": 50,
+            "rationale": "Jogo controlado"
+          },
+          {
+            "label": "West Brom + cartões",
+            "odd": 2.15,
+            "confidence": 44,
+            "rationale": "Visitante frustra"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 10.5 escanteios",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Newcastle domina"
+          },
+          {
+            "label": "Newcastle + escanteios",
+            "odd": 1.55,
+            "confidence": 58,
+            "rationale": "Mandante pressiona"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T15:45:00-03:00"
+    },
+    {
+      "league": "ec",
+      "leagueLabel": "EFL Cup",
+      "sortPriority": 2,
+      "teams": "Tottenham x Charlton",
+      "home": "Tottenham",
+      "away": "Charlton",
+      "homeShort": "Tottenham",
+      "awayShort": "Charlton",
+      "bet": "Tottenham -1.5",
+      "confidence": 72,
+      "odds": 1.68,
+      "multiBetShort": "Spurs -1.5",
+      "time": "15:45",
+      "homeOdd": "1.32",
+      "drawOdd": "5.20",
+      "awayOdd": "9.00",
+      "homeProb": 76,
+      "drawProb": 16,
+      "awayProb": 8,
+      "bestOdd": "home",
+      "venue": "Tottenham Hotspur Stadium",
+      "round": "2ª rodada",
+      "form": {
+        "home": "W-W-W-D-W",
+        "away": "L-D-W-L-D"
+      },
+      "h2h": [
+        "Tottenham venceu últimos 3 confrontos"
+      ],
+      "keyStats": [
+        "Spurs PL pesado favorito (1.32)",
+        "Charlton League One",
+        "Handicap -1.5 com valor"
+      ],
+      "sources": [
+        "skysports.com",
+        "fwp.co"
+      ],
+      "analysis": [
+        "Carabao Cup 2ª rodada — Tottenham Hotspur Stadium",
+        "Tottenham: elenco PL de alto nível em casa",
+        "Charlton: 3ª divisão, dificuldade contra PL",
+        "Mercado espera vitória confortável dos Spurs",
+        "Recomendação: Tottenham -1.5 (~1.68)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 14,
+          "goalsAgainst": 5,
+          "avgGoals": 2.8,
+          "avgConceded": 1,
+          "bttsPct": 55,
+          "over25Pct": 70,
+          "avgCards": 2.4,
+          "avgCorners": 7.2
+        },
+        "away": {
+          "played": 4,
+          "wins": 1,
+          "goalsFor": 5,
+          "goalsAgainst": 9,
+          "avgGoals": 1.25,
+          "avgConceded": 2.25,
+          "bttsPct": 35,
+          "over25Pct": 40,
+          "avgCards": 3.6,
+          "avgCorners": 3.8
+        }
+      },
+      "h2hSummary": {
+        "total": 3,
+        "homeWins": 3,
+        "draws": 0,
+        "awayWins": 0,
+        "avgGoals": 3,
+        "bttsPct": 33,
+        "notes": "Tottenham 3V seguidas"
+      },
+      "context": {
+        "stakes": "PL vs League One",
+        "rotation": "Spurs deve rotacionar mas manter qualidade",
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Handicap",
+          "label": "Tottenham -1.5",
+          "odd": 1.68,
+          "confidence": 72,
+          "rationale": "PL vs L1; Spurs marcam 2.8 gols/jogo.",
+          "valueEdge": 7
+        },
+        {
+          "rank": 2,
+          "market": "Resultado",
+          "label": "Tottenham vence",
+          "odd": 1.32,
+          "confidence": 76,
+          "rationale": "76% implícito no mercado.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Mais de 2.5 gols",
+          "odd": 1.62,
+          "confidence": 65,
+          "rationale": "Diferença de nível gera gols.",
+          "valueEdge": 5
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Tottenham vence",
+            "odd": 1.32,
+            "confidence": 76,
+            "rationale": "Favorito"
+          },
+          {
+            "label": "Empate",
+            "odd": 5.2,
+            "confidence": 16,
+            "rationale": "Charlton defende"
+          },
+          {
+            "label": "Charlton vence",
+            "odd": 9,
+            "confidence": 8,
+            "rationale": "Azarão"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Tottenham -1.5",
+            "odd": 1.68,
+            "confidence": 72,
+            "rationale": "Handicap recomendado"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.62,
+            "confidence": 65,
+            "rationale": "Jogo aberto"
+          },
+          {
+            "label": "Tottenham vence + M2.5",
+            "odd": 1.75,
+            "confidence": 60,
+            "rationale": "Combo"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.78,
+            "confidence": 48,
+            "rationale": "Charlton com faltas"
+          },
+          {
+            "label": "Charlton + cartões",
+            "odd": 2.05,
+            "confidence": 45,
+            "rationale": "Underdog"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 10.5 escanteios",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "Spurs dominam"
+          },
+          {
+            "label": "Tottenham + escanteios",
+            "odd": 1.48,
+            "confidence": 62,
+            "rationale": "Pressão constante"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T15:45:00-03:00"
+    },
+    {
+      "league": "ec",
+      "leagueLabel": "EFL Cup",
+      "sortPriority": 2,
+      "teams": "Preston x Everton",
+      "home": "Preston",
+      "away": "Everton",
+      "homeShort": "Preston",
+      "awayShort": "Everton",
+      "bet": "Everton vence",
+      "confidence": 70,
+      "odds": 1.55,
+      "multiBetShort": "Everton vence",
+      "time": "16:00",
+      "homeOdd": "3.80",
+      "drawOdd": "3.60",
+      "awayOdd": "1.85",
+      "homeProb": 26,
+      "drawProb": 28,
+      "awayProb": 46,
+      "bestOdd": "away",
+      "venue": "Deepdale",
+      "round": "2ª rodada",
+      "form": {
+        "home": "W-L-D-W-L",
+        "away": "W-D-W-L-W"
+      },
+      "h2h": [
+        "Everton venceu 2 dos últimos 3"
+      ],
+      "keyStats": [
+        "Everton PL visitante",
+        "Preston Championship em Deepdale",
+        "Toffees favoritos"
+      ],
+      "sources": [
+        "skysports.com",
+        "fwp.co"
+      ],
+      "analysis": [
+        "Carabao Cup 2ª rodada — Deepdale",
+        "Preston: Championship, defende bem em casa",
+        "Everton: PL, busca avançar com elenco superior",
+        "Visitante favorito no mercado (1.85)",
+        "Recomendação: Everton vence (~1.55)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 4,
+          "wins": 2,
+          "goalsFor": 6,
+          "goalsAgainst": 6,
+          "avgGoals": 1.5,
+          "avgConceded": 1.5,
+          "bttsPct": 50,
+          "over25Pct": 50,
+          "avgCards": 3.4,
+          "avgCorners": 5
+        },
+        "away": {
+          "played": 4,
+          "wins": 3,
+          "goalsFor": 9,
+          "goalsAgainst": 5,
+          "avgGoals": 2.25,
+          "avgConceded": 1.25,
+          "bttsPct": 55,
+          "over25Pct": 55,
+          "avgCards": 2.8,
+          "avgCorners": 5.5
+        }
+      },
+      "h2hSummary": {
+        "total": 3,
+        "homeWins": 1,
+        "draws": 0,
+        "awayWins": 2,
+        "avgGoals": 2.3,
+        "bttsPct": 50,
+        "notes": "Everton levou vantagem recente"
+      },
+      "context": {
+        "stakes": "PL vs Championship",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Resultado",
+          "label": "Everton vence",
+          "odd": 1.55,
+          "confidence": 70,
+          "rationale": "PL superior; 46% implícito no 1X2.",
+          "valueEdge": 6
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.78,
+          "confidence": 56,
+          "rationale": "Preston marca em casa com regularidade.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Cartões",
+          "label": "Mais de 4.5 cartões",
+          "odd": 1.82,
+          "confidence": 52,
+          "rationale": "Preston jogo físico em Deepdale.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Everton vence",
+            "odd": 1.85,
+            "confidence": 46,
+            "rationale": "Favorito"
+          },
+          {
+            "label": "Empate",
+            "odd": 3.6,
+            "confidence": 28,
+            "rationale": "Preston em casa"
+          },
+          {
+            "label": "Preston vence",
+            "odd": 3.8,
+            "confidence": 26,
+            "rationale": "Azarão"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Ambos marcam",
+            "odd": 1.78,
+            "confidence": 56,
+            "rationale": "Preston ataca em casa"
+          },
+          {
+            "label": "Everton vence + BTTS",
+            "odd": 2.9,
+            "confidence": 45,
+            "rationale": "Combo"
+          },
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.92,
+            "confidence": 48,
+            "rationale": "Jogo fechado"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "Jogo físico"
+          },
+          {
+            "label": "Preston + cartões",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Mandante"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.85,
+            "confidence": 50,
+            "rationale": "Everton domina"
+          },
+          {
+            "label": "Everton + escanteios",
+            "odd": 1.78,
+            "confidence": 53,
+            "rationale": "Visitante pressiona"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T16:00:00-03:00"
+    },
+    {
+      "league": "cl",
+      "leagueLabel": "Champions League",
+      "sortPriority": 1,
+      "teams": "AEK Athens x Levski Sofia",
+      "home": "AEK Athens",
+      "away": "Levski Sofia",
+      "homeShort": "AEK",
+      "awayShort": "Levski",
+      "bet": "AEK avança",
+      "confidence": 74,
+      "odds": 1.48,
+      "multiBetShort": "AEK avança",
+      "time": "16:00",
+      "homeOdd": "1.55",
+      "drawOdd": "3.90",
+      "awayOdd": "5.50",
+      "homeProb": 64,
+      "drawProb": 25,
+      "awayProb": 11,
+      "bestOdd": "home",
+      "venue": "OPAP Arena, Athens",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 0,
+        "away": 0
+      },
+      "aggregate": "0-0 (1º jogo em Sofia)",
+      "form": {
+        "home": "W-W-D-W-W",
+        "away": "W-D-W-W-D"
+      },
+      "h2h": [
+        "18/08/2026: Levski 0-0 AEK (Sofia)"
+      ],
+      "keyStats": [
+        "0-0 no 1º jogo — tudo em aberto",
+        "AEK forte em casa na OPAP Arena",
+        "Levski precisa marcar fora"
+      ],
+      "sources": [
+        "uefa.com",
+        "espn.com"
+      ],
+      "analysis": [
+        "Play-off UCL — 2º jogo em Atenas",
+        "1º jogo: Levski 0-0 AEK (18/08, Sofia)",
+        "Empate no agregado; qualquer vitória classifica",
+        "AEK mandante com apoio da torcida grega",
+        "Recomendação: AEK avança (~1.48)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 10,
+          "goalsAgainst": 3,
+          "avgGoals": 2,
+          "avgConceded": 0.6,
+          "bttsPct": 40,
+          "over25Pct": 45,
+          "avgCards": 3.2,
+          "avgCorners": 6
+        },
+        "away": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 7,
+          "goalsAgainst": 4,
+          "avgGoals": 1.4,
+          "avgConceded": 0.8,
+          "bttsPct": 35,
+          "over25Pct": 40,
+          "avgCards": 3,
+          "avgCorners": 4.8
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 1,
+        "awayWins": 0,
+        "avgGoals": 0,
+        "bttsPct": 0,
+        "notes": "0-0 no 1º jogo"
+      },
+      "context": {
+        "stakes": "2º jogo UCL — 0-0 no agregado",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Classificação",
+          "label": "AEK avança",
+          "odd": 1.48,
+          "confidence": 74,
+          "rationale": "Mandante forte; Levski não marcou fora.",
+          "valueEdge": 8
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.85,
+          "confidence": 58,
+          "rationale": "1º jogo 0-0; tendência cautelosa.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Resultado",
+          "label": "AEK vence",
+          "odd": 1.55,
+          "confidence": 64,
+          "rationale": "Vitória no 90 min classifica.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "AEK avança",
+            "odd": 1.48,
+            "confidence": 74,
+            "rationale": "Classificação"
+          },
+          {
+            "label": "AEK vence",
+            "odd": 1.55,
+            "confidence": 64,
+            "rationale": "90 min"
+          },
+          {
+            "label": "Levski vence",
+            "odd": 5.5,
+            "confidence": 11,
+            "rationale": "Azarão"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.85,
+            "confidence": 58,
+            "rationale": "0-0 no 1º jogo"
+          },
+          {
+            "label": "Ambos marcam Não",
+            "odd": 1.78,
+            "confidence": 55,
+            "rationale": "Defesas sólidas"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.95,
+            "confidence": 48,
+            "rationale": "AEK pressiona"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Jogo tenso"
+          },
+          {
+            "label": "Levski + cartões",
+            "odd": 2,
+            "confidence": 47,
+            "rationale": "Visitante frustra"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "AEK domina"
+          },
+          {
+            "label": "AEK + escanteios",
+            "odd": 1.65,
+            "confidence": 58,
+            "rationale": "Mandante"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T16:00:00-03:00"
+    },
+    {
+      "league": "cl",
+      "leagueLabel": "Champions League",
+      "sortPriority": 1,
+      "teams": "Viking x GNK Dinamo",
+      "home": "Viking",
+      "away": "GNK Dinamo",
+      "homeShort": "Viking",
+      "awayShort": "Dinamo",
+      "bet": "Mais de 2.5 gols",
+      "confidence": 60,
+      "odds": 1.78,
+      "multiBetShort": "M2.5",
+      "time": "16:00",
+      "homeOdd": "2.20",
+      "drawOdd": "3.50",
+      "awayOdd": "3.00",
+      "homeProb": 43,
+      "drawProb": 27,
+      "awayProb": 30,
+      "bestOdd": "none",
+      "venue": "Lyse Arena, Stavanger",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 2,
+        "away": 2
+      },
+      "aggregate": "2-2 (1º jogo em Zagreb)",
+      "form": {
+        "home": "W-W-D-W-L",
+        "away": "W-L-W-D-W"
+      },
+      "h2h": [
+        "19/08/2026: Dinamo 2-2 Viking (Zagreb)"
+      ],
+      "keyStats": [
+        "1º jogo 2-2 com 4 gols",
+        "Empate no agregado — decisão em Stavanger",
+        "Viking ataca bem em casa"
+      ],
+      "sources": [
+        "uefa.com",
+        "skysports.com"
+      ],
+      "analysis": [
+        "Play-off UCL — 2º jogo em Stavanger",
+        "1º jogo: Dinamo Zagreb 2-2 Viking (19/08)",
+        "Empate no agregado; gols esperados com ambos atacando",
+        "Viking mandante norueguês com Lyse Arena lotada",
+        "Recomendação: Mais de 2.5 gols (~1.78)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 11,
+          "goalsAgainst": 8,
+          "avgGoals": 2.2,
+          "avgConceded": 1.6,
+          "bttsPct": 65,
+          "over25Pct": 70,
+          "avgCards": 3.4,
+          "avgCorners": 5.5
+        },
+        "away": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 10,
+          "goalsAgainst": 7,
+          "avgGoals": 2,
+          "avgConceded": 1.4,
+          "bttsPct": 60,
+          "over25Pct": 65,
+          "avgCards": 3.2,
+          "avgCorners": 5
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 1,
+        "awayWins": 0,
+        "avgGoals": 4,
+        "bttsPct": 100,
+        "notes": "2-2 no 1º jogo"
+      },
+      "context": {
+        "stakes": "2º jogo UCL — 2-2 no agregado",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Gols",
+          "label": "Mais de 2.5 gols",
+          "odd": 1.78,
+          "confidence": 60,
+          "rationale": "1º jogo com 4 gols; ambos precisam atacar.",
+          "valueEdge": 5
+        },
+        {
+          "rank": 2,
+          "market": "Resultado",
+          "label": "Viking vence",
+          "odd": 2.2,
+          "confidence": 43,
+          "rationale": "Mandante em Stavanger.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.65,
+          "confidence": 58,
+          "rationale": "BTTS no 1º jogo.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Viking vence",
+            "odd": 2.2,
+            "confidence": 43,
+            "rationale": "Mandante"
+          },
+          {
+            "label": "Empate",
+            "odd": 3.5,
+            "confidence": 27,
+            "rationale": "Prorrogação"
+          },
+          {
+            "label": "Dinamo vence",
+            "odd": 3,
+            "confidence": 30,
+            "rationale": "Classificação fora"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.78,
+            "confidence": 60,
+            "rationale": "Jogo aberto"
+          },
+          {
+            "label": "Ambos marcam",
+            "odd": 1.65,
+            "confidence": 58,
+            "rationale": "Ataque de ambos"
+          },
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 2.05,
+            "confidence": 45,
+            "rationale": "Cautela tática"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Eliminatória"
+          },
+          {
+            "label": "Dinamo + cartões",
+            "odd": 1.95,
+            "confidence": 48,
+            "rationale": "Visitante"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Jogo aberto"
+          },
+          {
+            "label": "Viking + escanteios",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "Mandante"
+          }
+        ]
+      },
+      "kickoff": "2026-08-26T16:00:00-03:00"
+    },
+    {
+      "league": "cl",
+      "leagueLabel": "Champions League",
+      "sortPriority": 1,
+      "teams": "Celje x Slovan Bratislava",
+      "home": "Celje",
+      "away": "Slovan Bratislava",
+      "homeShort": "Celje",
+      "awayShort": "Slovan",
+      "bet": "Celje avança",
+      "confidence": 66,
+      "odds": 1.62,
+      "multiBetShort": "Celje avança",
+      "time": "16:00",
+      "homeOdd": "1.75",
+      "drawOdd": "3.60",
+      "awayOdd": "4.40",
+      "homeProb": 57,
+      "drawProb": 27,
+      "awayProb": 16,
+      "bestOdd": "home",
+      "venue": "Stadion Z'dežele, Celje",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 1,
+        "away": 1
+      },
+      "aggregate": "1-1 (1º jogo em Bratislava)",
+      "form": {
+        "home": "W-D-W-W-D",
+        "away": "W-W-D-L-W"
+      },
+      "h2h": [
+        "21/08/2026: Slovan 1-1 Celje (Bratislava)"
+      ],
+      "keyStats": [
+        "1-1 no agregado",
+        "Celje joga em casa na Eslovênia",
+        "Slovan precisa vencer fora"
+      ],
+      "sources": [
+        "uefa.com",
+        "skysports.com"
+      ],
+      "analysis": [
+        "Play-off UCL — 2º jogo em Celje",
+        "1º jogo: Slovan 1-1 Celje (21/08, Bratislava)",
+        "Empate favorece ligeiramente mandante no 2º jogo",
+        "Celje com apoio da torcida eslovena",
+        "Recomendação: Celje avança (~1.62)"
       ],
       "teamStats": {
         "home": {
@@ -87,35 +1409,35 @@
           "goalsAgainst": 6,
           "avgGoals": 1.8,
           "avgConceded": 1.2,
-          "bttsPct": 60,
-          "over25Pct": 60,
-          "avgCards": 3.8,
-          "avgCorners": 5.4
+          "bttsPct": 55,
+          "over25Pct": 55,
+          "avgCards": 3,
+          "avgCorners": 5.2
         },
         "away": {
           "played": 5,
-          "wins": 4,
-          "goalsFor": 11,
+          "wins": 3,
+          "goalsFor": 8,
           "goalsAgainst": 5,
-          "avgGoals": 2.2,
+          "avgGoals": 1.6,
           "avgConceded": 1,
-          "bttsPct": 55,
-          "over25Pct": 65,
-          "avgCards": 3.4,
+          "bttsPct": 50,
+          "over25Pct": 50,
+          "avgCards": 3.2,
           "avgCorners": 4.8
         }
       },
       "h2hSummary": {
         "total": 1,
         "homeWins": 0,
-        "draws": 0,
-        "awayWins": 1,
-        "avgGoals": 3,
+        "draws": 1,
+        "awayWins": 0,
+        "avgGoals": 2,
         "bttsPct": 100,
-        "notes": "1º jogo 2-1 Hapoel; Sabah precisa 2+ gols"
+        "notes": "1-1 no 1º jogo"
       },
       "context": {
-        "stakes": "2º jogo UCL — Hapoel leva 2-1 no agregado",
+        "stakes": "2º jogo UCL — 1-1 agregado",
         "rotation": null,
         "injuries": [],
         "referee": null
@@ -124,187 +1446,193 @@
         {
           "rank": 1,
           "market": "Classificação",
-          "label": "Hapoel avança",
-          "odd": 1.55,
-          "confidence": 68,
-          "rationale": "Leva vantagem do 1º jogo; empate já classifica.",
-          "valueEdge": 5
+          "label": "Celje avança",
+          "odd": 1.62,
+          "confidence": 66,
+          "rationale": "Mandante com empate no agregado; Slovan precisa vencer.",
+          "valueEdge": 6
         },
         {
           "rank": 2,
           "market": "Gols",
-          "label": "Mais de 2.5 gols",
-          "odd": 1.9,
-          "confidence": 58,
-          "rationale": "Sabah pressiona; média 3 gols nos últimos jogos europeus.",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.88,
+          "confidence": 54,
+          "rationale": "1º jogo fechado 1-1.",
           "valueEdge": 0
         },
         {
           "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 4.5 cartões",
-          "odd": 1.82,
-          "confidence": 54,
-          "rationale": "Jogo eliminatório tenso; média combinada 3.6 cartões/jogo.",
+          "market": "Resultado",
+          "label": "Celje vence",
+          "odd": 1.75,
+          "confidence": 57,
+          "rationale": "Vitória classifica direto.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Hapoel avança",
-            "odd": 1.55,
-            "confidence": 68,
-            "rationale": "Empate ou vitória Hapoel"
+            "label": "Celje avança",
+            "odd": 1.62,
+            "confidence": 66,
+            "rationale": "Classificação"
           },
           {
-            "label": "Sabah vence",
-            "odd": 2.85,
-            "confidence": 35,
-            "rationale": "Precisa 2+ gols"
+            "label": "Celje vence",
+            "odd": 1.75,
+            "confidence": 57,
+            "rationale": "90 min"
           },
           {
-            "label": "Empate",
-            "odd": 3.4,
-            "confidence": 29,
-            "rationale": "Classifica visitante"
+            "label": "Slovan vence",
+            "odd": 4.4,
+            "confidence": 16,
+            "rationale": "Precisa vencer"
           }
         ],
         "gols": [
           {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.9,
-            "confidence": 58,
-            "rationale": "Sabah ataca desde o início"
+            "label": "Menos de 2.5 gols",
+            "odd": 1.88,
+            "confidence": 54,
+            "rationale": "1º jogo 1-1"
           },
           {
             "label": "Ambos marcam",
-            "odd": 1.75,
-            "confidence": 55,
-            "rationale": "Hapoel marca no contra-ataque"
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "BTTS no 1º jogo"
           },
           {
-            "label": "Menos de 2.5 gols",
+            "label": "Mais de 2.5 gols",
             "odd": 1.95,
             "confidence": 48,
-            "rationale": "Hapoel fecha o jogo"
+            "rationale": "Celje pressiona"
           }
         ],
         "cartoes": [
           {
             "label": "Mais de 4.5 cartões",
-            "odd": 1.82,
-            "confidence": 54,
-            "rationale": "Pressão eliminatória"
+            "odd": 1.9,
+            "confidence": 49,
+            "rationale": "Eliminatória"
           },
           {
-            "label": "Mais de 3.5 cartões 1T",
+            "label": "Slovan + cartões",
             "odd": 2.05,
-            "confidence": 50,
-            "rationale": "Início agressivo esperado"
+            "confidence": 44,
+            "rationale": "Visitante frustra"
           }
         ],
         "escanteios": [
           {
             "label": "Mais de 9.5 escanteios",
-            "odd": 1.88,
-            "confidence": 52,
-            "rationale": "Sabah domina posse"
+            "odd": 1.85,
+            "confidence": 50,
+            "rationale": "Celje domina"
           },
           {
-            "label": "Sabah + escanteios",
-            "odd": 2.2,
-            "confidence": 45,
-            "rationale": "Mandante neutro pressiona"
+            "label": "Celje + escanteios",
+            "odd": 1.72,
+            "confidence": 54,
+            "rationale": "Mandante"
           }
         ]
-      }
+      },
+      "kickoff": "2026-08-26T16:00:00-03:00"
     },
     {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "teams": "Cardiff x Norwich",
-      "home": "Cardiff",
-      "away": "Norwich",
+      "league": "cl",
+      "leagueLabel": "Champions League",
+      "sortPriority": 1,
+      "imminent": true,
+      "teams": "Lyon x Fenerbahçe",
+      "home": "Lyon",
+      "away": "Fenerbahçe",
+      "homeShort": "Lyon",
+      "awayShort": "Fenerbahçe",
       "bet": "Ambos marcam",
       "confidence": 58,
       "odds": 1.72,
-      "time": "15:00",
-      "kickoff": "2026-08-25T15:00:00-03:00",
-      "sortPriority": 2,
-      "homeOdd": "2.45",
-      "drawOdd": "3.30",
-      "awayOdd": "2.80",
-      "homeProb": 38,
-      "drawProb": 28,
-      "awayProb": 34,
-      "homeShort": "Cardiff",
-      "awayShort": "Norwich",
-      "bestOdd": "none",
       "multiBetShort": "BTTS Sim",
-      "venue": "Cardiff City Stadium",
-      "round": "2ª rodada",
+      "time": "16:00",
+      "homeOdd": "2.05",
+      "drawOdd": "3.40",
+      "awayOdd": "3.50",
+      "homeProb": 48,
+      "drawProb": 29,
+      "awayProb": 23,
+      "bestOdd": "none",
+      "venue": "Groupama Stadium, Lyon",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 1,
+        "away": 1
+      },
+      "aggregate": "1-1 (1º jogo em Istambul)",
       "form": {
-        "home": "W-D-L-W-D",
-        "away": "L-W-D-L-W"
+        "home": "W-D-W-L-W",
+        "away": "W-W-D-W-W"
       },
       "h2h": [
-        "Últimos 3: 1V Cardiff, 1V Norwich, 1E"
+        "19/08/2026: Fenerbahçe 1-1 Lyon (Istanbul)"
       ],
       "keyStats": [
-        "Cardiff eliminou Swindon 3-2 na 1ª rodada",
-        "Norwich venceu MK Dons 4-1 na 1ª rodada",
-        "Derby de Championship com histórico equilibrado"
+        "1-1 no agregado — decisão em Lyon",
+        "Fenerbahçe marcou fora no 1º jogo",
+        "Lyon precisa vencer ou empatar com gols"
       ],
       "sources": [
-        "skysports.com",
-        "fwp.co"
+        "uefa.com",
+        "milliyet.com.tr"
       ],
       "analysis": [
-        "Carabao Cup 2ª rodada — Cardiff City Stadium",
-        "Cardiff: mandante forte, 3-2 vs Swindon na rodada anterior",
-        "Norwich: ataque produtivo (4 gols vs MK Dons)",
-        "H2H recente equilibrado entre equipes do Championship",
+        "Play-off UCL — 2º jogo no Groupama Stadium",
+        "1º jogo: Fenerbahçe 1-1 Lyon (19/08, Istanbul)",
+        "Empate no agregado; jogo equilibrado entre gigantes",
+        "Lyon mando de campo; Fenerbahçe com Dzeko e quality",
         "Recomendação: Ambos marcam (~1.72)"
       ],
       "teamStats": {
         "home": {
-          "played": 4,
-          "wins": 2,
-          "goalsFor": 8,
-          "goalsAgainst": 6,
-          "avgGoals": 2,
-          "avgConceded": 1.5,
-          "bttsPct": 75,
-          "over25Pct": 75,
-          "avgCards": 3.6,
-          "avgCorners": 6.2
-        },
-        "away": {
-          "played": 4,
-          "wins": 2,
-          "goalsFor": 9,
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 10,
           "goalsAgainst": 7,
-          "avgGoals": 2.25,
-          "avgConceded": 1.75,
-          "bttsPct": 70,
-          "over25Pct": 80,
+          "avgGoals": 2,
+          "avgConceded": 1.4,
+          "bttsPct": 60,
+          "over25Pct": 60,
           "avgCards": 3.2,
           "avgCorners": 5.8
+        },
+        "away": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 12,
+          "goalsAgainst": 6,
+          "avgGoals": 2.4,
+          "avgConceded": 1.2,
+          "bttsPct": 65,
+          "over25Pct": 65,
+          "avgCards": 3.4,
+          "avgCorners": 5.5
         }
       },
       "h2hSummary": {
-        "total": 3,
-        "homeWins": 1,
+        "total": 1,
+        "homeWins": 0,
         "draws": 1,
-        "awayWins": 1,
-        "avgGoals": 2.8,
-        "bttsPct": 67,
-        "notes": "Derby equilibrado no Championship"
+        "awayWins": 0,
+        "avgGoals": 2,
+        "bttsPct": 100,
+        "notes": "1-1 no 1º jogo em Istambul"
       },
       "context": {
-        "stakes": "Carabao Cup 2ª rodada",
-        "rotation": "Times podem rotacionar elenco",
+        "stakes": "2º jogo UCL — 1-1 agregado; Dzeko titular",
+        "rotation": null,
         "injuries": [],
         "referee": null
       },
@@ -315,1428 +1643,81 @@
           "label": "Ambos marcam",
           "odd": 1.72,
           "confidence": 58,
-          "rationale": "Cardiff 3-2 e Norwich 4-1 na rodada anterior; BTTS em 72% dos jogos.",
-          "valueEdge": 3
-        },
-        {
-          "rank": 2,
-          "market": "Resultado",
-          "label": "Cardiff vence",
-          "odd": 2.45,
-          "confidence": 38,
-          "rationale": "Mandante forte, mas mercado equilibrado.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Escanteios",
-          "label": "Mais de 10.5 escanteios",
-          "odd": 1.85,
-          "confidence": 50,
-          "rationale": "Média combinada 6+ escanteios por time.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Cardiff vence",
-            "odd": 2.45,
-            "confidence": 38,
-            "rationale": "Mandante ligeiro favorito"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.3,
-            "confidence": 28,
-            "rationale": "Derby equilibrado"
-          },
-          {
-            "label": "Norwich vence",
-            "odd": 2.8,
-            "confidence": 34,
-            "rationale": "Ataque produtivo"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Ambos marcam",
-            "odd": 1.72,
-            "confidence": 58,
-            "rationale": "Defesas vulneráveis na copa"
-          },
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.95,
-            "confidence": 52,
-            "rationale": "Jogos abertos na 1ª rodada"
-          },
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.85,
-            "confidence": 48,
-            "rationale": "Possível jogo fechado"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.78,
-            "confidence": 55,
-            "rationale": "Derby intenso"
-          },
-          {
-            "label": "Mais de 1.5 cartões 1T",
-            "odd": 1.65,
-            "confidence": 58,
-            "rationale": "Início disputado"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 10.5 escanteios",
-            "odd": 1.85,
-            "confidence": 50,
-            "rationale": "Times ofensivos"
-          },
-          {
-            "label": "Cardiff + escanteios",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Mandante pressiona"
-          }
-        ]
-      }
-    },
-    {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "teams": "Ipswich x Leicester",
-      "home": "Ipswich",
-      "away": "Leicester",
-      "bet": "Ipswich vence",
-      "confidence": 67,
-      "odds": 1.5,
-      "time": "15:45",
-      "kickoff": "2026-08-25T15:45:00-03:00",
-      "sortPriority": 2,
-      "homeOdd": "1.50",
-      "drawOdd": "4.60",
-      "awayOdd": "5.80",
-      "homeProb": 67,
-      "drawProb": 20,
-      "awayProb": 13,
-      "homeShort": "Ipswich",
-      "awayShort": "Leicester",
-      "bestOdd": "home",
-      "multiBetShort": "Ipswich vence",
-      "venue": "Portman Road",
-      "round": "2ª rodada",
-      "form": {
-        "home": "W-W-D-W-L",
-        "away": "L-L-D-W-L"
-      },
-      "h2h": [
-        "Últimos 9 confrontos: todos com 3 gols ou menos"
-      ],
-      "keyStats": [
-        "Leicester rebaixado da Premier League 2025/26",
-        "Ipswich favorito claro pelo mercado (1.50)",
-        "Leicester perdeu na 1ª rodada para Northampton (1-0)"
-      ],
-      "sources": [
-        "skysports.com",
-        "fwp.co"
-      ],
-      "analysis": [
-        "Carabao Cup 2ª rodada — Ipswich mandante no Portman Road",
-        "Ipswich: 67% de vitória implícita, plantel da PL",
-        "Leicester: rebaixado, plantel enfraquecido pós-descida",
-        "H2H: últimos 9 jogos com 3 gols ou menos",
-        "Recomendação: Ipswich vence (~1.50)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 8,
-          "goalsAgainst": 5,
-          "avgGoals": 1.6,
-          "avgConceded": 1,
-          "bttsPct": 40,
-          "over25Pct": 40,
-          "avgCards": 3,
-          "avgCorners": 5.5
-        },
-        "away": {
-          "played": 5,
-          "wins": 1,
-          "goalsFor": 4,
-          "goalsAgainst": 8,
-          "avgGoals": 0.8,
-          "avgConceded": 1.6,
-          "bttsPct": 30,
-          "over25Pct": 30,
-          "avgCards": 3.5,
-          "avgCorners": 4.2
-        }
-      },
-      "h2hSummary": {
-        "total": 9,
-        "homeWins": 4,
-        "draws": 2,
-        "awayWins": 3,
-        "avgGoals": 2.1,
-        "bttsPct": 33,
-        "notes": "Últimos 9 com 3 gols ou menos"
-      },
-      "context": {
-        "stakes": "Carabao Cup — Leicester rebaixado",
-        "rotation": null,
-        "injuries": [
-          "Leicester: elenco enfraquecido pós-rebaixamento"
-        ],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Resultado",
-          "label": "Ipswich vence",
-          "odd": 1.5,
-          "confidence": 67,
-          "rationale": "Favorito claro com plantel PL; Leicester perdeu na 1ª rodada.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.88,
-          "confidence": 62,
-          "rationale": "H2H: 9 jogos seguidos com ≤3 gols.",
-          "valueEdge": 5
-        },
-        {
-          "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 3.5 cartões",
-          "odd": 1.7,
-          "confidence": 56,
-          "rationale": "Leicester frustra jogo com faltas táticas.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Ipswich vence",
-            "odd": 1.5,
-            "confidence": 67,
-            "rationale": "67% implícito no mercado"
-          },
-          {
-            "label": "Empate",
-            "odd": 4.6,
-            "confidence": 20,
-            "rationale": "Leicester busca empate"
-          },
-          {
-            "label": "Leicester vence",
-            "odd": 5.8,
-            "confidence": 13,
-            "rationale": "Azarão"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.88,
-            "confidence": 62,
-            "rationale": "H2H baixo scoring"
-          },
-          {
-            "label": "Ipswich vence + U2.5",
-            "odd": 2.4,
-            "confidence": 48,
-            "rationale": "Combo defensivo"
-          },
-          {
-            "label": "Ambos marcam Não",
-            "odd": 1.95,
-            "confidence": 55,
-            "rationale": "Leicester ataque fraco"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 3.5 cartões",
-            "odd": 1.7,
-            "confidence": 56,
-            "rationale": "Jogo físico esperado"
-          },
-          {
-            "label": "Leicester + cartões",
-            "odd": 2.1,
-            "confidence": 48,
-            "rationale": "Visitante com faltas"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.8,
-            "confidence": 51,
-            "rationale": "Ipswich domina"
-          },
-          {
-            "label": "Ipswich + escanteios",
-            "odd": 1.72,
-            "confidence": 54,
-            "rationale": "Mandante pressiona"
-          }
-        ]
-      }
-    },
-    {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "teams": "Southampton x West Ham",
-      "home": "Southampton",
-      "away": "West Ham",
-      "bet": "West Ham vence",
-      "confidence": 64,
-      "odds": 1.85,
-      "time": "15:45",
-      "kickoff": "2026-08-25T15:45:00-03:00",
-      "sortPriority": 2,
-      "homeOdd": "3.80",
-      "drawOdd": "3.50",
-      "awayOdd": "1.85",
-      "homeProb": 26,
-      "drawProb": 29,
-      "awayProb": 45,
-      "homeShort": "Southampton",
-      "awayShort": "West Ham",
-      "bestOdd": "away",
-      "multiBetShort": "West Ham vence",
-      "venue": "St Mary's Stadium",
-      "round": "2ª rodada",
-      "form": {
-        "home": "L-W-L-D-W",
-        "away": "W-D-W-L-W"
-      },
-      "h2h": [
-        "West Ham venceu 3-1 na 1ª rodada vs Portsmouth"
-      ],
-      "keyStats": [
-        "West Ham da Premier League entra na 2ª rodada",
-        "Southampton eliminou Colchester 2-0 na 1ª rodada",
-        "West Ham favorito com odd ~1.85"
-      ],
-      "sources": [
-        "skysports.com",
-        "fwp.co"
-      ],
-      "analysis": [
-        "Carabao Cup 2ª rodada — St Mary's Stadium",
-        "Southampton: Championship, venceu Colchester 2-0",
-        "West Ham: PL, venceu Portsmouth 3-1 na estreia",
-        "Diferença de divisão favorece visitante",
-        "Recomendação: West Ham vence (~1.85)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 4,
-          "wins": 2,
-          "goalsFor": 5,
-          "goalsAgainst": 4,
-          "avgGoals": 1.25,
-          "avgConceded": 1,
-          "bttsPct": 50,
-          "over25Pct": 25,
-          "avgCards": 3.4,
-          "avgCorners": 5
-        },
-        "away": {
-          "played": 4,
-          "wins": 3,
-          "goalsFor": 10,
-          "goalsAgainst": 5,
-          "avgGoals": 2.5,
-          "avgConceded": 1.25,
-          "bttsPct": 60,
-          "over25Pct": 70,
-          "avgCards": 2.8,
-          "avgCorners": 6.5
-        }
-      },
-      "h2hSummary": {
-        "total": 5,
-        "homeWins": 1,
-        "draws": 1,
-        "awayWins": 3,
-        "avgGoals": 2.6,
-        "bttsPct": 55,
-        "notes": "West Ham superior nos últimos confrontos"
-      },
-      "context": {
-        "stakes": "PL vs Championship — diferença de divisão",
-        "rotation": "West Ham pode poupar alguns titulares",
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Resultado",
-          "label": "West Ham vence",
-          "odd": 1.85,
-          "confidence": 64,
-          "rationale": "PL vs Championship; West Ham venceu Portsmouth 3-1.",
-          "valueEdge": 5
+          "rationale": "1-1 no 1º jogo; ambos marcam com regularidade.",
+          "valueEdge": 4
         },
         {
           "rank": 2,
           "market": "Gols",
           "label": "Mais de 2.5 gols",
-          "odd": 1.92,
-          "confidence": 56,
-          "rationale": "West Ham média 2.5 gols/jogo na copa.",
+          "odd": 1.85,
+          "confidence": 55,
+          "rationale": "Decisão exige ataque dos dois lados.",
           "valueEdge": 0
         },
         {
           "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 4.5 cartões",
-          "odd": 1.88,
-          "confidence": 52,
-          "rationale": "Southampton intensifica marcação em casa.",
+          "market": "Resultado",
+          "label": "Lyon vence",
+          "odd": 2.05,
+          "confidence": 48,
+          "rationale": "Mandante francês em casa.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "West Ham vence",
-            "odd": 1.85,
-            "confidence": 64,
-            "rationale": "45% implícito + valor tático"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.5,
-            "confidence": 29,
-            "rationale": "Southampton em casa"
-          },
-          {
-            "label": "Southampton vence",
-            "odd": 3.8,
-            "confidence": 26,
-            "rationale": "Azarão Championship"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.92,
-            "confidence": 56,
-            "rationale": "West Ham ataque forte"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.8,
-            "confidence": 54,
-            "rationale": "Southampton marca em casa"
-          },
-          {
-            "label": "West Ham vence + BTTS",
-            "odd": 3.1,
-            "confidence": 42,
-            "rationale": "Combo ofensivo"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.88,
-            "confidence": 52,
-            "rationale": "Jogo físico"
-          },
-          {
-            "label": "Mais de 1 cartão vermelho",
-            "odd": 3.5,
-            "confidence": 28,
-            "rationale": "Derby intenso"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 10.5 escanteios",
-            "odd": 1.9,
-            "confidence": 49,
-            "rationale": "West Ham domina flancos"
-          },
-          {
-            "label": "West Ham + escanteios",
+            "label": "Lyon vence",
             "odd": 2.05,
-            "confidence": 46,
-            "rationale": "Visitante pressiona"
-          }
-        ]
-      }
-    },
-    {
-      "league": "sp",
-      "leagueLabel": "Saudi Pro League",
-      "imminent": true,
-      "teams": "Al Ettifaq x Al Nassr",
-      "home": "Al Ettifaq",
-      "away": "Al Nassr",
-      "bet": "Al Nassr vence + M2.5",
-      "confidence": 78,
-      "odds": 1.65,
-      "time": "17:30",
-      "kickoff": "2026-08-25T17:30:00-03:00",
-      "sortPriority": 1,
-      "homeOdd": "9.50",
-      "drawOdd": "5.50",
-      "awayOdd": "1.28",
-      "homeProb": 10,
-      "drawProb": 13,
-      "awayProb": 77,
-      "homeShort": "Ettifaq",
-      "awayShort": "Al Nassr",
-      "bestOdd": "away",
-      "multiBetShort": "Al Nassr + M2.5",
-      "venue": "Ettifaq Club Stadium, Dammam",
-      "round": "Rodada 1",
-      "form": {
-        "home": "W-D-L-W-D",
-        "away": "W-W-W-W-D"
-      },
-      "h2h": [
-        "Al Nassr venceu 3 dos últimos 4 confrontos"
-      ],
-      "keyStats": [
-        "Al Nassr líder com plantel estrelado (Ronaldo)",
-        "BTTS em 59% dos últimos jogos do Al Nassr",
-        "Ettifaq 4º na temporada passada, cede gols em casa"
-      ],
-      "sources": [
-        "spl.com.sa",
-        "fifaworldcupnews.com"
-      ],
-      "analysis": [
-        "Saudi Pro League — Al Ettifaq Club Stadium, Dammam",
-        "Al Nassr: favorito pesado (odd 1.28, 77% implícito)",
-        "Cristiano Ronaldo titular; ataque prolifico",
-        "Ettifaq defende em casa mas cede espaço",
-        "Recomendação: Al Nassr vence + M2.5 gols (~1.65)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 2,
-          "goalsFor": 7,
-          "goalsAgainst": 8,
-          "avgGoals": 1.4,
-          "avgConceded": 1.6,
-          "bttsPct": 55,
-          "over25Pct": 50,
-          "avgCards": 3.8,
-          "avgCorners": 4.5
-        },
-        "away": {
-          "played": 5,
-          "wins": 4,
-          "goalsFor": 14,
-          "goalsAgainst": 4,
-          "avgGoals": 2.8,
-          "avgConceded": 0.8,
-          "bttsPct": 59,
-          "over25Pct": 75,
-          "avgCards": 3.2,
-          "avgCorners": 6.8
-        }
-      },
-      "h2hSummary": {
-        "total": 4,
-        "homeWins": 1,
-        "draws": 0,
-        "awayWins": 3,
-        "avgGoals": 3.2,
-        "bttsPct": 65,
-        "notes": "Al Nassr venceu 3 dos últimos 4"
-      },
-      "context": {
-        "stakes": "Abertura Saudi Pro League",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Combo",
-          "label": "Al Nassr vence + M2.5",
-          "odd": 1.65,
-          "confidence": 78,
-          "rationale": "Favorito 77% + média 2.8 gols/jogo; Ronaldo titular.",
-          "valueEdge": 8
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Mais de 2.5 gols",
-          "odd": 1.65,
-          "confidence": 72,
-          "rationale": "Al Nassr 75% over 2.5 nos últimos 5.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 3,
-          "market": "Especiais",
-          "label": "Ronaldo marca",
-          "odd": 1.75,
-          "confidence": 65,
-          "rationale": "Artilheiro titular; marca em 60% dos jogos.",
-          "valueEdge": 5
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Al Nassr vence",
-            "odd": 1.28,
-            "confidence": 77,
-            "rationale": "Favorito pesado"
+            "confidence": 48,
+            "rationale": "Mandante"
           },
           {
             "label": "Empate",
-            "odd": 5.5,
-            "confidence": 13,
-            "rationale": "Improvável"
+            "odd": 3.4,
+            "confidence": 29,
+            "rationale": "Prorrogação"
           },
           {
-            "label": "Ettifaq vence",
-            "odd": 9.5,
-            "confidence": 10,
-            "rationale": "Azarão"
+            "label": "Fenerbahçe vence",
+            "odd": 3.5,
+            "confidence": 23,
+            "rationale": "Classificação fora"
           }
         ],
         "gols": [
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.65,
-            "confidence": 72,
-            "rationale": "Ataque prolifico"
-          },
           {
             "label": "Ambos marcam",
-            "odd": 1.85,
-            "confidence": 59,
-            "rationale": "Ettifaq cede em casa"
-          },
-          {
-            "label": "Mais de 3.5 gols",
-            "odd": 2.4,
-            "confidence": 45,
-            "rationale": "Goleada possível"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Jogo físico saudita"
-          },
-          {
-            "label": "Mais de 5.5 cartões",
-            "odd": 2.3,
-            "confidence": 40,
-            "rationale": "Derby intenso"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.82,
-            "confidence": 53,
-            "rationale": "Nassr domina"
-          },
-          {
-            "label": "Al Nassr + escanteios",
-            "odd": 1.55,
-            "confidence": 62,
-            "rationale": "Pressão constante"
-          }
-        ],
-        "especiais": [
-          {
-            "label": "Ronaldo marca",
-            "odd": 1.75,
-            "confidence": 65,
-            "rationale": "Titular confirmado"
-          },
-          {
-            "label": "Al Nassr -1.5 handicap",
-            "odd": 1.9,
+            "odd": 1.72,
             "confidence": 58,
-            "rationale": "Superioridade clara"
-          }
-        ]
-      }
-    },
-    {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "teams": "Nottm Forest x Leeds",
-      "home": "Nottm Forest",
-      "away": "Leeds",
-      "bet": "Menos de 2.5 gols",
-      "confidence": 62,
-      "odds": 1.8,
-      "time": "16:00",
-      "kickoff": "2026-08-25T16:00:00-03:00",
-      "sortPriority": 2,
-      "homeOdd": "2.20",
-      "drawOdd": "3.20",
-      "awayOdd": "3.50",
-      "homeProb": 45,
-      "drawProb": 29,
-      "awayProb": 26,
-      "homeShort": "Forest",
-      "awayShort": "Leeds",
-      "bestOdd": "none",
-      "multiBetShort": "Menos de 2.5",
-      "venue": "City Ground",
-      "round": "2ª rodada",
-      "form": {
-        "home": "W-D-W-L-W",
-        "away": "L-W-D-L-D"
-      },
-      "h2h": [
-        "Forest venceu último confronto por 1-0"
-      ],
-      "keyStats": [
-        "Forest da PL vs Leeds recém-promovido",
-        "Leeds ataque ainda se adaptando à PL",
-        "City Ground: Forest defende bem em casa"
-      ],
-      "sources": [
-        "skysports.com",
-        "fwp.co"
-      ],
-      "analysis": [
-        "Carabao Cup 2ª rodada — City Ground",
-        "Nottingham Forest: mandante PL, defesa sólida em casa",
-        "Leeds: recém-promovido, ataque em adaptação",
-        "H2H: Forest venceu último jogo 1-0",
-        "Recomendação: Menos de 2.5 gols (~1.80)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 6,
-          "goalsAgainst": 4,
-          "avgGoals": 1.2,
-          "avgConceded": 0.8,
-          "bttsPct": 35,
-          "over25Pct": 30,
-          "avgCards": 3.6,
-          "avgCorners": 5.8
-        },
-        "away": {
-          "played": 5,
-          "wins": 2,
-          "goalsFor": 5,
-          "goalsAgainst": 7,
-          "avgGoals": 1,
-          "avgConceded": 1.4,
-          "bttsPct": 40,
-          "over25Pct": 35,
-          "avgCards": 3.8,
-          "avgCorners": 4.5
-        }
-      },
-      "h2hSummary": {
-        "total": 6,
-        "homeWins": 3,
-        "draws": 1,
-        "awayWins": 2,
-        "avgGoals": 1.8,
-        "bttsPct": 33,
-        "notes": "Forest venceu último 1-0; jogos fechados"
-      },
-      "context": {
-        "stakes": "PL vs recém-promovido",
-        "rotation": null,
-        "injuries": [
-          "Leeds: ataque em adaptação à PL"
-        ],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.8,
-          "confidence": 62,
-          "rationale": "Forest defende bem em casa (0.8 gols sofridos/jogo).",
-          "valueEdge": 5
-        },
-        {
-          "rank": 2,
-          "market": "Resultado",
-          "label": "Forest vence",
-          "odd": 2.2,
-          "confidence": 45,
-          "rationale": "Mandante PL com H2H favorável 1-0.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 4.5 cartões",
-          "odd": 1.85,
-          "confidence": 53,
-          "rationale": "Leeds frustra com faltas; média 3.7 cartões.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Forest vence",
-            "odd": 2.2,
-            "confidence": 45,
-            "rationale": "Mandante favorito"
+            "rationale": "BTTS recomendado"
           },
           {
-            "label": "Empate",
-            "odd": 3.2,
-            "confidence": 29,
-            "rationale": "Jogo equilibrado"
+            "label": "Mais de 2.5 gols",
+            "odd": 1.85,
+            "confidence": 55,
+            "rationale": "Jogo aberto"
           },
-          {
-            "label": "Leeds vence",
-            "odd": 3.5,
-            "confidence": 26,
-            "rationale": "Visitante promovido"
-          }
-        ],
-        "gols": [
           {
             "label": "Menos de 2.5 gols",
-            "odd": 1.8,
-            "confidence": 62,
-            "rationale": "Defesas sólidas"
-          },
-          {
-            "label": "Ambos marcam Não",
-            "odd": 1.88,
-            "confidence": 55,
-            "rationale": "Leeds ataque fraco"
-          },
-          {
-            "label": "Placar exato 1-0",
-            "odd": 7.5,
-            "confidence": 18,
-            "rationale": "H2H recente"
+            "odd": 1.95,
+            "confidence": 48,
+            "rationale": "Cautela possível"
           }
         ],
         "cartoes": [
           {
             "label": "Mais de 4.5 cartões",
-            "odd": 1.85,
-            "confidence": 53,
-            "rationale": "Jogo físico"
+            "odd": 1.88,
+            "confidence": 52,
+            "rationale": "Jogo grande"
           },
           {
-            "label": "Leeds + cartões",
+            "label": "Fenerbahçe + cartões",
             "odd": 2,
             "confidence": 47,
-            "rationale": "Visitante com faltas"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.78,
-            "confidence": 54,
-            "rationale": "Forest domina em casa"
-          },
-          {
-            "label": "Forest + escanteios",
-            "odd": 1.88,
-            "confidence": 50,
-            "rationale": "Pressão mandante"
-          }
-        ]
-      }
-    },
-    {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "teams": "Birmingham x Brentford",
-      "home": "Birmingham",
-      "away": "Brentford",
-      "bet": "Brentford vence + BTTS",
-      "confidence": 60,
-      "odds": 2.8,
-      "time": "16:00",
-      "kickoff": "2026-08-25T16:00:00-03:00",
-      "sortPriority": 3,
-      "homeOdd": "3.50",
-      "drawOdd": "3.40",
-      "awayOdd": "1.95",
-      "homeProb": 29,
-      "drawProb": 28,
-      "awayProb": 43,
-      "homeShort": "Birmingham",
-      "awayShort": "Brentford",
-      "bestOdd": "away",
-      "multiBetShort": "Brentford + BTTS",
-      "venue": "St Andrew's",
-      "round": "2ª rodada",
-      "form": {
-        "home": "W-L-D-W-L",
-        "away": "W-W-L-D-W"
-      },
-      "h2h": [
-        "Brentford venceu 2 dos últimos 3"
-      ],
-      "keyStats": [
-        "Brentford favorito (odd 1.95, 43% implícito)",
-        "Birmingham recém-promovido da Championship",
-        "Brentford eliminou na PL; ataque consistente"
-      ],
-      "sources": [
-        "skysports.com",
-        "fwp.co"
-      ],
-      "analysis": [
-        "Carabao Cup 2ª rodada — St Andrew's",
-        "Brentford: favorito PL, odd 1.95",
-        "Birmingham: recém-promovido, defesa vulnerável",
-        "Previsão: Brentford 2-1 com BTTS",
-        "Recomendação: Brentford vence + BTTS (~2.80)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 4,
-          "wins": 2,
-          "goalsFor": 6,
-          "goalsAgainst": 8,
-          "avgGoals": 1.5,
-          "avgConceded": 2,
-          "bttsPct": 65,
-          "over25Pct": 70,
-          "avgCards": 3.4,
-          "avgCorners": 4.8
-        },
-        "away": {
-          "played": 4,
-          "wins": 3,
-          "goalsFor": 9,
-          "goalsAgainst": 5,
-          "avgGoals": 2.25,
-          "avgConceded": 1.25,
-          "bttsPct": 60,
-          "over25Pct": 65,
-          "avgCards": 3,
-          "avgCorners": 6.2
-        }
-      },
-      "h2hSummary": {
-        "total": 3,
-        "homeWins": 0,
-        "draws": 1,
-        "awayWins": 2,
-        "avgGoals": 2.7,
-        "bttsPct": 70,
-        "notes": "Brentford venceu 2 dos últimos 3"
-      },
-      "context": {
-        "stakes": "PL vs recém-promovido",
-        "rotation": null,
-        "injuries": [
-          "Birmingham: defesa vulnerável"
-        ],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Combo",
-          "label": "Brentford vence + BTTS",
-          "odd": 2.8,
-          "confidence": 60,
-          "rationale": "Brentford ataca bem; Birmingham cede 2.0 gols/jogo.",
-          "valueEdge": 7
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Ambos marcam",
-          "odd": 1.78,
-          "confidence": 58,
-          "rationale": "BTTS em 65% dos jogos de Birmingham.",
-          "valueEdge": 4
-        },
-        {
-          "rank": 3,
-          "market": "Resultado",
-          "label": "Brentford vence",
-          "odd": 1.95,
-          "confidence": 43,
-          "rationale": "Favorito PL com odd 1.95.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Brentford vence",
-            "odd": 1.95,
-            "confidence": 43,
-            "rationale": "Favorito PL"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.4,
-            "confidence": 28,
-            "rationale": "Birmingham em casa"
-          },
-          {
-            "label": "Birmingham vence",
-            "odd": 3.5,
-            "confidence": 29,
-            "rationale": "Azarão"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Ambos marcam",
-            "odd": 1.78,
-            "confidence": 58,
-            "rationale": "Defesas vulneráveis"
-          },
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.88,
-            "confidence": 54,
-            "rationale": "Jogo aberto"
-          },
-          {
-            "label": "Brentford vence + BTTS",
-            "odd": 2.8,
-            "confidence": 60,
-            "rationale": "Combo recomendado"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.8,
-            "confidence": 54,
-            "rationale": "Jogo disputado"
-          },
-          {
-            "label": "Mais de 5.5 cartões",
-            "odd": 2.15,
-            "confidence": 46,
-            "rationale": "Intensidade alta"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 10.5 escanteios",
-            "odd": 1.92,
-            "confidence": 48,
-            "rationale": "Brentford domina flancos"
-          },
-          {
-            "label": "Brentford + escanteios",
-            "odd": 1.85,
-            "confidence": 51,
-            "rationale": "Visitante pressiona"
-          }
-        ]
-      }
-    },
-    {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "teams": "LASK x Celtic",
-      "home": "LASK",
-      "away": "Celtic",
-      "bet": "Celtic avança (placar agregado)",
-      "confidence": 82,
-      "odds": 1.3,
-      "time": "16:00",
-      "kickoff": "2026-08-25T16:00:00-03:00",
-      "sortPriority": 1,
-      "homeOdd": "2.40",
-      "drawOdd": "3.70",
-      "awayOdd": "3.50",
-      "homeProb": 42,
-      "drawProb": 25,
-      "awayProb": 33,
-      "homeShort": "LASK",
-      "awayShort": "Celtic",
-      "bestOdd": "none",
-      "multiBetShort": "Celtic avança",
-      "venue": "Raiffeisen Arena, Linz",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 0,
-        "away": 3
-      },
-      "aggregate": "0-3 Celtic (1º jogo em Glasgow)",
-      "form": {
-        "home": "L-W-D-L-W",
-        "away": "W-W-W-W-W"
-      },
-      "h2h": [
-        "19/08/2026: Celtic 3-0 LASK (Nygren, Duran x2)"
-      ],
-      "keyStats": [
-        "Celtic venceu 1º jogo 3-0 (Nygren 26', Duran 38', 67')",
-        "LASK precisa de 4 gols para empatar no agregado",
-        "Martin O'Neill pode poupar titulares; Celtic já classificado"
-      ],
-      "sources": [
-        "uefa.com",
-        "skysports.com"
-      ],
-      "analysis": [
-        "Play-off UCL — 2º jogo, Raiffeisen Arena (Linz)",
-        "1º jogo: Celtic 3-0 LASK (19/08, Glasgow)",
-        "LASK precisa de 4 gols — missão quase impossível",
-        "Celtic pode rotacionar elenco; ainda favorito para avançar",
-        "Recomendação: Celtic avança na classificação (~1.30)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 2,
-          "goalsFor": 7,
-          "goalsAgainst": 9,
-          "avgGoals": 1.4,
-          "avgConceded": 1.8,
-          "bttsPct": 50,
-          "over25Pct": 55,
-          "avgCards": 4,
-          "avgCorners": 5.2
-        },
-        "away": {
-          "played": 5,
-          "wins": 5,
-          "goalsFor": 15,
-          "goalsAgainst": 3,
-          "avgGoals": 3,
-          "avgConceded": 0.6,
-          "bttsPct": 45,
-          "over25Pct": 80,
-          "avgCards": 2.6,
-          "avgCorners": 7
-        }
-      },
-      "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 0,
-        "awayWins": 1,
-        "avgGoals": 3,
-        "bttsPct": 0,
-        "notes": "Celtic 3-0 no 1º jogo; LASK precisa 4 gols"
-      },
-      "context": {
-        "stakes": "2º jogo UCL — Celtic leva 3-0",
-        "rotation": "Celtic pode rotacionar com vantagem confortável",
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Classificação",
-          "label": "Celtic avança",
-          "odd": 1.3,
-          "confidence": 82,
-          "rationale": "3-0 no agregado; LASK precisa de 4 gols.",
-          "valueEdge": 10
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Mais de 2.5 gols",
-          "odd": 1.75,
-          "confidence": 65,
-          "rationale": "LASK ataca desesperado; Celtic média 3.0 gols/jogo.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 3,
-          "market": "Resultado",
-          "label": "Celtic vence",
-          "odd": 3.5,
-          "confidence": 33,
-          "rationale": "Visitante pode poupar, mas elenco superior.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Celtic avança",
-            "odd": 1.3,
-            "confidence": 82,
-            "rationale": "Classificação quase certa"
-          },
-          {
-            "label": "LASK vence",
-            "odd": 2.4,
-            "confidence": 42,
-            "rationale": "Pressão em Linz"
-          },
-          {
-            "label": "Celtic vence",
-            "odd": 3.5,
-            "confidence": 33,
-            "rationale": "Rotação possível"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.75,
-            "confidence": 65,
-            "rationale": "LASK abre jogo"
-          },
-          {
-            "label": "Celtic vence + M2.5",
-            "odd": 1.85,
-            "confidence": 58,
-            "rationale": "Combo ofensivo"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.9,
-            "confidence": 52,
-            "rationale": "LASK marca em casa"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.88,
-            "confidence": 50,
-            "rationale": "Jogo tenso"
-          },
-          {
-            "label": "LASK + cartões (pressão)",
-            "odd": 1.72,
-            "confidence": 55,
-            "rationale": "Frustração mandante"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.85,
-            "confidence": 51,
-            "rationale": "LASK pressiona"
-          },
-          {
-            "label": "LASK + escanteios",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Desespero ofensivo"
-          }
-        ]
-      }
-    },
-    {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "teams": "Bodø/Glimt x NEC",
-      "home": "Bodø/Glimt",
-      "away": "NEC",
-      "bet": "Bodø/Glimt avança",
-      "confidence": 75,
-      "odds": 1.25,
-      "time": "16:00",
-      "kickoff": "2026-08-25T16:00:00-03:00",
-      "sortPriority": 1,
-      "homeOdd": "1.80",
-      "drawOdd": "3.80",
-      "awayOdd": "4.50",
-      "homeProb": 55,
-      "drawProb": 24,
-      "awayProb": 21,
-      "homeShort": "Bodø/Glimt",
-      "awayShort": "NEC",
-      "bestOdd": "home",
-      "multiBetShort": "Bodø/Glimt avança",
-      "venue": "Aspmyra Stadion, Bodø",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 3,
-        "away": 1
-      },
-      "aggregate": "3-1 Bodø/Glimt (1º jogo fora)",
-      "form": {
-        "home": "W-W-W-D-W",
-        "away": "L-W-D-L-L"
-      },
-      "h2h": [
-        "19/08/2026: NEC 1-3 Bodø/Glimt (Fet, Helmersen, Aleesami)"
-      ],
-      "keyStats": [
-        "Bodø/Glimt venceu fora por 3-1 no 1º jogo",
-        "NEC precisa de 3 gols no agregado em Bodø",
-        "Aspmyra: forte vantagem de mando norueguês"
-      ],
-      "sources": [
-        "uefa.com",
-        "skysports.com"
-      ],
-      "analysis": [
-        "Play-off UCL — 2º jogo, Aspmyra Stadion (Bodø)",
-        "1º jogo: Bodø/Glimt 3-1 NEC (19/08, Nijmegen)",
-        "NEC busca 1ª fase de grupos; precisa de 3 gols",
-        "Bodø/Glimt campeão norueguês, excelente em casa",
-        "Recomendação: Bodø/Glimt avança (~1.25)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 4,
-          "goalsFor": 12,
-          "goalsAgainst": 4,
-          "avgGoals": 2.4,
-          "avgConceded": 0.8,
-          "bttsPct": 40,
-          "over25Pct": 70,
-          "avgCards": 3.2,
-          "avgCorners": 6.5
-        },
-        "away": {
-          "played": 5,
-          "wins": 2,
-          "goalsFor": 6,
-          "goalsAgainst": 9,
-          "avgGoals": 1.2,
-          "avgConceded": 1.8,
-          "bttsPct": 45,
-          "over25Pct": 50,
-          "avgCards": 3.6,
-          "avgCorners": 4.8
-        }
-      },
-      "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 0,
-        "awayWins": 1,
-        "avgGoals": 4,
-        "bttsPct": 100,
-        "notes": "Bodø 3-1 fora; NEC precisa 3 gols em Bodø"
-      },
-      "context": {
-        "stakes": "2º jogo UCL — Bodø leva 3-1",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Classificação",
-          "label": "Bodø/Glimt avança",
-          "odd": 1.25,
-          "confidence": 75,
-          "rationale": "3-1 no agregado; forte em casa no Aspmyra.",
-          "valueEdge": 8
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Mais de 1.5 gols",
-          "odd": 1.45,
-          "confidence": 72,
-          "rationale": "NEC ataca; Bodø média 2.4 gols/jogo em casa.",
-          "valueEdge": 7
-        },
-        {
-          "rank": 3,
-          "market": "Resultado",
-          "label": "Bodø/Glimt vence",
-          "odd": 1.8,
-          "confidence": 55,
-          "rationale": "Mandante favorito no 90 min.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Bodø/Glimt avança",
-            "odd": 1.25,
-            "confidence": 75,
-            "rationale": "Vantagem confortável"
-          },
-          {
-            "label": "Bodø/Glimt vence",
-            "odd": 1.8,
-            "confidence": 55,
-            "rationale": "Forte em casa"
-          },
-          {
-            "label": "NEC vence",
-            "odd": 4.5,
-            "confidence": 21,
-            "rationale": "Precisa 3 gols"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Mais de 1.5 gols",
-            "odd": 1.45,
-            "confidence": 72,
-            "rationale": "NEC busca gols"
-          },
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 2.05,
-            "confidence": 52,
-            "rationale": "Jogo aberto"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "NEC marca"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.9,
-            "confidence": 49,
-            "rationale": "Jogo eliminatório"
-          },
-          {
-            "label": "NEC + cartões (desespero)",
-            "odd": 2.05,
-            "confidence": 44,
-            "rationale": "Frustração visitante"
+            "rationale": "Visitante"
           }
         ],
         "escanteios": [
@@ -1744,280 +1725,68 @@
             "label": "Mais de 9.5 escanteios",
             "odd": 1.82,
             "confidence": 52,
-            "rationale": "Bodø domina"
+            "rationale": "Equilibrado"
           },
           {
-            "label": "Bodø/Glimt + escanteios",
-            "odd": 1.68,
-            "confidence": 56,
-            "rationale": "Pressão mandante"
-          }
-        ]
-      }
-    },
-    {
-      "league": "ll",
-      "leagueLabel": "La Liga",
-      "teams": "Valencia x Real Betis",
-      "home": "Valencia",
-      "away": "Real Betis",
-      "bet": "BTTS Não",
-      "confidence": 55,
-      "odds": 2.15,
-      "time": "16:00",
-      "kickoff": "2026-08-25T16:00:00-03:00",
-      "sortPriority": 3,
-      "homeOdd": "2.65",
-      "drawOdd": "3.40",
-      "awayOdd": "2.65",
-      "homeProb": 38,
-      "drawProb": 29,
-      "awayProb": 33,
-      "homeShort": "Valencia",
-      "awayShort": "Betis",
-      "bestOdd": "none",
-      "multiBetShort": "BTTS Não",
-      "venue": "Mestalla",
-      "round": "Rodada 1",
-      "form": {
-        "home": "D-W-D-L-D",
-        "away": "W-D-W-L-W"
-      },
-      "h2h": [
-        "Últimos 3: 1V Valencia, 1V Betis, 1E"
-      ],
-      "keyStats": [
-        "Abertura La Liga 2026/27 — Mestalla",
-        "Valencia: 0-1-0 no início da temporada",
-        "Betis: defesa sólida, poucos gols sofridos"
-      ],
-      "sources": [
-        "laliga.com",
-        "wildstat.com"
-      ],
-      "analysis": [
-        "La Liga rodada 1 — Estadio Mestalla",
-        "Valencia: início cauteloso (0V-1E-0D)",
-        "Betis: time equilibrado, defesa organizada",
-        "Mercado BTTS Não @ 2.15 com valor",
-        "Recomendação: Ambos NÃO marcam (~2.15)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 3,
-          "wins": 0,
-          "goalsFor": 2,
-          "goalsAgainst": 3,
-          "avgGoals": 0.67,
-          "avgConceded": 1,
-          "bttsPct": 33,
-          "over25Pct": 33,
-          "avgCards": 4.2,
-          "avgCorners": 5
-        },
-        "away": {
-          "played": 3,
-          "wins": 1,
-          "goalsFor": 3,
-          "goalsAgainst": 2,
-          "avgGoals": 1,
-          "avgConceded": 0.67,
-          "bttsPct": 33,
-          "over25Pct": 33,
-          "avgCards": 3.8,
-          "avgCorners": 5.5
-        }
-      },
-      "h2hSummary": {
-        "total": 3,
-        "homeWins": 1,
-        "draws": 1,
-        "awayWins": 1,
-        "avgGoals": 2,
-        "bttsPct": 40,
-        "notes": "Abertura cautelosa; últimos 3 equilibrados"
-      },
-      "context": {
-        "stakes": "La Liga rodada 1 — abertura cautelosa",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Gols",
-          "label": "BTTS Não",
-          "odd": 2.15,
-          "confidence": 55,
-          "rationale": "Valencia 0.67 gols/jogo; Betis defesa sólida (0.67 sofridos).",
-          "valueEdge": 8
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.85,
-          "confidence": 54,
-          "rationale": "Ambos times cautelosos no início da temporada.",
-          "valueEdge": 4
-        },
-        {
-          "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 5.5 cartões",
-          "odd": 1.9,
-          "confidence": 52,
-          "rationale": "Abertura tensa; média 4+ cartões/jogo.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Valencia vence",
-            "odd": 2.65,
-            "confidence": 38,
-            "rationale": "Mestalla em casa"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.4,
-            "confidence": 29,
-            "rationale": "Jogo equilibrado"
-          },
-          {
-            "label": "Betis vence",
-            "odd": 2.65,
-            "confidence": 33,
-            "rationale": "Defesa organizada"
-          }
-        ],
-        "gols": [
-          {
-            "label": "BTTS Não",
-            "odd": 2.15,
-            "confidence": 55,
-            "rationale": "Valor no mercado"
-          },
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.85,
-            "confidence": 54,
-            "rationale": "Início cauteloso"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.72,
-            "confidence": 45,
-            "rationale": "Menos provável"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 5.5 cartões",
-            "odd": 1.9,
-            "confidence": 52,
-            "rationale": "Jogo tenso"
-          },
-          {
-            "label": "Mais de 4.5 cartões 1T",
-            "odd": 2.2,
-            "confidence": 44,
-            "rationale": "Início intenso"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
+            "label": "Lyon + escanteios",
             "odd": 1.88,
             "confidence": 50,
-            "rationale": "Times equilibrados"
-          },
-          {
-            "label": "Betis + escanteios",
-            "odd": 2.05,
-            "confidence": 46,
-            "rationale": "Contra-ataque"
+            "rationale": "Mandante"
           }
         ]
-      }
+      },
+      "kickoff": "2026-08-26T16:00:00-03:00"
     }
   ],
   "top3": [
     {
       "rank": "g",
       "icon": "🥇",
-      "teams": "LASK x Celtic",
-      "pick": "Celtic avança",
-      "odd": "1.30",
-      "prob": 82,
-      "justify": "Celtic com 3-0 no agregado. LASK precisa de 4 gols em Linz."
+      "teams": "Newcastle x West Brom",
+      "pick": "Newcastle vence",
+      "odd": "1.42",
+      "prob": 76,
+      "justify": "PL em casa vs Championship. Mercado a 70% implícito."
     },
     {
       "rank": "s",
       "icon": "🥈",
-      "teams": "Al Ettifaq x Al Nassr",
-      "pick": "Al Nassr vence + M2.5",
-      "odd": "1.65",
-      "prob": 78,
-      "justify": "Al Nassr líder com 77% de vitória implícita. Ronaldo em campo."
+      "teams": "AEK Athens x Levski Sofia",
+      "pick": "AEK avança",
+      "odd": "1.48",
+      "prob": 74,
+      "justify": "0-0 no agregado; AEK forte na OPAP Arena em Atenas."
     },
     {
       "rank": "b",
       "icon": "🥉",
-      "teams": "Bodø/Glimt x NEC",
-      "pick": "Bodø/Glimt avança",
-      "odd": "1.25",
-      "prob": 75,
-      "justify": "3-1 no agregado. Bodø/Glimt forte no Aspmyra Stadion."
+      "teams": "Tottenham x Charlton",
+      "pick": "Tottenham -1.5",
+      "odd": "1.68",
+      "prob": 72,
+      "justify": "PL vs League One. Spurs deve vencer por 2+ gols."
     }
   ],
   "combos": [
     {
-      "teams": "LASK x Celtic",
-      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "teams": "Newcastle x West Brom",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "color": "var(--color-accent)",
       "rows": [
         {
-          "combo": "Celtic avança + M2.5 gols",
+          "combo": "Newcastle vence + M2.5 gols",
           "odd": "1.85",
+          "prob": "62%",
+          "conf": "h"
+        },
+        {
+          "combo": "Newcastle vence + BTTS Não",
+          "odd": "1.95",
           "prob": "58%",
           "conf": "h"
         },
         {
-          "combo": "Celtic vence + Ambas marcam",
-          "odd": "2.10",
-          "prob": "48%",
-          "conf": "h"
-        },
-        {
-          "combo": "Celtic + M2.5 + BTTS",
-          "odd": "3.20",
-          "prob": "35%",
-          "conf": "m"
-        }
-      ]
-    },
-    {
-      "teams": "Al Ettifaq x Al Nassr",
-      "flag": "🇸🇦",
-      "color": "var(--color-purple)",
-      "rows": [
-        {
-          "combo": "Al Nassr vence + M2.5 gols",
-          "odd": "1.65",
-          "prob": "78%",
-          "conf": "h"
-        },
-        {
-          "combo": "Al Nassr vence + BTTS",
-          "odd": "1.90",
-          "prob": "65%",
-          "conf": "h"
-        },
-        {
-          "combo": "Al Nassr + M3.5 gols",
+          "combo": "Newcastle -1.5 + M2.5",
           "odd": "2.40",
           "prob": "45%",
           "conf": "m"
@@ -2025,93 +1794,118 @@
       ]
     },
     {
-      "teams": "Bodø/Glimt x NEC",
-      "flag": "🇳🇴",
+      "teams": "Tottenham x Charlton",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "color": "var(--color-blue)",
       "rows": [
         {
-          "combo": "Bodø/Glimt avança + M1.5 gols",
-          "odd": "1.55",
-          "prob": "72%",
+          "combo": "Tottenham -1.5 + M2.5 gols",
+          "odd": "1.95",
+          "prob": "58%",
           "conf": "h"
         },
         {
-          "combo": "Bodø/Glimt vence + BTTS",
-          "odd": "2.30",
-          "prob": "50%",
+          "combo": "Tottenham vence + BTTS Não",
+          "odd": "1.75",
+          "prob": "55%",
           "conf": "h"
         },
         {
-          "combo": "Bodø/Glimt + M2.5 + BTTS",
-          "odd": "3.10",
-          "prob": "38%",
-          "conf": "m"
-        }
-      ]
-    },
-    {
-      "teams": "Ipswich x Leicester",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "color": "var(--color-orange)",
-      "rows": [
-        {
-          "combo": "Ipswich vence + U2.5 gols",
-          "odd": "2.40",
-          "prob": "48%",
-          "conf": "m"
-        },
-        {
-          "combo": "Ipswich vence + BTTS Não",
-          "odd": "2.10",
-          "prob": "52%",
-          "conf": "h"
-        },
-        {
-          "combo": "Ipswich + Menos 3.5 cartões",
-          "odd": "2.80",
+          "combo": "Spurs + M3.5 gols",
+          "odd": "2.60",
           "prob": "40%",
           "conf": "m"
         }
       ]
     },
     {
-      "teams": "Nottm Forest x Leeds",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "color": "var(--color-accent)",
+      "teams": "Lyon x Fenerbahçe",
+      "flag": "🇫🇷",
+      "color": "var(--color-gold)",
       "rows": [
         {
-          "combo": "Menos 2.5 gols + BTTS Não",
-          "odd": "2.50",
-          "prob": "45%",
+          "combo": "BTTS + M2.5 gols",
+          "odd": "2.05",
+          "prob": "52%",
+          "conf": "h"
+        },
+        {
+          "combo": "Empate + BTTS",
+          "odd": "4.20",
+          "prob": "28%",
           "conf": "m"
         },
         {
-          "combo": "Forest vence + U2.5",
-          "odd": "3.20",
+          "combo": "Lyon vence + BTTS",
+          "odd": "2.80",
           "prob": "38%",
           "conf": "m"
+        }
+      ]
+    },
+    {
+      "teams": "AEK Athens x Levski Sofia",
+      "flag": "🇬🇷",
+      "color": "var(--color-orange)",
+      "rows": [
+        {
+          "combo": "AEK avança + U2.5",
+          "odd": "2.20",
+          "prob": "48%",
+          "conf": "m"
+        },
+        {
+          "combo": "AEK vence + BTTS Não",
+          "odd": "2.10",
+          "prob": "50%",
+          "conf": "h"
         },
         {
           "combo": "Empate 0-0",
-          "odd": "8.00",
+          "odd": "7.50",
           "prob": "12%",
           "conf": "l"
+        }
+      ]
+    },
+    {
+      "teams": "Preston x Everton",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "color": "var(--color-purple)",
+      "rows": [
+        {
+          "combo": "Everton vence + BTTS",
+          "odd": "2.75",
+          "prob": "42%",
+          "conf": "m"
+        },
+        {
+          "combo": "Everton vence + U2.5",
+          "odd": "2.30",
+          "prob": "48%",
+          "conf": "m"
+        },
+        {
+          "combo": "Everton + M2.5",
+          "odd": "2.05",
+          "prob": "52%",
+          "conf": "h"
         }
       ]
     }
   ],
   "quickPicks": [
     {
-      "label": "Celtic avança",
-      "odd": "1.30"
+      "label": "Newcastle vence",
+      "odd": "1.42"
     },
     {
-      "label": "Al Nassr vence + M2.5",
-      "odd": "1.65"
+      "label": "AEK avança",
+      "odd": "1.48"
     },
     {
-      "label": "Bodø/Glimt avança",
-      "odd": "1.25"
+      "label": "Tottenham -1.5",
+      "odd": "1.68"
     }
   ]
 }

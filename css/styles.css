@@ -240,6 +240,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 .lb.sp{background:rgba(168,85,247,.12);color:var(--color-purple)}
 .lb.ec{background:rgba(236,72,153,.12);color:#EC4899}
 .lb.cl{background:rgba(59,130,246,.12);color:#3B82F6}
+.lb.cf{background:rgba(34,197,94,.12);color:#22C55E}
 .mt{color:#64748B;font-size:.65rem;font-family:"Segoe UI","Inter",sans-serif}
 
 /* ===== TEAMS ===== */
