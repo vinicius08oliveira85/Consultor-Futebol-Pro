@@ -130,6 +130,82 @@ Campos mínimos por jogo:
 
 ---
 
+## Jogos de amanhã
+
+Use quando quiser **preparar o dia seguinte** sem alterar o fluxo de hoje. O site continua exibindo `matches.json` de hoje até você publicar a virada.
+
+### Prompt — preparar amanhã
+
+Copie e preencha:
+
+```markdown
+Prepare os jogos de **amanhã** ([DATA AMANHÃ, ex: 2026-08-27]) no Consultor Futebol Pro.
+
+### Contexto
+- Hoje ainda é [DATA HOJE]; **não altere** o `matches.json` em produção até eu pedir a virada
+- Use como base: `data/history.json` → `future[0]` (status `"tomorrow"`) e o script modelo `scripts/build-matches-*.js`
+- Validar com: `node scripts/validate-matches.js`
+- Não commitar nem fazer push a menos que eu peça
+
+### O que fazer
+1. Ler `data/history.json` → `future[0]` e confirmar/ajustar a lista de jogos de amanhã
+2. Criar `scripts/build-matches-[DATA-AMANHA].js` seguindo o padrão de `scripts/build-matches-2026-08-26.js`:
+   - helpers: `kickoff`, `stats`, `pick`, `mkt`, `mkMarkets`, `buildMatch`
+   - `matches` completos (topPicks, markets, teamStats, analysis, etc.)
+   - `leagues`, `top3`, `combos`, `quickPicks` alinhados ao dia
+   - `meta.date` = data de amanhã
+3. **Não executar** o script sobre `data/matches.json` ainda — salvar saída em `data/matches-[DATA-AMANHA].draft.json`
+4. Atualizar `data/history.json` → `future[0]` com apostas resumidas (home, away, bet, odd, confidence) coerentes com o draft
+5. Rodar validação **no draft** (ajustar validate ou validar manualmente o schema)
+6. Resumir: quantos jogos, top3, ligas, diferenças vs `future[0]` anterior
+
+### Jogos de amanhã (se souber além do history)
+[Cole aqui ou diga "usar só future[0]"]
+
+### Fontes / observações
+[uefa.com, fotmob, eliminatórias 2º jogo, etc.]
+
+### Regras
+- Mesmo schema e tom analítico de `data/matches.json` atual
+- `kickoff` com fuso `-03:00`
+- `topPicks` = 3; `topPicks[0].confidence` = `match.confidence`
+- Diff mínimo; não alterar JS/CSS/HTML
+```
+
+### Prompt — virar o dia (publicar amanhã)
+
+Use na virada, quando amanhã vira hoje:
+
+```markdown
+Virada de dia: publique os jogos de [DATA AMANHÃ] como dia ativo.
+
+1. Executar `node scripts/build-matches-[DATA-AMANHA].js` → grava `data/matches.json`
+   (ou copiar `data/matches-[DATA-AMANHA].draft.json` → `data/matches.json`)
+2. Atualizar `data/history.json`:
+   - Fechar [DATA HOJE] em `past` com placares e `result` (won/lost)
+   - Novo último item em `past`: `"status": "today"`, `"syncFromMatches": true`, `"matches": []`
+   - Remover o dia publicado de `future`; avançar janela de 7 dias se necessário
+3. `node scripts/validate-matches.js` — zero erros
+4. Resumir alterações
+```
+
+### Exemplo preenchido (amanhã)
+
+```markdown
+Prepare os jogos de **amanhã** (2026-08-27) no Consultor Futebol Pro.
+
+Hoje ainda é 2026-08-26. Usar `future[0]` do history como base.
+
+Jogos de amanhã:
+- 16:00 — Europa League: Thun x Lech Poznan
+- 16:00 — Europa League: Sion x Ajax
+- 16:00 — Conference League: Austria Vienna x Braga
+
+Salvar draft em `data/matches-2026-08-27.draft.json`. Não sobrescrever matches.json.
+```
+
+---
+
 ## Atalhos por cenário
 
 ### Só resultados de ontem
@@ -187,6 +263,8 @@ Atualize os jogos do Consultor Futebol Pro para 2026-08-26.
 Depois de salvar este arquivo, basta dizer no Agent mode:
 
 > Atualize os jogos para 26/08. Jogos: [lista]
+
+> **Prepare os jogos de amanhã** — siga a seção "Jogos de amanhã" em `docs/ATUALIZAR-JOGOS.md`
 
 Ou referencie o arquivo:
 

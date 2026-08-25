@@ -2,7 +2,9 @@
 var fs = require('fs');
 var path = require('path');
 
-var file = path.join(__dirname, '..', 'data', 'matches.json');
+var file = process.argv[2]
+  ? path.resolve(process.cwd(), process.argv[2])
+  : path.join(__dirname, '..', 'data', 'matches.json');
 var data = JSON.parse(fs.readFileSync(file, 'utf8'));
 var errors = [];
 var warnings = [];

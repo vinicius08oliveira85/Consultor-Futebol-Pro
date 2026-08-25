@@ -1,0 +1,722 @@
+{
+  "meta": {
+    "date": "2026-08-27",
+    "stats": {
+      "totalGames": 3,
+      "resolvedGames": 0,
+      "wins": 0,
+      "roi": 0
+    }
+  },
+  "leagues": [
+    {
+      "id": "el",
+      "name": "Europa League"
+    },
+    {
+      "id": "cf",
+      "name": "Conference League"
+    }
+  ],
+  "matches": [
+    {
+      "league": "el",
+      "leagueLabel": "Europa League",
+      "sortPriority": 1,
+      "teams": "Thun x Lech Poznan",
+      "home": "Thun",
+      "away": "Lech Poznan",
+      "homeShort": "Thun",
+      "awayShort": "Lech",
+      "bet": "Lech avança",
+      "confidence": 78,
+      "odds": 1.35,
+      "multiBetShort": "Lech avança",
+      "time": "16:00",
+      "homeOdd": "4.80",
+      "drawOdd": "4.20",
+      "awayOdd": "1.55",
+      "homeProb": 20,
+      "drawProb": 24,
+      "awayProb": 56,
+      "bestOdd": "away",
+      "venue": "Stockhorn Arena, Thun",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 0,
+        "away": 7
+      },
+      "aggregate": "0-7 (1º jogo em Poznan)",
+      "form": {
+        "home": "L-L-W-D-L",
+        "away": "W-W-W-W-D"
+      },
+      "h2h": [
+        "20/08/2026: Lech 7-0 Thun (Poznan)"
+      ],
+      "keyStats": [
+        "Lech venceu 7-0 no 1º jogo",
+        "Thun precisaria 8 gols de diferença",
+        "Lech pode administrar resultado"
+      ],
+      "sources": [
+        "uefa.com",
+        "skysports.com"
+      ],
+      "analysis": [
+        "Europa League play-off — 2º jogo em Thun",
+        "1º jogo: Lech Poznan 7-0 Thun (20/08, Poznan)",
+        "Vantagem esmagadora polonesa no agregado",
+        "Thun joga por honra; Lech pode rotacionar e controlar ritmo",
+        "Recomendação: Lech avança (~1.35)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 12,
+          "avgGoals": 0.8,
+          "avgConceded": 2.4,
+          "bttsPct": 40,
+          "over25Pct": 35,
+          "avgCards": 3.4,
+          "avgCorners": 4.2
+        },
+        "away": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 16,
+          "goalsAgainst": 3,
+          "avgGoals": 3.2,
+          "avgConceded": 0.6,
+          "bttsPct": 45,
+          "over25Pct": 70,
+          "avgCards": 2.8,
+          "avgCorners": 6
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 0,
+        "awayWins": 1,
+        "avgGoals": 7,
+        "bttsPct": 0,
+        "notes": "7-0 no 1º jogo; classificação quase certa"
+      },
+      "context": {
+        "stakes": "2º jogo UEL — Lech lidera 7-0",
+        "rotation": "Lech pode poupar titulares",
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Classificação",
+          "label": "Lech avança",
+          "odd": 1.35,
+          "confidence": 78,
+          "rationale": "7-0 no agregado; Thun sem margem real.",
+          "valueEdge": 6
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.82,
+          "confidence": 58,
+          "rationale": "Lech administra; Thun sem pressão de classificação.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Resultado",
+          "label": "Lech vence",
+          "odd": 1.55,
+          "confidence": 56,
+          "rationale": "Visitante superior mesmo rotacionando.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Lech avança",
+            "odd": 1.35,
+            "confidence": 78,
+            "rationale": "Classificação"
+          },
+          {
+            "label": "Lech vence",
+            "odd": 1.55,
+            "confidence": 56,
+            "rationale": "90 min"
+          },
+          {
+            "label": "Thun vence",
+            "odd": 4.8,
+            "confidence": 20,
+            "rationale": "Impossível no agregado"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.82,
+            "confidence": 58,
+            "rationale": "Jogo administrado"
+          },
+          {
+            "label": "Lech vence + U2.5",
+            "odd": 2.4,
+            "confidence": 45,
+            "rationale": "Combo"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.95,
+            "confidence": 42,
+            "rationale": "Thun ataca por orgulho"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.78,
+            "confidence": 50,
+            "rationale": "Jogo mais solto"
+          },
+          {
+            "label": "Thun + cartões",
+            "odd": 1.92,
+            "confidence": 46,
+            "rationale": "Frustração mandante"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.88,
+            "confidence": 48,
+            "rationale": "Thun pressiona"
+          },
+          {
+            "label": "Lech + escanteios",
+            "odd": 1.95,
+            "confidence": 44,
+            "rationale": "Contra-ataques"
+          }
+        ]
+      },
+      "kickoff": "2026-08-27T16:00:00-03:00"
+    },
+    {
+      "league": "el",
+      "leagueLabel": "Europa League",
+      "sortPriority": 1,
+      "teams": "Sion x Ajax",
+      "home": "Sion",
+      "away": "Ajax",
+      "homeShort": "Sion",
+      "awayShort": "Ajax",
+      "bet": "Ajax avança",
+      "confidence": 75,
+      "odds": 1.4,
+      "multiBetShort": "Ajax avança",
+      "time": "16:00",
+      "homeOdd": "3.40",
+      "drawOdd": "3.80",
+      "awayOdd": "1.95",
+      "homeProb": 28,
+      "drawProb": 26,
+      "awayProb": 46,
+      "bestOdd": "away",
+      "venue": "Stade de Tourbillon, Sion",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 2,
+        "away": 4
+      },
+      "aggregate": "2-4 (1º jogo em Amsterdã)",
+      "form": {
+        "home": "W-L-D-W-L",
+        "away": "W-W-D-W-W"
+      },
+      "h2h": [
+        "20/08/2026: Ajax 4-2 Sion (Amsterdam)"
+      ],
+      "keyStats": [
+        "Ajax venceu 4-2 fora de casa no 1º jogo",
+        "Sion precisa vencer por 2+ gols",
+        "Ajax marcou 4 gols na Johan Cruijff Arena"
+      ],
+      "sources": [
+        "uefa.com",
+        "ajax.nl"
+      ],
+      "analysis": [
+        "Europa League play-off — 2º jogo em Sion",
+        "1º jogo: Ajax 4-2 Sion (20/08, Amsterdam)",
+        "Ajax leva vantagem de 2 gols no agregado",
+        "Sion ataca em casa, mas elenco holandês tem qualidade superior",
+        "Recomendação: Ajax avança (~1.40)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 2,
+          "goalsFor": 8,
+          "goalsAgainst": 9,
+          "avgGoals": 1.6,
+          "avgConceded": 1.8,
+          "bttsPct": 55,
+          "over25Pct": 60,
+          "avgCards": 3.2,
+          "avgCorners": 5
+        },
+        "away": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 14,
+          "goalsAgainst": 6,
+          "avgGoals": 2.8,
+          "avgConceded": 1.2,
+          "bttsPct": 60,
+          "over25Pct": 75,
+          "avgCards": 2.6,
+          "avgCorners": 6.5
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 0,
+        "awayWins": 1,
+        "avgGoals": 6,
+        "bttsPct": 100,
+        "notes": "4-2 no 1º jogo; Sion marcou 2 gols"
+      },
+      "context": {
+        "stakes": "2º jogo UEL — Ajax lidera 4-2",
+        "rotation": "Ajax pode gerenciar vantagem",
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Classificação",
+          "label": "Ajax avança",
+          "odd": 1.4,
+          "confidence": 75,
+          "rationale": "Vantagem de 2 gols; Sion precisa goleada.",
+          "valueEdge": 5
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.68,
+          "confidence": 60,
+          "rationale": "Sion marcou 2 no 1º jogo; jogo aberto esperado.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Mais de 2.5 gols",
+          "odd": 1.72,
+          "confidence": 58,
+          "rationale": "Sion precisa atacar; Ajax responde.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Ajax avança",
+            "odd": 1.4,
+            "confidence": 75,
+            "rationale": "Classificação"
+          },
+          {
+            "label": "Ajax vence",
+            "odd": 1.95,
+            "confidence": 46,
+            "rationale": "90 min"
+          },
+          {
+            "label": "Sion vence",
+            "odd": 3.4,
+            "confidence": 28,
+            "rationale": "Precisa 3+ gols"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Ambos marcam",
+            "odd": 1.68,
+            "confidence": 60,
+            "rationale": "Sion ataca em casa"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.72,
+            "confidence": 58,
+            "rationale": "Jogo aberto"
+          },
+          {
+            "label": "Ajax vence + BTTS",
+            "odd": 2.85,
+            "confidence": 44,
+            "rationale": "Combo"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Sion pressiona"
+          },
+          {
+            "label": "Sion + cartões",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Mandante intenso"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "Sion domina posse"
+          },
+          {
+            "label": "Ajax + escanteios",
+            "odd": 1.9,
+            "confidence": 48,
+            "rationale": "Contra-ataques"
+          }
+        ]
+      },
+      "kickoff": "2026-08-27T16:00:00-03:00"
+    },
+    {
+      "league": "cf",
+      "leagueLabel": "Conference League",
+      "sortPriority": 2,
+      "teams": "Austria Vienna x Braga",
+      "home": "Austria Vienna",
+      "away": "Braga",
+      "homeShort": "Austria",
+      "awayShort": "Braga",
+      "bet": "Braga avança",
+      "confidence": 65,
+      "odds": 1.6,
+      "multiBetShort": "Braga avança",
+      "time": "16:00",
+      "homeOdd": "2.60",
+      "drawOdd": "3.30",
+      "awayOdd": "2.55",
+      "homeProb": 36,
+      "drawProb": 28,
+      "awayProb": 36,
+      "bestOdd": "none",
+      "venue": "Generali Arena, Vienna",
+      "round": "Play-off — 2º jogo",
+      "firstLeg": {
+        "home": 0,
+        "away": 2
+      },
+      "aggregate": "0-2 (1º jogo em Braga)",
+      "form": {
+        "home": "W-D-L-W-D",
+        "away": "W-W-D-W-L"
+      },
+      "h2h": [
+        "21/08/2026: Braga 2-0 Austria Vienna (Braga)"
+      ],
+      "keyStats": [
+        "Braga venceu 2-0 no 1º jogo",
+        "Austria precisa marcar 2+ gols em casa",
+        "Braga defendeu bem em Portugal"
+      ],
+      "sources": [
+        "uefa.com",
+        "scbraga.pt"
+      ],
+      "analysis": [
+        "Conference League play-off — 2º jogo em Viena",
+        "1º jogo: Braga 2-0 Austria Vienna (21/08, Braga)",
+        "Braga leva 2 gols de vantagem no agregado",
+        "Austria joga em casa com torcida, mas precisa abrir o placar cedo",
+        "Recomendação: Braga avança (~1.60)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 5,
+          "wins": 2,
+          "goalsFor": 7,
+          "goalsAgainst": 8,
+          "avgGoals": 1.4,
+          "avgConceded": 1.6,
+          "bttsPct": 50,
+          "over25Pct": 45,
+          "avgCards": 3.4,
+          "avgCorners": 5.2
+        },
+        "away": {
+          "played": 5,
+          "wins": 3,
+          "goalsFor": 10,
+          "goalsAgainst": 5,
+          "avgGoals": 2,
+          "avgConceded": 1,
+          "bttsPct": 45,
+          "over25Pct": 50,
+          "avgCards": 3,
+          "avgCorners": 5.5
+        }
+      },
+      "h2hSummary": {
+        "total": 1,
+        "homeWins": 0,
+        "draws": 0,
+        "awayWins": 1,
+        "avgGoals": 2,
+        "bttsPct": 0,
+        "notes": "2-0 Braga no 1º jogo; Austria zerado fora"
+      },
+      "context": {
+        "stakes": "2º jogo UECL — Braga lidera 2-0",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Classificação",
+          "label": "Braga avança",
+          "odd": 1.6,
+          "confidence": 65,
+          "rationale": "2-0 no agregado; Braga pode administrar.",
+          "valueEdge": 4
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.88,
+          "confidence": 54,
+          "rationale": "Braga fecha espaços com vantagem.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Resultado",
+          "label": "Empate",
+          "odd": 3.3,
+          "confidence": 28,
+          "rationale": "0-0 ou 1-1 classifica Braga.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Braga avança",
+            "odd": 1.6,
+            "confidence": 65,
+            "rationale": "Classificação"
+          },
+          {
+            "label": "Braga vence",
+            "odd": 2.55,
+            "confidence": 36,
+            "rationale": "Administra fora"
+          },
+          {
+            "label": "Austria vence",
+            "odd": 2.6,
+            "confidence": 36,
+            "rationale": "Precisa reverter"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.88,
+            "confidence": 54,
+            "rationale": "Braga defende vantagem"
+          },
+          {
+            "label": "Ambos marcam Não",
+            "odd": 1.82,
+            "confidence": 52,
+            "rationale": "Austria zerada fora"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.92,
+            "confidence": 48,
+            "rationale": "Austria pressiona"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.9,
+            "confidence": 50,
+            "rationale": "Jogo tenso"
+          },
+          {
+            "label": "Austria + cartões",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Mandante frustra"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.85,
+            "confidence": 50,
+            "rationale": "Austria ataca"
+          },
+          {
+            "label": "Braga + escanteios",
+            "odd": 1.92,
+            "confidence": 46,
+            "rationale": "Contra-ataques"
+          }
+        ]
+      },
+      "kickoff": "2026-08-27T16:00:00-03:00"
+    }
+  ],
+  "top3": [
+    {
+      "rank": "g",
+      "icon": "🥇",
+      "teams": "Thun x Lech Poznan",
+      "pick": "Lech avança",
+      "odd": "1.35",
+      "prob": 78,
+      "justify": "7-0 no agregado; classificação quase certa para o Lech."
+    },
+    {
+      "rank": "s",
+      "icon": "🥈",
+      "teams": "Sion x Ajax",
+      "pick": "Ajax avança",
+      "odd": "1.40",
+      "prob": 75,
+      "justify": "Ajax venceu 4-2 no 1º jogo; Sion precisa de goleada."
+    },
+    {
+      "rank": "b",
+      "icon": "🥉",
+      "teams": "Austria Vienna x Braga",
+      "pick": "Braga avança",
+      "odd": "1.60",
+      "prob": 65,
+      "justify": "Braga lidera 2-0 no agregado após vitória em Portugal."
+    }
+  ],
+  "combos": [
+    {
+      "teams": "Thun x Lech Poznan",
+      "flag": "🇨🇭",
+      "color": "var(--color-orange)",
+      "rows": [
+        {
+          "combo": "Lech avança + U2.5",
+          "odd": "1.95",
+          "prob": "55%",
+          "conf": "h"
+        },
+        {
+          "combo": "Lech vence + BTTS Não",
+          "odd": "2.10",
+          "prob": "50%",
+          "conf": "h"
+        },
+        {
+          "combo": "Empate + U2.5",
+          "odd": "3.80",
+          "prob": "28%",
+          "conf": "m"
+        }
+      ]
+    },
+    {
+      "teams": "Sion x Ajax",
+      "flag": "🇨🇭",
+      "color": "var(--color-gold)",
+      "rows": [
+        {
+          "combo": "Ajax avança + BTTS",
+          "odd": "2.05",
+          "prob": "52%",
+          "conf": "h"
+        },
+        {
+          "combo": "Ajax avança + M2.5",
+          "odd": "1.95",
+          "prob": "54%",
+          "conf": "h"
+        },
+        {
+          "combo": "Sion vence + M2.5",
+          "odd": "4.50",
+          "prob": "22%",
+          "conf": "l"
+        }
+      ]
+    },
+    {
+      "teams": "Austria Vienna x Braga",
+      "flag": "🇦🇹",
+      "color": "var(--color-purple)",
+      "rows": [
+        {
+          "combo": "Braga avança + U2.5",
+          "odd": "2.40",
+          "prob": "45%",
+          "conf": "m"
+        },
+        {
+          "combo": "Empate + U2.5",
+          "odd": "3.60",
+          "prob": "30%",
+          "conf": "m"
+        },
+        {
+          "combo": "Braga vence + BTTS Não",
+          "odd": "3.20",
+          "prob": "35%",
+          "conf": "m"
+        }
+      ]
+    }
+  ],
+  "quickPicks": [
+    {
+      "label": "Lech avança",
+      "odd": "1.35"
+    },
+    {
+      "label": "Ajax avança",
+      "odd": "1.40"
+    },
+    {
+      "label": "Braga avança",
+      "odd": "1.60"
+    }
+  ]
+}
