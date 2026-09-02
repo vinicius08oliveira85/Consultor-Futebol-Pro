@@ -102,20 +102,43 @@ function createHistMatchHTML(match, showScore) {
   return '<div class="hist-match league-' + leagueClass + '"><div class="hist-match-header"><span class="hist-match-league">' + match.league + '</span><span class="hist-match-time">\u23f0 ' + match.time + '</span></div>' + scoreHtml + '<div class="hist-bet-info"><span class="hist-bet-label">Aposta: ' + escapeHtml(match.bet) + oddText + '</span><span class="hist-bet-result ' + statusClass + '">' + statusText + '</span></div></div>';
 }
 
+function statusBadgeFor(status, isFuture) {
+  if (isFuture) {
+    if (status === 'tomorrow') return { cls: 'hist-upcoming', label: 'Amanhã' };
+    return { cls: 'hist-upcoming', label: 'Próximo' };
+  }
+  switch (status) {
+    case 'finished': return { cls: 'hist-resolved', label: 'Finalizado' };
+    case 'in_progress': return { cls: 'hist-in-progress', label: 'Em andamento' };
+    case 'today': return { cls: 'hist-upcoming', label: 'Hoje' };
+    case 'tomorrow': return { cls: 'hist-upcoming', label: 'Amanhã' };
+    case 'upcoming': return { cls: 'hist-pending', label: 'Agendado' };
+    default: return { cls: 'hist-pending', label: 'Agendado' };
+  }
+}
+
 function populateHistoryTab(tabType) {
   var data = tabType === 'past' ? pastMatchesData : futureMatchesData;
-  var prefix = tabType === 'past' ? 'past' : 'future';
-  for (var i = 1; i <= 7; i++) {
-    var container = document.getElementById(prefix + '-matches-day' + i);
-    var dateEl = document.getElementById('hist-' + prefix + '-date-' + i);
-    if (container) container.innerHTML = '';
-    if (dateEl && data[i - 1]) dateEl.textContent = formatDateShortFuture(data[i - 1].date);
+  var panel = document.getElementById('hist-' + tabType);
+  if (!panel) return;
+  panel.innerHTML = '';
+  var isFuture = tabType === 'future';
+  if (data.length === 0) {
+    panel.innerHTML = '<div class="hist-empty"><div class="hist-empty-icon">📅</div><div>Nenhum jogo ' + (isFuture ? 'agendado' : 'finalizado') + '</div></div>';
+    return;
   }
-  data.forEach(function (dayData, index) {
-    var container = document.getElementById(prefix + '-matches-day' + (index + 1));
-    if (!container) return;
+  data.forEach(function (dayData) {
+    var badge = statusBadgeFor(dayData.status, isFuture);
+    var dateText = formatDateShortFuture(dayData.date);
+    var dayHeader = document.createElement('div');
+    dayHeader.className = 'hist-day-header';
+    dayHeader.innerHTML = '<span class="hist-date">' + escapeHtml(dateText) + '</span><span class="hist-badge ' + badge.cls + '">' + badge.label + '</span>';
+    panel.appendChild(dayHeader);
+    var list = document.createElement('div');
+    list.className = 'hist-matches-list';
+    panel.appendChild(list);
     if (dayData.matches.length === 0) {
-      container.innerHTML = '<div class="hist-empty"><div class="hist-empty-icon">\ud83d\udcc5</div><div>Nenhum jogo ' + (tabType === 'past' ? 'finalizado' : 'agendado') + ' para este dia</div></div>';
+      list.innerHTML = '<div class="hist-empty"><div class="hist-empty-icon">📅</div><div>Nenhum jogo ' + (isFuture ? 'agendado' : 'finalizado') + ' para este dia</div></div>';
       return;
     }
     var html = '';
@@ -123,7 +146,7 @@ function populateHistoryTab(tabType) {
       var showScore = dayData.status === 'finished' || dayData.status === 'in_progress';
       html += createHistMatchHTML(match, showScore);
     });
-    container.innerHTML = html;
+    list.innerHTML = html;
   });
 }
 
