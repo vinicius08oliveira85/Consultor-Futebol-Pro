@@ -81,6 +81,7 @@
 <nav class="tabs" role="tablist" aria-label="Navegação principal">
   <button class="tbtn act" data-tab="all" role="tab" aria-selected="true" aria-controls="tab-all" id="tab-btn-all" tabindex="0">🏆 Jogos</button>
   <button class="tbtn" data-tab="top3" role="tab" aria-selected="false" aria-controls="tab-top3" id="tab-btn-top3" tabindex="-1">⭐ Top 3</button>
+  <button class="tbtn" data-tab="best" role="tab" aria-selected="false" aria-controls="tab-best" id="tab-btn-best" tabindex="-1">💎 Melhor Aposta</button>
   <button class="tbtn" data-tab="combos" role="tab" aria-selected="false" aria-controls="tab-combos" id="tab-btn-combos" tabindex="-1">🔗 Combos</button>
   <button class="tbtn" data-tab="calc" role="tab" aria-selected="false" aria-controls="tab-calc" id="tab-btn-calc" tabindex="-1">🧮 Calculadora</button>
   <button class="tbtn" data-tab="stats" role="tab" aria-selected="false" aria-controls="tab-stats" id="tab-btn-stats" tabindex="-1">📊 Stats</button>
@@ -120,6 +121,47 @@
 <div class="tc" id="tab-top3" role="tabpanel" aria-labelledby="tab-btn-top3">
 <div class="t3g" id="top3-container"></div>
 </div><!-- /tab-top3 -->
+
+<!-- ===================== TAB: MELHOR APOSTA ===================== -->
+<div class="tc" id="tab-best" role="tabpanel" aria-labelledby="tab-btn-best">
+  <div class="best-intro">
+    <h2>💎 Combinações Recomendadas do Dia</h2>
+    <p class="best-sub">Selecionamos até <strong>3 combinações</strong> (cada uma com até 3 jogos) com <strong>odd combinada acima de 2.00</strong> e a maior probabilidade implícita possível. Odds e probabilidades são calculadas em tempo real a partir do <code>data/matches.json</code>; campos faltantes são enriquecidos com a forma recente de cada clube.</p>
+    <div class="best-criteria">
+      <span class="best-pill">Odd &gt; 2.00</span>
+      <span class="best-pill">Até 3 seleções</span>
+      <span class="best-pill">Alta probabilidade</span>
+      <span class="best-pill">Jogos diferentes</span>
+    </div>
+  </div>
+  <div class="best-controls">
+    <label class="best-control">
+      <span>Odd mínima</span>
+      <input type="number" id="best-min-odd" min="1.10" step="0.05" value="2.00">
+    </label>
+    <label class="best-control">
+      <span>Máx. seleções</span>
+      <select id="best-max-picks">
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+      </select>
+    </label>
+    <label class="best-control">
+      <span>Estratégia</span>
+      <select id="best-strategy">
+        <option value="probability">Maior probabilidade</option>
+        <option value="value">Melhor valor (prob × odd)</option>
+        <option value="balanced">Equilíbrio (odd ~ 2.5)</option>
+      </select>
+    </label>
+    <button class="best-refresh" id="best-refresh" type="button">🔄 Recalcular</button>
+  </div>
+  <div id="best-container"></div>
+  <div class="best-empty" id="best-empty" style="display:none">
+    <div class="best-empty-icon">🤷‍♂️</div>
+    <p>Nenhuma combinação encontrada com os critérios atuais. Tente reduzir a odd mínima ou aumentar o número de seleções.</p>
+  </div>
+</div><!-- /tab-best -->
 
 <!-- ===================== TAB: COMBOS ===================== -->
 <div class="tc" id="tab-combos" role="tabpanel" aria-labelledby="tab-btn-combos">
@@ -321,6 +363,7 @@
 <script defer src="js/render.js"></script>
 <script defer src="js/calculator.js"></script>
 <script defer src="js/history.js"></script>
+<script defer src="js/bestBet.js"></script>
 <script defer src="js/app.js"></script>
 </body>
 </html>

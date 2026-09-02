@@ -615,6 +615,9 @@ function syncStars() {
 }
 
 var multiSelections = [];
+window.multiSelections = multiSelections;
+window.showToast = showToast;
+window.updateMultiBet = updateMultiBet;
 function updateMultiBet() {
   var el = document.getElementById('multi-selections');
   var emptyEl = document.getElementById('multi-empty');
@@ -840,6 +843,7 @@ function initApp(data) {
   updateQuickCombos();
   updateMultiBet();
   initBetResults();
+  if (typeof initBestBet === 'function') initBestBet(data);
   checkNotifications();
   animVis();
   setInterval(updateCountdowns, 1000);

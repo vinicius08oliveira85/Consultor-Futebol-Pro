@@ -1767,3 +1767,225 @@ body.dark .filter-btn.active .filter-count{background:rgba(255,255,255,.2)}
     flex-direction: column;
   }
 }
+
+/* ===== BEST BET TAB ===== */
+.best-intro {
+  background: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin: var(--space-md) 0;
+}
+.best-intro h2 {
+  font-family: "Segoe UI", "Inter", sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-accent);
+}
+.best-sub {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+}
+.best-sub code {
+  background: var(--color-secondary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.72rem;
+}
+.best-criteria {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.best-pill {
+  background: rgba(232, 113, 10, 0.1);
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 113, 10, 0.25);
+}
+.best-controls {
+  display: flex;
+  gap: var(--space-md);
+  align-items: end;
+  flex-wrap: wrap;
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+.best-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.best-control input,
+.best-control select {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-primary);
+  color: var(--text-primary);
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.85rem;
+  min-width: 110px;
+}
+.best-refresh {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Fira Sans", sans-serif;
+  transition: filter var(--transition-fast);
+}
+.best-refresh:hover { filter: brightness(1.1); }
+.best-combo {
+  background: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin: 0 0 var(--space-md);
+  transition: all var(--transition-fast);
+}
+.best-combo:hover { border-color: #475569; transform: translateY(-2px); }
+.best-combo-top {
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.08);
+}
+.best-combo-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+.best-combo-medal { font-size: 1.6rem; }
+.best-combo-title {
+  font-family: "Segoe UI", "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 0;
+}
+.best-combo-odd {
+  font-family: "Fira Code", monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  background: rgba(251, 191, 36, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+.best-picks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+.best-pick {
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.best-pick-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.best-pick-league { font-weight: 600; color: var(--color-accent); }
+.best-pick-time { font-family: "Fira Code", monospace; }
+.best-pick-teams {
+  font-family: "Segoe UI", "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+.best-pick-bet {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.78rem;
+}
+.best-bet-label { color: var(--text-primary); }
+.best-bet-odd {
+  font-family: "Fira Code", monospace;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+.best-bet-prob {
+  color: var(--color-accent);
+  font-weight: 700;
+  background: rgba(232, 113, 10, 0.1);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+.best-pick-analysis {
+  margin-top: var(--space-sm);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.best-pick-analysis summary {
+  cursor: pointer;
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 2px 0;
+}
+.best-pick-analysis ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  line-height: 1.5;
+}
+.best-combo-footer {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-sm);
+}
+.best-combo-footer strong { color: var(--text-primary); font-family: "Fira Code", monospace; }
+.best-add {
+  margin-left: auto;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: "Fira Sans", sans-serif;
+}
+.best-add:hover { filter: brightness(1.1); }
+.best-empty {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--text-muted);
+}
+.best-empty-icon { font-size: 2.5rem; margin-bottom: var(--space-sm); }
+@media (max-width: 600px) {
+  .best-controls { flex-direction: column; align-items: stretch; }
+  .best-control input, .best-control select { width: 100%; }
+  .best-combo-footer { flex-direction: column; align-items: stretch; }
+  .best-add { margin-left: 0; }
+}
