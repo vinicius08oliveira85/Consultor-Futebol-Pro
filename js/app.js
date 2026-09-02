@@ -1,8 +1,10 @@
 ﻿// ========== THEME TOGGLE ==========
 var themeToggle = document.getElementById('theme-toggle');
-var currentTheme = localStorage.getItem('theme') || 'light';
+var SAVED_THEME = localStorage.getItem('theme');
+var currentTheme = SAVED_THEME || 'dark';
 function applyTheme(t) {
   document.body.classList.toggle('dark', t === 'dark');
+  document.body.classList.toggle('light', t === 'light');
   themeToggle.textContent = t === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
   themeToggle.setAttribute('aria-label', t === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
   localStorage.setItem('theme', t);
