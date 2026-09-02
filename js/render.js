@@ -55,6 +55,7 @@ function renderMatchCard(m) {
     '<button class="share-btn" aria-label="Compartilhar" data-teams="' + escapeHtml(m.teams) + '" data-bet="' + escapeHtml(m.bet) + '" data-odd="' + m.odds + '">\uD83D\uDCE4</button>' +
     '<div class="mh"><span class="lb ' + m.league + '">' + escapeHtml(m.leagueLabel) + '</span><span class="mt">\uD83D\uDD50 ' + m.time + ' BRT</span><span class="countdown" data-kickoff="' + m.kickoff + '"></span></div>' +
     '<div class="mteams"><span class="th">' + escapeHtml(m.home) + '</span><div class="vs" aria-hidden="true">VS</div><span class="ta">' + escapeHtml(m.away) + '</span></div>' +
+    '<div class="mc-bet"><span class="mc-bet-label">' + escapeHtml(m.bet) + '</span><span class="mc-bet-odd">@ ' + m.odds + '</span><span class="mc-bet-conf">' + m.confidence + '%</span></div>' +
     '<div class="og" role="group" aria-label="Odds do jogo">' + oddsHtml + '</div>' +
     renderTopPicks(m) +
     '<div class="bet-editor" aria-label="Minha aposta">' +
