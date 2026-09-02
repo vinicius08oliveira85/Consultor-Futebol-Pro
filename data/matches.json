@@ -1,8 +1,8 @@
 {
   "meta": {
-    "date": "2026-08-26",
+    "date": "2026-09-02",
     "stats": {
-      "totalGames": 9,
+      "totalGames": 7,
       "resolvedGames": 0,
       "wins": 0,
       "roi": 0
@@ -10,186 +10,197 @@
   },
   "leagues": [
     {
-      "id": "cl",
-      "name": "Champions League"
+      "id": "dfb",
+      "name": "DFB-Pokal"
+    },
+    {
+      "id": "br",
+      "name": "Brasileirão"
+    },
+    {
+      "id": "cb",
+      "name": "Copa do Brasil"
+    },
+    {
+      "id": "ca",
+      "name": "Copa Argentina"
     },
     {
       "id": "ec",
-      "name": "EFL Cup"
+      "name": "EFL Championship"
     },
     {
-      "id": "cf",
-      "name": "Conference League"
+      "id": "ci",
+      "name": "Coppa Italia"
     }
   ],
   "matches": [
     {
-      "league": "cf",
-      "leagueLabel": "Conference League",
-      "sortPriority": 1,
-      "teams": "Rapid Wien x Hearts",
-      "home": "Rapid Wien",
-      "away": "Hearts",
-      "homeShort": "Rapid",
-      "awayShort": "Hearts",
-      "bet": "Mais de 2.5 gols",
-      "confidence": 58,
-      "odds": 1.82,
-      "multiBetShort": "M2.5",
-      "time": "13:45",
-      "homeOdd": "2.15",
-      "drawOdd": "3.40",
-      "awayOdd": "3.20",
-      "homeProb": 44,
-      "drawProb": 28,
-      "awayProb": 28,
-      "bestOdd": "none",
-      "venue": "Allianz Stadion, Vienna",
-      "round": "Play-off — 2º jogo",
-      "aggregate": "2-2 (1º jogo em Edinburgh)",
+      "league": "ci",
+      "leagueLabel": "Coppa Italia",
+      "sortPriority": 3,
+      "teams": "Udinese x Venezia",
+      "home": "Udinese",
+      "away": "Venezia",
+      "homeShort": "Udinese",
+      "awayShort": "Venezia",
+      "bet": "Udinese vence",
+      "confidence": 70,
+      "odds": 1.55,
+      "multiBetShort": "Udinese vence",
+      "time": "13:00",
+      "homeOdd": "1.55",
+      "drawOdd": "3.90",
+      "awayOdd": "5.80",
+      "homeProb": 62,
+      "drawProb": 24,
+      "awayProb": 14,
+      "bestOdd": "home",
+      "venue": "Bluenergy Stadium, Udine",
+      "round": "32-avos",
       "form": {
         "home": "W-D-W-L-W",
-        "away": "W-W-D-L-W"
+        "away": "L-D-L-D-L"
       },
       "h2h": [
-        "20/08/2026: Hearts 2-2 Rapid (Tynecastle)"
+        "Udinese venceu os últimos 3 confrontos em casa"
       ],
       "keyStats": [
-        "1º jogo terminou 2-2 com 4 gols",
-        "Hearts marcou 2 fora; Rapid precisa vencer",
-        "Ambos times atacaram no primeiro jogo"
+        "Udinese Serie A, mandante forte",
+        "Venezia em dificuldade fora",
+        "Diferença de divisão favorável ao mandante"
       ],
       "sources": [
-        "uefa.com",
-        "heartsfc.co.uk"
+        "livescore.com",
+        "corrieredellosport.it"
       ],
       "analysis": [
-        "Conference League play-off — 2º jogo em Viena",
-        "1º jogo: Hearts 2-2 Rapid (Wilson, McPake / Raux-Yao, Wurmbrand)",
-        "Empate no agregado; vencedor do 2º jogo avança à fase de liga",
-        "Partida aberta no 1º jogo — mercado de gols com valor",
-        "Recomendação: Mais de 2.5 gols (~1.82)"
+        "Coppa Italia — 32-avos no Bluenergy Stadium",
+        "Udinese: Serie A, elenco superior e apoio da torcida",
+        "Venezia: visitante em má fase, vem de sequência negativa",
+        "Histórico recente muito favorável ao mandante",
+        "Recomendação: Udinese vence (~1.55)"
       ],
       "teamStats": {
         "home": {
-          "played": 5,
+          "played": 4,
           "wins": 3,
-          "goalsFor": 11,
-          "goalsAgainst": 8,
-          "avgGoals": 2.2,
-          "avgConceded": 1.6,
-          "bttsPct": 70,
-          "over25Pct": 65,
-          "avgCards": 3.6,
-          "avgCorners": 5.8
+          "goalsFor": 8,
+          "goalsAgainst": 4,
+          "avgGoals": 2,
+          "avgConceded": 1,
+          "bttsPct": 55,
+          "over25Pct": 50,
+          "avgCards": 2.8,
+          "avgCorners": 5.5
         },
         "away": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 10,
-          "goalsAgainst": 7,
-          "avgGoals": 2,
-          "avgConceded": 1.4,
-          "bttsPct": 65,
-          "over25Pct": 60,
-          "avgCards": 3.4,
-          "avgCorners": 5.2
+          "played": 4,
+          "wins": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 8,
+          "avgGoals": 0.5,
+          "avgConceded": 2,
+          "bttsPct": 35,
+          "over25Pct": 25,
+          "avgCards": 3.6,
+          "avgCorners": 3.8
         }
       },
       "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 1,
+        "total": 3,
+        "homeWins": 3,
+        "draws": 0,
         "awayWins": 0,
-        "avgGoals": 4,
-        "bttsPct": 100,
-        "notes": "2-2 no 1º jogo; decisão em Viena"
+        "avgGoals": 2.6,
+        "bttsPct": 33,
+        "notes": "Udinese dominante em casa no histórico"
       },
       "context": {
-        "stakes": "2º jogo — empate no agregado",
-        "rotation": null,
+        "stakes": "Coppa Italia — Serie A vs visitante inferior",
+        "rotation": "Udinese pode poupar alguns titulares",
         "injuries": [],
         "referee": null
       },
       "topPicks": [
         {
           "rank": 1,
-          "market": "Gols",
-          "label": "Mais de 2.5 gols",
-          "odd": 1.82,
-          "confidence": 58,
-          "rationale": "1º jogo teve 4 gols; ambos precisam atacar.",
-          "valueEdge": 4
+          "market": "Resultado",
+          "label": "Udinese vence",
+          "odd": 1.55,
+          "confidence": 70,
+          "rationale": "Serie A superior; Venezia em crise.",
+          "valueEdge": 6
         },
         {
           "rank": 2,
-          "market": "Resultado",
-          "label": "Rapid vence",
-          "odd": 2.15,
-          "confidence": 44,
-          "rationale": "Mandante austríaco em decisão caseira.",
+          "market": "Gols",
+          "label": "Menos de 3.5 gols",
+          "odd": 1.45,
+          "confidence": 65,
+          "rationale": "Mandante controla ritmo em casa.",
           "valueEdge": 0
         },
         {
           "rank": 3,
-          "market": "Gols",
-          "label": "Ambos marcam",
-          "odd": 1.68,
-          "confidence": 55,
-          "rationale": "BTTS em 100% do confronto atual.",
+          "market": "Resultado",
+          "label": "Udinese vence + U2.5",
+          "odd": 2.3,
+          "confidence": 48,
+          "rationale": "Combo seguro para jogo de Copa.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Rapid vence",
-            "odd": 2.15,
-            "confidence": 44,
-            "rationale": "Decisão em casa"
+            "label": "Udinese vence",
+            "odd": 1.55,
+            "confidence": 62,
+            "rationale": "Favorito claro"
           },
           {
             "label": "Empate",
-            "odd": 3.4,
-            "confidence": 28,
-            "rationale": "Prorrogação"
+            "odd": 3.9,
+            "confidence": 24,
+            "rationale": "Prorrogação possível"
           },
           {
-            "label": "Hearts vence",
-            "odd": 3.2,
-            "confidence": 28,
-            "rationale": "Classificação fora"
+            "label": "Venezia vence",
+            "odd": 5.8,
+            "confidence": 14,
+            "rationale": "Azarão"
           }
         ],
         "gols": [
           {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.82,
-            "confidence": 58,
-            "rationale": "Jogo aberto esperado"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.68,
-            "confidence": 55,
-            "rationale": "Ataque de ambos"
-          },
-          {
             "label": "Menos de 2.5 gols",
-            "odd": 2,
-            "confidence": 45,
-            "rationale": "Possível cautela"
+            "odd": 1.85,
+            "confidence": 58,
+            "rationale": "Udinese controla"
+          },
+          {
+            "label": "Udinese vence + U2.5",
+            "odd": 2.3,
+            "confidence": 48,
+            "rationale": "Combo"
+          },
+          {
+            "label": "Ambos marcam Não",
+            "odd": 1.72,
+            "confidence": 55,
+            "rationale": "Venezia sem攻击力"
           }
         ],
         "cartoes": [
           {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.85,
-            "confidence": 52,
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.8,
+            "confidence": 50,
             "rationale": "Jogo eliminatório"
           },
           {
-            "label": "Hearts + cartões",
+            "label": "Venezia + cartões",
             "odd": 2.05,
             "confidence": 46,
             "rationale": "Visitante com faltas"
@@ -200,266 +211,66 @@
             "label": "Mais de 9.5 escanteios",
             "odd": 1.88,
             "confidence": 50,
-            "rationale": "Times ofensivos"
+            "rationale": "Udinese pressiona"
           },
           {
-            "label": "Rapid + escanteios",
-            "odd": 1.92,
-            "confidence": 48,
-            "rationale": "Pressão mandante"
+            "label": "Udinese + escanteios",
+            "odd": 1.65,
+            "confidence": 58,
+            "rationale": "Mandante domina"
           }
         ]
       },
-      "kickoff": "2026-08-26T13:45:00-03:00"
+      "kickoff": "2026-09-02T13:00:00-03:00"
     },
     {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "sortPriority": 2,
-      "teams": "Bradford x Burnley",
-      "home": "Bradford",
-      "away": "Burnley",
-      "homeShort": "Bradford",
-      "awayShort": "Burnley",
-      "bet": "Burnley vence",
-      "confidence": 68,
-      "odds": 1.5,
-      "multiBetShort": "Burnley vence",
+      "league": "dfb",
+      "leagueLabel": "DFB-Pokal",
+      "sortPriority": 1,
+      "teams": "VfL Osnabrück x Bayern München",
+      "home": "VfL Osnabrück",
+      "away": "Bayern München",
+      "homeShort": "Osnabrück",
+      "awayShort": "Bayern",
+      "bet": "Bayern vence + Mais de 2.5",
+      "confidence": 78,
+      "odds": 1.62,
+      "multiBetShort": "Bayern -1.5",
       "time": "15:45",
-      "homeOdd": "3.60",
-      "drawOdd": "3.50",
-      "awayOdd": "1.95",
-      "homeProb": 27,
-      "drawProb": 28,
-      "awayProb": 45,
+      "homeOdd": "13.00",
+      "drawOdd": "7.50",
+      "awayOdd": "1.18",
+      "homeProb": 5,
+      "drawProb": 12,
+      "awayProb": 83,
       "bestOdd": "away",
-      "venue": "University of Bradford Stadium",
-      "round": "2ª rodada",
+      "venue": "Bremer Brücke, Osnabrück",
+      "round": "1ª rodada",
       "form": {
-        "home": "W-L-D-W-L",
-        "away": "W-W-L-D-W"
+        "home": "W-D-L-D-L",
+        "away": "W-W-W-W-D"
       },
       "h2h": [
-        "Burnley venceu 2 dos últimos 3 encontros"
+        "Encontro recente: Bayern 4-0 Osnabrück (DFB-Pokal 2019)"
       ],
       "keyStats": [
-        "Burnley da Premier League",
-        "Bradford League Two",
-        "Burnley favorito claro no mercado"
+        "Bayern atual campeão da Bundesliga e da Pokal",
+        "Osnabrück recém-promovido da 3. Liga",
+        "Diferença técnica brutal entre os elencos"
       ],
       "sources": [
-        "skysports.com",
-        "fwp.co"
+        "dfb.de",
+        "kicker.de"
       ],
       "analysis": [
-        "Carabao Cup 2ª rodada — Valley Parade",
-        "Bradford: time da 4ª divisão, busca zebra em casa",
-        "Burnley: recém-promovido/rebaixado PL, elenco superior",
-        "Diferença de divisão favorece visitante",
-        "Recomendação: Burnley vence (~1.50)"
+        "DFB-Pokal — 1ª rodada na Bremer Brücke",
+        "Bayern: campeão alemão, entra com força máxima",
+        "Osnabrück: 2. Bundesliga, zebra improvável em casa",
+        "Histórico DFB-Pokal muito favorável ao Bayern",
+        "Recomendação: Bayern vence + M2.5 (~1.62)"
       ],
       "teamStats": {
         "home": {
-          "played": 4,
-          "wins": 2,
-          "goalsFor": 5,
-          "goalsAgainst": 7,
-          "avgGoals": 1.25,
-          "avgConceded": 1.75,
-          "bttsPct": 50,
-          "over25Pct": 45,
-          "avgCards": 3.2,
-          "avgCorners": 4.5
-        },
-        "away": {
-          "played": 4,
-          "wins": 3,
-          "goalsFor": 8,
-          "goalsAgainst": 5,
-          "avgGoals": 2,
-          "avgConceded": 1.25,
-          "bttsPct": 55,
-          "over25Pct": 55,
-          "avgCards": 2.8,
-          "avgCorners": 5.8
-        }
-      },
-      "h2hSummary": {
-        "total": 3,
-        "homeWins": 0,
-        "draws": 1,
-        "awayWins": 2,
-        "avgGoals": 2.3,
-        "bttsPct": 45,
-        "notes": "Burnley superior nos últimos jogos"
-      },
-      "context": {
-        "stakes": "Carabao Cup — PL vs League Two",
-        "rotation": "Burnley pode rotacionar parcialmente",
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Resultado",
-          "label": "Burnley vence",
-          "odd": 1.5,
-          "confidence": 68,
-          "rationale": "PL vs League Two; odd 1.95 no 1X2.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.88,
-          "confidence": 55,
-          "rationale": "Burnley pode controlar após abrir placar.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 3.5 cartões",
-          "odd": 1.72,
-          "confidence": 52,
-          "rationale": "Bradford intensifica marcação.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Burnley vence",
-            "odd": 1.95,
-            "confidence": 45,
-            "rationale": "Favorito"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.5,
-            "confidence": 28,
-            "rationale": "Bradford em casa"
-          },
-          {
-            "label": "Bradford vence",
-            "odd": 3.6,
-            "confidence": 27,
-            "rationale": "Azarão"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.88,
-            "confidence": 55,
-            "rationale": "Burnley administra"
-          },
-          {
-            "label": "Burnley vence + U2.5",
-            "odd": 2.6,
-            "confidence": 42,
-            "rationale": "Combo"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 2.05,
-            "confidence": 48,
-            "rationale": "Bradford pode marcar"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 3.5 cartões",
-            "odd": 1.72,
-            "confidence": 52,
-            "rationale": "Jogo físico"
-          },
-          {
-            "label": "Bradford + cartões",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Underdog com faltas"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.9,
-            "confidence": 48,
-            "rationale": "Burnley domina"
-          },
-          {
-            "label": "Burnley + escanteios",
-            "odd": 1.75,
-            "confidence": 54,
-            "rationale": "Visitante pressiona"
-          }
-        ]
-      },
-      "kickoff": "2026-08-26T15:45:00-03:00"
-    },
-    {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "sortPriority": 2,
-      "teams": "Newcastle x West Brom",
-      "home": "Newcastle",
-      "away": "West Brom",
-      "homeShort": "Newcastle",
-      "awayShort": "West Brom",
-      "bet": "Newcastle vence",
-      "confidence": 76,
-      "odds": 1.42,
-      "multiBetShort": "Newcastle vence",
-      "time": "15:45",
-      "homeOdd": "1.42",
-      "drawOdd": "4.40",
-      "awayOdd": "7.00",
-      "homeProb": 70,
-      "drawProb": 22,
-      "awayProb": 8,
-      "bestOdd": "home",
-      "venue": "St James' Park",
-      "round": "2ª rodada",
-      "form": {
-        "home": "W-W-D-W-W",
-        "away": "L-W-D-L-D"
-      },
-      "h2h": [
-        "Newcastle venceu 3 dos últimos 4 vs West Brom"
-      ],
-      "keyStats": [
-        "Newcastle PL em casa",
-        "West Brom Championship",
-        "Magpies favoritos pesados (1.42)"
-      ],
-      "sources": [
-        "skysports.com",
-        "fwp.co"
-      ],
-      "analysis": [
-        "Carabao Cup 2ª rodada — St James' Park",
-        "Newcastle: elenco PL, forte em casa",
-        "West Brom: Championship, rotaciona menos que PL",
-        "Histórico recente favorece mandante",
-        "Recomendação: Newcastle vence (~1.42)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 4,
-          "goalsFor": 12,
-          "goalsAgainst": 4,
-          "avgGoals": 2.4,
-          "avgConceded": 0.8,
-          "bttsPct": 50,
-          "over25Pct": 60,
-          "avgCards": 2.6,
-          "avgCorners": 6.5
-        },
-        "away": {
           "played": 4,
           "wins": 1,
           "goalsFor": 4,
@@ -470,20 +281,32 @@
           "over25Pct": 35,
           "avgCards": 3.4,
           "avgCorners": 4.2
+        },
+        "away": {
+          "played": 5,
+          "wins": 4,
+          "goalsFor": 14,
+          "goalsAgainst": 4,
+          "avgGoals": 2.8,
+          "avgConceded": 0.8,
+          "bttsPct": 60,
+          "over25Pct": 70,
+          "avgCards": 2,
+          "avgCorners": 7
         }
       },
       "h2hSummary": {
-        "total": 4,
-        "homeWins": 3,
+        "total": 1,
+        "homeWins": 0,
         "draws": 0,
         "awayWins": 1,
-        "avgGoals": 2.5,
-        "bttsPct": 40,
-        "notes": "Newcastle dominou recentemente"
+        "avgGoals": 4,
+        "bttsPct": 0,
+        "notes": "Bayern goleou no último encontro"
       },
       "context": {
-        "stakes": "PL vs Championship",
-        "rotation": "Newcastle pode poupar 2-3 titulares",
+        "stakes": "DFB-Pokal R1 — Bayern entra forte",
+        "rotation": "Bayern pode rotacionar após Supercup",
         "injuries": [],
         "referee": null
       },
@@ -491,70 +314,258 @@
         {
           "rank": 1,
           "market": "Resultado",
-          "label": "Newcastle vence",
-          "odd": 1.42,
-          "confidence": 76,
-          "rationale": "70% implícito; PL em casa vs Championship.",
+          "label": "Bayern vence + M2.5",
+          "odd": 1.62,
+          "confidence": 78,
+          "rationale": "Diferença técnica brutal; Bayern marca muito.",
           "valueEdge": 8
         },
         {
           "rank": 2,
-          "market": "Gols",
-          "label": "Newcastle vence + M2.5",
-          "odd": 1.85,
-          "confidence": 62,
-          "rationale": "Magpies marcam 2.4 gols/jogo em casa.",
-          "valueEdge": 5
+          "market": "Resultado",
+          "label": "Bayern vence",
+          "odd": 1.18,
+          "confidence": 83,
+          "rationale": "83% implícito no 1X2.",
+          "valueEdge": 0
         },
         {
           "rank": 3,
-          "market": "Escanteios",
-          "label": "Newcastle + escanteios",
-          "odd": 1.55,
-          "confidence": 58,
-          "rationale": "Domínio de posse esperado.",
+          "market": "Handicap",
+          "label": "Bayern -2.5",
+          "odd": 1.85,
+          "confidence": 60,
+          "rationale": "Handicap asiático viável para esse confronto.",
+          "valueEdge": 5
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Bayern vence",
+            "odd": 1.18,
+            "confidence": 83,
+            "rationale": "Favoritíssimo"
+          },
+          {
+            "label": "Empate",
+            "odd": 7.5,
+            "confidence": 12,
+            "rationale": "Prorrogação improvável"
+          },
+          {
+            "label": "Osnabrück vence",
+            "odd": 13,
+            "confidence": 5,
+            "rationale": "Zebra histórica"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Bayern vence + M2.5",
+            "odd": 1.62,
+            "confidence": 78,
+            "rationale": "Combo principal"
+          },
+          {
+            "label": "Mais de 3.5 gols",
+            "odd": 1.85,
+            "confidence": 65,
+            "rationale": "Ataque do Bayern"
+          },
+          {
+            "label": "Bayern vence + M3.5",
+            "odd": 2.2,
+            "confidence": 55,
+            "rationale": "Mais gols"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 3.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Jogo físico"
+          },
+          {
+            "label": "Osnabrück + cartões",
+            "odd": 1.95,
+            "confidence": 50,
+            "rationale": "Underdog com faltas"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 10.5 escanteios",
+            "odd": 1.82,
+            "confidence": 58,
+            "rationale": "Bayern domina"
+          },
+          {
+            "label": "Bayern + escanteios",
+            "odd": 1.45,
+            "confidence": 65,
+            "rationale": "Pressão constante"
+          }
+        ]
+      },
+      "kickoff": "2026-09-02T15:45:00-03:00"
+    },
+    {
+      "league": "ec",
+      "leagueLabel": "EFL Championship",
+      "sortPriority": 2,
+      "teams": "Burnley x Middlesbrough",
+      "home": "Burnley",
+      "away": "Middlesbrough",
+      "homeShort": "Burnley",
+      "awayShort": "Middlesbrough",
+      "bet": "Burnley vence ou empata",
+      "confidence": 64,
+      "odds": 1.32,
+      "multiBetShort": "Burnley DNB",
+      "time": "16:00",
+      "homeOdd": "1.85",
+      "drawOdd": "3.50",
+      "awayOdd": "4.20",
+      "homeProb": 52,
+      "drawProb": 27,
+      "awayProb": 21,
+      "bestOdd": "home",
+      "venue": "Turf Moor, Burnley",
+      "round": "Rodada 5",
+      "form": {
+        "home": "W-W-D-W-W",
+        "away": "D-L-W-D-L"
+      },
+      "h2h": [
+        "Burnley venceu 2 dos últimos 3 em Turf Moor"
+      ],
+      "keyStats": [
+        "Burnley forte em casa no Championship",
+        "Middlesbrough em fase irregular",
+        "Confronto direto por playoff"
+      ],
+      "sources": [
+        "skysports.com",
+        "fwp.co"
+      ],
+      "analysis": [
+        "Championship — Rodada 5 em Turf Moor",
+        "Burnley: boa campanha, mandante sólido",
+        "Middlesbrough: visitante em má fase, defesa vazando",
+        "Histórico recente favorece o Burnley em casa",
+        "Recomendação: Burnley vence ou empata (~1.32)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 4,
+          "wins": 3,
+          "goalsFor": 7,
+          "goalsAgainst": 3,
+          "avgGoals": 1.75,
+          "avgConceded": 0.75,
+          "bttsPct": 55,
+          "over25Pct": 50,
+          "avgCards": 2.6,
+          "avgCorners": 5.8
+        },
+        "away": {
+          "played": 4,
+          "wins": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 6,
+          "avgGoals": 1,
+          "avgConceded": 1.5,
+          "bttsPct": 45,
+          "over25Pct": 40,
+          "avgCards": 3.2,
+          "avgCorners": 4.5
+        }
+      },
+      "h2hSummary": {
+        "total": 3,
+        "homeWins": 2,
+        "draws": 0,
+        "awayWins": 1,
+        "avgGoals": 2.3,
+        "bttsPct": 50,
+        "notes": "Burnley leva vantagem em Turf Moor"
+      },
+      "context": {
+        "stakes": "Championship — disputa por playoff",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Resultado",
+          "label": "Burnley vence ou empata",
+          "odd": 1.32,
+          "confidence": 64,
+          "rationale": "Burnley forte em casa; valor no DNB.",
+          "valueEdge": 5
+        },
+        {
+          "rank": 2,
+          "market": "Resultado",
+          "label": "Burnley vence",
+          "odd": 1.85,
+          "confidence": 52,
+          "rationale": "52% implícito no 1X2.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.9,
+          "confidence": 56,
+          "rationale": "Burnley controla jogos em casa.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Newcastle vence",
-            "odd": 1.42,
-            "confidence": 70,
-            "rationale": "Favorito claro"
+            "label": "Burnley vence",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Mandante"
           },
           {
             "label": "Empate",
-            "odd": 4.4,
-            "confidence": 22,
-            "rationale": "West Brom busca empate"
+            "odd": 3.5,
+            "confidence": 27,
+            "rationale": "Middlesbrough segura"
           },
           {
-            "label": "West Brom vence",
-            "odd": 7,
-            "confidence": 8,
+            "label": "Middlesbrough vence",
+            "odd": 4.2,
+            "confidence": 21,
             "rationale": "Azarão"
           }
         ],
         "gols": [
           {
-            "label": "Mais de 2.5 gols",
+            "label": "Menos de 2.5 gols",
+            "odd": 1.9,
+            "confidence": 56,
+            "rationale": "Jogo controlado"
+          },
+          {
+            "label": "Burnley vence + U2.5",
+            "odd": 2.75,
+            "confidence": 44,
+            "rationale": "Combo"
+          },
+          {
+            "label": "Ambos marcam",
             "odd": 1.75,
-            "confidence": 58,
-            "rationale": "Newcastle ataca"
-          },
-          {
-            "label": "Newcastle -1.5",
-            "odd": 1.88,
-            "confidence": 55,
-            "rationale": "Handicap"
-          },
-          {
-            "label": "Ambos marcam Não",
-            "odd": 1.72,
             "confidence": 54,
-            "rationale": "West Brom ataque fraco"
+            "rationale": "Ataques perigosos"
           }
         ],
         "cartoes": [
@@ -562,690 +573,304 @@
             "label": "Mais de 3.5 cartões",
             "odd": 1.8,
             "confidence": 50,
-            "rationale": "Jogo controlado"
+            "rationale": "Jogo brigado"
           },
           {
-            "label": "West Brom + cartões",
-            "odd": 2.15,
-            "confidence": 44,
-            "rationale": "Visitante frustra"
+            "label": "Middlesbrough + cartões",
+            "odd": 2,
+            "confidence": 47,
+            "rationale": "Visitante duro"
           }
         ],
         "escanteios": [
           {
-            "label": "Mais de 10.5 escanteios",
-            "odd": 1.85,
-            "confidence": 52,
-            "rationale": "Newcastle domina"
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Jogo equilibrado"
           },
           {
-            "label": "Newcastle + escanteios",
-            "odd": 1.55,
-            "confidence": 58,
+            "label": "Burnley + escanteios",
+            "odd": 1.7,
+            "confidence": 55,
             "rationale": "Mandante pressiona"
           }
         ]
       },
-      "kickoff": "2026-08-26T15:45:00-03:00"
+      "kickoff": "2026-09-02T16:00:00-03:00"
     },
     {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
-      "sortPriority": 2,
-      "teams": "Tottenham x Charlton",
-      "home": "Tottenham",
-      "away": "Charlton",
-      "homeShort": "Tottenham",
-      "awayShort": "Charlton",
-      "bet": "Tottenham -1.5",
-      "confidence": 72,
-      "odds": 1.68,
-      "multiBetShort": "Spurs -1.5",
-      "time": "15:45",
-      "homeOdd": "1.32",
-      "drawOdd": "5.20",
-      "awayOdd": "9.00",
-      "homeProb": 76,
-      "drawProb": 16,
-      "awayProb": 8,
+      "league": "br",
+      "leagueLabel": "Brasileirão Série A",
+      "sortPriority": 1,
+      "teams": "Flamengo x Mirassol",
+      "home": "Flamengo",
+      "away": "Mirassol",
+      "homeShort": "Flamengo",
+      "awayShort": "Mirassol",
+      "bet": "Flamengo vence + M1.5",
+      "confidence": 76,
+      "odds": 1.55,
+      "multiBetShort": "Fla vence",
+      "time": "19:30",
+      "homeOdd": "1.40",
+      "drawOdd": "4.50",
+      "awayOdd": "7.50",
+      "homeProb": 70,
+      "drawProb": 20,
+      "awayProb": 10,
       "bestOdd": "home",
-      "venue": "Tottenham Hotspur Stadium",
-      "round": "2ª rodada",
+      "venue": "Maracanã, Rio de Janeiro",
+      "round": "Rodada",
       "form": {
-        "home": "W-W-W-D-W",
-        "away": "L-D-W-L-D"
+        "home": "W-W-D-W-W",
+        "away": "L-L-D-L-W"
       },
       "h2h": [
-        "Tottenham venceu últimos 3 confrontos"
+        "Flamengo venceu últimos 4 confrontos"
       ],
       "keyStats": [
-        "Spurs PL pesado favorito (1.32)",
-        "Charlton League One",
-        "Handicap -1.5 com valor"
+        "Flamengo forte em casa no Maracanã",
+        "Mirassol em zona de risco no Brasileirão",
+        "Diferença técnica grande entre os elencos"
       ],
       "sources": [
-        "skysports.com",
-        "fwp.co"
+        "ge.globo.com",
+        "espn.com.br"
       ],
       "analysis": [
-        "Carabao Cup 2ª rodada — Tottenham Hotspur Stadium",
-        "Tottenham: elenco PL de alto nível em casa",
-        "Charlton: 3ª divisão, dificuldade contra PL",
-        "Mercado espera vitória confortável dos Spurs",
-        "Recomendação: Tottenham -1.5 (~1.68)"
+        "Brasileirão — Flamengo no Maracanã",
+        "Flamengo: disputando título, mandante sólido",
+        "Mirassol: luta contra rebaixamento, visitante frágil",
+        "Histórico muito favorável ao Rubro-Negro",
+        "Recomendação: Flamengo vence + M1.5 (~1.55)"
       ],
       "teamStats": {
         "home": {
           "played": 5,
           "wins": 4,
-          "goalsFor": 14,
-          "goalsAgainst": 5,
-          "avgGoals": 2.8,
-          "avgConceded": 1,
+          "goalsFor": 12,
+          "goalsAgainst": 4,
+          "avgGoals": 2.4,
+          "avgConceded": 0.8,
           "bttsPct": 55,
-          "over25Pct": 70,
-          "avgCards": 2.4,
-          "avgCorners": 7.2
+          "over25Pct": 65,
+          "avgCards": 2.6,
+          "avgCorners": 6.2
         },
         "away": {
-          "played": 4,
+          "played": 5,
           "wins": 1,
-          "goalsFor": 5,
+          "goalsFor": 4,
           "goalsAgainst": 9,
-          "avgGoals": 1.25,
-          "avgConceded": 2.25,
-          "bttsPct": 35,
-          "over25Pct": 40,
-          "avgCards": 3.6,
-          "avgCorners": 3.8
+          "avgGoals": 0.8,
+          "avgConceded": 1.8,
+          "bttsPct": 40,
+          "over25Pct": 35,
+          "avgCards": 3.4,
+          "avgCorners": 4
         }
       },
       "h2hSummary": {
-        "total": 3,
-        "homeWins": 3,
+        "total": 4,
+        "homeWins": 4,
         "draws": 0,
         "awayWins": 0,
-        "avgGoals": 3,
-        "bttsPct": 33,
-        "notes": "Tottenham 3V seguidas"
+        "avgGoals": 2.8,
+        "bttsPct": 50,
+        "notes": "Flamengo dominante no histórico"
       },
       "context": {
-        "stakes": "PL vs League One",
-        "rotation": "Spurs deve rotacionar mas manter qualidade",
+        "stakes": "Brasileirão — Flamengo pelo título",
+        "rotation": null,
         "injuries": [],
         "referee": null
       },
       "topPicks": [
         {
           "rank": 1,
-          "market": "Handicap",
-          "label": "Tottenham -1.5",
-          "odd": 1.68,
-          "confidence": 72,
-          "rationale": "PL vs L1; Spurs marcam 2.8 gols/jogo.",
+          "market": "Resultado",
+          "label": "Flamengo vence + M1.5",
+          "odd": 1.55,
+          "confidence": 76,
+          "rationale": "Mandante forte; Mirassol em crise.",
           "valueEdge": 7
         },
         {
           "rank": 2,
           "market": "Resultado",
-          "label": "Tottenham vence",
-          "odd": 1.32,
-          "confidence": 76,
-          "rationale": "76% implícito no mercado.",
+          "label": "Flamengo vence",
+          "odd": 1.4,
+          "confidence": 70,
+          "rationale": "70% implícito no 1X2.",
           "valueEdge": 0
         },
         {
           "rank": 3,
           "market": "Gols",
           "label": "Mais de 2.5 gols",
-          "odd": 1.62,
-          "confidence": 65,
-          "rationale": "Diferença de nível gera gols.",
-          "valueEdge": 5
+          "odd": 1.75,
+          "confidence": 60,
+          "rationale": "Flamengo marca bastante em casa.",
+          "valueEdge": 4
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Tottenham vence",
-            "odd": 1.32,
-            "confidence": 76,
+            "label": "Flamengo vence",
+            "odd": 1.4,
+            "confidence": 70,
             "rationale": "Favorito"
           },
           {
             "label": "Empate",
-            "odd": 5.2,
-            "confidence": 16,
-            "rationale": "Charlton defende"
+            "odd": 4.5,
+            "confidence": 20,
+            "rationale": "Mirassol segura"
           },
           {
-            "label": "Charlton vence",
-            "odd": 9,
-            "confidence": 8,
+            "label": "Mirassol vence",
+            "odd": 7.5,
+            "confidence": 10,
             "rationale": "Azarão"
           }
         ],
         "gols": [
           {
-            "label": "Tottenham -1.5",
-            "odd": 1.68,
-            "confidence": 72,
-            "rationale": "Handicap recomendado"
+            "label": "Flamengo vence + M1.5",
+            "odd": 1.55,
+            "confidence": 76,
+            "rationale": "Combo principal"
           },
           {
             "label": "Mais de 2.5 gols",
-            "odd": 1.62,
-            "confidence": 65,
-            "rationale": "Jogo aberto"
-          },
-          {
-            "label": "Tottenham vence + M2.5",
             "odd": 1.75,
             "confidence": 60,
-            "rationale": "Combo"
+            "rationale": "Ataque do Fla"
+          },
+          {
+            "label": "Flamengo -1.5",
+            "odd": 1.95,
+            "confidence": 58,
+            "rationale": "Handicap viável"
           }
         ],
         "cartoes": [
           {
             "label": "Mais de 3.5 cartões",
-            "odd": 1.78,
-            "confidence": 48,
-            "rationale": "Charlton com faltas"
+            "odd": 1.8,
+            "confidence": 50,
+            "rationale": "Jogo tenso"
           },
           {
-            "label": "Charlton + cartões",
-            "odd": 2.05,
-            "confidence": 45,
-            "rationale": "Underdog"
+            "label": "Mirassol + cartões",
+            "odd": 2.1,
+            "confidence": 46,
+            "rationale": "Visitante com faltas"
           }
         ],
         "escanteios": [
           {
             "label": "Mais de 10.5 escanteios",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "Spurs dominam"
+            "odd": 1.85,
+            "confidence": 55,
+            "rationale": "Flamengo domina"
           },
           {
-            "label": "Tottenham + escanteios",
-            "odd": 1.48,
+            "label": "Flamengo + escanteios",
+            "odd": 1.5,
             "confidence": 62,
             "rationale": "Pressão constante"
           }
         ]
       },
-      "kickoff": "2026-08-26T15:45:00-03:00"
+      "kickoff": "2026-09-02T19:30:00-03:00"
     },
     {
-      "league": "ec",
-      "leagueLabel": "EFL Cup",
+      "league": "ca",
+      "leagueLabel": "Copa Argentina",
       "sortPriority": 2,
-      "teams": "Preston x Everton",
-      "home": "Preston",
-      "away": "Everton",
-      "homeShort": "Preston",
-      "awayShort": "Everton",
-      "bet": "Everton vence",
-      "confidence": 70,
-      "odds": 1.55,
-      "multiBetShort": "Everton vence",
-      "time": "16:00",
-      "homeOdd": "3.80",
-      "drawOdd": "3.60",
-      "awayOdd": "1.85",
-      "homeProb": 26,
-      "drawProb": 28,
-      "awayProb": 46,
-      "bestOdd": "away",
-      "venue": "Deepdale",
-      "round": "2ª rodada",
+      "teams": "Vélez Sarsfield x Boca Juniors",
+      "home": "Vélez Sarsfield",
+      "away": "Boca Juniors",
+      "homeShort": "Vélez",
+      "awayShort": "Boca",
+      "bet": "Mais de 2.5 gols",
+      "confidence": 60,
+      "odds": 1.85,
+      "multiBetShort": "M2.5",
+      "time": "21:15",
+      "homeOdd": "2.40",
+      "drawOdd": "3.20",
+      "awayOdd": "2.90",
+      "homeProb": 42,
+      "drawProb": 30,
+      "awayProb": 28,
+      "bestOdd": "none",
+      "venue": "Estadio José Amalfitani, Buenos Aires",
+      "round": "Oitavas",
       "form": {
-        "home": "W-L-D-W-L",
-        "away": "W-D-W-L-W"
+        "home": "W-D-W-L-D",
+        "away": "D-W-W-D-W"
       },
       "h2h": [
-        "Everton venceu 2 dos últimos 3"
+        "Últimos 3 confrontos: 2 empates e 1 vitória do Boca"
       ],
       "keyStats": [
-        "Everton PL visitante",
-        "Preston Championship em Deepdale",
-        "Toffees favoritos"
+        "Clássico argentino equilibrado",
+        "Vélez forte em casa",
+        "Boca com elenco superior em visitante"
       ],
       "sources": [
-        "skysports.com",
-        "fwp.co"
+        "ole.com.ar",
+        "espn.com.ar"
       ],
       "analysis": [
-        "Carabao Cup 2ª rodada — Deepdale",
-        "Preston: Championship, defende bem em casa",
-        "Everton: PL, busca avançar com elenco superior",
-        "Visitante favorito no mercado (1.85)",
-        "Recomendação: Everton vence (~1.55)"
+        "Copa Argentina — Oitavas no Amalfitani",
+        "Vélez: mandante forte, busca semifinal",
+        "Boca: favorito no papel, veio de boa fase",
+        "Confrontos recentes marcados por equilíbrio",
+        "Recomendação: Mais de 2.5 gols (~1.85)"
       ],
       "teamStats": {
         "home": {
           "played": 4,
           "wins": 2,
           "goalsFor": 6,
-          "goalsAgainst": 6,
+          "goalsAgainst": 4,
           "avgGoals": 1.5,
-          "avgConceded": 1.5,
-          "bttsPct": 50,
+          "avgConceded": 1,
+          "bttsPct": 55,
           "over25Pct": 50,
-          "avgCards": 3.4,
+          "avgCards": 3,
           "avgCorners": 5
         },
         "away": {
           "played": 4,
           "wins": 3,
-          "goalsFor": 9,
-          "goalsAgainst": 5,
-          "avgGoals": 2.25,
-          "avgConceded": 1.25,
-          "bttsPct": 55,
-          "over25Pct": 55,
+          "goalsFor": 7,
+          "goalsAgainst": 3,
+          "avgGoals": 1.75,
+          "avgConceded": 0.75,
+          "bttsPct": 50,
+          "over25Pct": 50,
           "avgCards": 2.8,
           "avgCorners": 5.5
         }
       },
       "h2hSummary": {
         "total": 3,
-        "homeWins": 1,
-        "draws": 0,
-        "awayWins": 2,
+        "homeWins": 0,
+        "draws": 2,
+        "awayWins": 1,
         "avgGoals": 2.3,
-        "bttsPct": 50,
-        "notes": "Everton levou vantagem recente"
+        "bttsPct": 67,
+        "notes": "Confrontos equilibrados com gols"
       },
       "context": {
-        "stakes": "PL vs Championship",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Resultado",
-          "label": "Everton vence",
-          "odd": 1.55,
-          "confidence": 70,
-          "rationale": "PL superior; 46% implícito no 1X2.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Ambos marcam",
-          "odd": 1.78,
-          "confidence": 56,
-          "rationale": "Preston marca em casa com regularidade.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Cartões",
-          "label": "Mais de 4.5 cartões",
-          "odd": 1.82,
-          "confidence": 52,
-          "rationale": "Preston jogo físico em Deepdale.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Everton vence",
-            "odd": 1.85,
-            "confidence": 46,
-            "rationale": "Favorito"
-          },
-          {
-            "label": "Empate",
-            "odd": 3.6,
-            "confidence": 28,
-            "rationale": "Preston em casa"
-          },
-          {
-            "label": "Preston vence",
-            "odd": 3.8,
-            "confidence": 26,
-            "rationale": "Azarão"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Ambos marcam",
-            "odd": 1.78,
-            "confidence": 56,
-            "rationale": "Preston ataca em casa"
-          },
-          {
-            "label": "Everton vence + BTTS",
-            "odd": 2.9,
-            "confidence": 45,
-            "rationale": "Combo"
-          },
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.92,
-            "confidence": 48,
-            "rationale": "Jogo fechado"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "Jogo físico"
-          },
-          {
-            "label": "Preston + cartões",
-            "odd": 1.88,
-            "confidence": 50,
-            "rationale": "Mandante"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.85,
-            "confidence": 50,
-            "rationale": "Everton domina"
-          },
-          {
-            "label": "Everton + escanteios",
-            "odd": 1.78,
-            "confidence": 53,
-            "rationale": "Visitante pressiona"
-          }
-        ]
-      },
-      "kickoff": "2026-08-26T16:00:00-03:00"
-    },
-    {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "sortPriority": 1,
-      "teams": "AEK Athens x Levski Sofia",
-      "home": "AEK Athens",
-      "away": "Levski Sofia",
-      "homeShort": "AEK",
-      "awayShort": "Levski",
-      "bet": "AEK avança",
-      "confidence": 74,
-      "odds": 1.48,
-      "multiBetShort": "AEK avança",
-      "time": "16:00",
-      "homeOdd": "1.55",
-      "drawOdd": "3.90",
-      "awayOdd": "5.50",
-      "homeProb": 64,
-      "drawProb": 25,
-      "awayProb": 11,
-      "bestOdd": "home",
-      "venue": "OPAP Arena, Athens",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 0,
-        "away": 0
-      },
-      "aggregate": "0-0 (1º jogo em Sofia)",
-      "form": {
-        "home": "W-W-D-W-W",
-        "away": "W-D-W-W-D"
-      },
-      "h2h": [
-        "18/08/2026: Levski 0-0 AEK (Sofia)"
-      ],
-      "keyStats": [
-        "0-0 no 1º jogo — tudo em aberto",
-        "AEK forte em casa na OPAP Arena",
-        "Levski precisa marcar fora"
-      ],
-      "sources": [
-        "uefa.com",
-        "espn.com"
-      ],
-      "analysis": [
-        "Play-off UCL — 2º jogo em Atenas",
-        "1º jogo: Levski 0-0 AEK (18/08, Sofia)",
-        "Empate no agregado; qualquer vitória classifica",
-        "AEK mandante com apoio da torcida grega",
-        "Recomendação: AEK avança (~1.48)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 4,
-          "goalsFor": 10,
-          "goalsAgainst": 3,
-          "avgGoals": 2,
-          "avgConceded": 0.6,
-          "bttsPct": 40,
-          "over25Pct": 45,
-          "avgCards": 3.2,
-          "avgCorners": 6
-        },
-        "away": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 7,
-          "goalsAgainst": 4,
-          "avgGoals": 1.4,
-          "avgConceded": 0.8,
-          "bttsPct": 35,
-          "over25Pct": 40,
-          "avgCards": 3,
-          "avgCorners": 4.8
-        }
-      },
-      "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 1,
-        "awayWins": 0,
-        "avgGoals": 0,
-        "bttsPct": 0,
-        "notes": "0-0 no 1º jogo"
-      },
-      "context": {
-        "stakes": "2º jogo UCL — 0-0 no agregado",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Classificação",
-          "label": "AEK avança",
-          "odd": 1.48,
-          "confidence": 74,
-          "rationale": "Mandante forte; Levski não marcou fora.",
-          "valueEdge": 8
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.85,
-          "confidence": 58,
-          "rationale": "1º jogo 0-0; tendência cautelosa.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Resultado",
-          "label": "AEK vence",
-          "odd": 1.55,
-          "confidence": 64,
-          "rationale": "Vitória no 90 min classifica.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "AEK avança",
-            "odd": 1.48,
-            "confidence": 74,
-            "rationale": "Classificação"
-          },
-          {
-            "label": "AEK vence",
-            "odd": 1.55,
-            "confidence": 64,
-            "rationale": "90 min"
-          },
-          {
-            "label": "Levski vence",
-            "odd": 5.5,
-            "confidence": 11,
-            "rationale": "Azarão"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.85,
-            "confidence": 58,
-            "rationale": "0-0 no 1º jogo"
-          },
-          {
-            "label": "Ambos marcam Não",
-            "odd": 1.78,
-            "confidence": 55,
-            "rationale": "Defesas sólidas"
-          },
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "AEK pressiona"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.88,
-            "confidence": 50,
-            "rationale": "Jogo tenso"
-          },
-          {
-            "label": "Levski + cartões",
-            "odd": 2,
-            "confidence": 47,
-            "rationale": "Visitante frustra"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "AEK domina"
-          },
-          {
-            "label": "AEK + escanteios",
-            "odd": 1.65,
-            "confidence": 58,
-            "rationale": "Mandante"
-          }
-        ]
-      },
-      "kickoff": "2026-08-26T16:00:00-03:00"
-    },
-    {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "sortPriority": 1,
-      "teams": "Viking x GNK Dinamo",
-      "home": "Viking",
-      "away": "GNK Dinamo",
-      "homeShort": "Viking",
-      "awayShort": "Dinamo",
-      "bet": "Mais de 2.5 gols",
-      "confidence": 60,
-      "odds": 1.78,
-      "multiBetShort": "M2.5",
-      "time": "16:00",
-      "homeOdd": "2.20",
-      "drawOdd": "3.50",
-      "awayOdd": "3.00",
-      "homeProb": 43,
-      "drawProb": 27,
-      "awayProb": 30,
-      "bestOdd": "none",
-      "venue": "Lyse Arena, Stavanger",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 2,
-        "away": 2
-      },
-      "aggregate": "2-2 (1º jogo em Zagreb)",
-      "form": {
-        "home": "W-W-D-W-L",
-        "away": "W-L-W-D-W"
-      },
-      "h2h": [
-        "19/08/2026: Dinamo 2-2 Viking (Zagreb)"
-      ],
-      "keyStats": [
-        "1º jogo 2-2 com 4 gols",
-        "Empate no agregado — decisão em Stavanger",
-        "Viking ataca bem em casa"
-      ],
-      "sources": [
-        "uefa.com",
-        "skysports.com"
-      ],
-      "analysis": [
-        "Play-off UCL — 2º jogo em Stavanger",
-        "1º jogo: Dinamo Zagreb 2-2 Viking (19/08)",
-        "Empate no agregado; gols esperados com ambos atacando",
-        "Viking mandante norueguês com Lyse Arena lotada",
-        "Recomendação: Mais de 2.5 gols (~1.78)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 11,
-          "goalsAgainst": 8,
-          "avgGoals": 2.2,
-          "avgConceded": 1.6,
-          "bttsPct": 65,
-          "over25Pct": 70,
-          "avgCards": 3.4,
-          "avgCorners": 5.5
-        },
-        "away": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 10,
-          "goalsAgainst": 7,
-          "avgGoals": 2,
-          "avgConceded": 1.4,
-          "bttsPct": 60,
-          "over25Pct": 65,
-          "avgCards": 3.2,
-          "avgCorners": 5
-        }
-      },
-      "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 1,
-        "awayWins": 0,
-        "avgGoals": 4,
-        "bttsPct": 100,
-        "notes": "2-2 no 1º jogo"
-      },
-      "context": {
-        "stakes": "2º jogo UCL — 2-2 no agregado",
-        "rotation": null,
+        "stakes": "Copa Argentina — oitavas de final",
+        "rotation": "Boca pode poupar alguns titulares",
         "injuries": [],
         "referee": null
       },
@@ -1254,384 +879,186 @@
           "rank": 1,
           "market": "Gols",
           "label": "Mais de 2.5 gols",
-          "odd": 1.78,
+          "odd": 1.85,
           "confidence": 60,
-          "rationale": "1º jogo com 4 gols; ambos precisam atacar.",
+          "rationale": "Confrontos equilibrados com gols.",
           "valueEdge": 5
         },
         {
           "rank": 2,
-          "market": "Resultado",
-          "label": "Viking vence",
-          "odd": 2.2,
-          "confidence": 43,
-          "rationale": "Mandante em Stavanger.",
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.72,
+          "confidence": 58,
+          "rationale": "BTTS em 67% do histórico.",
           "valueEdge": 0
         },
         {
           "rank": 3,
-          "market": "Gols",
-          "label": "Ambos marcam",
-          "odd": 1.65,
-          "confidence": 58,
-          "rationale": "BTTS no 1º jogo.",
+          "market": "Resultado",
+          "label": "Empate",
+          "odd": 3.2,
+          "confidence": 30,
+          "rationale": "Padrão de empates no confronto.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Viking vence",
-            "odd": 2.2,
-            "confidence": 43,
+            "label": "Vélez vence",
+            "odd": 2.4,
+            "confidence": 42,
             "rationale": "Mandante"
           },
           {
             "label": "Empate",
-            "odd": 3.5,
-            "confidence": 27,
-            "rationale": "Prorrogação"
+            "odd": 3.2,
+            "confidence": 30,
+            "rationale": "Padrão do confronto"
           },
           {
-            "label": "Dinamo vence",
-            "odd": 3,
-            "confidence": 30,
-            "rationale": "Classificação fora"
+            "label": "Boca vence",
+            "odd": 2.9,
+            "confidence": 28,
+            "rationale": "Visitante"
           }
         ],
         "gols": [
           {
             "label": "Mais de 2.5 gols",
-            "odd": 1.78,
+            "odd": 1.85,
             "confidence": 60,
             "rationale": "Jogo aberto"
           },
           {
             "label": "Ambos marcam",
-            "odd": 1.65,
-            "confidence": 58,
-            "rationale": "Ataque de ambos"
-          },
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 2.05,
-            "confidence": 45,
-            "rationale": "Cautela tática"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.85,
-            "confidence": 52,
-            "rationale": "Eliminatória"
-          },
-          {
-            "label": "Dinamo + cartões",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Visitante"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.88,
-            "confidence": 50,
-            "rationale": "Jogo aberto"
-          },
-          {
-            "label": "Viking + escanteios",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "Mandante"
-          }
-        ]
-      },
-      "kickoff": "2026-08-26T16:00:00-03:00"
-    },
-    {
-      "league": "cl",
-      "leagueLabel": "Champions League",
-      "sortPriority": 1,
-      "teams": "Celje x Slovan Bratislava",
-      "home": "Celje",
-      "away": "Slovan Bratislava",
-      "homeShort": "Celje",
-      "awayShort": "Slovan",
-      "bet": "Celje avança",
-      "confidence": 66,
-      "odds": 1.62,
-      "multiBetShort": "Celje avança",
-      "time": "16:00",
-      "homeOdd": "1.75",
-      "drawOdd": "3.60",
-      "awayOdd": "4.40",
-      "homeProb": 57,
-      "drawProb": 27,
-      "awayProb": 16,
-      "bestOdd": "home",
-      "venue": "Stadion Z'dežele, Celje",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 1,
-        "away": 1
-      },
-      "aggregate": "1-1 (1º jogo em Bratislava)",
-      "form": {
-        "home": "W-D-W-W-D",
-        "away": "W-W-D-L-W"
-      },
-      "h2h": [
-        "21/08/2026: Slovan 1-1 Celje (Bratislava)"
-      ],
-      "keyStats": [
-        "1-1 no agregado",
-        "Celje joga em casa na Eslovênia",
-        "Slovan precisa vencer fora"
-      ],
-      "sources": [
-        "uefa.com",
-        "skysports.com"
-      ],
-      "analysis": [
-        "Play-off UCL — 2º jogo em Celje",
-        "1º jogo: Slovan 1-1 Celje (21/08, Bratislava)",
-        "Empate favorece ligeiramente mandante no 2º jogo",
-        "Celje com apoio da torcida eslovena",
-        "Recomendação: Celje avança (~1.62)"
-      ],
-      "teamStats": {
-        "home": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 9,
-          "goalsAgainst": 6,
-          "avgGoals": 1.8,
-          "avgConceded": 1.2,
-          "bttsPct": 55,
-          "over25Pct": 55,
-          "avgCards": 3,
-          "avgCorners": 5.2
-        },
-        "away": {
-          "played": 5,
-          "wins": 3,
-          "goalsFor": 8,
-          "goalsAgainst": 5,
-          "avgGoals": 1.6,
-          "avgConceded": 1,
-          "bttsPct": 50,
-          "over25Pct": 50,
-          "avgCards": 3.2,
-          "avgCorners": 4.8
-        }
-      },
-      "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
-        "draws": 1,
-        "awayWins": 0,
-        "avgGoals": 2,
-        "bttsPct": 100,
-        "notes": "1-1 no 1º jogo"
-      },
-      "context": {
-        "stakes": "2º jogo UCL — 1-1 agregado",
-        "rotation": null,
-        "injuries": [],
-        "referee": null
-      },
-      "topPicks": [
-        {
-          "rank": 1,
-          "market": "Classificação",
-          "label": "Celje avança",
-          "odd": 1.62,
-          "confidence": 66,
-          "rationale": "Mandante com empate no agregado; Slovan precisa vencer.",
-          "valueEdge": 6
-        },
-        {
-          "rank": 2,
-          "market": "Gols",
-          "label": "Menos de 2.5 gols",
-          "odd": 1.88,
-          "confidence": 54,
-          "rationale": "1º jogo fechado 1-1.",
-          "valueEdge": 0
-        },
-        {
-          "rank": 3,
-          "market": "Resultado",
-          "label": "Celje vence",
-          "odd": 1.75,
-          "confidence": 57,
-          "rationale": "Vitória classifica direto.",
-          "valueEdge": 0
-        }
-      ],
-      "markets": {
-        "resultado": [
-          {
-            "label": "Celje avança",
-            "odd": 1.62,
-            "confidence": 66,
-            "rationale": "Classificação"
-          },
-          {
-            "label": "Celje vence",
-            "odd": 1.75,
-            "confidence": 57,
-            "rationale": "90 min"
-          },
-          {
-            "label": "Slovan vence",
-            "odd": 4.4,
-            "confidence": 16,
-            "rationale": "Precisa vencer"
-          }
-        ],
-        "gols": [
-          {
-            "label": "Menos de 2.5 gols",
-            "odd": 1.88,
-            "confidence": 54,
-            "rationale": "1º jogo 1-1"
-          },
-          {
-            "label": "Ambos marcam",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "BTTS no 1º jogo"
-          },
-          {
-            "label": "Mais de 2.5 gols",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Celje pressiona"
-          }
-        ],
-        "cartoes": [
-          {
-            "label": "Mais de 4.5 cartões",
-            "odd": 1.9,
-            "confidence": 49,
-            "rationale": "Eliminatória"
-          },
-          {
-            "label": "Slovan + cartões",
-            "odd": 2.05,
-            "confidence": 44,
-            "rationale": "Visitante frustra"
-          }
-        ],
-        "escanteios": [
-          {
-            "label": "Mais de 9.5 escanteios",
-            "odd": 1.85,
-            "confidence": 50,
-            "rationale": "Celje domina"
-          },
-          {
-            "label": "Celje + escanteios",
             "odd": 1.72,
-            "confidence": 54,
+            "confidence": 58,
+            "rationale": "BTTS recomendado"
+          },
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.95,
+            "confidence": 48,
+            "rationale": "Cautela defensiva"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Clássico tenso"
+          },
+          {
+            "label": "Boca + cartões",
+            "odd": 2.05,
+            "confidence": 47,
+            "rationale": "Visitante agressivo"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 9.5 escanteios",
+            "odd": 1.88,
+            "confidence": 50,
+            "rationale": "Equilibrado"
+          },
+          {
+            "label": "Vélez + escanteios",
+            "odd": 1.85,
+            "confidence": 52,
             "rationale": "Mandante"
           }
         ]
       },
-      "kickoff": "2026-08-26T16:00:00-03:00"
+      "kickoff": "2026-09-02T21:15:00-03:00"
     },
     {
-      "league": "cl",
-      "leagueLabel": "Champions League",
+      "league": "cb",
+      "leagueLabel": "Copa do Brasil",
       "sortPriority": 1,
-      "imminent": true,
-      "teams": "Lyon x Fenerbahçe",
-      "home": "Lyon",
-      "away": "Fenerbahçe",
-      "homeShort": "Lyon",
-      "awayShort": "Fenerbahçe",
+      "teams": "Santos x Palmeiras",
+      "home": "Santos",
+      "away": "Palmeiras",
+      "homeShort": "Santos",
+      "awayShort": "Palmeiras",
       "bet": "Ambos marcam",
-      "confidence": 58,
+      "confidence": 62,
       "odds": 1.72,
       "multiBetShort": "BTTS Sim",
-      "time": "16:00",
-      "homeOdd": "2.05",
+      "time": "21:30",
+      "homeOdd": "3.20",
       "drawOdd": "3.40",
-      "awayOdd": "3.50",
-      "homeProb": 48,
-      "drawProb": 29,
-      "awayProb": 23,
+      "awayOdd": "2.20",
+      "homeProb": 32,
+      "drawProb": 28,
+      "awayProb": 40,
       "bestOdd": "none",
-      "venue": "Groupama Stadium, Lyon",
-      "round": "Play-off — 2º jogo",
-      "firstLeg": {
-        "home": 1,
-        "away": 1
-      },
-      "aggregate": "1-1 (1º jogo em Istambul)",
+      "venue": "Vila Belmiro, Santos",
+      "round": "Quartas de final",
+      "aggregate": "Jogo único (Vila Belmiro)",
       "form": {
-        "home": "W-D-W-L-W",
+        "home": "D-W-L-D-W",
         "away": "W-W-D-W-W"
       },
       "h2h": [
-        "19/08/2026: Fenerbahçe 1-1 Lyon (Istanbul)"
+        "Último clássico: Palmeiras 2-1 Santos (Brasileirão)"
       ],
       "keyStats": [
-        "1-1 no agregado — decisão em Lyon",
-        "Fenerbahçe marcou fora no 1º jogo",
-        "Lyon precisa vencer ou empatar com gols"
+        "Clássico Paulista equilibrado",
+        "Palmeiras favorito no agregado",
+        "Santos forte em casa na Vila Belmiro"
       ],
       "sources": [
-        "uefa.com",
-        "milliyet.com.tr"
+        "ge.globo.com",
+        "lance.com.br"
       ],
       "analysis": [
-        "Play-off UCL — 2º jogo no Groupama Stadium",
-        "1º jogo: Fenerbahçe 1-1 Lyon (19/08, Istanbul)",
-        "Empate no agregado; jogo equilibrado entre gigantes",
-        "Lyon mando de campo; Fenerbahçe com Dzeko e quality",
+        "Copa do Brasil — Quartas na Vila Belmiro",
+        "Santos: mandante, precisa vencer para classificar",
+        "Palmeiras: favorito, vem de boa sequência",
+        "Clássico equilibrado historicamente",
         "Recomendação: Ambos marcam (~1.72)"
       ],
       "teamStats": {
         "home": {
           "played": 5,
-          "wins": 3,
-          "goalsFor": 10,
-          "goalsAgainst": 7,
-          "avgGoals": 2,
-          "avgConceded": 1.4,
+          "wins": 2,
+          "goalsFor": 7,
+          "goalsAgainst": 6,
+          "avgGoals": 1.4,
+          "avgConceded": 1.2,
           "bttsPct": 60,
-          "over25Pct": 60,
+          "over25Pct": 55,
           "avgCards": 3.2,
-          "avgCorners": 5.8
+          "avgCorners": 5.5
         },
         "away": {
           "played": 5,
           "wins": 4,
-          "goalsFor": 12,
-          "goalsAgainst": 6,
-          "avgGoals": 2.4,
-          "avgConceded": 1.2,
-          "bttsPct": 65,
-          "over25Pct": 65,
-          "avgCards": 3.4,
-          "avgCorners": 5.5
+          "goalsFor": 10,
+          "goalsAgainst": 4,
+          "avgGoals": 2,
+          "avgConceded": 0.8,
+          "bttsPct": 55,
+          "over25Pct": 60,
+          "avgCards": 2.6,
+          "avgCorners": 6
         }
       },
       "h2hSummary": {
-        "total": 1,
-        "homeWins": 0,
+        "total": 5,
+        "homeWins": 2,
         "draws": 1,
-        "awayWins": 0,
-        "avgGoals": 2,
-        "bttsPct": 100,
-        "notes": "1-1 no 1º jogo em Istambul"
+        "awayWins": 2,
+        "avgGoals": 2.4,
+        "bttsPct": 60,
+        "notes": "Clássico equilibrado com gols"
       },
       "context": {
-        "stakes": "2º jogo UCL — 1-1 agregado; Dzeko titular",
+        "stakes": "Copa do Brasil — quartas de final (jogo único)",
         "rotation": null,
         "injuries": [],
         "referee": null
@@ -1642,185 +1069,374 @@
           "market": "Gols",
           "label": "Ambos marcam",
           "odd": 1.72,
-          "confidence": 58,
-          "rationale": "1-1 no 1º jogo; ambos marcam com regularidade.",
-          "valueEdge": 4
+          "confidence": 62,
+          "rationale": "BTTS em 60% do histórico; jogo decisivo.",
+          "valueEdge": 5
         },
         {
           "rank": 2,
           "market": "Gols",
           "label": "Mais de 2.5 gols",
-          "odd": 1.85,
-          "confidence": 55,
-          "rationale": "Decisão exige ataque dos dois lados.",
+          "odd": 1.8,
+          "confidence": 58,
+          "rationale": "Clássico costuma ter gols.",
           "valueEdge": 0
         },
         {
           "rank": 3,
           "market": "Resultado",
-          "label": "Lyon vence",
-          "odd": 2.05,
-          "confidence": 48,
-          "rationale": "Mandante francês em casa.",
+          "label": "Palmeiras vence ou empata",
+          "odd": 1.45,
+          "confidence": 66,
+          "rationale": "Favorito no agregado.",
           "valueEdge": 0
         }
       ],
       "markets": {
         "resultado": [
           {
-            "label": "Lyon vence",
-            "odd": 2.05,
-            "confidence": 48,
+            "label": "Santos vence",
+            "odd": 3.2,
+            "confidence": 32,
             "rationale": "Mandante"
           },
           {
             "label": "Empate",
             "odd": 3.4,
-            "confidence": 29,
-            "rationale": "Prorrogação"
+            "confidence": 28,
+            "rationale": "Penalidades possíveis"
           },
           {
-            "label": "Fenerbahçe vence",
-            "odd": 3.5,
-            "confidence": 23,
-            "rationale": "Classificação fora"
+            "label": "Palmeiras vence",
+            "odd": 2.2,
+            "confidence": 40,
+            "rationale": "Favorito"
           }
         ],
         "gols": [
           {
             "label": "Ambos marcam",
             "odd": 1.72,
-            "confidence": 58,
+            "confidence": 62,
             "rationale": "BTTS recomendado"
           },
           {
             "label": "Mais de 2.5 gols",
-            "odd": 1.85,
-            "confidence": 55,
+            "odd": 1.8,
+            "confidence": 58,
             "rationale": "Jogo aberto"
           },
           {
             "label": "Menos de 2.5 gols",
-            "odd": 1.95,
-            "confidence": 48,
-            "rationale": "Cautela possível"
+            "odd": 2,
+            "confidence": 45,
+            "rationale": "Defesas podem segurar"
           }
         ],
         "cartoes": [
           {
             "label": "Mais de 4.5 cartões",
-            "odd": 1.88,
-            "confidence": 52,
-            "rationale": "Jogo grande"
+            "odd": 1.85,
+            "confidence": 55,
+            "rationale": "Clássico tenso"
           },
           {
-            "label": "Fenerbahçe + cartões",
-            "odd": 2,
-            "confidence": 47,
-            "rationale": "Visitante"
+            "label": "Santos + cartões",
+            "odd": 1.95,
+            "confidence": 50,
+            "rationale": "Mandante agressivo"
+          }
+        ],
+        "escanteios": [
+          {
+            "label": "Mais de 10.5 escanteios",
+            "odd": 1.85,
+            "confidence": 55,
+            "rationale": "Jogo intenso"
+          },
+          {
+            "label": "Palmeiras + escanteios",
+            "odd": 1.8,
+            "confidence": 54,
+            "rationale": "Visitante pressiona"
+          }
+        ]
+      },
+      "kickoff": "2026-09-02T21:30:00-03:00"
+    },
+    {
+      "league": "cb",
+      "leagueLabel": "Copa do Brasil",
+      "sortPriority": 1,
+      "teams": "Vitória x Vasco",
+      "home": "Vitória",
+      "away": "Vasco",
+      "homeShort": "Vitória",
+      "awayShort": "Vasco",
+      "bet": "Vasco vence ou empata",
+      "confidence": 58,
+      "odds": 1.55,
+      "multiBetShort": "Vasco DNB",
+      "time": "21:30",
+      "homeOdd": "2.70",
+      "drawOdd": "3.30",
+      "awayOdd": "2.55",
+      "homeProb": 36,
+      "drawProb": 29,
+      "awayProb": 35,
+      "bestOdd": "none",
+      "venue": "Barradão, Salvador",
+      "round": "Quartas de final",
+      "aggregate": "Jogo único (Barradão)",
+      "form": {
+        "home": "W-L-D-W-D",
+        "away": "W-D-W-W-L"
+      },
+      "h2h": [
+        "Vasco venceu 2 dos últimos 3 confrontos"
+      ],
+      "keyStats": [
+        "Confronto direto por vaga na semifinal",
+        "Vasco melhor campanha na Copa",
+        "Vitória forte em casa no Barradão"
+      ],
+      "sources": [
+        "ge.globo.com",
+        "lance.com.br"
+      ],
+      "analysis": [
+        "Copa do Brasil — Quartas no Barradão",
+        "Vitória: mandante, busca semifinal histórica",
+        "Vasco: melhor campanha, favoritismo no agregado",
+        "Confronto equilibrado com duas equipes em alta",
+        "Recomendação: Vasco vence ou empata (~1.55)"
+      ],
+      "teamStats": {
+        "home": {
+          "played": 4,
+          "wins": 2,
+          "goalsFor": 6,
+          "goalsAgainst": 5,
+          "avgGoals": 1.5,
+          "avgConceded": 1.25,
+          "bttsPct": 50,
+          "over25Pct": 50,
+          "avgCards": 3.4,
+          "avgCorners": 5.2
+        },
+        "away": {
+          "played": 4,
+          "wins": 3,
+          "goalsFor": 7,
+          "goalsAgainst": 4,
+          "avgGoals": 1.75,
+          "avgConceded": 1,
+          "bttsPct": 55,
+          "over25Pct": 50,
+          "avgCards": 2.8,
+          "avgCorners": 5.5
+        }
+      },
+      "h2hSummary": {
+        "total": 3,
+        "homeWins": 1,
+        "draws": 0,
+        "awayWins": 2,
+        "avgGoals": 2,
+        "bttsPct": 50,
+        "notes": "Vasco leva vantagem recente"
+      },
+      "context": {
+        "stakes": "Copa do Brasil — quartas de final (jogo único)",
+        "rotation": null,
+        "injuries": [],
+        "referee": null
+      },
+      "topPicks": [
+        {
+          "rank": 1,
+          "market": "Resultado",
+          "label": "Vasco vence ou empata",
+          "odd": 1.55,
+          "confidence": 58,
+          "rationale": "Vasco melhor campanha; valor no DNB.",
+          "valueEdge": 4
+        },
+        {
+          "rank": 2,
+          "market": "Gols",
+          "label": "Menos de 2.5 gols",
+          "odd": 1.85,
+          "confidence": 56,
+          "rationale": "Jogo truncado esperado.",
+          "valueEdge": 0
+        },
+        {
+          "rank": 3,
+          "market": "Gols",
+          "label": "Ambos marcam",
+          "odd": 1.78,
+          "confidence": 54,
+          "rationale": "Ataques perigosos de ambos.",
+          "valueEdge": 0
+        }
+      ],
+      "markets": {
+        "resultado": [
+          {
+            "label": "Vitória vence",
+            "odd": 2.7,
+            "confidence": 36,
+            "rationale": "Mandante"
+          },
+          {
+            "label": "Empate",
+            "odd": 3.3,
+            "confidence": 29,
+            "rationale": "Penalidades possíveis"
+          },
+          {
+            "label": "Vasco vence",
+            "odd": 2.55,
+            "confidence": 35,
+            "rationale": "Favorito visitante"
+          }
+        ],
+        "gols": [
+          {
+            "label": "Menos de 2.5 gols",
+            "odd": 1.85,
+            "confidence": 56,
+            "rationale": "Jogo truncado"
+          },
+          {
+            "label": "Ambos marcam",
+            "odd": 1.78,
+            "confidence": 54,
+            "rationale": "Ataques perigosos"
+          },
+          {
+            "label": "Mais de 2.5 gols",
+            "odd": 1.95,
+            "confidence": 50,
+            "rationale": "Jogo pode abrir"
+          }
+        ],
+        "cartoes": [
+          {
+            "label": "Mais de 4.5 cartões",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Jogo decisivo"
+          },
+          {
+            "label": "Vitória + cartões",
+            "odd": 1.95,
+            "confidence": 50,
+            "rationale": "Mandante com garra"
           }
         ],
         "escanteios": [
           {
             "label": "Mais de 9.5 escanteios",
-            "odd": 1.82,
-            "confidence": 52,
-            "rationale": "Equilibrado"
-          },
-          {
-            "label": "Lyon + escanteios",
             "odd": 1.88,
             "confidence": 50,
-            "rationale": "Mandante"
+            "rationale": "Jogo brigado"
+          },
+          {
+            "label": "Vasco + escanteios",
+            "odd": 1.85,
+            "confidence": 52,
+            "rationale": "Visitante pressiona"
           }
         ]
       },
-      "kickoff": "2026-08-26T16:00:00-03:00"
+      "kickoff": "2026-09-02T21:30:00-03:00"
     }
   ],
   "top3": [
     {
       "rank": "g",
       "icon": "🥇",
-      "teams": "Newcastle x West Brom",
-      "pick": "Newcastle vence",
-      "odd": "1.42",
+      "teams": "Flamengo x Mirassol",
+      "pick": "Flamengo vence + M1.5",
+      "odd": "1.55",
       "prob": 76,
-      "justify": "PL em casa vs Championship. Mercado a 70% implícito."
+      "justify": "Brasileirão — mandante forte contra equipe em zona de risco."
     },
     {
       "rank": "s",
       "icon": "🥈",
-      "teams": "AEK Athens x Levski Sofia",
-      "pick": "AEK avança",
-      "odd": "1.48",
-      "prob": 74,
-      "justify": "0-0 no agregado; AEK forte na OPAP Arena em Atenas."
+      "teams": "VfL Osnabrück x Bayern",
+      "pick": "Bayern vence + M2.5",
+      "odd": "1.62",
+      "prob": 78,
+      "justify": "DFB-Pokal — Bayern goleia em sequência e defesa do Osnabrück é frágil."
     },
     {
       "rank": "b",
       "icon": "🥉",
-      "teams": "Tottenham x Charlton",
-      "pick": "Tottenham -1.5",
-      "odd": "1.68",
-      "prob": 72,
-      "justify": "PL vs League One. Spurs deve vencer por 2+ gols."
+      "teams": "Santos x Palmeiras",
+      "pick": "Ambos marcam",
+      "odd": "1.72",
+      "prob": 62,
+      "justify": "Copa do Brasil — clássico com 60% de BTTS no histórico."
     }
   ],
   "combos": [
     {
-      "teams": "Newcastle x West Brom",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "teams": "Flamengo x Mirassol",
+      "flag": "🇧🇷",
       "color": "var(--color-accent)",
       "rows": [
         {
-          "combo": "Newcastle vence + M2.5 gols",
-          "odd": "1.85",
-          "prob": "62%",
+          "combo": "Flamengo vence + M1.5",
+          "odd": "1.55",
+          "prob": "76%",
           "conf": "h"
         },
         {
-          "combo": "Newcastle vence + BTTS Não",
+          "combo": "Flamengo -1.5",
           "odd": "1.95",
           "prob": "58%",
           "conf": "h"
         },
         {
-          "combo": "Newcastle -1.5 + M2.5",
-          "odd": "2.40",
-          "prob": "45%",
-          "conf": "m"
+          "combo": "Flamengo vence + M2.5",
+          "odd": "1.90",
+          "prob": "60%",
+          "conf": "h"
         }
       ]
     },
     {
-      "teams": "Tottenham x Charlton",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "teams": "Bayern x Osnabrück",
+      "flag": "🇩🇪",
       "color": "var(--color-blue)",
       "rows": [
         {
-          "combo": "Tottenham -1.5 + M2.5 gols",
-          "odd": "1.95",
-          "prob": "58%",
+          "combo": "Bayern vence + M2.5",
+          "odd": "1.62",
+          "prob": "78%",
           "conf": "h"
         },
         {
-          "combo": "Tottenham vence + BTTS Não",
-          "odd": "1.75",
+          "combo": "Bayern vence + M3.5",
+          "odd": "2.20",
           "prob": "55%",
-          "conf": "h"
+          "conf": "m"
         },
         {
-          "combo": "Spurs + M3.5 gols",
-          "odd": "2.60",
-          "prob": "40%",
-          "conf": "m"
+          "combo": "Bayern -2.5 asiático",
+          "odd": "1.85",
+          "prob": "60%",
+          "conf": "h"
         }
       ]
     },
     {
-      "teams": "Lyon x Fenerbahçe",
-      "flag": "🇫🇷",
+      "teams": "Santos x Palmeiras",
+      "flag": "🇧🇷",
       "color": "var(--color-gold)",
       "rows": [
         {
@@ -1830,82 +1446,82 @@
           "conf": "h"
         },
         {
+          "combo": "Palmeiras vence + BTTS",
+          "odd": "3.40",
+          "prob": "32%",
+          "conf": "l"
+        },
+        {
           "combo": "Empate + BTTS",
           "odd": "4.20",
-          "prob": "28%",
-          "conf": "m"
-        },
-        {
-          "combo": "Lyon vence + BTTS",
-          "odd": "2.80",
-          "prob": "38%",
-          "conf": "m"
-        }
-      ]
-    },
-    {
-      "teams": "AEK Athens x Levski Sofia",
-      "flag": "🇬🇷",
-      "color": "var(--color-orange)",
-      "rows": [
-        {
-          "combo": "AEK avança + U2.5",
-          "odd": "2.20",
-          "prob": "48%",
-          "conf": "m"
-        },
-        {
-          "combo": "AEK vence + BTTS Não",
-          "odd": "2.10",
-          "prob": "50%",
-          "conf": "h"
-        },
-        {
-          "combo": "Empate 0-0",
-          "odd": "7.50",
-          "prob": "12%",
+          "prob": "26%",
           "conf": "l"
         }
       ]
     },
     {
-      "teams": "Preston x Everton",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "color": "var(--color-purple)",
+      "teams": "Udinese x Venezia",
+      "flag": "🇮🇹",
+      "color": "var(--color-orange)",
       "rows": [
         {
-          "combo": "Everton vence + BTTS",
-          "odd": "2.75",
-          "prob": "42%",
-          "conf": "m"
-        },
-        {
-          "combo": "Everton vence + U2.5",
+          "combo": "Udinese vence + U2.5",
           "odd": "2.30",
           "prob": "48%",
           "conf": "m"
         },
         {
-          "combo": "Everton + M2.5",
-          "odd": "2.05",
-          "prob": "52%",
+          "combo": "Udinese vence",
+          "odd": "1.55",
+          "prob": "62%",
           "conf": "h"
+        },
+        {
+          "combo": "Udinese -1.5",
+          "odd": "2.40",
+          "prob": "45%",
+          "conf": "m"
+        }
+      ]
+    },
+    {
+      "teams": "Vitória x Vasco",
+      "flag": "🇧🇷",
+      "color": "var(--color-purple)",
+      "rows": [
+        {
+          "combo": "Vasco DNB + U2.5",
+          "odd": "2.10",
+          "prob": "50%",
+          "conf": "m"
+        },
+        {
+          "combo": "BTTS + M1.5",
+          "odd": "1.95",
+          "prob": "54%",
+          "conf": "h"
+        },
+        {
+          "combo": "Vasco vence + BTTS Não",
+          "odd": "3.50",
+          "prob": "30%",
+          "conf": "l"
         }
       ]
     }
   ],
   "quickPicks": [
     {
-      "label": "Newcastle vence",
-      "odd": "1.42"
+      "label": "Flamengo vence + M1.5",
+      "odd": "1.55"
     },
     {
-      "label": "AEK avança",
-      "odd": "1.48"
+      "label": "Bayern vence + M2.5",
+      "odd": "1.62"
     },
     {
-      "label": "Tottenham -1.5",
-      "odd": "1.68"
+      "label": "Santos x Palmeiras BTTS",
+      "odd": "1.72"
     }
   ]
 }

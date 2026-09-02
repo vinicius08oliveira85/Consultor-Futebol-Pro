@@ -4,120 +4,32 @@
       "date": "2026-08-20",
       "status": "finished",
       "matches": [
-        {
-          "home": "Lech Poznan",
-          "away": "Thun",
-          "homeScore": 7,
-          "awayScore": 0,
-          "league": "Europa League",
-          "time": "16:00",
-          "bet": "Lech -1.5",
-          "odd": "1.75",
-          "result": "won",
-          "confidence": 72
-        },
-        {
-          "home": "Ajax",
-          "away": "Sion",
-          "homeScore": 4,
-          "awayScore": 2,
-          "league": "Europa League",
-          "time": "16:00",
-          "bet": "Ajax vence + M2.5",
-          "odd": "1.85",
-          "result": "won",
-          "confidence": 68
-        },
-        {
-          "home": "Beşiktaş",
-          "away": "Kauno Žalgiris",
-          "homeScore": 3,
-          "awayScore": 0,
-          "league": "Europa League",
-          "time": "15:00",
-          "bet": "Beşiktaş vence",
-          "odd": "1.40",
-          "result": "won",
-          "confidence": 80
-        }
+        { "home": "Lech Poznan", "away": "Thun", "homeScore": 7, "awayScore": 0, "league": "Europa League", "time": "16:00", "bet": "Lech -1.5", "odd": "1.75", "result": "won", "confidence": 72 },
+        { "home": "Ajax", "away": "Sion", "homeScore": 4, "awayScore": 2, "league": "Europa League", "time": "16:00", "bet": "Ajax vence + M2.5", "odd": "1.85", "result": "won", "confidence": 68 },
+        { "home": "Beşiktaş", "away": "Kauno Žalgiris", "homeScore": 3, "awayScore": 0, "league": "Europa League", "time": "15:00", "bet": "Beşiktaş vence", "odd": "1.40", "result": "won", "confidence": 80 }
       ]
     },
     {
       "date": "2026-08-21",
       "status": "finished",
       "matches": [
-        {
-          "home": "Slovan Bratislava",
-          "away": "Celje",
-          "homeScore": 1,
-          "awayScore": 1,
-          "league": "Champions League",
-          "time": "16:00",
-          "bet": "Slovan vence",
-          "odd": "1.95",
-          "result": "lost",
-          "confidence": 55
-        },
-        {
-          "home": "Braga",
-          "away": "Austria Vienna",
-          "homeScore": 2,
-          "awayScore": 0,
-          "league": "Conference League",
-          "time": "16:00",
-          "bet": "Braga vence",
-          "odd": "1.55",
-          "result": "won",
-          "confidence": 70
-        }
+        { "home": "Slovan Bratislava", "away": "Celje", "homeScore": 1, "awayScore": 1, "league": "Champions League", "time": "16:00", "bet": "Slovan vence", "odd": "1.95", "result": "lost", "confidence": 55 },
+        { "home": "Braga", "away": "Austria Vienna", "homeScore": 2, "awayScore": 0, "league": "Conference League", "time": "16:00", "bet": "Braga vence", "odd": "1.55", "result": "won", "confidence": 70 }
       ]
     },
     {
       "date": "2026-08-22",
       "status": "finished",
       "matches": [
-        {
-          "home": "Getafe",
-          "away": "Partizan",
-          "homeScore": 3,
-          "awayScore": 1,
-          "league": "Conference League",
-          "time": "16:00",
-          "bet": "Getafe vence",
-          "odd": "1.65",
-          "result": "won",
-          "confidence": 62
-        },
-        {
-          "home": "Hearts",
-          "away": "SK Rapid",
-          "homeScore": 2,
-          "awayScore": 2,
-          "league": "Conference League",
-          "time": "16:00",
-          "bet": "Under 2.5",
-          "odd": "1.90",
-          "result": "lost",
-          "confidence": 50
-        }
+        { "home": "Getafe", "away": "Partizan", "homeScore": 3, "awayScore": 1, "league": "Conference League", "time": "16:00", "bet": "Getafe vence", "odd": "1.65", "result": "won", "confidence": 62 },
+        { "home": "Hearts", "away": "SK Rapid", "homeScore": 2, "awayScore": 2, "league": "Conference League", "time": "16:00", "bet": "Under 2.5", "odd": "1.90", "result": "lost", "confidence": 50 }
       ]
     },
     {
       "date": "2026-08-23",
       "status": "finished",
       "matches": [
-        {
-          "home": "Cruzeiro",
-          "away": "Atlético Mineiro",
-          "homeScore": 2,
-          "awayScore": 1,
-          "league": "Copa do Brasil",
-          "time": "18:00",
-          "bet": "Cruzeiro vence",
-          "odd": "2.10",
-          "result": "won",
-          "confidence": 58
-        }
+        { "home": "Cruzeiro", "away": "Atlético Mineiro", "homeScore": 2, "awayScore": 1, "league": "Copa do Brasil", "time": "18:00", "bet": "Cruzeiro vence", "odd": "2.10", "result": "won", "confidence": 58 }
       ]
     },
     {
@@ -129,130 +41,35 @@
       "date": "2026-08-25",
       "status": "finished",
       "matches": [
-        {
-          "home": "Sabah",
-          "away": "Hapoel Beer Sheva",
-          "homeScore": 1,
-          "awayScore": 2,
-          "league": "Champions League",
-          "time": "13:45",
-          "bet": "Hapoel Beer Sheva avança",
-          "odd": "1.55",
-          "result": "won",
-          "confidence": 68
-        },
-        {
-          "home": "Cardiff",
-          "away": "Norwich",
-          "homeScore": 2,
-          "awayScore": 1,
-          "league": "EFL Cup",
-          "time": "15:00",
-          "bet": "Ambos marcam",
-          "odd": "1.72",
-          "result": "won",
-          "confidence": 58
-        },
-        {
-          "home": "Ipswich",
-          "away": "Leicester",
-          "homeScore": 2,
-          "awayScore": 0,
-          "league": "EFL Cup",
-          "time": "15:45",
-          "bet": "Ipswich vence",
-          "odd": "1.50",
-          "result": "won",
-          "confidence": 67
-        },
-        {
-          "home": "Southampton",
-          "away": "West Ham",
-          "homeScore": 1,
-          "awayScore": 2,
-          "league": "EFL Cup",
-          "time": "15:45",
-          "bet": "West Ham vence",
-          "odd": "1.85",
-          "result": "won",
-          "confidence": 64
-        },
-        {
-          "home": "Al Ettifaq",
-          "away": "Al Nassr",
-          "homeScore": 1,
-          "awayScore": 3,
-          "league": "Saudi Pro League",
-          "time": "17:30",
-          "bet": "Al Nassr vence + M2.5",
-          "odd": "1.65",
-          "result": "won",
-          "confidence": 78
-        },
-        {
-          "home": "Nottm Forest",
-          "away": "Leeds",
-          "homeScore": 1,
-          "awayScore": 0,
-          "league": "EFL Cup",
-          "time": "16:00",
-          "bet": "Menos de 2.5 gols",
-          "odd": "1.80",
-          "result": "won",
-          "confidence": 62
-        },
-        {
-          "home": "Birmingham",
-          "away": "Brentford",
-          "homeScore": 1,
-          "awayScore": 2,
-          "league": "EFL Cup",
-          "time": "16:00",
-          "bet": "Brentford vence + BTTS",
-          "odd": "2.80",
-          "result": "won",
-          "confidence": 60
-        },
-        {
-          "home": "LASK",
-          "away": "Celtic",
-          "homeScore": 0,
-          "awayScore": 1,
-          "league": "Champions League",
-          "time": "16:00",
-          "bet": "Celtic avança (placar agregado)",
-          "odd": "1.30",
-          "result": "won",
-          "confidence": 82
-        },
-        {
-          "home": "Bodø/Glimt",
-          "away": "NEC",
-          "homeScore": 2,
-          "awayScore": 1,
-          "league": "Champions League",
-          "time": "16:00",
-          "bet": "Bodø/Glimt avança",
-          "odd": "1.25",
-          "result": "won",
-          "confidence": 75
-        },
-        {
-          "home": "Valencia",
-          "away": "Real Betis",
-          "homeScore": 0,
-          "awayScore": 0,
-          "league": "La Liga",
-          "time": "16:00",
-          "bet": "BTTS Não",
-          "odd": "2.15",
-          "result": "won",
-          "confidence": 55
-        }
+        { "home": "Sabah", "away": "Hapoel Beer Sheva", "homeScore": 1, "awayScore": 2, "league": "Champions League", "time": "13:45", "bet": "Hapoel Beer Sheva avança", "odd": "1.55", "result": "won", "confidence": 68 },
+        { "home": "Cardiff", "away": "Norwich", "homeScore": 2, "awayScore": 1, "league": "EFL Cup", "time": "15:00", "bet": "Ambos marcam", "odd": "1.72", "result": "won", "confidence": 58 },
+        { "home": "Ipswich", "away": "Leicester", "homeScore": 2, "awayScore": 0, "league": "EFL Cup", "time": "15:45", "bet": "Ipswich vence", "odd": "1.50", "result": "won", "confidence": 67 },
+        { "home": "Southampton", "away": "West Ham", "homeScore": 1, "awayScore": 2, "league": "EFL Cup", "time": "15:45", "bet": "West Ham vence", "odd": "1.85", "result": "won", "confidence": 64 },
+        { "home": "Al Ettifaq", "away": "Al Nassr", "homeScore": 1, "awayScore": 3, "league": "Saudi Pro League", "time": "17:30", "bet": "Al Nassr vence + M2.5", "odd": "1.65", "result": "won", "confidence": 78 },
+        { "home": "Nottm Forest", "away": "Leeds", "homeScore": 1, "awayScore": 0, "league": "EFL Cup", "time": "16:00", "bet": "Menos de 2.5 gols", "odd": "1.80", "result": "won", "confidence": 62 },
+        { "home": "Birmingham", "away": "Brentford", "homeScore": 1, "awayScore": 2, "league": "EFL Cup", "time": "16:00", "bet": "Brentford vence + BTTS", "odd": "2.80", "result": "won", "confidence": 60 },
+        { "home": "LASK", "away": "Celtic", "homeScore": 0, "awayScore": 1, "league": "Champions League", "time": "16:00", "bet": "Celtic avança (placar agregado)", "odd": "1.30", "result": "won", "confidence": 82 },
+        { "home": "Bodø/Glimt", "away": "NEC", "homeScore": 2, "awayScore": 1, "league": "Champions League", "time": "16:00", "bet": "Bodø/Glimt avança", "odd": "1.25", "result": "won", "confidence": 75 },
+        { "home": "Valencia", "away": "Real Betis", "homeScore": 0, "awayScore": 0, "league": "La Liga", "time": "16:00", "bet": "BTTS Não", "odd": "2.15", "result": "won", "confidence": 55 }
       ]
     },
     {
       "date": "2026-08-26",
+      "status": "finished",
+      "matches": [
+        { "home": "Rapid Wien", "away": "Hearts", "homeScore": null, "awayScore": null, "league": "Conference League", "time": "13:45", "bet": "Mais de 2.5 gols", "odd": "1.82", "result": "pending", "confidence": 58 },
+        { "home": "Bradford", "away": "Burnley", "homeScore": null, "awayScore": null, "league": "EFL Cup", "time": "15:45", "bet": "Burnley vence", "odd": "1.50", "result": "pending", "confidence": 68 },
+        { "home": "Newcastle", "away": "West Brom", "homeScore": null, "awayScore": null, "league": "EFL Cup", "time": "15:45", "bet": "Newcastle vence", "odd": "1.42", "result": "pending", "confidence": 76 },
+        { "home": "Tottenham", "away": "Charlton", "homeScore": null, "awayScore": null, "league": "EFL Cup", "time": "15:45", "bet": "Tottenham -1.5", "odd": "1.68", "result": "pending", "confidence": 72 },
+        { "home": "Preston", "away": "Everton", "homeScore": null, "awayScore": null, "league": "EFL Cup", "time": "16:00", "bet": "Everton vence", "odd": "1.55", "result": "pending", "confidence": 70 },
+        { "home": "AEK Athens", "away": "Levski Sofia", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "AEK avança", "odd": "1.48", "result": "pending", "confidence": 74 },
+        { "home": "Viking", "away": "GNK Dinamo", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Mais de 2.5 gols", "odd": "1.78", "result": "pending", "confidence": 60 },
+        { "home": "Celje", "away": "Slovan Bratislava", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Celje avança", "odd": "1.62", "result": "pending", "confidence": 66 },
+        { "home": "Lyon", "away": "Fenerbahçe", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Ambos marcam", "odd": "1.72", "result": "pending", "confidence": 58 }
+      ]
+    },
+    {
+      "date": "2026-09-02",
       "status": "today",
       "syncFromMatches": true,
       "matches": []
@@ -260,104 +77,43 @@
   ],
   "future": [
     {
-      "date": "2026-08-27",
+      "date": "2026-09-03",
       "status": "tomorrow",
       "matches": [
-        {
-          "home": "Thun",
-          "away": "Lech Poznan",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "Europa League",
-          "time": "16:00",
-          "bet": "Lech avança",
-          "odd": "1.35",
-          "confidence": 78
-        },
-        {
-          "home": "Sion",
-          "away": "Ajax",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "Europa League",
-          "time": "16:00",
-          "bet": "Ajax avança",
-          "odd": "1.40",
-          "confidence": 75
-        },
-        {
-          "home": "Austria Vienna",
-          "away": "Braga",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "Conference League",
-          "time": "16:00",
-          "bet": "Braga avança",
-          "odd": "1.60",
-          "confidence": 65
-        }
+        { "home": "Grêmio", "away": "Internacional", "homeScore": null, "awayScore": null, "league": "Brasileirão", "time": "18:00", "bet": "Grêmio vence ou empata", "odd": "1.45", "confidence": 68 },
+        { "home": "Atlético-MG", "away": "Cruzeiro", "homeScore": null, "awayScore": null, "league": "Copa do Brasil", "time": "21:30", "bet": "Mais de 1.5 gols", "odd": "1.45", "confidence": 70 }
       ]
     },
     {
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "status": "upcoming",
       "matches": [
-        {
-          "home": "Chelsea",
-          "away": "Luton",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "EFL Cup",
-          "time": "15:30",
-          "bet": "Chelsea vence",
-          "odd": "1.35",
-          "confidence": 80
-        }
+        { "home": "Ipswich Town", "away": "Liverpool", "homeScore": null, "awayScore": null, "league": "Premier League", "time": "20:00", "bet": "Liverpool vence", "odd": "1.55", "confidence": 72 },
+        { "home": "Newcastle", "away": "AFC Bournemouth", "homeScore": null, "awayScore": null, "league": "Premier League", "time": "12:30", "bet": "Newcastle vence", "odd": "1.65", "confidence": 66 },
+        { "home": "Manchester City", "away": "Coventry City", "homeScore": null, "awayScore": null, "league": "Premier League", "time": "15:00", "bet": "City vence + M2.5", "odd": "1.70", "confidence": 75 }
       ]
     },
     {
-      "date": "2026-08-30",
+      "date": "2026-09-06",
       "status": "upcoming",
       "matches": [
-        {
-          "home": "Fulham",
-          "away": "AFC Wimbledon",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "EFL Cup",
-          "time": "16:00",
-          "bet": "Fulham vence",
-          "odd": "1.30",
-          "confidence": 82
-        }
+        { "home": "Arsenal", "away": "Chelsea", "homeScore": null, "awayScore": null, "league": "Premier League", "time": "16:30", "bet": "Ambos marcam", "odd": "1.65", "confidence": 68 },
+        { "home": "Everton", "away": "Manchester United", "homeScore": null, "awayScore": null, "league": "Premier League", "time": "14:00", "bet": "Man United vence", "odd": "1.85", "confidence": 60 }
       ]
     },
     {
-      "date": "2026-09-01",
+      "date": "2026-09-08",
       "status": "upcoming",
       "matches": [
-        {
-          "home": "Real Madrid",
-          "away": "Osasuna",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "La Liga",
-          "time": "17:00",
-          "bet": "Real Madrid vence",
-          "odd": "1.40",
-          "confidence": 75
-        },
-        {
-          "home": "Barcelona",
-          "away": "Levante",
-          "homeScore": null,
-          "awayScore": null,
-          "league": "La Liga",
-          "time": "17:00",
-          "bet": "Barcelona -1.5",
-          "odd": "1.65",
-          "confidence": 70
-        }
+        { "home": "Real Madrid", "away": "Inter", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Real Madrid vence", "odd": "1.55", "confidence": 75 }
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "status": "upcoming",
+      "matches": [
+        { "home": "Barcelona", "away": "Feyenoord", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Barcelona -1.5", "odd": "1.60", "confidence": 72 },
+        { "home": "Napoli", "away": "Arsenal", "homeScore": null, "awayScore": null, "league": "Champions League", "time": "16:00", "bet": "Arsenal vence ou empata", "odd": "1.50", "confidence": 70 }
       ]
     }
   ]
